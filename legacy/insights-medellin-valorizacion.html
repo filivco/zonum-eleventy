@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valorización en Medellín 2024–2028 — Zonum Insights</title>
+<meta name="description" content="Análisis de la valorización inmobiliaria en Medellín: precios por zona, tendencias de arriendo y proyecciones de ROI para inversionistas en 2024-2028.">
+<meta property="og:title" content="Valorización en Medellín 2024–2028: Datos para el inversor inteligente">
+<meta property="og:description" content="¿Cuánto vale el m² en El Poblado? ¿Qué zonas tienen el mayor potencial de valorización? Datos reales, análisis independiente.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://use.typekit.net/bnk2dxj.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#F2EEE6;min-height:100vh}
+:root{
+  --azul-base:#1A4F7A;--azul-noche:#0D2B44;--azul-neblina:#A8C4DC;--fondo-azul:#DDE9F4;
+  --concreto-oscuro:#3A3530;--concreto-medio:#6B6560;--piedra:#888078;
+  --lino:#F2EEE6;--blanco-calido:#F8F6F2;--oro-acento:#B8975A;
+  --color-background-primary:#F8F6F2;--color-background-secondary:#F2EEE6;
+  --color-text-primary:#3A3530;--color-text-secondary:#6B6560;--color-text-tertiary:#888078;
+  --color-border-tertiary:rgba(58,53,48,0.12);--color-border-secondary:rgba(58,53,48,0.22);
+  --border-radius-md:8px;--border-radius-lg:12px;--font-heading:'clother',sans-serif;
+}
+.topbar{background:#0D2B44;padding:6px 24px;display:flex;align-items:center;justify-content:space-between}
+.tb-left{font-size:11px;color:#A8C4DC;letter-spacing:0.05em}
+.tb-right{font-size:11px;color:#888078;display:flex;gap:16px}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--color-background-primary);border-bottom:0.5px solid var(--color-border-tertiary);position:sticky;top:0;z-index:100}
+.nav-center{display:flex;gap:20px;font-size:13px;color:var(--color-text-secondary)}
+.nav-center span{cursor:pointer}
+.nav-ctas{display:flex;gap:8px;align-items:center}
+.ncta{font-size:12px;padding:7px 14px;border-radius:var(--border-radius-md);cursor:pointer;border:0.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-primary);font-family:inherit}
+.ncta-dark{background:#3A3530;color:#fff;border-color:#3A3530}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px;background:transparent;border:none}
+.hamburger span{display:block;width:18px;height:2px;background:var(--color-text-primary);border-radius:2px}
+.mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--color-background-primary);border-bottom:0.5px solid var(--color-border-tertiary);padding:12px 20px;flex-direction:column;gap:12px;z-index:100;box-shadow:0 4px 12px rgba(0,0,0,0.08)}
+.mobile-menu.open{display:flex}
+.mobile-menu span{font-size:13px;color:var(--color-text-secondary);cursor:pointer;padding:4px 0}
+
+/* Article hero */
+.article-hero{background:#0D2B44;position:relative;overflow:hidden}
+.hero-img{width:100%;height:360px;object-fit:cover;opacity:0.35;display:block}
+.hero-overlay{position:absolute;inset:0;display:flex;align-items:flex-end;padding:0 0 48px}
+.hero-overlay-inner{max-width:1200px;margin:0 auto;padding:0 28px;width:100%}
+.article-cat{display:inline-flex;align-items:center;gap:6px;background:#B8975A;color:#fff;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-bottom:16px}
+.article-title{font-family:var(--font-heading);font-size:40px;font-weight:500;color:#fff;line-height:1.1;max-width:700px;margin-bottom:16px}
+.article-meta{display:flex;align-items:center;gap:16px;font-size:12px;color:#A8C4DC;flex-wrap:wrap}
+.article-meta span{display:flex;align-items:center;gap:5px}
+
+/* Layout */
+.article-layout{max-width:1200px;margin:0 auto;padding:48px 28px;display:grid;grid-template-columns:1fr 320px;gap:48px;align-items:start}
+.article-body h2{font-family:var(--font-heading);font-size:22px;font-weight:500;color:#3A3530;margin:40px 0 12px;line-height:1.2}
+.article-body h3{font-family:var(--font-heading);font-size:17px;font-weight:500;color:#3A3530;margin:28px 0 10px}
+.article-body p{font-size:15px;color:#3A3530;line-height:1.8;margin-bottom:18px}
+.article-body p.lead{font-size:17px;color:#1A4F7A;line-height:1.7;font-weight:400;margin-bottom:28px;padding-left:16px;border-left:3px solid #B8975A}
+.article-body ul{margin:0 0 18px 20px}
+.article-body ul li{font-size:15px;color:#3A3530;line-height:1.8;margin-bottom:8px}
+.article-body strong{font-weight:600;color:#3A3530}
+
+/* Data callout */
+.data-callout{background:#EFF4F9;border-radius:14px;padding:24px;margin:28px 0;border-left:3px solid #1A4F7A}
+.data-callout-title{font-family:var(--font-heading);font-size:13px;font-weight:600;color:#1A4F7A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px}
+.data-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.data-item{}
+.data-val{font-family:var(--font-heading);font-size:26px;font-weight:500;color:#1A4F7A;line-height:1;margin-bottom:4px}
+.data-key{font-size:11px;color:#6B6560;line-height:1.4}
+
+/* Zone table */
+.zone-table{width:100%;border-collapse:collapse;font-size:13px;margin:20px 0 28px;background:var(--color-background-primary);border-radius:12px;overflow:hidden;border:0.5px solid var(--color-border-tertiary)}
+.zone-table th{padding:10px 16px;text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#888078;background:#EFF4F9;border-bottom:0.5px solid var(--color-border-tertiary)}
+.zone-table th:not(:first-child){text-align:right}
+.zone-table td{padding:12px 16px;border-bottom:0.5px solid var(--color-border-tertiary);color:#3A3530}
+.zone-table td:not(:first-child){text-align:right;color:#6B6560}
+.zone-table tr:last-child td{border-bottom:none}
+.zone-table .top-zone td{background:#F0F6FC}
+.zone-table .top-zone td:first-child{font-weight:600;color:#1A4F7A}
+.roi-pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600}
+.roi-high{background:#E8F5E9;color:#1B5E20}
+.roi-mid{background:#FFF8E1;color:#7A5C1E}
+
+/* SVG chart */
+.chart-box{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:14px;padding:24px;margin:28px 0}
+.chart-box-title{font-family:var(--font-heading);font-size:15px;font-weight:500;color:#3A3530;margin-bottom:4px}
+.chart-box-sub{font-size:12px;color:#888078;margin-bottom:20px}
+.bar-chart{display:flex;flex-direction:column;gap:10px}
+.bar-row{display:flex;align-items:center;gap:12px}
+.bar-label{font-size:12px;color:#3A3530;min-width:120px;text-align:right}
+.bar-track{flex:1;height:24px;background:rgba(26,79,122,0.08);border-radius:6px;overflow:hidden;position:relative}
+.bar-fill{height:100%;border-radius:6px;display:flex;align-items:center;padding:0 10px;transition:width 1s ease}
+.bar-val{font-size:11px;font-weight:600;color:#fff;white-space:nowrap}
+.bar-note{font-size:11px;color:#888078;min-width:80px}
+
+/* Sidebar */
+.sidebar{display:flex;flex-direction:column;gap:20px}
+.sidebar-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:14px;overflow:hidden}
+.sidebar-card-img{height:120px;object-fit:cover;width:100%;display:block;background:#DDE9F4}
+.sidebar-card-body{padding:16px}
+.sidebar-card-cat{font-size:10px;color:#B8975A;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.sidebar-card-title{font-family:var(--font-heading);font-size:14px;font-weight:500;color:#3A3530;margin-bottom:8px;line-height:1.3;cursor:pointer}
+.sidebar-card-title:hover{color:#1A4F7A}
+.sidebar-card-date{font-size:11px;color:#888078}
+.cta-sidebar{background:#1A4F7A;border-radius:14px;padding:24px;text-align:center}
+.cta-sidebar-title{font-family:var(--font-heading);font-size:16px;color:#fff;margin-bottom:8px;line-height:1.3}
+.cta-sidebar-sub{font-size:12px;color:#A8C4DC;margin-bottom:16px;line-height:1.5}
+.cta-sidebar-btn{display:block;background:#B8975A;color:#fff;border:none;border-radius:8px;padding:10px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;text-align:center}
+.cta-sidebar-btn:hover{background:#A07A46}
+.projects-sidebar{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:14px;padding:20px}
+.ps-title{font-family:var(--font-heading);font-size:14px;font-weight:500;color:#3A3530;margin-bottom:16px}
+.ps-card{display:flex;gap:12px;padding:10px 0;border-bottom:0.5px solid var(--color-border-tertiary);cursor:pointer}
+.ps-card:last-child{border-bottom:none;padding-bottom:0}
+.ps-card:hover .ps-card-name{color:#1A4F7A}
+.ps-img{width:48px;height:48px;border-radius:8px;object-fit:cover;flex-shrink:0;background:#DDE9F4}
+.ps-card-name{font-size:13px;font-weight:500;color:#3A3530;margin-bottom:2px;line-height:1.3}
+.ps-card-roi{font-size:11px;color:#1A4F7A;font-weight:600}
+.ps-card-loc{font-size:10px;color:#888078}
+
+/* Reading progress */
+.reading-bar{position:fixed;top:0;left:0;height:2px;background:#B8975A;z-index:200;width:0%;transition:width 0.1s}
+
+@media(max-width:900px){
+  .article-layout{grid-template-columns:1fr}
+  .article-title{font-size:28px}
+  .hero-img{height:280px}
+  .data-grid{grid-template-columns:1fr 1fr}
+  .nav-center,.nav-ctas{display:none}
+  .hamburger{display:flex}
+  .sidebar{display:none}
+}
+</style>
+
+<link rel="canonical" href="https://zonum.com/insights-medellin-valorizacion.html">
+</head>
+<body>
+
+<div class="reading-bar" id="reading-bar"></div>
+
+<div class="topbar">
+  <span class="tb-left">ZONUM INSIGHTS · ANÁLISIS DE MERCADO INMOBILIARIO</span>
+  <div class="tb-right"><span>contacto@zonum.com</span></div>
+</div>
+
+<nav class="nav">
+  <a href="zonum-app.html" style="text-decoration:none"><img src="zonum-logo-dark.svg" alt="Zonum" height="28"></a>
+  <div class="nav-center">
+    <span onclick="location.href='buscar.html'">Proyectos</span>
+    <span onclick="location.href='mapa-colombia.html'">Mapa</span>
+    <span onclick="location.href='calculadora.html'">Calculadora</span>
+    <span style="color:#B8975A;font-weight:500" onclick="location.href='elite.html'">★ Elite</span>
+    <span onclick="location.href='sobre-zonum.html'">Nosotros</span>
+  </div>
+  <div class="nav-ctas">
+    <button class="ncta" onclick="location.href='medellin.html'">Ver proyectos Medellín</button>
+    <button class="ncta ncta-dark" onclick="location.href='calculadora.html'">Calcular ROI</button>
+  </div>
+  <button class="hamburger" id="hamburgerBtn"><span></span><span></span><span></span></button>
+  <div class="mobile-menu" id="mobileMenu">
+    <span onclick="location.href='buscar.html'">Proyectos</span>
+    <span onclick="location.href='mapa-colombia.html'">Mapa</span>
+    <span onclick="location.href='calculadora.html'">Calculadora</span>
+    <span onclick="location.href='elite.html'" style="color:#B8975A">★ Elite</span>
+    <span onclick="location.href='sobre-zonum.html'">Nosotros</span>
+  </div>
+</nav>
+
+<!-- ARTICLE HERO -->
+<div class="article-hero">
+  <img class="hero-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80&fit=crop" alt="Medellín skyline">
+  <div class="hero-overlay">
+    <div class="hero-overlay-inner">
+      <div class="breadcrumb" style="margin-bottom:12px">
+        <a href="zonum-app.html" style="color:#A8C4DC;text-decoration:none">Inicio</a>
+        <span style="color:#5A8CB5;font-size:10px">›</span>
+        <span style="color:#A8C4DC">Zonum Insights</span>
+        <span style="color:#5A8CB5;font-size:10px">›</span>
+        <span style="color:#A8C4DC">Medellín</span>
+      </div>
+      <div class="article-cat">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1l1 3h3l-2.5 2 1 3L5 7.5 2.5 9l1-3L1 4h3z" fill="#fff"/></svg>
+        Zonum Insights · Mercado
+      </div>
+      <h1 class="article-title">Valorización en Medellín 2024–2028: datos reales para invertir con certeza</h1>
+      <div class="article-meta">
+        <span>
+          <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="#A8C4DC" stroke-width="1.2"/><path d="M7 4v3l2 2" stroke="#A8C4DC" stroke-width="1.2" stroke-linecap="round"/></svg>
+          15 min de lectura
+        </span>
+        <span>
+          <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><rect x="1" y="2" width="12" height="10" rx="1.5" stroke="#A8C4DC" stroke-width="1.2"/><path d="M1 5h12" stroke="#A8C4DC" stroke-width="1.2"/><path d="M4 1v2M10 1v2" stroke="#A8C4DC" stroke-width="1.2" stroke-linecap="round"/></svg>
+          Marzo 2026
+        </span>
+        <span>
+          <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="5" r="2.5" stroke="#A8C4DC" stroke-width="1.2"/><path d="M2 13c0-2.76 2.24-5 5-5s5 2.24 5 5" stroke="#A8C4DC" stroke-width="1.2" stroke-linecap="round"/></svg>
+          Por el equipo de análisis Zonum
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE LAYOUT -->
+<div style="background:#F8F6F2;padding-bottom:0">
+<div class="article-layout">
+
+  <!-- BODY -->
+  <div class="article-body" id="article-body">
+
+    <p class="lead">Medellín está en el radar de los mejores inversores de la región. Con un ROI promedio del 8.6–9.1% anual y una valorización histórica del 41% en cinco años, la ciudad ofrece uno de los perfiles de retorno más sólidos de Latinoamérica. Pero no todos los barrios son iguales.</p>
+
+    <div class="data-callout">
+      <div class="data-callout-title">Cifras clave · Medellín 2025</div>
+      <div class="data-grid">
+        <div class="data-item">
+          <div class="data-val">$5.8M</div>
+          <div class="data-key">Precio promedio m² nuevo (COP) en El Poblado</div>
+        </div>
+        <div class="data-item">
+          <div class="data-val">+9.1%</div>
+          <div class="data-key">ROI bruto anual promedio en proyectos curados por Zonum</div>
+        </div>
+        <div class="data-item">
+          <div class="data-val">+41%</div>
+          <div class="data-key">Valorización acumulada 2020–2025 en zonas premium</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>¿Por qué Medellín sigue siendo la apuesta más sólida de Colombia?</h2>
+
+    <p>En los últimos cinco años, Medellín ha consolidado su posición como el mercado inmobiliario más dinámico de Colombia por tres razones estructurales:</p>
+
+    <ul>
+      <li><strong>Demografía y migración interna:</strong> La ciudad atrae anualmente entre 40,000 y 60,000 nuevos residentes desde otras regiones del país, presionando la demanda de vivienda hacia arriba de forma sostenida.</li>
+      <li><strong>Economía diversificada:</strong> A diferencia de Bogotá (dependiente del sector público) o Cartagena (turismo estacional), Medellín mezcla manufactura, tecnología, logística y turismo, lo que estabiliza la demanda en ciclos económicos adversos.</li>
+      <li><strong>Escasez de suelo:</strong> El Valle de Aburrá tiene un territorio con alta restricción de expansión horizontal. La única dirección es hacia arriba, lo que presiona los precios estructuralmente al alza.</li>
+    </ul>
+
+    <p>A esto se suma el auge del nómada digital y el turismo de mediana estadía, que ha transformado el segmento de arriendo de corta duración —especialmente en El Poblado, Laureles y Envigado— en uno de los más rentables del continente.</p>
+
+    <h2>Precio por m² y ROI por zona: el mapa real</h2>
+
+    <p>La brecha entre zonas es significativa. Un apartamento en El Poblado puede costar el doble que uno equivalente en Laureles, pero el diferencial de ROI no siempre justifica esa prima. Aquí están los datos de Zonum para el primer trimestre de 2026:</p>
+
+    <table class="zone-table">
+      <thead>
+        <tr>
+          <th>Zona</th>
+          <th>Precio m² (COP)</th>
+          <th>Arriendo est. (70m²)</th>
+          <th>ROI anual est.</th>
+          <th>Val. 5 años</th>
+          <th>Score Zonum</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="top-zone">
+          <td>El Poblado</td>
+          <td>$5.8M – $8.2M</td>
+          <td>$3.8M – $5.2M</td>
+          <td><span class="roi-pill roi-high">9.1%</span></td>
+          <td>+43%</td>
+          <td>92/100</td>
+        </tr>
+        <tr>
+          <td>Envigado</td>
+          <td>$4.9M – $6.8M</td>
+          <td>$3.2M – $4.4M</td>
+          <td><span class="roi-pill roi-high">8.9%</span></td>
+          <td>+39%</td>
+          <td>89/100</td>
+        </tr>
+        <tr>
+          <td>Laureles</td>
+          <td>$4.4M – $6.1M</td>
+          <td>$2.8M – $3.9M</td>
+          <td><span class="roi-pill roi-high">8.6%</span></td>
+          <td>+38%</td>
+          <td>87/100</td>
+        </tr>
+        <tr>
+          <td>El Estadio</td>
+          <td>$3.8M – $5.0M</td>
+          <td>$2.4M – $3.2M</td>
+          <td><span class="roi-pill roi-mid">8.2%</span></td>
+          <td>+35%</td>
+          <td>81/100</td>
+        </tr>
+        <tr>
+          <td>Sabaneta</td>
+          <td>$3.6M – $5.2M</td>
+          <td>$2.2M – $3.0M</td>
+          <td><span class="roi-pill roi-mid">7.9%</span></td>
+          <td>+34%</td>
+          <td>78/100</td>
+        </tr>
+        <tr>
+          <td>El Centro</td>
+          <td>$2.9M – $3.8M</td>
+          <td>$1.6M – $2.2M</td>
+          <td><span class="roi-pill roi-mid">7.4%</span></td>
+          <td>+29%</td>
+          <td>70/100</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>El Poblado continúa liderando en precio absoluto, pero <strong>Envigado presenta la mejor relación entre precio de entrada y potencial de valorización</strong> para el inversor que busca eficiencia de capital. Con precios entre $4.9M y $6.8M por m², una cuota inicial más accesible y ROI de 8.9%, Envigado es la zona con mayor flujo de proyectos nuevos analizados por Zonum en 2025.</p>
+
+    <h2>Tendencia de valorización 2020–2025: los datos detrás del titular</h2>
+
+    <div class="chart-box">
+      <div class="chart-box-title">Valorización acumulada por zona (2020 = 100)</div>
+      <div class="chart-box-sub">Índice de precios de venta de proyectos nuevos · Fuente: Análisis Zonum + Lonja de Medellín</div>
+      <div class="bar-chart" id="bar-chart">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+    <p>La valorización no ha sido lineal. Entre 2020 y 2022 se registró el mayor salto —impulsado por la migración post-pandemia y la demanda reprimida— con alzas de entre 18% y 24% en dos años. El período 2022–2024 moderó el ritmo al 6–8% anual, y las proyecciones para 2025–2028 apuntan a un crecimiento sostenido del <strong>7–9% anual</strong>, impulsado por la restricción de suelo y la demanda turística.</p>
+
+    <h2>El segmento de arriendo de corta duración: el multiplicador oculto</h2>
+
+    <p>Un análisis de Zonum sobre 480 apartamentos en plataformas de arriendo de corta duración en Medellín revela que un inmueble bien ubicado en El Poblado o Laureles puede generar entre <strong>$4.2M y $6.8M mensuales</strong> con ocupación del 65–80%.</p>
+
+    <p>En contraste, el mismo inmueble en arriendo tradicional renta entre $2.8M y $4.0M. La diferencia —entre 40% y 70% más de ingreso— hace que la estrategia de arriendo de corta duración sea el principal catalizador del ROI elevado en estas zonas.</p>
+
+    <p>Sin embargo, hay factores de riesgo a considerar:</p>
+
+    <ul>
+      <li><strong>Regulación municipal:</strong> Medellín está discutiendo ordenanzas para regular plataformas de arriendo turístico. El riesgo regulatorio es moderado-alto para propiedades en strata 4–6 de El Poblado.</li>
+      <li><strong>Estacionalidad:</strong> Enero-marzo y julio-agosto son los picos de demanda. La ocupación promedio anual del 65–75% ya descuenta los meses bajos.</li>
+      <li><strong>Administración:</strong> El costo de gestión de una propiedad en arriendo turístico es del 20–25% del ingreso bruto (limpieza, plataforma, mantenimiento), frente al 10–12% de un arriendo tradicional.</li>
+    </ul>
+
+    <h2>Proyecciones 2025–2028: ¿qué esperar?</h2>
+
+    <p>El equipo de análisis de Zonum proyecta tres escenarios para los próximos tres años en los segmentos donde operamos:</p>
+
+    <div class="data-callout" style="background:#FFF8F0;border-color:#E8DCC8">
+      <div class="data-callout-title" style="color:#B8975A">Proyecciones 2025–2028 · Escenario base</div>
+      <div class="data-grid">
+        <div class="data-item">
+          <div class="data-val" style="color:#B8975A">+7.8%</div>
+          <div class="data-key">Valorización anual promedio zonas prime (El Poblado / Envigado)</div>
+        </div>
+        <div class="data-item">
+          <div class="data-val" style="color:#B8975A">8.5–9.3%</div>
+          <div class="data-key">Rango de ROI esperado para proyectos en preventa 2025</div>
+        </div>
+        <div class="data-item">
+          <div class="data-val" style="color:#B8975A">+12%</div>
+          <div class="data-key">Crecimiento proyectado en demanda de arriendo turístico (acumulado 3 años)</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Factores que sustentan el escenario base</h3>
+    <ul>
+      <li>Pipeline de infraestructura: metro Laureles (línea B), expansión del aeropuerto JMC y el nuevo distrito tecnológico de Robledo.</li>
+      <li>Inversión extranjera directa en proptech y startups sigue acelerando el consumo de oficinas flexibles y coliving en zonas cercanas al aeropuerto.</li>
+      <li>La depreciación del peso frente al dólar hace que los precios medidos en USD sean atractivos para la diáspora colombiana e inversores latinoamericanos.</li>
+    </ul>
+
+    <h2>Conclusión: dónde está la oportunidad hoy</h2>
+
+    <p>La pregunta no es si Medellín valoriza —eso ya está probado. La pregunta es <strong>en qué tipo de proyecto entrar y a qué precio</strong>. Las oportunidades con mejor relación riesgo-retorno en el primer trimestre de 2026 son:</p>
+
+    <ul>
+      <li><strong>Preventa en Envigado:</strong> Proyectos con entrega en 2027–2028, preventa entre $4.9M y $5.5M/m², con constructoras con historial verificado. Potencial de valorización entre entrega y preventa: 15–22%.</li>
+      <li><strong>El Estadio / Laureles hacia Robledo:</strong> Zonas en proceso de densificación. Precio hoy: $3.8M–$4.4M/m². Proyección de valorización a 5 años: +35–40%.</li>
+      <li><strong>Sabaneta y La Estrella:</strong> Municipios satélite con acceso rápido al valle, precios más bajos y demanda creciente de familias jóvenes. ROI más conservador pero riesgo menor.</li>
+    </ul>
+
+    <p style="font-size:12px;color:#888078;margin-top:32px;padding-top:20px;border-top:0.5px solid var(--color-border-tertiary);line-height:1.6">
+      <strong>Aviso legal:</strong> Este artículo es de carácter educativo e informativo. Los datos presentados son estimaciones basadas en fuentes de mercado disponibles al momento de publicación. No constituyen asesoría financiera ni garantía de rentabilidad. Consulta con un asesor antes de tomar decisiones de inversión.
+    </p>
+
+    <div style="display:flex;gap:10px;margin-top:28px;flex-wrap:wrap">
+      <button onclick="location.href='medellin.html'" style="background:#1A4F7A;color:#fff;border:none;border-radius:8px;padding:12px 20px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">Ver proyectos en Medellín →</button>
+      <button onclick="location.href='calculadora.html'" style="background:transparent;color:#1A4F7A;border:0.5px solid #1A4F7A;border-radius:8px;padding:12px 20px;font-size:13px;cursor:pointer;font-family:inherit">Calcular mi ROI</button>
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="cta-sidebar">
+      <div class="cta-sidebar-title">¿Listo para invertir en Medellín?</div>
+      <div class="cta-sidebar-sub">Habla con un asesor Zonum que conoce el mercado de primera mano.</div>
+      <a class="cta-sidebar-btn" href="https://wa.me/576013214567?text=Hola%2C+lei+el+articulo+de+valorizacion+en+Medellin+y+quiero+invertir" target="_blank" rel="noopener">Hablar con asesor →</a>
+    </div>
+
+    <div class="projects-sidebar">
+      <div class="ps-title">Proyectos recomendados en Medellín</div>
+      <div class="ps-card" onclick="location.href='alma-luxury-lofts.html'">
+        <img class="ps-img" src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=100&q=80&fit=crop" alt="Alma Luxury Lofts">
+        <div>
+          <div class="ps-card-name">Alma Luxury Lofts</div>
+          <div class="ps-card-roi">8.4% ROI est.</div>
+          <div class="ps-card-loc">📍 Envigado · Medellín</div>
+        </div>
+      </div>
+      <div class="ps-card" onclick="location.href='buscar.html?ciudad=medellin'">
+        <div class="ps-img" style="background:linear-gradient(135deg,#1A4F7A,#0D2B44);display:flex;align-items:center;justify-content:center;font-size:20px">🏙</div>
+        <div>
+          <div class="ps-card-name">Reserva del Bosque</div>
+          <div class="ps-card-roi">8.8% ROI est.</div>
+          <div class="ps-card-loc">📍 El Poblado · Medellín</div>
+        </div>
+      </div>
+      <div class="ps-card" onclick="location.href='buscar.html?ciudad=medellin'">
+        <div class="ps-img" style="background:linear-gradient(135deg,#5A8CB5,#1A4F7A);display:flex;align-items:center;justify-content:center;font-size:20px">🏗</div>
+        <div>
+          <div class="ps-card-name">Laureles 60</div>
+          <div class="ps-card-roi">8.2% ROI est.</div>
+          <div class="ps-card-loc">📍 Laureles · Medellín</div>
+        </div>
+      </div>
+      <a href="buscar.html?ciudad=medellin" style="display:block;text-align:center;font-size:12px;color:#1A4F7A;font-weight:500;margin-top:12px;text-decoration:none">Ver todos los proyectos en Medellín →</a>
+    </div>
+
+    <div class="sidebar-card">
+      <img class="sidebar-card-img" src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=400&q=80&fit=crop" alt="Cartagena">
+      <div class="sidebar-card-body">
+        <div class="sidebar-card-cat">Próximo artículo</div>
+        <div class="sidebar-card-title" onclick="location.href='buscar.html?ciudad=cartagena'">Cartagena 2025: ¿el próximo boom inmobiliario del Caribe colombiano?</div>
+        <div class="sidebar-card-date">Próximamente · Zonum Insights</div>
+      </div>
+    </div>
+
+    <div class="sidebar-card">
+      <div style="background:linear-gradient(135deg,#0D2B44,#1A4F7A);height:100px;display:flex;align-items:center;justify-content:center">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect x="4" y="8" width="28" height="22" rx="3" stroke="#A8C4DC" stroke-width="1.5"/><path d="M4 14h28" stroke="#A8C4DC" stroke-width="1.5"/><rect x="10" y="20" width="6" height="6" rx="1" fill="#A8C4DC" opacity="0.4"/></svg>
+      </div>
+      <div class="sidebar-card-body">
+        <div class="sidebar-card-cat">Herramienta</div>
+        <div class="sidebar-card-title" onclick="location.href='calculadora.html'">Calcula el retorno de tu inversión con escenarios comparativos</div>
+        <div class="sidebar-card-date" style="color:#1A4F7A;font-weight:500;cursor:pointer" onclick="location.href='calculadora.html'">Abrir calculadora →</div>
+      </div>
+    </div>
+
+  </aside>
+
+</div>
+</div>
+
+<!-- FOOTER -->
+<div id="zonum-footer"></div>
+<script src="footer.js"></script>
+
+<!-- WHATSAPP FAB -->
+<style>
+.wa-fab{position:fixed;bottom:28px;right:24px;z-index:400;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.wa-btn{width:52px;height:52px;border-radius:50%;background:#25D366;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.45);transition:transform .2s}
+.wa-btn:hover{transform:scale(1.08)}
+.wa-popup{display:none;background:#fff;border-radius:14px;box-shadow:0 8px 32px rgba(0,0,0,.14);padding:16px;width:240px;border:.5px solid rgba(58,53,48,0.12)}
+.wa-popup.open{display:block}
+.wa-popup-title{font-size:13px;font-weight:600;color:#3A3530;margin-bottom:4px}
+.wa-popup-sub{font-size:11px;color:#6B6560;margin-bottom:12px;line-height:1.5}
+.wa-popup-btn{display:block;width:100%;padding:9px;background:#25D366;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;font-family:inherit}
+.wa-close-row{display:flex;justify-content:flex-end;margin-bottom:6px}
+.wa-close{font-size:14px;color:#888078;cursor:pointer;background:none;border:none;padding:0}
+</style>
+<div class="wa-fab">
+  <div class="wa-popup" id="wa-popup">
+    <div class="wa-close-row"><button class="wa-close" onclick="document.getElementById('wa-popup').classList.remove('open')">✕</button></div>
+    <div class="wa-popup-title">¿Invertir en Medellín?</div>
+    <div class="wa-popup-sub">Un asesor Zonum responde en menos de 10 minutos.</div>
+    <a class="wa-popup-btn" href="https://wa.me/576013214567?text=Hola%2C+le%C3%AD+el+an%C3%A1lisis+de+Medell%C3%ADn+y+quiero+invertir" target="_blank" rel="noopener">Chatear ahora →</a>
+  </div>
+  <button class="wa-btn" onclick="document.getElementById('wa-popup').classList.toggle('open')" aria-label="WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M13 2C7.477 2 3 6.477 3 12c0 1.89.525 3.656 1.438 5.163L3 23l5.988-1.413A9.953 9.953 0 0013 22c5.523 0 10-4.477 10-10S18.523 2 13 2z" fill="white"/><path d="M9.5 9.5c.2-.5.7-1.5 1.5-1.5.3 0 .5.1.7.3l1 2c.1.3 0 .6-.2.8l-.5.5c.4.8 1.4 1.8 2.2 2.2l.5-.5c.2-.2.5-.3.8-.2l2 1c.2.1.3.4.3.7 0 .8-1 1.3-1.5 1.5C14 17 10 14 9.5 9.5z" fill="#25D366"/></svg>
+  </button>
+</div>
+
+<script>
+(function(){
+  var hBtn=document.getElementById('hamburgerBtn'),mMenu=document.getElementById('mobileMenu');
+  if(hBtn)hBtn.addEventListener('click',function(e){e.stopPropagation();mMenu.classList.toggle('open');});
+  document.addEventListener('click',function(e){if(mMenu&&!mMenu.contains(e.target)&&e.target!==hBtn)mMenu.classList.remove('open');});
+
+  /* Reading progress bar */
+  var bar=document.getElementById('reading-bar');
+  var body=document.getElementById('article-body');
+  window.addEventListener('scroll',function(){
+    if(!body)return;
+    var r=body.getBoundingClientRect();
+    var total=body.offsetHeight-window.innerHeight+r.top+window.scrollY;
+    var prog=Math.min(100,Math.max(0,(window.scrollY-r.top-window.scrollY)/total*100));
+    // simpler approach
+    var docH=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(window.scrollY/docH*100)+'%';
+  },{passive:true});
+
+  /* Bar chart */
+  var zones=[
+    {label:'El Poblado',val:143,color:'#1A4F7A'},
+    {label:'Envigado',val:139,color:'#2A6FA0'},
+    {label:'Laureles',val:138,color:'#3A8CB5'},
+    {label:'El Estadio',val:133,color:'#5A8CB5'},
+    {label:'Sabaneta',val:131,color:'#7AADD0'},
+    {label:'El Centro',val:124,color:'#A8C4DC'},
+  ];
+  var maxVal=143;
+  var bc=document.getElementById('bar-chart');
+  if(bc){
+    zones.forEach(function(z){
+      var row=document.createElement('div');
+      row.className='bar-row';
+      var widthPct=(z.val/maxVal*100);
+      row.innerHTML='<div class="bar-label">'+z.label+'</div>'+
+        '<div class="bar-track"><div class="bar-fill" style="background:'+z.color+';width:0%" data-w="'+widthPct+'">'+
+        '<span class="bar-val">'+z.val+'</span></div></div>'+
+        '<div class="bar-note">+'+Math.round((z.val-100))+'% vs 2020</div>';
+      bc.appendChild(row);
+    });
+    /* Animate on scroll */
+    var animated=false;
+    function tryAnim(){
+      if(animated)return;
+      var r=bc.getBoundingClientRect();
+      if(r.top<window.innerHeight-60){
+        animated=true;
+        bc.querySelectorAll('.bar-fill').forEach(function(el){
+          el.style.width=el.getAttribute('data-w')+'%';
+        });
+      }
+    }
+    window.addEventListener('scroll',tryAnim,{passive:true});
+    setTimeout(tryAnim,400);
+  }
+})();
+</script>
+<!-- COOKIE BANNER -->
+<style>
+.cookie-bar{position:fixed;bottom:0;left:0;right:0;background:#2D2820;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;z-index:500;transform:translateY(100%);transition:transform 0.4s;flex-wrap:wrap}
+.cookie-bar.visible{transform:translateY(0)}
+.cookie-text{font-size:12px;color:#C8B89A;line-height:1.5;flex:1;min-width:200px}
+.cookie-text a{color:#B8975A;text-decoration:underline}
+.cookie-btns{display:flex;gap:8px;flex-shrink:0}
+.cookie-btn{font-size:12px;padding:7px 16px;border-radius:6px;cursor:pointer;font-family:inherit;font-weight:500;border:none}
+.cookie-accept{background:#1A4F7A;color:#fff}
+.cookie-reject{background:transparent;color:#888078;border:0.5px solid rgba(200,184,154,0.3)!important}
+</style>
+<div class="cookie-bar" id="cookie-bar">
+  <span class="cookie-text">Usamos cookies para mejorar tu experiencia y analizar el tráfico. <a href="politica-privacidad.html">Política de Privacidad</a></span>
+  <div class="cookie-btns">
+    <button class="cookie-btn cookie-reject" onclick="dismissCookies(false)">Solo esenciales</button>
+    <button class="cookie-btn cookie-accept" onclick="dismissCookies(true)">Aceptar todo</button>
+  </div>
+</div>
+<script>
+(function(){
+  if(!localStorage.getItem('zonum_cookies')){
+    setTimeout(function(){ var b=document.getElementById('cookie-bar'); if(b) b.classList.add('visible'); }, 1200);
+  }
+})();
+function dismissCookies(a){
+  localStorage.setItem('zonum_cookies', a?'all':'essential');
+  var b=document.getElementById('cookie-bar'); if(b) b.classList.remove('visible');
+}
+</script>
+
+</body>
+</html>

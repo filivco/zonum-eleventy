@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zonum Elite — Propiedades exclusivas para inversores</title>
+<link rel="stylesheet" href="https://use.typekit.net/bnk2dxj.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--ebano);color:#fff;min-height:100vh}
+:root{
+  /* ── Línea Normal ── */
+  --azul-base:#1A4F7A;
+  --azul-claro:#5A8CB5;
+  --fondo-azul:#DDE9F4;
+  --azul-noche:#0D2B44;
+  --azul-neblina:#A8C4DC;
+  --superficie:#EFF4F9;
+  /* ── Compartidos ── */
+  --arena:#E8DCC8;
+  --arena-media:#C8B89A;
+  --concreto-oscuro:#3A3530;
+  --concreto-medio:#6B6560;
+  --piedra:#888078;
+  --blanco-calido:#F8F6F2;
+  --lino:#F2EEE6;
+  /* ── Línea Concierge ── */
+  --oro-oscuro:#7A5C1E;
+  --oro-acento:#B8975A;
+  --champagne:#F2E8D0;
+  --fondo-premium:#FAF5EA;
+  --oro-palido:#D4AA6A;
+  --bronce:#A89070;
+  --ebano:#161210;
+  --nogal:#241C0E;
+  --pergamino:#E4DDD0;
+  /* ── Compat vars ── */
+  --color-background-primary:#F8F6F2;
+  --color-background-secondary:#F2EEE6;
+  --color-text-primary:#3A3530;
+  --color-text-secondary:#6B6560;
+  --color-text-tertiary:#888078;
+  --color-border-tertiary:rgba(58,53,48,0.12);
+  --color-border-secondary:rgba(58,53,48,0.22);
+  --border-radius-md:8px;
+  --border-radius-lg:12px;
+  --border-radius-xl:16px;
+  --font-heading:'clother',sans-serif;
+}
+
+/* ── Topbar ── */
+.topbar{background:var(--ebano);padding:6px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:0.5px solid rgba(184,151,90,0.18)}
+.tb-left{font-size:11px;color:var(--oro-acento);letter-spacing:0.06em}
+.tb-right{font-size:11px;color:rgba(212,170,106,0.55);display:flex;gap:16px}
+
+/* ── Nav ── */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--nogal);border-bottom:0.5px solid rgba(184,151,90,0.22);position:sticky;top:0;z-index:100}
+.logo{display:flex;align-items:center;gap:8px}
+.nav-center{display:flex;gap:20px;font-size:13px;color:rgba(212,170,106,0.6)}
+.nav-center span{cursor:pointer;transition:color .2s}
+.nav-center span:hover{color:var(--oro-palido)}
+.nav-center span.hl{color:var(--oro-acento);font-weight:500}
+.nav-ctas{display:flex;gap:8px;align-items:center}
+.ncta-elite{font-size:12px;padding:7px 16px;border-radius:var(--border-radius-md);cursor:pointer;border:0.5px solid var(--oro-acento);background:transparent;color:var(--oro-acento);font-family:inherit;letter-spacing:0.04em;transition:background .2s,color .2s}
+.ncta-elite:hover{background:var(--oro-acento);color:var(--ebano)}
+.ncta-elite-solid{background:var(--oro-acento);color:var(--ebano);border:0.5px solid var(--oro-acento)}
+.ncta-elite-solid:hover{background:var(--oro-palido);border-color:var(--oro-palido)}
+
+/* ── Hero ── */
+.hero{background:var(--ebano);min-height:560px;display:flex;align-items:center;position:relative;overflow:hidden;border-bottom:0.5px solid rgba(184,151,90,0.15)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(184,151,90,0.07) 0%,transparent 65%);pointer-events:none}
+.hero-inner{max-width:1200px;margin:0 auto;padding:72px 28px;display:grid;grid-template-columns:1fr 360px;gap:48px;align-items:center;width:100%;position:relative;z-index:1}
+.hero-eyebrow{font-size:11px;letter-spacing:0.2em;color:var(--oro-acento);text-transform:uppercase;margin-bottom:22px}
+.hero-h{font-family:var(--font-heading);font-size:38px;line-height:1.15;color:#fff;max-width:560px;margin-bottom:18px;font-weight:600}
+.hero-sub{font-size:14px;color:var(--champagne);line-height:1.7;max-width:480px;margin-bottom:28px;opacity:.85}
+.hero-bullets{display:flex;flex-direction:column;gap:10px;margin-bottom:36px}
+.hero-bullet{display:flex;align-items:center;gap:10px;font-size:13px;color:#fff}
+.hero-bullet::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--oro-acento);flex-shrink:0}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn-gold{padding:13px 24px;background:var(--oro-acento);color:var(--ebano);border:none;border-radius:var(--border-radius-md);font-size:13px;font-weight:600;cursor:pointer;letter-spacing:0.04em;font-family:inherit;transition:background .2s}
+.btn-gold:hover{background:var(--oro-palido)}
+.btn-outline-gold{padding:13px 24px;background:transparent;color:var(--oro-acento);border:0.5px solid var(--oro-acento);border-radius:var(--border-radius-md);font-size:13px;font-weight:500;cursor:pointer;letter-spacing:0.04em;font-family:inherit;transition:background .2s,color .2s}
+.btn-outline-gold:hover{background:rgba(184,151,90,0.12)}
+
+/* ── Hero Card ── */
+.hero-card{background:linear-gradient(145deg,#1a1510,#2a1e0e);border:0.5px solid rgba(184,151,90,0.3);border-radius:var(--border-radius-xl);overflow:hidden}
+.hero-card-img{height:180px;background:linear-gradient(160deg,#1e160a 0%,#2d2010 40%,#1a1510 100%);position:relative;display:flex;align-items:flex-end;padding:16px}
+.hero-card-tag{background:var(--oro-acento);color:var(--ebano);font-size:10px;font-weight:700;padding:4px 10px;border-radius:4px;letter-spacing:0.08em;text-transform:uppercase}
+.hero-card-body{padding:20px}
+.hero-card-loc{font-size:10px;color:var(--oro-acento);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px}
+.hero-card-title{font-family:var(--font-heading);font-size:16px;color:#fff;margin-bottom:4px}
+.hero-card-price{font-size:15px;font-weight:600;color:var(--oro-palido);margin-bottom:14px}
+.hero-card-details{display:flex;gap:16px;padding-top:14px;border-top:0.5px solid rgba(184,151,90,0.2)}
+.hero-card-detail{font-size:11px;color:var(--pergamino);opacity:.7}
+.hero-card-badge{background:rgba(184,151,90,0.1);border:0.5px solid rgba(184,151,90,0.3);border-radius:20px;padding:4px 10px;font-size:10px;color:var(--oro-acento);margin-top:14px;display:inline-block;letter-spacing:0.06em}
+
+/* ── Stats Strip ── */
+.stats-strip{background:var(--nogal);border-top:0.5px solid rgba(184,151,90,0.15);border-bottom:0.5px solid rgba(184,151,90,0.15)}
+.stats-inner{max-width:1200px;margin:0 auto;padding:36px 28px;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat-item{text-align:center;padding:0 20px;position:relative}
+.stat-item+.stat-item::before{content:'';position:absolute;left:0;top:20%;height:60%;width:0.5px;background:rgba(184,151,90,0.25)}
+.stat-num{font-family:var(--font-heading);font-size:26px;font-weight:600;color:var(--oro-palido);margin-bottom:4px}
+.stat-label{font-size:12px;color:var(--champagne);opacity:.65;line-height:1.4}
+
+/* ── Section ── */
+.section{padding:80px 0}
+.section-inner{max-width:1200px;margin:0 auto;padding:0 28px}
+.section-label{font-size:10px;letter-spacing:0.18em;color:var(--oro-acento);text-transform:uppercase;margin-bottom:10px}
+.section-title{font-family:var(--font-heading);font-size:28px;color:#fff;margin-bottom:10px}
+.section-sub{font-size:14px;color:var(--champagne);opacity:.7;max-width:480px;line-height:1.7;margin-bottom:48px}
+.section-header{margin-bottom:48px}
+
+/* ── Property Cards ── */
+.props-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.prop-card{background:#1a1510;border-radius:var(--border-radius-lg);overflow:hidden;border:0.5px solid rgba(184,151,90,0.18);border-top:3px solid var(--oro-acento);transition:transform .2s,box-shadow .2s}
+.prop-card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,0.5)}
+.prop-card-img{height:210px;overflow:hidden;position:relative}
+.prop-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.prop-card:hover .prop-card-img img{transform:scale(1.04)}
+.prop-card-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(22,18,16,0.7) 0%,transparent 50%)}
+.prop-price-tag{position:absolute;bottom:14px;left:14px;background:var(--oro-acento);color:var(--ebano);font-size:11px;font-weight:700;padding:5px 12px;border-radius:4px;letter-spacing:0.04em}
+.prop-card-body{padding:20px}
+.prop-card-loc{font-size:10px;color:var(--oro-acento);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px}
+.prop-card-title{font-family:var(--font-heading);font-size:17px;color:#fff;margin-bottom:6px}
+.prop-card-alt-price{font-size:13px;color:var(--oro-palido);margin-bottom:14px;opacity:.8}
+.prop-card-meta{display:flex;gap:14px;padding-top:14px;border-top:0.5px solid rgba(184,151,90,0.18);flex-wrap:wrap}
+.prop-meta-item{font-size:11px;color:var(--pergamino);opacity:.65;display:flex;align-items:center;gap:5px}
+.prop-meta-dot{width:4px;height:4px;border-radius:50%;background:var(--oro-acento);opacity:.7;flex-shrink:0}
+
+/* ── Elite Services ── */
+.services-section{background:#0e0c0a}
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.service-card{background:#1a1510;border:0.5px solid rgba(184,151,90,0.18);border-radius:var(--border-radius-lg);padding:28px 22px;transition:border-color .2s}
+.service-card:hover{border-color:rgba(184,151,90,0.45)}
+.service-icon{width:40px;height:40px;margin-bottom:18px;display:flex;align-items:center;justify-content:center}
+.service-title{font-family:var(--font-heading);font-size:15px;color:#fff;margin-bottom:8px}
+.service-desc{font-size:12px;color:var(--champagne);opacity:.6;line-height:1.7}
+
+/* ── Process ── */
+.process-section{background:var(--nogal);border-top:0.5px solid rgba(184,151,90,0.12);border-bottom:0.5px solid rgba(184,151,90,0.12)}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.process-steps::before{content:'';position:absolute;top:28px;left:calc(12.5%);right:calc(12.5%);height:0.5px;background:rgba(184,151,90,0.3);z-index:0}
+.process-step{text-align:center;padding:0 16px;position:relative;z-index:1}
+.step-num{width:56px;height:56px;border-radius:50%;border:1.5px solid var(--oro-acento);background:var(--nogal);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-family:var(--font-heading);font-size:18px;font-weight:600;color:var(--oro-palido)}
+.step-title{font-family:var(--font-heading);font-size:14px;color:#fff;margin-bottom:7px}
+.step-desc{font-size:12px;color:var(--champagne);opacity:.55;line-height:1.6}
+
+/* ── Testimonials ── */
+.testimonials-section{background:var(--ebano)}
+.testimonials-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.testi-card{background:#1a1510;border:0.5px solid rgba(184,151,90,0.18);border-radius:var(--border-radius-lg);padding:32px}
+.testi-stars{display:flex;gap:3px;margin-bottom:18px}
+.testi-star{color:var(--oro-acento);font-size:13px}
+.testi-quote{font-size:14px;color:var(--champagne);line-height:1.75;margin-bottom:24px;font-style:italic;opacity:.9}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--nogal),#2a2010);border:1px solid rgba(184,151,90,0.35);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:14px;color:var(--oro-acento);font-weight:600;flex-shrink:0}
+.testi-name{font-size:13px;color:#fff;font-weight:500;margin-bottom:2px}
+.testi-role{font-size:11px;color:var(--oro-acento);opacity:.7}
+
+/* ── Access Form ── */
+.form-section{background:#0e0c0a;border-top:0.5px solid rgba(184,151,90,0.12)}
+.form-wrapper{max-width:480px;margin:0 auto;text-align:center}
+.form-title{font-family:var(--font-heading);font-size:26px;color:var(--oro-palido);margin-bottom:8px}
+.form-sub{font-size:13px;color:var(--champagne);opacity:.6;margin-bottom:36px;line-height:1.6}
+.form-body{text-align:left}
+.form-row{margin-bottom:16px}
+.form-row label{display:block;font-size:11px;color:var(--oro-acento);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.form-input{width:100%;background:#1a1510;border:0.5px solid rgba(184,151,90,0.3);border-radius:var(--border-radius-md);padding:11px 14px;font-size:13px;color:#fff;font-family:inherit;outline:none;transition:border-color .2s}
+.form-input:focus{border-color:var(--oro-acento)}
+.form-input::placeholder{color:rgba(212,170,106,0.3)}
+.form-input option{background:#1a1510;color:#fff}
+.form-submit{width:100%;padding:14px;background:var(--oro-acento);color:var(--ebano);border:none;border-radius:var(--border-radius-md);font-size:14px;font-weight:700;cursor:pointer;letter-spacing:0.06em;font-family:inherit;margin-top:8px;transition:background .2s}
+.form-submit:hover{background:var(--oro-palido)}
+.form-privacy{font-size:11px;color:var(--champagne);opacity:.4;text-align:center;margin-top:16px;line-height:1.6}
+
+/* ── Footer ── */
+.footer{background:var(--ebano);border-top:0.5px solid rgba(184,151,90,0.15)}
+.footer-main{max-width:1200px;margin:0 auto;padding:40px 28px;display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:0.5px solid rgba(184,151,90,0.12)}
+.footer-brand{padding-right:40px;border-right:0.5px solid rgba(184,151,90,0.12)}
+.footer-desc{font-size:13px;color:rgba(212,170,106,0.5);line-height:1.7;margin:16px 0 24px;max-width:320px}
+.footer-social{display:flex;gap:10px}
+.footer-soc-btn{width:36px;height:36px;border-radius:50%;border:0.5px solid rgba(184,151,90,0.25);display:flex;align-items:center;justify-content:center;cursor:pointer;background:transparent;transition:border-color .2s}
+.footer-soc-btn:hover{border-color:var(--oro-acento)}
+.footer-contact{padding-left:40px;display:flex;flex-direction:column;gap:12px;justify-content:center}
+.footer-contact-item{display:flex;align-items:center;gap:10px;font-size:12px;color:rgba(212,170,106,0.5)}
+.footer-links{max-width:1200px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.footer-link{font-size:11px;color:rgba(184,151,90,0.4);cursor:pointer;transition:color .2s}
+.footer-link:hover{color:var(--oro-acento)}
+.footer-copy{font-size:11px;color:rgba(184,151,90,0.25)}
+
+/* ── Visit Modal ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+.modal-overlay.active{display:flex}
+.modal-box{background:var(--nogal);border:0.5px solid rgba(184,151,90,0.35);border-radius:var(--border-radius-xl);width:100%;max-width:440px;padding:32px;position:relative}
+.modal-close{position:absolute;top:14px;right:14px;background:transparent;border:none;cursor:pointer;color:rgba(184,151,90,0.5);font-size:18px;line-height:1;padding:4px;transition:color .2s}
+.modal-close:hover{color:var(--oro-acento)}
+.modal-title{font-family:var(--font-heading);font-size:20px;color:#fff;margin-bottom:6px}
+.modal-sub{font-size:12px;color:var(--champagne);opacity:.55;margin-bottom:24px}
+
+/* ── Responsive ── */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:36px}
+  .hero-card{display:none}
+  .stats-inner{grid-template-columns:repeat(2,1fr);gap:24px}
+  .stat-item+.stat-item::before{display:none}
+  .props-grid{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .process-steps{grid-template-columns:repeat(2,1fr);gap:32px}
+  .process-steps::before{display:none}
+  .testimonials-grid{grid-template-columns:1fr}
+  .footer-main{grid-template-columns:1fr}
+  .footer-brand{border-right:none;padding-right:0;border-bottom:0.5px solid rgba(184,151,90,0.12);padding-bottom:28px;margin-bottom:28px}
+  .footer-contact{padding-left:0}
+  .nav-center{display:none}
+}
+@media(max-width:600px){
+  .hero-h{font-size:28px}
+  .services-grid{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:1fr}
+  .stats-inner{grid-template-columns:1fr}
+}
+</style>
+<meta property="og:title" content="Zonum Elite — Proyectos premium en Colombia, Caribe y Miami">
+<meta property="og:description" content="Proyectos exclusivos desde USD 200K. Selección Concierge con due diligence independiente. Solo para el inversor que no acepta segundas opciones.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&q=80">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="canonical" href="https://zonum.com/elite.html">
+</head>
+<body>
+
+<!-- ── Topbar ── -->
+<div class="topbar">
+  <div class="tb-left">★ ZONUM ELITE — Acceso privado a propiedades exclusivas desde USD 150,000</div>
+  <div class="tb-right"><span>Colombia</span><span>Caribe</span><span>Miami</span><span>Off-Market</span></div>
+</div>
+
+<!-- ── Nav ── -->
+<div class="nav">
+  <div class="logo">
+    <img src="zonum-logo-dark.svg" style="filter:brightness(0) invert(1)" alt="Zonum" height="28">
+  </div>
+  <div class="nav-center">
+    <span class="hl">★ Zonum Elite</span>
+    <span>Propiedades</span>
+    <span>Inversión</span>
+    <span>Off-Market</span>
+    <span>Nosotros</span>
+  </div>
+  <div class="nav-ctas">
+    <button class="ncta-elite" onclick="openModal()">Contactar asesor</button>
+  </div>
+</div>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow">★ ZONUM ELITE</div>
+      <h1 class="hero-h">Propiedades exclusivas para el inversor sofisticado</h1>
+      <p class="hero-sub">Acceso privado a proyectos premium en Colombia, el Caribe y Miami. Propiedades desde USD 150,000.</p>
+      <div class="hero-bullets">
+        <div class="hero-bullet">Solo propiedades sobre USD 150K</div>
+        <div class="hero-bullet">Asesoría personalizada 1-a-1</div>
+        <div class="hero-bullet">Acceso a off-market exclusivo</div>
+      </div>
+      <div class="hero-ctas">
+        <button class="btn-gold" onclick="document.getElementById('access-form').scrollIntoView({behavior:'smooth'})">Solicitar acceso privado</button>
+        <button class="btn-outline-gold" onclick="document.getElementById('propiedades').scrollIntoView({behavior:'smooth'})">Ver propiedades</button>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-img">
+        <div style="position:absolute;inset:0;background:linear-gradient(160deg,#1e160a 0%,#2d2010 50%,#1a1510 100%);display:flex;align-items:center;justify-content:center">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" opacity=".18"><rect x="8" y="28" width="48" height="28" rx="2" stroke="#B8975A" stroke-width="1.5"/><path d="M20 28V20a12 12 0 0124 0v8" stroke="#B8975A" stroke-width="1.5"/><rect x="26" y="38" width="12" height="10" rx="1" stroke="#B8975A" stroke-width="1.2"/></svg>
+        </div>
+        <div class="hero-card-tag">OFF-MARKET</div>
+      </div>
+      <div class="hero-card-body">
+        <div class="hero-card-loc">Bocagrande · Cartagena</div>
+        <div class="hero-card-title">Penthouse Torre Bahía</div>
+        <div class="hero-card-price">USD 300,000</div>
+        <div class="hero-card-details">
+          <span class="hero-card-detail">280 m²</span>
+          <span class="hero-card-detail">4 hab.</span>
+          <span class="hero-card-detail">Vista al mar</span>
+        </div>
+        <div class="hero-card-badge">Disponible para inversores Elite</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Stats Strip ── -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num">USD 150K+</div>
+      <div class="stat-label">Propiedades desde</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">+$2B</div>
+      <div class="stat-label">En transacciones gestionadas</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">12</div>
+      <div class="stat-label">Países activos</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">340</div>
+      <div class="stat-label">Inversores activos</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Featured Properties ── -->
+<section class="section" id="propiedades">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Selección Premium</div>
+      <h2 class="section-title">Propiedades destacadas</h2>
+      <p class="section-sub">Una selección curada de oportunidades de inversión de alto valor en los mercados más exclusivos de la región.</p>
+    </div>
+    <div class="props-grid">
+
+      <!-- Card 1 -->
+      <div class="prop-card">
+        <div class="prop-card-img">
+          <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80" alt="Penthouse Cartagena" loading="lazy">
+          <div class="prop-card-img-overlay"></div>
+          <div class="prop-price-tag">$1,200M COP · USD 300K</div>
+        </div>
+        <div class="prop-card-body">
+          <div class="prop-card-loc">Bocagrande · Cartagena</div>
+          <div class="prop-card-title">Penthouse Cartagena</div>
+          <div class="prop-card-alt-price">$1,200,000,000 COP</div>
+          <div class="prop-card-meta">
+            <span class="prop-meta-item"><span class="prop-meta-dot"></span>280 m²</span>
+            <span class="prop-meta-item"><span class="prop-meta-dot"></span>4 habitaciones</span>
+            <span class="prop-meta-item"><span class="prop-meta-dot"></span>Vista al mar</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="prop-card">
+        <div class="prop-card-img">
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="Villa Santa Marta" loading="lazy">
+          <div class="prop-card-img-overlay"></div>
+          <div class="prop-price-tag">$900M COP · USD 225K</div>
+        </div>
+        <div class="prop-card-body">
+          <div class="prop-card-loc">Playa Blanca · Santa Marta</div>
+          <div class="prop-card-title">Villa Santa Marta</div>
+          <div class="prop-card-alt-price">$900,000,000 COP</div>
+          <div class="prop-card-meta">
+            <span class="prop-meta-item"><span class="prop-meta-dot"></span>350 m²</span>
+            <span class="prop-meta-item"><span class="prop-meta-dot"></span>5 habitaciones</span>
+            <span class="prop-meta-item"><span class="prop-meta-dot"></span>Acceso privado playa</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="prop-card">
+        <div class="prop-card-img">
+          <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80" alt="Loft Miami Brickell" loading="lazy">
+          <div class="prop-card-img-overlay"></div>
+          <div class="prop-price-tag">USD 650K</div>
+        </div>
+        <div class="prop-card-body">
+          <div class="prop-card-loc">Brickell · Miami, FL</div>
+          <div class="prop-card-title">Loft Miami Brickell</div>
+          <div class="prop-card-alt-price">USD 650,000</div>
+          <div class="prop-card-meta">
+            <span class="prop-meta-item"><span class="prop-meta-dot"></span>95 m²</span>
+            <span class="prop-meta-item"><span class="prop-meta-dot"></span>2 habitaciones</span>
+            <span class="prop-meta-item"><span class="prop-meta-dot"></span>Full amenities</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── El Servicio Elite ── -->
+<section class="section services-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">El Servicio Elite</div>
+      <h2 class="section-title">Todo lo que necesitas para invertir con seguridad</h2>
+      <p class="section-sub">Un servicio diseñado para el inversor que valora su tiempo y exige discreción.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="11" r="5" stroke="#B8975A" stroke-width="1.4"/>
+            <path d="M6 26c0-5.523 4.477-10 10-10s10 4.477 10 10" stroke="#B8975A" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="service-title">Asesor dedicado</div>
+        <div class="service-desc">Un asesor exclusivo asignado a tu perfil. Disponible directamente, sin intermediarios ni call centers.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <rect x="5" y="7" width="22" height="18" rx="2" stroke="#B8975A" stroke-width="1.4"/>
+            <path d="M11 7V5M21 7V5M5 13h22" stroke="#B8975A" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="service-title">Visita privada coordinada</div>
+        <div class="service-desc">Coordinamos recorridos exclusivos en las propiedades. Sin visitas públicas, a tu ritmo y horario.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <path d="M8 24V12l8-6 8 6v12H8z" stroke="#B8975A" stroke-width="1.4" stroke-linejoin="round"/>
+            <rect x="13" y="17" width="6" height="7" rx="1" stroke="#B8975A" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <div class="service-title">Análisis financiero personalizado</div>
+        <div class="service-desc">Proyecciones de retorno, análisis de riesgo y estructura de inversión adaptados a tu portafolio.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <circle cx="10" cy="16" r="4" stroke="#B8975A" stroke-width="1.4"/>
+            <circle cx="22" cy="10" r="4" stroke="#B8975A" stroke-width="1.4"/>
+            <circle cx="22" cy="22" r="4" stroke="#B8975A" stroke-width="1.4"/>
+            <path d="M14 14l5-3M14 18l5 3" stroke="#B8975A" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="service-title">Red de compradores off-market</div>
+        <div class="service-desc">Acceso a propiedades que no aparecen en ningún portal público. Oportunidades antes de que salgan al mercado.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Process ── -->
+<section class="section process-section">
+  <div class="section-inner">
+    <div class="section-header" style="text-align:center">
+      <div class="section-label" style="text-align:center">Cómo funciona</div>
+      <h2 class="section-title" style="text-align:center;margin-bottom:0">Del primer contacto al cierre, acompañado</h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <div class="step-title">Solicita acceso</div>
+        <div class="step-desc">Completa el formulario de acceso privado. Revisamos tu perfil en 24 horas.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <div class="step-title">Entrevista con asesor</div>
+        <div class="step-desc">Una llamada de 30 minutos para entender tus objetivos, presupuesto y preferencias.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <div class="step-title">Portfolio personalizado</div>
+        <div class="step-desc">Recibís una selección curada de propiedades que encajan exactamente con tu perfil.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <div class="step-title">Cierre acompañado</div>
+        <div class="step-desc">Te acompañamos en cada etapa del proceso legal, financiero y notarial.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Testimonials ── -->
+<section class="section testimonials-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Testimonios</div>
+      <h2 class="section-title">Lo que dicen nuestros inversores</h2>
+    </div>
+    <div class="testimonials-grid">
+
+      <div class="testi-card">
+        <div class="testi-stars">
+          <span class="testi-star">★</span>
+          <span class="testi-star">★</span>
+          <span class="testi-star">★</span>
+          <span class="testi-star">★</span>
+          <span class="testi-star">★</span>
+        </div>
+        <p class="testi-quote">"Zonum Elite me ayudó a estructurar una inversión de USD 400K en Cartagena que rinde el 11% anual. Discreto, rápido, profesional."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">AV</div>
+          <div>
+            <div class="testi-name">Alejandro V.</div>
+            <div class="testi-role">Inversionista privado · Buenos Aires</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">
+          <span class="testi-star">★</span>
+          <span class="testi-star">★</span>
+          <span class="testi-star">★</span>
+          <span class="testi-star">★</span>
+          <span class="testi-star">★</span>
+        </div>
+        <p class="testi-quote">"Compré dos apartamentos en Santa Marta a través de su servicio off-market. No están en ningún portal público. La discreción y el nivel de servicio son únicos."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">MC</div>
+          <div>
+            <div class="testi-name">María C.</div>
+            <div class="testi-role">Family Office · Bogotá</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Access Form ── -->
+<section class="section form-section" id="access-form">
+  <div class="section-inner">
+    <div class="form-wrapper">
+      <h2 class="form-title">Solicitar acceso privado</h2>
+      <p class="form-sub">Completa el formulario y un asesor Elite se pondrá en contacto contigo en las próximas 24 horas.</p>
+      <div class="form-body">
+        <div class="form-row">
+          <label for="f-nombre">Nombre completo</label>
+          <input type="text" id="f-nombre" class="form-input" placeholder="Tu nombre">
+        </div>
+        <div class="form-row">
+          <label for="f-email">Correo electrónico</label>
+          <input type="email" id="f-email" class="form-input" placeholder="correo@ejemplo.com">
+        </div>
+        <div class="form-row">
+          <label for="f-telefono">Teléfono</label>
+          <input type="tel" id="f-telefono" class="form-input" placeholder="+57 300 000 0000">
+        </div>
+        <div class="form-row">
+          <label for="f-presupuesto">Presupuesto de inversión</label>
+          <select id="f-presupuesto" class="form-input">
+            <option value="" disabled selected>Selecciona un rango</option>
+            <option>USD $150K – $300K</option>
+            <option>USD $300K – $600K</option>
+            <option>USD $600K – $1M</option>
+            <option>USD +$1M</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="f-mensaje">Mensaje (opcional)</label>
+          <textarea id="f-mensaje" class="form-input" rows="4" placeholder="Cuéntanos sobre tus objetivos de inversión..." style="resize:vertical;line-height:1.6"></textarea>
+        </div>
+        <button class="form-submit" onclick="handleFormSubmit()">Solicitar acceso</button>
+        <p class="form-privacy">Tu información es completamente confidencial. No compartimos datos con terceros. Al enviar, aceptas nuestra política de privacidad.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="footer-brand">
+      <img src="zonum-logo-dark.svg" style="filter:brightness(0) invert(1)" alt="Zonum" height="28">
+      <p class="footer-desc">Zonum Elite es el servicio de concierge inmobiliario de Zonum para inversores sofisticados. Acceso privado a propiedades premium en Colombia, el Caribe y Miami.</p>
+      <div class="footer-social">
+        <div class="footer-soc-btn">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="3" y="3" width="8" height="8" rx="2" stroke="rgba(184,151,90,0.5)" stroke-width="1.2"/><circle cx="7" cy="7" r="2" stroke="rgba(184,151,90,0.5)" stroke-width="1.2"/><circle cx="10.2" cy="3.8" r="0.6" fill="rgba(184,151,90,0.5)"/></svg>
+        </div>
+        <div class="footer-soc-btn">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 3h10M2 5.5h6M5 8H2" stroke="rgba(184,151,90,0.5)" stroke-width="1.2" stroke-linecap="round"/><path d="M8 8l4 3V8h-4z" stroke="rgba(184,151,90,0.5)" stroke-width="1.2" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="footer-soc-btn">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="12" height="8" rx="1" stroke="rgba(184,151,90,0.5)" stroke-width="1.2"/><path d="M1 4l6 4 6-4" stroke="rgba(184,151,90,0.5)" stroke-width="1.2"/></svg>
+        </div>
+      </div>
+    </div>
+    <div class="footer-contact">
+      <div class="footer-contact-item">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0"><circle cx="7" cy="5.5" r="2.5" stroke="rgba(184,151,90,0.5)" stroke-width="1.2"/><path d="M7 14C7 14 2 9.5 2 5.5a5 5 0 0110 0C12 9.5 7 14 7 14z" stroke="rgba(184,151,90,0.5)" stroke-width="1.2" fill="none"/></svg>
+        <span>Calle 90 # 11-44, Of. 408 · Bogotá, D.C., Colombia</span>
+      </div>
+      <div class="footer-contact-item">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 2h3l1.5 3-1.5 1.5a7 7 0 003.5 3.5L11 8.5l3 1.5v3a1 1 0 01-1 1A12 12 0 012 3a1 1 0 011-1z" stroke="rgba(184,151,90,0.5)" stroke-width="1.2"/></svg>
+        <span>+57 (601) 321 4567</span>
+      </div>
+      <div class="footer-contact-item">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="12" height="8" rx="1" stroke="rgba(184,151,90,0.5)" stroke-width="1.2"/><path d="M1 4l6 4 6-4" stroke="rgba(184,151,90,0.5)" stroke-width="1.2"/></svg>
+        <span>elite@zonum.com</span>
+      </div>
+      <div style="margin-top:8px">
+        <button class="ncta-elite" onclick="openModal()" style="width:100%;font-size:12px;padding:10px 16px;text-align:center;border-radius:var(--border-radius-md)">Contactar asesor Elite</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-links">
+    <div style="display:flex;gap:20px;flex-wrap:wrap">
+      <a href="politica-privacidad.html" class="footer-link" style="text-decoration:none">Política de Privacidad</a>
+      <a href="politica-privacidad.html" class="footer-link" style="text-decoration:none">Términos y Condiciones</a>
+      <a href="zonum-app.html" class="footer-link" style="text-decoration:none">Zonum Principal</a>
+    </div>
+    <span class="footer-copy">© 2026 Zonum Elite. Todos los derechos reservados.</span>
+  </div>
+</footer>
+
+<!-- ── Contact Modal ── -->
+<div class="modal-overlay" id="contactModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-title">Contactar asesor Elite</div>
+    <p class="modal-sub">Un asesor dedicado se pondrá en contacto contigo en las próximas horas.</p>
+    <div class="form-row" style="margin-bottom:14px">
+      <label style="display:block;font-size:11px;color:var(--oro-acento);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px">Nombre</label>
+      <input type="text" class="form-input" placeholder="Tu nombre">
+    </div>
+    <div class="form-row" style="margin-bottom:14px">
+      <label style="display:block;font-size:11px;color:var(--oro-acento);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px">Correo electrónico</label>
+      <input type="email" class="form-input" placeholder="correo@ejemplo.com">
+    </div>
+    <div class="form-row" style="margin-bottom:14px">
+      <label style="display:block;font-size:11px;color:var(--oro-acento);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px">Teléfono</label>
+      <input type="tel" class="form-input" placeholder="+57 300 000 0000">
+    </div>
+    <div class="form-row" style="margin-bottom:20px">
+      <label style="display:block;font-size:11px;color:var(--oro-acento);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px">Presupuesto</label>
+      <select class="form-input">
+        <option value="" disabled selected>Selecciona un rango</option>
+        <option>USD $150K – $300K</option>
+        <option>USD $300K – $600K</option>
+        <option>USD $600K – $1M</option>
+        <option>USD +$1M</option>
+      </select>
+    </div>
+    <button class="form-submit" onclick="closeModal()">Enviar solicitud</button>
+  </div>
+</div>
+
+<script>
+function openModal(){
+  document.getElementById('contactModal').classList.add('active');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('contactModal').classList.remove('active');
+  document.body.style.overflow='';
+}
+document.getElementById('contactModal').addEventListener('click',function(e){
+  if(e.target===this) closeModal();
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape') closeModal();
+});
+function handleFormSubmit(){
+  const nombre=document.getElementById('f-nombre').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  const presupuesto=document.getElementById('f-presupuesto').value;
+  if(!nombre||!email||!presupuesto){
+    alert('Por favor completa los campos requeridos: nombre, correo y presupuesto.');
+    return;
+  }
+  const btn=document.querySelector('.form-submit');
+  btn.textContent='Solicitud enviada';
+  btn.style.background='#2a4a1a';
+  btn.style.color='#8fbf5a';
+  btn.disabled=true;
+}
+</script>
+
+<!-- ══ WHATSAPP FAB ══ -->
+<style>
+.wa-fab{position:fixed;bottom:28px;right:24px;z-index:400;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.wa-btn{width:52px;height:52px;border-radius:50%;background:#25D366;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.45);transition:transform .2s,box-shadow .2s}
+.wa-btn:hover{transform:scale(1.08);box-shadow:0 6px 24px rgba(37,211,102,.55)}
+.wa-popup{display:none;background:#0D1F0A;border-radius:14px;box-shadow:0 8px 32px rgba(0,0,0,.4);padding:16px;width:240px;border:.5px solid rgba(143,191,90,0.2)}
+.wa-popup.open{display:block}
+.wa-popup-title{font-size:13px;font-weight:600;color:#E8DCC8;margin-bottom:4px}
+.wa-popup-sub{font-size:11px;color:#8fbf5a;margin-bottom:12px;line-height:1.5}
+.wa-popup-btn{display:block;width:100%;padding:9px;background:#25D366;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;font-family:inherit}
+.wa-close-row{display:flex;justify-content:flex-end;margin-bottom:6px}
+.wa-close{font-size:14px;color:#8fbf5a;cursor:pointer;background:none;border:none;padding:0}
+</style>
+<div class="wa-fab">
+  <div class="wa-popup" id="wa-popup">
+    <div class="wa-close-row"><button class="wa-close" onclick="document.getElementById('wa-popup').classList.remove('open')">✕</button></div>
+    <div class="wa-popup-title">Acceso Zonum Elite</div>
+    <div class="wa-popup-sub">Tu concierge privado responde en minutos. Discreción total.</div>
+    <a class="wa-popup-btn" href="https://wa.me/576013214567?text=Hola%2C+me+interesa+el+acceso+Elite+de+Zonum" target="_blank" rel="noopener">Contactar concierge →</a>
+  </div>
+  <button class="wa-btn" onclick="document.getElementById('wa-popup').classList.toggle('open')" aria-label="WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M13 2C7.477 2 3 6.477 3 12c0 1.89.525 3.656 1.438 5.163L3 23l5.988-1.413A9.953 9.953 0 0013 22c5.523 0 10-4.477 10-10S18.523 2 13 2z" fill="white"/>
+      <path d="M9.5 9.5c.2-.5.7-1.5 1.5-1.5.3 0 .5.1.7.3l1 2c.1.3 0 .6-.2.8l-.5.5c.4.8 1.4 1.8 2.2 2.2l.5-.5c.2-.2.5-.3.8-.2l2 1c.2.1.3.4.3.7 0 .8-1 1.3-1.5 1.5C14 17 10 14 9.5 9.5z" fill="#25D366"/>
+    </svg>
+  </button>
+</div>
+<!-- COOKIE BANNER -->
+<style>
+.cookie-bar{position:fixed;bottom:0;left:0;right:0;background:#2D2820;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;z-index:500;transform:translateY(100%);transition:transform 0.4s;flex-wrap:wrap}
+.cookie-bar.visible{transform:translateY(0)}
+.cookie-text{font-size:12px;color:#C8B89A;line-height:1.5;flex:1;min-width:200px}
+.cookie-text a{color:#B8975A;text-decoration:underline}
+.cookie-btns{display:flex;gap:8px;flex-shrink:0}
+.cookie-btn{font-size:12px;padding:7px 16px;border-radius:6px;cursor:pointer;font-family:inherit;font-weight:500;border:none}
+.cookie-accept{background:#1A4F7A;color:#fff}
+.cookie-reject{background:transparent;color:#888078;border:0.5px solid rgba(200,184,154,0.3)!important}
+</style>
+<div class="cookie-bar" id="cookie-bar">
+  <span class="cookie-text">Usamos cookies para mejorar tu experiencia y analizar el tráfico. <a href="politica-privacidad.html">Política de Privacidad</a></span>
+  <div class="cookie-btns">
+    <button class="cookie-btn cookie-reject" onclick="dismissCookies(false)">Solo esenciales</button>
+    <button class="cookie-btn cookie-accept" onclick="dismissCookies(true)">Aceptar todo</button>
+  </div>
+</div>
+<script>
+(function(){
+  if(!localStorage.getItem('zonum_cookies')){
+    setTimeout(function(){ var b=document.getElementById('cookie-bar'); if(b) b.classList.add('visible'); }, 1200);
+  }
+})();
+function dismissCookies(a){
+  localStorage.setItem('zonum_cookies', a?'all':'essential');
+  var b=document.getElementById('cookie-bar'); if(b) b.classList.remove('visible');
+}
+</script>
+
+</body>
+</html>

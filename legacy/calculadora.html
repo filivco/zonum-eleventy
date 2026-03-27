@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Inversión Inmobiliaria · Zonum</title>
+<meta name="description" content="Calcula el ROI, valorización y flujo de caja de tu inversión inmobiliaria en Colombia. Escenarios conservador y optimista, tabla año a año.">
+<meta property="og:title" content="Calculadora de Inversión Inmobiliaria · Zonum">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://use.typekit.net/bnk2dxj.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#F2EEE6;min-height:100vh}
+:root{
+  --azul-base:#1A4F7A;--azul-noche:#0D2B44;--azul-neblina:#A8C4DC;
+  --concreto-oscuro:#3A3530;--concreto-medio:#6B6560;--piedra:#888078;
+  --lino:#F2EEE6;--blanco-calido:#F8F6F2;--oro-acento:#B8975A;
+  --color-background-primary:#F8F6F2;--color-background-secondary:#F2EEE6;
+  --color-text-primary:#3A3530;--color-text-secondary:#6B6560;--color-text-tertiary:#888078;
+  --color-border-tertiary:rgba(58,53,48,0.12);--color-border-secondary:rgba(58,53,48,0.22);
+  --border-radius-md:8px;--border-radius-lg:12px;--font-heading:'clother',sans-serif;
+}
+.topbar{background:#0D2B44;padding:6px 24px;display:flex;align-items:center;justify-content:space-between}
+.tb-left{font-size:11px;color:#A8C4DC;letter-spacing:0.05em}
+.tb-right{font-size:11px;color:#888078;display:flex;gap:16px}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--color-background-primary);border-bottom:0.5px solid var(--color-border-tertiary);position:sticky;top:0;z-index:100}
+.nav-center{display:flex;gap:20px;font-size:13px;color:var(--color-text-secondary)}
+.nav-center span{cursor:pointer}
+.nav-ctas{display:flex;gap:8px;align-items:center}
+.ncta{font-size:12px;padding:7px 14px;border-radius:var(--border-radius-md);cursor:pointer;border:0.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-primary);font-family:inherit}
+.ncta-dark{background:#3A3530;color:#fff;border-color:#3A3530}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px;background:transparent;border:none}
+.hamburger span{display:block;width:18px;height:2px;background:var(--color-text-primary);border-radius:2px}
+.mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--color-background-primary);border-bottom:0.5px solid var(--color-border-tertiary);padding:12px 20px;flex-direction:column;gap:12px;z-index:100;box-shadow:0 4px 12px rgba(0,0,0,0.08)}
+.mobile-menu.open{display:flex}
+.mobile-menu span{font-size:13px;color:var(--color-text-secondary);cursor:pointer;padding:4px 0}
+.hero{background:#0D2B44;padding:56px 28px 48px}
+.hero-inner{max-width:1200px;margin:0 auto}
+.breadcrumb{font-size:12px;color:#A8C4DC;margin-bottom:20px;display:flex;gap:6px}
+.breadcrumb a{color:#A8C4DC;text-decoration:none}
+.hero-title{font-family:var(--font-heading);font-size:36px;font-weight:500;color:#fff;margin-bottom:8px;line-height:1.2}
+.hero-sub{font-size:14px;color:#A8C4DC;line-height:1.6;max-width:580px}
+.calc-layout{max-width:1200px;margin:0 auto;padding:40px 28px;display:grid;grid-template-columns:400px 1fr;gap:28px;align-items:start}
+.input-panel{background:var(--color-background-primary);border-radius:16px;border:0.5px solid var(--color-border-tertiary);padding:28px;position:sticky;top:80px}
+.panel-title{font-family:var(--font-heading);font-size:17px;font-weight:500;color:#3A3530;margin-bottom:4px}
+.panel-sub{font-size:12px;color:#888078;margin-bottom:24px}
+.field-group{display:flex;flex-direction:column;gap:4px;margin-bottom:18px}
+.field-label{font-size:12px;font-weight:500;color:#3A3530;display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.field-label span{font-size:11px;color:#1A4F7A;font-family:var(--font-heading);font-weight:600}
+.field-select{width:100%;padding:10px 14px;border:0.5px solid var(--color-border-secondary);border-radius:8px;font-size:13px;color:#3A3530;font-family:inherit;outline:none;background:#fff;appearance:none;cursor:pointer}
+.field-select:focus{border-color:#1A4F7A}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;background:rgba(26,79,122,0.15);border-radius:999px;outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:#1A4F7A;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,0.2)}
+input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#1A4F7A;border:2px solid #fff}
+.scenario-tabs{display:flex;gap:6px;margin-bottom:16px}
+.stab{flex:1;padding:8px;border:0.5px solid var(--color-border-secondary);border-radius:8px;font-size:12px;font-weight:500;cursor:pointer;text-align:center;background:#fff;color:#6B6560;transition:all 0.15s;font-family:inherit}
+.stab.active{background:#1A4F7A;color:#fff;border-color:#1A4F7A}
+.divider{height:0.5px;background:var(--color-border-tertiary);margin:18px 0}
+.calc-btn{width:100%;background:#1A4F7A;color:#fff;border:none;border-radius:10px;padding:13px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;margin-top:6px}
+.calc-btn:hover{background:#153E61}
+.results-panel{display:flex;flex-direction:column;gap:20px}
+.summary-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.scard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:14px;padding:20px}
+.scard-label{font-size:10px;color:#888078;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;font-weight:600}
+.scard-val{font-family:var(--font-heading);font-size:24px;font-weight:500;color:#1A4F7A;line-height:1;margin-bottom:4px}
+.scard-sub{font-size:11px;color:#6B6560;line-height:1.4}
+.scard.dark{background:#0D2B44;border-color:#0D2B44}
+.scard.dark .scard-label{color:#A8C4DC}
+.scard.dark .scard-val{color:#fff}
+.scard.dark .scard-sub{color:#5A8CB5}
+.chart-panel{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:16px;padding:28px}
+.chart-title{font-family:var(--font-heading);font-size:16px;font-weight:500;color:#3A3530;margin-bottom:4px}
+.chart-sub{font-size:12px;color:#888078;margin-bottom:20px}
+.chart-legend{display:flex;gap:16px;margin-bottom:12px;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:11px;color:#6B6560}
+.legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.chart-wrap{overflow-x:auto}
+.table-panel{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:16px;overflow:hidden}
+.table-header{padding:20px 24px;border-bottom:0.5px solid var(--color-border-tertiary);display:flex;align-items:center;justify-content:space-between}
+.table-title{font-family:var(--font-heading);font-size:16px;font-weight:500;color:#3A3530}
+table{width:100%;border-collapse:collapse;font-size:12px}
+thead tr{background:#EFF4F9}
+th{padding:10px 16px;text-align:right;font-weight:600;color:#3A3530;font-size:11px;letter-spacing:0.04em;white-space:nowrap}
+th:first-child{text-align:left}
+td{padding:10px 16px;text-align:right;color:#6B6560;border-top:0.5px solid var(--color-border-tertiary)}
+td:first-child{text-align:left;color:#3A3530;font-weight:500}
+tr.total-row td{font-weight:600;color:#1A4F7A;background:#F0F6FC}
+.positive{color:#1B5E20!important;font-weight:600!important}
+.negative{color:#C0392B!important}
+.compare-strip{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:16px;padding:24px}
+.compare-title{font-family:var(--font-heading);font-size:16px;font-weight:500;color:#3A3530;margin-bottom:16px}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.compare-card{border-radius:12px;padding:20px;border:0.5px solid var(--color-border-tertiary)}
+.compare-card.cons{background:#FFF8F0;border-color:#E8DCC8}
+.compare-card.opti{background:#F0F6FC;border-color:#DDE9F4}
+.cc-label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin-bottom:14px}
+.cons .cc-label{color:#B8975A}
+.opti .cc-label{color:#1A4F7A}
+.cc-row{display:flex;justify-content:space-between;font-size:12px;padding:6px 0;border-bottom:0.5px solid rgba(58,53,48,0.08)}
+.cc-row:last-child{border-bottom:none}
+.cc-key{color:#6B6560}
+.cc-val{font-weight:600;color:#3A3530}
+@media print{.topbar,.nav,.hamburger,.mobile-menu,.wa-fab,.calc-btn,footer,button{display:none!important}.calc-layout{grid-template-columns:1fr!important}.input-panel{position:static}body{background:#fff}}
+@media(max-width:900px){.calc-layout{grid-template-columns:1fr}.input-panel{position:static}.summary-cards{grid-template-columns:1fr 1fr}.nav-center,.nav-ctas{display:none}.hamburger{display:flex}}
+@media(max-width:600px){.summary-cards{grid-template-columns:1fr}.compare-grid{grid-template-columns:1fr}}
+</style>
+
+<link rel="canonical" href="https://zonum.com/calculadora.html">
+</head>
+<body>
+
+<div class="topbar">
+  <span class="tb-left">ZONUM · HERRAMIENTA DE INVERSIÓN INMOBILIARIA</span>
+  <div class="tb-right"><span>contacto@zonum.com</span></div>
+</div>
+
+<nav class="nav">
+  <a href="zonum-app.html" style="text-decoration:none"><img src="zonum-logo-dark.svg" alt="Zonum" height="28"></a>
+  <div class="nav-center">
+    <span onclick="location.href='buscar.html'">Proyectos</span>
+    <span onclick="location.href='mapa-colombia.html'">Mapa</span>
+    <span style="color:#3A3530;font-weight:500">Calculadora</span>
+    <span style="color:#B8975A;font-weight:500" onclick="location.href='elite.html'">★ Elite</span>
+    <span onclick="location.href='sobre-zonum.html'">Nosotros</span>
+  </div>
+  <div class="nav-ctas">
+    <button class="ncta" onclick="window.print()" style="font-size:11px">⬇ Exportar PDF</button>
+    <button class="ncta ncta-dark" onclick="location.href='buscar.html'">Ver proyectos</button>
+  </div>
+  <button class="hamburger" id="hamburgerBtn"><span></span><span></span><span></span></button>
+  <div class="mobile-menu" id="mobileMenu">
+    <span onclick="location.href='buscar.html'">Proyectos</span>
+    <span onclick="location.href='mapa-colombia.html'">Mapa</span>
+    <span style="color:#3A3530;font-weight:500">Calculadora</span>
+    <span onclick="location.href='elite.html'" style="color:#B8975A">★ Elite</span>
+    <span onclick="location.href='sobre-zonum.html'">Nosotros</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="zonum-app.html">Inicio</a>
+      <span style="color:#5A8CB5;font-size:10px">›</span>
+      <span style="color:#A8C4DC">Calculadora de Inversión</span>
+    </div>
+    <h1 class="hero-title">Calculadora de retorno inmobiliario</h1>
+    <p class="hero-sub">Modela tu inversión con escenarios conservador, base y optimista. Flujo de caja año a año, break-even y valorización proyectada.</p>
+  </div>
+</div>
+
+<div style="background:#F2EEE6;padding-bottom:60px">
+<div class="calc-layout">
+
+  <!-- INPUT -->
+  <div class="input-panel">
+    <div class="panel-title">Parámetros de inversión</div>
+    <div class="panel-sub">Mueve los controles para ver los resultados en tiempo real</div>
+
+    <div class="field-group">
+      <div class="field-label">Precio del inmueble (COP) <span id="lbl-precio">$320M</span></div>
+      <input type="range" id="r-precio" min="150000000" max="2000000000" step="10000000" value="320000000" oninput="recalc()">
+    </div>
+
+    <div class="field-group">
+      <div class="field-label">Ciudad / Zona</div>
+      <select class="field-select" id="s-zona" onchange="recalc()">
+        <option value="9.2,41">Santa Marta (9.2% ROI · +41% val. 5a)</option>
+        <option value="9.1,43">El Poblado, Medellín (9.1% · +43%)</option>
+        <option value="8.9,39">Envigado, Medellín (8.9% · +39%)</option>
+        <option value="8.6,38">Laureles, Medellín (8.6% · +38%)</option>
+        <option value="10.1,47">San Andrés (10.1% · +47%)</option>
+        <option value="9.4,45">Bocagrande, Cartagena (9.4% · +45%)</option>
+        <option value="8.4,38">Envigado Premium (8.4% · +38%)</option>
+        <option value="7.8,34">Chico, Bogotá (7.8% · +34%)</option>
+        <option value="7.4,32">Chapinero, Bogotá (7.4% · +32%)</option>
+      </select>
+    </div>
+
+    <div class="field-group">
+      <div class="field-label">Cuota inicial <span id="lbl-cuota">30%</span></div>
+      <input type="range" id="r-cuota" min="10" max="100" step="5" value="30" oninput="recalc()">
+    </div>
+
+    <div class="field-group">
+      <div class="field-label">Tasa crédito (% anual) <span id="lbl-tasa">12%</span></div>
+      <input type="range" id="r-tasa" min="6" max="24" step="0.5" value="12" oninput="recalc()">
+    </div>
+
+    <div class="field-group">
+      <div class="field-label">Plazo crédito <span id="lbl-plazo">15 años</span></div>
+      <input type="range" id="r-plazo" min="5" max="30" step="1" value="15" oninput="recalc()">
+    </div>
+
+    <div class="field-group">
+      <div class="field-label">Ocupación estimada <span id="lbl-ocup">75%</span></div>
+      <input type="range" id="r-ocup" min="40" max="100" step="5" value="75" oninput="recalc()">
+    </div>
+
+    <div class="field-group">
+      <div class="field-label">Horizonte de análisis <span id="lbl-horizonte">10 años</span></div>
+      <input type="range" id="r-horizonte" min="3" max="20" step="1" value="10" oninput="recalc()">
+    </div>
+
+    <div class="divider"></div>
+
+    <div style="font-size:11px;font-weight:600;color:#3A3530;margin-bottom:8px">Escenario</div>
+    <div class="scenario-tabs">
+      <button class="stab active" data-sc="medio" onclick="setScenario('medio',this)">Base</button>
+      <button class="stab" data-sc="cons" onclick="setScenario('cons',this)">Conservador</button>
+      <button class="stab" data-sc="opti" onclick="setScenario('opti',this)">Optimista</button>
+    </div>
+    <div id="scenario-note" style="font-size:11px;color:#888078;margin-bottom:16px;line-height:1.5">Escenario base: ocupación y ROI según datos de mercado vigentes.</div>
+
+    <button class="calc-btn" onclick="recalc()">Actualizar cálculo →</button>
+    <button onclick="window.print()" style="width:100%;margin-top:8px;background:transparent;color:#1A4F7A;border:0.5px solid #1A4F7A;border-radius:10px;padding:10px;font-size:13px;font-weight:500;cursor:pointer;font-family:inherit">⬇ Exportar PDF</button>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="results-panel">
+
+    <div class="summary-cards">
+      <div class="scard">
+        <div class="scard-label">ROI bruto anual</div>
+        <div class="scard-val" id="res-roi">—</div>
+        <div class="scard-sub">Ingreso neto ÷ precio total</div>
+      </div>
+      <div class="scard">
+        <div class="scard-label">Flujo mensual neto</div>
+        <div class="scard-val" id="res-flujo">—</div>
+        <div class="scard-sub">Arriendo − cuota crédito</div>
+      </div>
+      <div class="scard dark">
+        <div class="scard-label">Valor al final del horizonte</div>
+        <div class="scard-val" id="res-valor-final">—</div>
+        <div class="scard-sub" id="res-ganancia">Ganancia sobre precio compra</div>
+      </div>
+      <div class="scard">
+        <div class="scard-label">Arriendo mensual (neto)</div>
+        <div class="scard-val" id="res-arriendo">—</div>
+        <div class="scard-sub" id="res-arr-sub">Con ocupación aplicada</div>
+      </div>
+      <div class="scard">
+        <div class="scard-label">Cuota crédito mensual</div>
+        <div class="scard-val" id="res-cuota">—</div>
+        <div class="scard-sub" id="res-cuota-sub">Sobre monto financiado</div>
+      </div>
+      <div class="scard">
+        <div class="scard-label">Break-even inversión</div>
+        <div class="scard-val" id="res-be">—</div>
+        <div class="scard-sub">Meses para recuperar cuota inicial</div>
+      </div>
+    </div>
+
+    <!-- Chart -->
+    <div class="chart-panel">
+      <div class="chart-title">Proyección año a año</div>
+      <div class="chart-sub">Valor del inmueble, ingresos y cuotas acumuladas</div>
+      <div class="chart-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#1A4F7A"></div>Valor del inmueble</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#B8975A"></div>Ingresos acumulados</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#E05C5C"></div>Cuotas acumuladas</div>
+      </div>
+      <div class="chart-wrap">
+        <svg id="chart-svg" viewBox="0 0 700 220" width="700" height="220" style="display:block;min-width:500px">
+          <defs>
+            <linearGradient id="gBlue" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1A4F7A" stop-opacity="0.15"/><stop offset="100%" stop-color="#1A4F7A" stop-opacity="0"/></linearGradient>
+            <linearGradient id="gGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#B8975A" stop-opacity="0.12"/><stop offset="100%" stop-color="#B8975A" stop-opacity="0"/></linearGradient>
+          </defs>
+          <g id="chart-grid"></g><g id="chart-areas"></g><g id="chart-lines"></g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="table-panel">
+      <div class="table-header">
+        <div class="table-title">Tabla año a año</div>
+        <span style="font-size:11px;color:#888078">Valores en COP</span>
+      </div>
+      <div style="overflow-x:auto">
+        <table>
+          <thead><tr>
+            <th>Año</th><th>Valor inmueble</th><th>Arriendo anual</th><th>Cuotas anuales</th><th>Flujo neto</th><th>Retorno acum.</th>
+          </tr></thead>
+          <tbody id="tbl-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Comparison -->
+    <div class="compare-strip">
+      <div class="compare-title">Comparación de escenarios a 10 años</div>
+      <div class="compare-grid">
+        <div class="compare-card cons">
+          <div class="cc-label">⚠ Conservador −20%</div>
+          <div class="cc-row"><span class="cc-key">ROI anual</span><span class="cc-val" id="c-cons-roi">—</span></div>
+          <div class="cc-row"><span class="cc-key">Arriendo/mes</span><span class="cc-val" id="c-cons-arr">—</span></div>
+          <div class="cc-row"><span class="cc-key">Valor a 10 años</span><span class="cc-val" id="c-cons-val">—</span></div>
+          <div class="cc-row"><span class="cc-key">Flujo/mes</span><span class="cc-val" id="c-cons-flujo">—</span></div>
+        </div>
+        <div class="compare-card opti">
+          <div class="cc-label">✦ Optimista +20%</div>
+          <div class="cc-row"><span class="cc-key">ROI anual</span><span class="cc-val" id="c-opti-roi">—</span></div>
+          <div class="cc-row"><span class="cc-key">Arriendo/mes</span><span class="cc-val" id="c-opti-arr">—</span></div>
+          <div class="cc-row"><span class="cc-key">Valor a 10 años</span><span class="cc-val" id="c-opti-val">—</span></div>
+          <div class="cc-row"><span class="cc-key">Flujo/mes</span><span class="cc-val" id="c-opti-flujo">—</span></div>
+        </div>
+      </div>
+      <p style="font-size:11px;color:#888078;margin-top:16px;line-height:1.5">Estimaciones educativas basadas en promedios históricos del mercado colombiano. No constituyen garantía de rentabilidad.</p>
+    </div>
+
+    <!-- CTA -->
+    <div style="background:#0D2B44;border-radius:16px;padding:32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+      <div>
+        <div style="font-family:var(--font-heading);font-size:18px;color:#fff;margin-bottom:6px">¿Los números te convencen?</div>
+        <p style="font-size:13px;color:#A8C4DC;line-height:1.5">Busca proyectos verificados con ese perfil de retorno o habla con un asesor Zonum.</p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button onclick="location.href='buscar.html'" style="background:#B8975A;color:#fff;border:none;border-radius:8px;padding:11px 20px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap">Ver proyectos →</button>
+        <button onclick="location.href='comparar.html'" style="background:transparent;color:#A8C4DC;border:0.5px solid rgba(168,196,220,0.4);border-radius:8px;padding:11px 20px;font-size:13px;cursor:pointer;font-family:inherit;white-space:nowrap">Comparar proyectos</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<div id="zonum-footer"></div>
+<script src="footer.js"></script>
+
+<style>
+.wa-fab{position:fixed;bottom:28px;right:24px;z-index:400;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.wa-btn{width:52px;height:52px;border-radius:50%;background:#25D366;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.45);transition:transform .2s}
+.wa-btn:hover{transform:scale(1.08)}
+.wa-popup{display:none;background:#fff;border-radius:14px;box-shadow:0 8px 32px rgba(0,0,0,.14);padding:16px;width:240px;border:.5px solid rgba(58,53,48,0.12)}
+.wa-popup.open{display:block}
+.wa-popup-title{font-size:13px;font-weight:600;color:#3A3530;margin-bottom:4px}
+.wa-popup-sub{font-size:11px;color:#6B6560;margin-bottom:12px;line-height:1.5}
+.wa-popup-btn{display:block;width:100%;padding:9px;background:#25D366;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;font-family:inherit}
+.wa-close-row{display:flex;justify-content:flex-end;margin-bottom:6px}
+.wa-close{font-size:14px;color:#888078;cursor:pointer;background:none;border:none;padding:0}
+</style>
+<div class="wa-fab">
+  <div class="wa-popup" id="wa-popup">
+    <div class="wa-close-row"><button class="wa-close" onclick="document.getElementById('wa-popup').classList.remove('open')">✕</button></div>
+    <div class="wa-popup-title">¿Dudas con los números?</div>
+    <div class="wa-popup-sub">Un asesor Zonum te explica el cálculo en minutos.</div>
+    <a class="wa-popup-btn" href="https://wa.me/576013214567?text=Hola%2C+usé+la+calculadora+de+Zonum+y+tengo+preguntas" target="_blank" rel="noopener">Chatear ahora →</a>
+  </div>
+  <button class="wa-btn" onclick="document.getElementById('wa-popup').classList.toggle('open')" aria-label="WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M13 2C7.477 2 3 6.477 3 12c0 1.89.525 3.656 1.438 5.163L3 23l5.988-1.413A9.953 9.953 0 0013 22c5.523 0 10-4.477 10-10S18.523 2 13 2z" fill="white"/><path d="M9.5 9.5c.2-.5.7-1.5 1.5-1.5.3 0 .5.1.7.3l1 2c.1.3 0 .6-.2.8l-.5.5c.4.8 1.4 1.8 2.2 2.2l.5-.5c.2-.2.5-.3.8-.2l2 1c.2.1.3.4.3.7 0 .8-1 1.3-1.5 1.5C14 17 10 14 9.5 9.5z" fill="#25D366"/></svg>
+  </button>
+</div>
+
+<script>
+(function(){
+  /* Nav */
+  var hBtn=document.getElementById('hamburgerBtn'), mMenu=document.getElementById('mobileMenu');
+  if(hBtn) hBtn.addEventListener('click',function(e){e.stopPropagation();mMenu.classList.toggle('open');});
+  document.addEventListener('click',function(e){if(mMenu&&!mMenu.contains(e.target)&&e.target!==hBtn)mMenu.classList.remove('open');});
+
+  var SCENARIO={medio:1,cons:0.8,opti:1.2};
+  var NOTES={
+    medio:'Escenario base: ocupación y ROI según datos de mercado vigentes.',
+    cons:'Conservador: −20% en arriendo y valorización. Para análisis de riesgo.',
+    opti:'Optimista: +20% en arriendo y valorización. Mercado favorable sostenido.'
+  };
+  var curSc='medio';
+
+  function fmt(n){
+    var s=n<0?'-':'';var a=Math.abs(n);
+    if(a>=1e9)return s+'$'+(a/1e9).toFixed(2)+'B';
+    if(a>=1e6)return s+'$'+(a/1e6).toFixed(1)+'M';
+    return s+'$'+Math.round(a).toLocaleString('es-CO');
+  }
+  function pct(n){return n.toFixed(1)+'%';}
+
+  function inputs(){
+    return{
+      precio:    +document.getElementById('r-precio').value,
+      cuotaPct:  +document.getElementById('r-cuota').value/100,
+      tasa:      +document.getElementById('r-tasa').value/100,
+      plazo:     +document.getElementById('r-plazo').value,
+      ocup:      +document.getElementById('r-ocup').value/100,
+      horizonte: +document.getElementById('r-horizonte').value,
+      roi:       parseFloat(document.getElementById('s-zona').value.split(',')[0])/100,
+      val5pct:   parseFloat(document.getElementById('s-zona').value.split(',')[1])/100
+    };
+  }
+
+  function updateLabels(p){
+    document.getElementById('lbl-precio').textContent=fmt(p.precio);
+    document.getElementById('lbl-cuota').textContent=Math.round(p.cuotaPct*100)+'%';
+    document.getElementById('lbl-tasa').textContent=(p.tasa*100).toFixed(1)+'%';
+    document.getElementById('lbl-plazo').textContent=p.plazo+' años';
+    document.getElementById('lbl-ocup').textContent=Math.round(p.ocup*100)+'%';
+    document.getElementById('lbl-horizonte').textContent=p.horizonte+' años';
+  }
+
+  window.setScenario=function(sc,btn){
+    curSc=sc;
+    document.querySelectorAll('.stab').forEach(function(b){b.classList.remove('active');});
+    btn.classList.add('active');
+    document.getElementById('scenario-note').textContent=NOTES[sc];
+    recalc();
+  };
+
+  window.recalc=function(){
+    var p=inputs(); updateLabels(p);
+    var m=SCENARIO[curSc];
+    var credito=p.precio*(1-p.cuotaPct);
+    var cuotaInicial=p.precio*p.cuotaPct;
+    var tasaMes=p.tasa/12;
+    var nMes=p.plazo*12;
+    var cuotaMes=credito>0&&tasaMes>0?credito*(tasaMes*Math.pow(1+tasaMes,nMes))/(Math.pow(1+tasaMes,nMes)-1):credito/nMes;
+    var arrBruto=(p.precio*p.roi*m)/12;
+    var arrNeto=arrBruto*p.ocup;
+    var flujo=arrNeto-cuotaMes;
+    var roiBruto=(arrNeto*12)/p.precio;
+    var valAnual=Math.pow(1+p.val5pct*m,0.2)-1;
+    var valorFinal=p.precio*Math.pow(1+valAnual,p.horizonte);
+
+    /* Break-even */
+    var be=0,acc=0;
+    for(var i=1;i<=nMes;i++){acc+=flujo;if(acc>=cuotaInicial){be=i;break;}}
+
+    document.getElementById('res-roi').textContent=pct(roiBruto*100);
+    document.getElementById('res-flujo').textContent=fmt(flujo)+'/mes';
+    document.getElementById('res-valor-final').textContent=fmt(valorFinal);
+    document.getElementById('res-ganancia').textContent='Ganancia: '+fmt(valorFinal-p.precio);
+    document.getElementById('res-arriendo').textContent=fmt(arrNeto)+'/mes';
+    document.getElementById('res-arr-sub').textContent='Con '+Math.round(p.ocup*100)+'% ocupación';
+    document.getElementById('res-cuota').textContent=fmt(cuotaMes)+'/mes';
+    document.getElementById('res-cuota-sub').textContent='Financiado '+Math.round((1-p.cuotaPct)*100)+'% ('+fmt(credito)+')';
+    document.getElementById('res-be').textContent=be>0?be+' meses':'>'+p.plazo*12+'m';
+
+    buildTable(p,cuotaMes,arrNeto,valAnual);
+    buildChart(p,cuotaMes,arrNeto,valAnual);
+    buildComparisons(p,cuotaMes);
+  };
+
+  function buildTable(p,cuotaMes,arrNeto,valAnual){
+    var tb=document.getElementById('tbl-body'); tb.innerHTML='';
+    var acArr=0,acCuota=0;
+    for(var y=1;y<=p.horizonte;y++){
+      var vY=p.precio*Math.pow(1+valAnual,y);
+      var aY=arrNeto*12; var cY=cuotaMes*12;
+      var fY=aY-cY; acArr+=aY; acCuota+=cY;
+      var ret=((acArr+(vY-p.precio))/(p.precio*p.cuotaPct)*100);
+      var tr=document.createElement('tr');
+      if(y===p.horizonte) tr.className='total-row';
+      tr.innerHTML='<td>Año '+y+'</td><td>'+fmt(vY)+'</td><td>'+fmt(aY)+'</td><td>'+fmt(cY)+'</td>'+
+        '<td class="'+(fY>=0?'positive':'negative')+'">'+fmt(fY)+'</td>'+
+        '<td class="positive">'+ret.toFixed(1)+'%</td>';
+      tb.appendChild(tr);
+    }
+  }
+
+  function buildChart(p,cuotaMes,arrNeto,valAnual){
+    var W=700,H=220,pL=70,pR=20,pT=16,pB=32;
+    var iW=W-pL-pR,iH=H-pT-pB;
+    var vals=[],arrs=[],cuotas=[];
+    var aArr=0,aCuota=0;
+    for(var y=0;y<=p.horizonte;y++){
+      vals.push(p.precio*Math.pow(1+valAnual,y));
+      aArr+=arrNeto*12; aCuota+=cuotaMes*12;
+      arrs.push(y===0?0:aArr);
+      cuotas.push(y===0?0:aCuota);
+    }
+    var maxV=Math.max.apply(null,vals.concat(arrs));
+    var sc=function(v){return pT+iH-(v/maxV)*iH;};
+    var sx=function(i){return pL+i/p.horizonte*iW;};
+    var g=document.getElementById('chart-grid'); g.innerHTML='';
+    for(var k=0;k<=4;k++){
+      var yv=maxV*k/4; var yp=sc(yv);
+      var ln=document.createElementNS('http://www.w3.org/2000/svg','line');
+      ln.setAttribute('x1',pL);ln.setAttribute('x2',W-pR);ln.setAttribute('y1',yp);ln.setAttribute('y2',yp);
+      ln.setAttribute('stroke','rgba(58,53,48,0.07)');ln.setAttribute('stroke-width','1');g.appendChild(ln);
+      var t=document.createElementNS('http://www.w3.org/2000/svg','text');
+      t.setAttribute('x',pL-5);t.setAttribute('y',yp+3);t.setAttribute('text-anchor','end');
+      t.setAttribute('font-size','8.5');t.setAttribute('fill','#888078');
+      t.textContent=fmt(yv).replace('$',''); g.appendChild(t);
+    }
+    for(var xi=0;xi<=p.horizonte;xi+=Math.max(1,Math.floor(p.horizonte/5))){
+      var xt=document.createElementNS('http://www.w3.org/2000/svg','text');
+      xt.setAttribute('x',sx(xi));xt.setAttribute('y',H-4);
+      xt.setAttribute('text-anchor','middle');xt.setAttribute('font-size','9');xt.setAttribute('fill','#888078');
+      xt.textContent=xi===0?'Hoy':'Año '+xi; g.appendChild(xt);
+    }
+    function mkPath(data,stroke,sw,fill,fillId){
+      var d=data.map(function(v,i){return(i===0?'M':'L')+sx(i)+','+sc(v);}).join(' ');
+      var path=document.createElementNS('http://www.w3.org/2000/svg','path');
+      path.setAttribute('d',d);path.setAttribute('stroke',stroke);path.setAttribute('stroke-width',sw);
+      path.setAttribute('fill',fill||'none');path.setAttribute('stroke-linecap','round');
+      return path;
+    }
+    function mkArea(data,fillId){
+      var d=data.map(function(v,i){return(i===0?'M':'L')+sx(i)+','+sc(v);}).join(' ')+' L'+sx(data.length-1)+','+(pT+iH)+' L'+pL+','+(pT+iH)+' Z';
+      var path=document.createElementNS('http://www.w3.org/2000/svg','path');
+      path.setAttribute('d',d);path.setAttribute('fill','url(#'+fillId+')');path.setAttribute('stroke','none');
+      return path;
+    }
+    var aG=document.getElementById('chart-areas'); aG.innerHTML='';
+    aG.appendChild(mkArea(vals,'gBlue'));
+    aG.appendChild(mkArea(arrs,'gGold'));
+    var lG=document.getElementById('chart-lines'); lG.innerHTML='';
+    lG.appendChild(mkPath(vals,'#1A4F7A',2));
+    lG.appendChild(mkPath(arrs,'#B8975A',1.5));
+    lG.appendChild(mkPath(cuotas,'#E05C5C',1.5));
+  }
+
+  function buildComparisons(p,cuotaMes){
+    [[0.8,'cons'],[1.2,'opti']].forEach(function(pair){
+      var m=pair[0],px=pair[1];
+      var arr=(p.precio*p.roi*m/12)*p.ocup;
+      var fl=arr-cuotaMes;
+      var vA=Math.pow(1+p.val5pct*m,0.2)-1;
+      var v10=p.precio*Math.pow(1+vA,10);
+      document.getElementById('c-'+px+'-roi').textContent=pct((arr*12/p.precio)*100);
+      document.getElementById('c-'+px+'-arr').textContent=fmt(arr)+'/mes';
+      document.getElementById('c-'+px+'-val').textContent=fmt(v10);
+      document.getElementById('c-'+px+'-flujo').textContent=fmt(fl)+'/mes';
+    });
+  }
+
+  recalc();
+})();
+</script>
+<!-- COOKIE BANNER -->
+<style>
+.cookie-bar{position:fixed;bottom:0;left:0;right:0;background:#2D2820;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;z-index:500;transform:translateY(100%);transition:transform 0.4s;flex-wrap:wrap}
+.cookie-bar.visible{transform:translateY(0)}
+.cookie-text{font-size:12px;color:#C8B89A;line-height:1.5;flex:1;min-width:200px}
+.cookie-text a{color:#B8975A;text-decoration:underline}
+.cookie-btns{display:flex;gap:8px;flex-shrink:0}
+.cookie-btn{font-size:12px;padding:7px 16px;border-radius:6px;cursor:pointer;font-family:inherit;font-weight:500;border:none}
+.cookie-accept{background:#1A4F7A;color:#fff}
+.cookie-reject{background:transparent;color:#888078;border:0.5px solid rgba(200,184,154,0.3)!important}
+</style>
+<div class="cookie-bar" id="cookie-bar">
+  <span class="cookie-text">Usamos cookies para mejorar tu experiencia y analizar el tráfico. <a href="politica-privacidad.html">Política de Privacidad</a></span>
+  <div class="cookie-btns">
+    <button class="cookie-btn cookie-reject" onclick="dismissCookies(false)">Solo esenciales</button>
+    <button class="cookie-btn cookie-accept" onclick="dismissCookies(true)">Aceptar todo</button>
+  </div>
+</div>
+<script>
+(function(){
+  if(!localStorage.getItem('zonum_cookies')){
+    setTimeout(function(){ var b=document.getElementById('cookie-bar'); if(b) b.classList.add('visible'); }, 1200);
+  }
+})();
+function dismissCookies(a){
+  localStorage.setItem('zonum_cookies', a?'all':'essential');
+  var b=document.getElementById('cookie-bar'); if(b) b.classList.remove('visible');
+}
+</script>
+
+</body>
+</html>

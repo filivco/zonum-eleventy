@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página no encontrada — Zonum</title>
+<link rel="stylesheet" href="https://use.typekit.net/bnk2dxj.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#F2EEE6;min-height:100vh;display:flex;flex-direction:column}
+:root{
+  --azul-base:#1A4F7A;--azul-claro:#5A8CB5;--fondo-azul:#DDE9F4;
+  --azul-noche:#0D2B44;--azul-neblina:#A8C4DC;
+  --concreto-oscuro:#3A3530;--concreto-medio:#6B6560;--piedra:#888078;
+  --blanco-calido:#F8F6F2;--lino:#F2EEE6;
+  --oro-acento:#B8975A;--champagne:#F2E8D0;--oro-oscuro:#7A5C1E;
+  --b1:rgba(58,53,48,0.12);--b2:rgba(58,53,48,0.22);
+  --r8:8px;--r12:12px;--r16:16px;
+  --color-background-primary:#F8F6F2;--color-background-secondary:#F2EEE6;
+  --color-text-primary:#3A3530;--color-text-secondary:#6B6560;
+  --color-text-tertiary:#888078;
+  --color-border-tertiary:rgba(58,53,48,0.12);--color-border-secondary:rgba(58,53,48,0.22);
+  --border-radius-md:8px;--border-radius-lg:12px;--border-radius-xl:16px;
+  --font-heading:'clother',sans-serif;
+}
+
+/* TOPBAR */
+.topbar{background:#0D2B44;padding:6px 24px;display:flex;align-items:center;justify-content:space-between}
+.tb-left{font-size:11px;color:#A8C4DC;letter-spacing:.05em}
+.tb-right{font-size:11px;color:#888078;display:flex;gap:16px}
+
+/* NAV */
+.nav{background:var(--color-background-primary);border-bottom:.5px solid var(--color-border-tertiary);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-center{display:flex;gap:20px;font-size:13px;color:var(--color-text-secondary)}
+.nav-center span{cursor:pointer}
+.nav-ctas{display:flex;gap:8px}
+.ncta{font-size:12px;padding:7px 14px;border-radius:var(--r8);cursor:pointer;border:.5px solid var(--b2);background:transparent;color:var(--color-text-primary)}
+.ncta-dark{background:#3A3530;color:#fff;border-color:#3A3530}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px;background:transparent;border:none}
+.hamburger span{display:block;width:18px;height:2px;background:var(--color-text-primary);border-radius:2px}
+@media(max-width:768px){.nav-center{display:none}.hamburger{display:flex}}
+
+/* HERO 404 */
+.hero-404{flex:1;display:flex;align-items:center;justify-content:center;padding:60px 20px;text-align:center}
+.hero-inner{max-width:560px;width:100%}
+.big-num{font-family:var(--font-heading);font-size:120px;font-weight:700;color:var(--azul-noche);line-height:1;letter-spacing:-4px;opacity:.12;user-select:none;position:absolute}
+.icon-wrap{position:relative;width:100px;height:100px;margin:0 auto 32px;display:flex;align-items:center;justify-content:center}
+.icon-bg{width:80px;height:80px;border-radius:50%;background:var(--fondo-azul);display:flex;align-items:center;justify-content:center}
+.icon-bg svg{width:36px;height:36px}
+.error-code{font-size:12px;font-weight:600;color:var(--azul-base);text-transform:uppercase;letter-spacing:.12em;margin-bottom:12px}
+.error-title{font-family:var(--font-heading);font-size:32px;font-weight:700;color:var(--concreto-oscuro);line-height:1.2;margin-bottom:16px}
+.error-desc{font-size:15px;color:var(--concreto-medio);line-height:1.7;margin-bottom:32px}
+
+/* Search bar */
+.search-bar{display:flex;align-items:center;background:var(--blanco-calido);border:.5px solid var(--b2);border-radius:var(--r8);padding:0 16px;margin-bottom:24px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.search-bar input{flex:1;border:none;outline:none;font-size:14px;color:var(--color-text-primary);font-family:inherit;height:48px;background:transparent}
+.search-bar button{background:var(--azul-base);color:#fff;border:none;border-radius:6px;padding:8px 16px;font-size:13px;cursor:pointer;font-family:inherit;font-weight:500}
+.search-bar button:hover{background:var(--azul-noche)}
+
+/* Quick links */
+.ql-label{font-size:11px;color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.ql-pills{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:40px}
+.ql-pill{font-size:12px;padding:6px 14px;border-radius:999px;border:.5px solid var(--b2);color:var(--color-text-secondary);cursor:pointer;background:var(--blanco-calido);transition:all .15s;text-decoration:none;display:inline-block}
+.ql-pill:hover{border-color:var(--azul-base);color:var(--azul-base);background:var(--fondo-azul)}
+
+/* CTA buttons */
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-primary{padding:12px 24px;background:var(--azul-base);color:#fff;border:none;border-radius:var(--r8);font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-family:inherit;transition:background .15s}
+.btn-primary:hover{background:var(--azul-noche)}
+.btn-secondary{padding:12px 24px;background:transparent;color:var(--color-text-primary);border:.5px solid var(--b2);border-radius:var(--r8);font-size:14px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-family:inherit;transition:all .15s}
+.btn-secondary:hover{border-color:var(--color-text-primary)}
+
+/* Suggestions grid */
+.suggestions{max-width:1100px;margin:0 auto;padding:0 20px 60px}
+.sug-title{font-family:var(--font-heading);font-size:18px;font-weight:600;color:var(--concreto-oscuro);text-align:center;margin-bottom:20px}
+.sug-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.sug-card{background:var(--blanco-calido);border:.5px solid var(--b1);border-radius:var(--r12);overflow:hidden;cursor:pointer;transition:box-shadow .2s;text-decoration:none;display:block}
+.sug-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.sug-img{height:120px;overflow:hidden;position:relative}
+.sug-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.sug-card:hover .sug-img img{transform:scale(1.04)}
+.sug-badge{position:absolute;top:8px;left:8px;font-size:10px;padding:3px 8px;border-radius:var(--r8);font-weight:500;background:var(--fondo-azul);color:var(--azul-noche)}
+.sug-body{padding:12px 14px}
+.sug-price{font-size:14px;font-weight:600;color:var(--concreto-oscuro);font-family:var(--font-heading)}
+.sug-name{font-size:12px;color:var(--concreto-oscuro);margin:2px 0}
+.sug-loc{font-size:11px;color:var(--concreto-medio);margin-bottom:6px}
+.sug-roi{display:inline-flex;align-items:center;gap:3px;font-size:10px;background:var(--champagne);color:var(--oro-oscuro);padding:2px 6px;border-radius:999px}
+
+@media(max-width:768px){
+  .sug-grid{grid-template-columns:1fr 1fr}
+  .error-title{font-size:24px}
+  .big-num{font-size:80px}
+}
+@media(max-width:500px){
+  .sug-grid{grid-template-columns:1fr}
+}
+
+/* Footer */
+.footer-bar{background:var(--color-background-secondary);border-top:.5px solid var(--color-border-tertiary);display:flex;align-items:center;justify-content:space-between;padding:14px 28px;flex-wrap:wrap;gap:10px}
+</style>
+
+<link rel="canonical" href="https://zonum.com/404.html">
+<meta property="og:title" content="Página no encontrada · Zonum">
+<meta property="og:description" content="La página que buscas no existe. Explora los proyectos verificados en Colombia, el Caribe y Miami.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1200&q=80">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <span class="tb-left">Zonum · Proyectos curados en Colombia</span>
+  <div class="tb-right">
+    <span>+57 601 321 4567</span>
+    <span>|</span>
+    <span>contacto@zonum.com</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="zonum-app.html" class="logo">
+    <img src="zonum-logo-dark.svg" alt="Zonum" height="28" style="display:block">
+  </a>
+  <div class="nav-center">
+    <span onclick="location.href='buscar.html'">Explorar</span>
+    <span onclick="location.href='medellin.html'">Ciudades</span>
+    <span onclick="location.href='elite.html'">Elite</span>
+    <span onclick="location.href='insights-medellin-valorizacion.html'">Insights</span>
+    <span onclick="location.href='sobre-zonum.html'">Sobre Zonum</span>
+  </div>
+  <div class="nav-ctas">
+    <button class="ncta">Iniciar sesión</button>
+    <button class="ncta ncta-dark" onclick="location.href='buscar.html'">Ver proyectos</button>
+  </div>
+  <button class="hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO 404 -->
+<div class="hero-404">
+  <div class="hero-inner">
+    <div class="error-code">Error 404</div>
+    <div class="icon-wrap">
+      <div class="icon-bg">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 28L17 8l12 20H5z" stroke="#1A4F7A" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M17 15v6M17 23.5v1" stroke="#1A4F7A" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+    <h1 class="error-title">Página no encontrada</h1>
+    <p class="error-desc">El proyecto o la página que buscas no existe, fue movida o el enlace puede estar desactualizado. Prueba con una búsqueda o explora nuestros proyectos curados.</p>
+
+    <!-- Search -->
+    <div class="search-bar">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;margin-right:10px;color:#888078"><circle cx="7" cy="7" r="4.5" stroke="#888078" stroke-width="1.4"/><path d="M10.5 10.5L14 14" stroke="#888078" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <input type="text" placeholder="Busca proyectos por ciudad, barrio o nombre…" id="search-input" onkeydown="handleSearch(event)">
+      <button onclick="doSearch()">Buscar</button>
+    </div>
+
+    <!-- Quick links -->
+    <div class="ql-label">Búsquedas frecuentes</div>
+    <div class="ql-pills">
+      <a class="ql-pill" href="medellin.html">Medellín</a>
+      <a class="ql-pill" href="buscar.html">Santa Marta</a>
+      <a class="ql-pill" href="buscar.html">Cartagena</a>
+      <a class="ql-pill" href="buscar.html">Bogotá</a>
+      <a class="ql-pill" href="elite.html">Luxury</a>
+      <a class="ql-pill" href="calculadora.html">Calcular rentabilidad</a>
+      <a class="ql-pill" href="comparar.html">Comparar proyectos</a>
+    </div>
+
+    <div class="cta-row">
+      <a href="zonum-app.html" class="btn-primary">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Ir al inicio
+      </a>
+      <a href="buscar.html" class="btn-secondary">
+        Ver todos los proyectos
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- SUGGESTIONS -->
+<div class="suggestions">
+  <div class="sug-title">Proyectos que te podrían interesar</div>
+  <div class="sug-grid">
+    <a href="kashi-santa-marta.html" class="sug-card">
+      <div class="sug-img">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&q=70" alt="Kashi Santa Marta">
+        <div class="sug-badge">Curado</div>
+      </div>
+      <div class="sug-body">
+        <div class="sug-price">$890.000.000</div>
+        <div class="sug-name">Kashi Santa Marta</div>
+        <div class="sug-loc">📍 Taganga, Santa Marta</div>
+        <div class="sug-roi">↑ 14.8% ROI estimado</div>
+      </div>
+    </a>
+    <a href="alma-luxury-lofts.html" class="sug-card">
+      <div class="sug-img">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=70" alt="Alma Luxury Lofts">
+        <div class="sug-badge" style="background:var(--champagne);color:var(--oro-oscuro)">★ Luxury</div>
+      </div>
+      <div class="sug-body">
+        <div class="sug-price">$1.280.000.000</div>
+        <div class="sug-name">Alma Luxury Lofts</div>
+        <div class="sug-loc">📍 El Poblado, Medellín</div>
+        <div class="sug-roi">↑ 12.4% ROI estimado</div>
+      </div>
+    </a>
+    <a href="buscar.html" class="sug-card">
+      <div class="sug-img">
+        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=400&q=70" alt="Proyectos Bogotá">
+        <div class="sug-badge">Nuevo</div>
+      </div>
+      <div class="sug-body">
+        <div class="sug-price">$620.000.000</div>
+        <div class="sug-name">Reserva 90 · Bogotá</div>
+        <div class="sug-loc">📍 Chico, Bogotá</div>
+        <div class="sug-roi">↑ 10.2% ROI estimado</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER BAR -->
+<div id="zonum-footer"></div>
+<script src="footer.js"></script>
+
+<script>
+function handleSearch(e) {
+  if(e.key === 'Enter') doSearch();
+}
+function doSearch() {
+  const q = document.getElementById('search-input').value.trim();
+  if(q) {
+    // In production this would go to a search results page
+    location.href = 'buscar.html';
+  }
+}
+</script>
+<!-- COOKIE BANNER -->
+<style>
+.cookie-bar{position:fixed;bottom:0;left:0;right:0;background:#2D2820;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;z-index:500;transform:translateY(100%);transition:transform 0.4s;flex-wrap:wrap}
+.cookie-bar.visible{transform:translateY(0)}
+.cookie-text{font-size:12px;color:#C8B89A;line-height:1.5;flex:1;min-width:200px}
+.cookie-text a{color:#B8975A;text-decoration:underline}
+.cookie-btns{display:flex;gap:8px;flex-shrink:0}
+.cookie-btn{font-size:12px;padding:7px 16px;border-radius:6px;cursor:pointer;font-family:inherit;font-weight:500;border:none}
+.cookie-accept{background:#1A4F7A;color:#fff}
+.cookie-reject{background:transparent;color:#888078;border:0.5px solid rgba(200,184,154,0.3)!important}
+</style>
+<div class="cookie-bar" id="cookie-bar">
+  <span class="cookie-text">Usamos cookies para mejorar tu experiencia y analizar el tráfico. <a href="politica-privacidad.html">Política de Privacidad</a></span>
+  <div class="cookie-btns">
+    <button class="cookie-btn cookie-reject" onclick="dismissCookies(false)">Solo esenciales</button>
+    <button class="cookie-btn cookie-accept" onclick="dismissCookies(true)">Aceptar todo</button>
+  </div>
+</div>
+<script>
+(function(){
+  if(!localStorage.getItem('zonum_cookies')){
+    setTimeout(function(){ var b=document.getElementById('cookie-bar'); if(b) b.classList.add('visible'); }, 1200);
+  }
+})();
+function dismissCookies(a){
+  localStorage.setItem('zonum_cookies', a?'all':'essential');
+  var b=document.getElementById('cookie-bar'); if(b) b.classList.remove('visible');
+}
+</script>
+
+<!-- WHATSAPP FAB -->
+<style>
+.wa-fab{position:fixed;bottom:28px;right:24px;z-index:400;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.wa-btn{width:52px;height:52px;border-radius:50%;background:#25D366;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.45);transition:transform .2s}
+.wa-btn:hover{transform:scale(1.08)}
+.wa-popup{display:none;background:#fff;border-radius:14px;box-shadow:0 8px 32px rgba(0,0,0,.14);padding:16px;width:240px;border:.5px solid rgba(58,53,48,0.12)}
+.wa-popup.open{display:block}
+.wa-popup-title{font-size:13px;font-weight:600;color:#3A3530;margin-bottom:4px}
+.wa-popup-sub{font-size:11px;color:#6B6560;margin-bottom:12px;line-height:1.5}
+.wa-popup-btn{display:block;width:100%;padding:9px;background:#25D366;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;font-family:inherit}
+.wa-close-row{display:flex;justify-content:flex-end;margin-bottom:6px}
+.wa-close{font-size:14px;color:#888078;cursor:pointer;background:none;border:none;padding:0}
+</style>
+<div class="wa-fab">
+  <div class="wa-popup" id="wa-popup">
+    <div class="wa-close-row"><button class="wa-close" onclick="document.getElementById('wa-popup').classList.remove('open')">✕</button></div>
+    <div class="wa-popup-title">¿Tienes preguntas?</div>
+    <div class="wa-popup-sub">Un asesor Zonum responde en menos de 10 minutos.</div>
+    <a class="wa-popup-btn" href="https://wa.me/576013214567?text=Hola%2C+quiero+saber+m%C3%A1s+sobre+Zonum" target="_blank" rel="noopener">Chatear ahora →</a>
+  </div>
+  <button class="wa-btn" onclick="document.getElementById('wa-popup').classList.toggle('open')" aria-label="WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M13 2C7.477 2 3 6.477 3 12c0 1.89.525 3.656 1.438 5.163L3 23l5.988-1.413A9.953 9.953 0 0013 22c5.523 0 10-4.477 10-10S18.523 2 13 2z" fill="white"/><path d="M9.5 9.5c.2-.5.7-1.5 1.5-1.5.3 0 .5.1.7.3l1 2c.1.3 0 .6-.2.8l-.5.5c.4.8 1.4 1.8 2.2 2.2l.5-.5c.2-.2.5-.3.8-.2l2 1c.2.1.3.4.3.7 0 .8-1 1.3-1.5 1.5C14 17 10 14 9.5 9.5z" fill="#25D366"/></svg>
+  </button>
+</div>
+
+</body>
+</html>

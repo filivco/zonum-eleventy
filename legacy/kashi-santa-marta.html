@@ -1,0 +1,1955 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kashi Santa Marta — Zonum</title>
+<meta name="description" content="Proyecto residencial frente al mar en Taganga, Santa Marta. Desde $320M COP. ROI estimado 14.8%. Verificado por Zonum.">
+<meta property="og:title" content="Kashi Santa Marta — Proyecto curado por Zonum">
+<meta property="og:description" content="Apartamentos frente al mar en Taganga. Desde $320M COP · 14.8% ROI estimado · Entrega 2026.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://use.typekit.net/bnk2dxj.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f4f3ef;min-height:100vh}
+:root{
+  /* ── Línea Normal ── */
+  --azul-base:#1A4F7A;
+  --azul-claro:#5A8CB5;
+  --fondo-azul:#DDE9F4;
+  --azul-noche:#0D2B44;
+  --azul-neblina:#A8C4DC;
+  --superficie:#EFF4F9;
+  /* ── Compartidos ── */
+  --arena:#E8DCC8;
+  --arena-media:#C8B89A;
+  --concreto-oscuro:#3A3530;
+  --concreto-medio:#6B6560;
+  --piedra:#888078;
+  --blanco-calido:#F8F6F2;
+  --lino:#F2EEE6;
+  /* ── Línea Concierge ── */
+  --oro-oscuro:#7A5C1E;
+  --oro-acento:#B8975A;
+  --champagne:#F2E8D0;
+  --fondo-premium:#FAF5EA;
+  --oro-palido:#D4AA6A;
+  --bronce:#A89070;
+  --ebano:#161210;
+  --nogal:#241C0E;
+  --pergamino:#E4DDD0;
+  /* ── Aliases internos ── */
+  --green:#1A4F7A;--green-light:#DDE9F4;--green-dark:#0D2B44;
+  --dark:#3A3530;--gold:#B8975A;
+  --bg:#F2EEE6;--white:#F8F6F2;
+  --t1:#3A3530;--t2:#6B6560;--t3:#888078;
+  --b1:rgba(58,53,48,0.12);--b2:rgba(58,53,48,0.22);
+  --r8:8px;--r12:12px;--r16:16px;
+  /* ── Compat zonum-app ── */
+  --color-background-primary:#F8F6F2;
+  --color-background-secondary:#F2EEE6;
+  --color-text-primary:#3A3530;
+  --color-text-secondary:#6B6560;
+  --color-text-tertiary:#888078;
+  --color-border-tertiary:rgba(58,53,48,0.12);
+  --color-border-secondary:rgba(58,53,48,0.22);
+  --border-radius-md:8px;--border-radius-lg:12px;--border-radius-xl:16px;
+  --font-heading:'clother',sans-serif;
+}
+body{background:#F2EEE6}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px 40px}
+
+/* ── TOPBAR ── */
+.topbar{background:#0D2B44;padding:6px 24px;display:flex;align-items:center;justify-content:space-between}
+.tb-left{font-size:11px;color:#A8C4DC;letter-spacing:.05em}
+.tb-right{font-size:11px;color:#888078;display:flex;gap:16px}
+
+/* ── NAV ── */
+.nav{background:var(--color-background-primary);border-bottom:.5px solid var(--color-border-tertiary);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+.logo-icon{width:28px;height:28px;background:#3A3530;border-radius:6px;display:flex;align-items:center;justify-content:center}
+.logo-text{font-size:16px;font-weight:500;font-family:var(--font-heading)}
+.nav-center{display:flex;gap:20px;font-size:13px;color:var(--color-text-secondary)}
+.nav-center span{cursor:pointer}
+.nav-center span.hl{color:var(--color-text-primary);font-weight:500}
+.nav-ctas{display:flex;gap:8px;align-items:center}
+.ncta{font-size:12px;padding:7px 14px;border-radius:var(--r8);cursor:pointer;border:.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-primary)}
+.ncta-dark{background:#3A3530;color:#fff;border-color:#3A3530}
+.ncta-outline{color:#1A4F7A;border-color:#1A4F7A}
+
+/* ── HAMBURGER / MOBILE MENU ── */
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px;background:transparent;border:none}
+.hamburger span{display:block;width:18px;height:2px;background:var(--color-text-primary);border-radius:2px}
+.mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--color-background-primary);border-bottom:.5px solid var(--color-border-tertiary);padding:12px 20px;flex-direction:column;gap:12px;z-index:100;box-shadow:0 4px 12px rgba(0,0,0,0.08);font-size:13px;color:var(--color-text-secondary)}
+.mobile-menu.open{display:flex}
+@media(max-width:768px){
+  .nav-center{display:none}
+  .hamburger{display:flex}
+}
+
+/* ── BREADCRUMB ── */
+.breadcrumb{display:flex;align-items:center;gap:6px;padding:14px 0 0;font-size:12px;color:var(--t3)}
+.breadcrumb a{color:var(--t2);cursor:pointer;text-decoration:none}
+.breadcrumb a:hover{color:var(--green)}
+.breadcrumb .sep{color:var(--b2)}
+.breadcrumb .current{color:var(--t1);font-weight:500}
+
+/* ── GALLERY ── */
+.gallery-wrap{margin-top:16px;border-radius:var(--r16);overflow:hidden;display:grid;grid-template-columns:1fr 320px;grid-template-rows:280px 120px;gap:4px}
+.gallery-main{grid-row:1/2;grid-column:1/2;position:relative;cursor:pointer;overflow:hidden;border-radius:var(--r12) 0 0 0}
+.gallery-main img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gallery-main:hover img{transform:scale(1.03)}
+.gallery-side{grid-column:2/3;grid-row:1/3;display:flex;flex-direction:column;gap:4px}
+.gallery-side .g-thumb{flex:1;position:relative;overflow:hidden;cursor:pointer}
+.gallery-side .g-thumb:first-child{border-radius:0 var(--r12) 0 0}
+.gallery-side .g-thumb:last-child{border-radius:0 0 var(--r12) 0}
+.gallery-side .g-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gallery-side .g-thumb:hover img{transform:scale(1.05)}
+.gallery-bottom{grid-row:2/3;grid-column:1/2;display:flex;gap:4px}
+.gallery-bottom .g-thumb{flex:1;overflow:hidden;cursor:pointer;position:relative}
+.gallery-bottom .g-thumb:first-child{border-radius:0 0 0 var(--r12)}
+.gallery-bottom .g-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gallery-bottom .g-thumb:hover img{transform:scale(1.05)}
+.gallery-count{position:absolute;bottom:10px;right:10px;background:rgba(26,26,24,.75);color:#fff;font-size:11px;padding:4px 10px;border-radius:999px;backdrop-filter:blur(4px)}
+.gallery-save{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;background:var(--white);border:.5px solid var(--b1);display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;color:var(--t3);transition:all .2s}
+.gallery-save.saved{color:#E24B4A}
+.gallery-badge{position:absolute;top:12px;left:12px;background:var(--green);color:#fff;font-size:11px;font-weight:600;padding:4px 12px;border-radius:999px;letter-spacing:.04em}
+
+/* ── MAIN GRID ── */
+.main-grid{display:grid;grid-template-columns:1fr 340px;gap:24px;margin-top:24px;align-items:start}
+
+/* ── LEFT COLUMN ── */
+.project-header{margin-bottom:20px}
+.ph-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.ph-name{font-size:26px;font-weight:600;color:var(--t1);line-height:1.2}
+.ph-price-block{text-align:right;flex-shrink:0}
+.ph-price{font-size:24px;font-weight:600;color:var(--t1)}
+.ph-price-sub{font-size:11px;color:var(--t2);margin-top:1px}
+.ph-loc{display:flex;align-items:center;gap:5px;font-size:13px;color:var(--t2);margin-top:6px}
+.ph-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.ph-tag{font-size:11px;padding:3px 10px;border-radius:999px;border:.5px solid var(--b2);color:var(--t2);background:var(--white)}
+.ph-tag.green{background:var(--green-light);color:var(--green-dark);border-color:transparent}
+.ph-tag.dark{background:var(--dark);color:#fff;border-color:transparent}
+
+/* Metrics strip */
+.metrics-strip{display:grid;grid-template-columns:repeat(4,1fr);border:.5px solid var(--b1);border-radius:var(--r12);overflow:hidden;margin-bottom:24px;background:var(--white)}
+.metric{padding:14px 16px;border-right:.5px solid var(--b1)}
+.metric:last-child{border-right:none}
+.metric-val{font-size:18px;font-weight:600;color:var(--t1)}
+.metric-val.green{color:var(--green)}
+.metric-val.gold{color:var(--gold)}
+.metric-label{font-size:10px;color:var(--t2);margin-top:2px;text-transform:uppercase;letter-spacing:.05em}
+
+/* Section titles */
+.sec-title{font-size:15px;font-weight:600;color:var(--t1);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.sec-title::after{content:'';flex:1;height:.5px;background:var(--b1)}
+
+/* Description */
+.description-block{background:var(--white);border-radius:var(--r12);border:.5px solid var(--b1);padding:20px;margin-bottom:20px}
+.desc-text{font-size:13px;color:var(--t2);line-height:1.8;margin-bottom:12px}
+.desc-text:last-child{margin-bottom:0}
+.desc-expand{font-size:12px;color:var(--green);cursor:pointer;margin-top:8px;display:inline-flex;align-items:center;gap:4px}
+
+/* Unit Types */
+.units-block{background:var(--white);border-radius:var(--r12);border:.5px solid var(--b1);padding:20px;margin-bottom:20px}
+.unit-tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+.unit-tab{font-size:12px;padding:6px 14px;border-radius:999px;border:.5px solid var(--b2);cursor:pointer;color:var(--t2);background:transparent;transition:all .15s}
+.unit-tab.active{background:var(--dark);color:#fff;border-color:var(--dark)}
+.unit-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.unit-card{border:.5px solid var(--b1);border-radius:var(--r12);overflow:hidden;cursor:pointer;transition:border-color .15s}
+.unit-card:hover{border-color:var(--green)}
+.unit-card.selected{border-color:var(--green);box-shadow:0 0 0 1px var(--green)}
+.uc-img{height:100px;overflow:hidden;position:relative}
+.uc-img img{width:100%;height:100%;object-fit:cover}
+.uc-body{padding:10px 12px}
+.uc-name{font-size:12px;font-weight:600;color:var(--t1);margin-bottom:2px}
+.uc-area{font-size:11px;color:var(--t2);margin-bottom:6px}
+.uc-price{font-size:13px;font-weight:600;color:var(--green)}
+.uc-price-sub{font-size:10px;color:var(--t3)}
+.uc-avail{display:inline-flex;align-items:center;gap:4px;font-size:10px;color:var(--green-dark);background:var(--green-light);padding:2px 7px;border-radius:999px;margin-top:4px}
+.uc-avail-dot{width:5px;height:5px;border-radius:50%;background:var(--green)}
+
+/* Amenities */
+.amenities-block{background:var(--white);border-radius:var(--r12);border:.5px solid var(--b1);padding:20px;margin-bottom:20px}
+.amenities-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.amenity{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;border:.5px solid var(--b1);border-radius:var(--r8);text-align:center;font-size:11px;color:var(--t2)}
+.amenity-icon{width:32px;height:32px;border-radius:50%;background:var(--green-light);display:flex;align-items:center;justify-content:center;font-size:15px}
+
+/* Investment */
+.invest-block{background:var(--dark);border-radius:var(--r12);padding:20px;margin-bottom:20px;color:#fff}
+.invest-block .sec-title{color:#fff}
+.invest-block .sec-title::after{background:rgba(255,255,255,.1)}
+.invest-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.invest-item{background:rgba(255,255,255,.05);border-radius:var(--r8);padding:14px}
+.invest-val{font-size:20px;font-weight:600;color:var(--gold)}
+.invest-lbl{font-size:10px;color:#8a9bb5;margin-top:3px;text-transform:uppercase;letter-spacing:.05em}
+.invest-desc{font-size:11px;color:#8a9bb5;line-height:1.6}
+.roi-bar{margin-top:12px}
+.roi-bar-label{display:flex;justify-content:space-between;font-size:11px;color:#8a9bb5;margin-bottom:6px}
+.roi-bar-track{height:6px;background:rgba(255,255,255,.1);border-radius:999px;overflow:hidden}
+.roi-bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--green),#9FE1CB);transition:width 1s ease}
+.invest-note{font-size:10px;color:#8a9bb5;margin-top:14px;line-height:1.5;display:flex;gap:6px}
+
+/* Location */
+.location-block{background:var(--white);border-radius:var(--r12);border:.5px solid var(--b1);padding:20px;margin-bottom:20px}
+.map-placeholder{height:200px;border-radius:var(--r8);background:linear-gradient(135deg,#e8f0e8 0%,#d4e8d4 50%,#c8e0c8 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;margin-bottom:14px;cursor:pointer}
+.map-pin{font-size:32px;filter:drop-shadow(0 4px 8px rgba(0,0,0,.2))}
+.map-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
+.map-label{background:rgba(255,255,255,.9);padding:6px 14px;border-radius:999px;font-size:12px;font-weight:500;color:var(--t1);backdrop-filter:blur(4px)}
+.map-open{font-size:11px;color:var(--green);cursor:pointer}
+.pois{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.poi{display:flex;align-items:center;gap:8px;padding:10px;border:.5px solid var(--b1);border-radius:var(--r8)}
+.poi-icon{width:28px;height:28px;border-radius:var(--r8);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.poi-name{font-size:11px;font-weight:500;color:var(--t1)}
+.poi-dist{font-size:10px;color:var(--t3)}
+
+/* Developer */
+.developer-block{background:var(--white);border-radius:var(--r12);border:.5px solid var(--b1);padding:20px;margin-bottom:20px}
+.dev-row{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.dev-logo{width:52px;height:52px;border-radius:var(--r8);background:var(--bg);border:.5px solid var(--b1);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.dev-name{font-size:15px;font-weight:600;color:var(--t1)}
+.dev-since{font-size:11px;color:var(--t2);margin-top:1px}
+.dev-stars-row{display:flex;align-items:center;gap:4px;margin-top:4px}
+.dev-stars{color:#BA7517;font-size:12px}
+.dev-rating{font-size:12px;font-weight:600;color:var(--t1)}
+.dev-reviews{font-size:11px;color:var(--t3)}
+.dev-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.dev-stat{padding:10px;background:var(--bg);border-radius:var(--r8);text-align:center}
+.dev-stat-val{font-size:16px;font-weight:600;color:var(--t1)}
+.dev-stat-lbl{font-size:10px;color:var(--t2);margin-top:1px}
+.dev-projects{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+.dev-proj-thumb{width:80px;height:56px;border-radius:var(--r8);overflow:hidden;flex-shrink:0;position:relative;cursor:pointer}
+.dev-proj-thumb img{width:100%;height:100%;object-fit:cover}
+.dev-proj-name{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.5);font-size:9px;color:#fff;padding:3px 5px;text-align:center}
+
+/* ── RIGHT COLUMN ── */
+.sticky-card{position:sticky;top:80px}
+.cta-card{background:var(--white);border-radius:var(--r16);border:.5px solid var(--b1);overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.07)}
+.cta-header{background:var(--dark);padding:16px 20px}
+.cta-badge{font-size:10px;color:#9FE1CB;text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px}
+.cta-price{font-size:22px;font-weight:600;color:#fff}
+.cta-price-sub{font-size:11px;color:#888780;margin-top:1px}
+.cta-avail{display:flex;align-items:center;justify-content:space-between;margin-top:10px}
+.avail-bar-wrap{flex:1;margin-right:12px}
+.avail-label{font-size:10px;color:#888780;margin-bottom:4px;display:flex;justify-content:space-between}
+.avail-track{height:4px;background:rgba(255,255,255,.12);border-radius:999px;overflow:hidden}
+.avail-fill{height:100%;border-radius:999px;background:var(--green);width:43%}
+.avail-pct{font-size:11px;color:#9FE1CB;font-weight:600;white-space:nowrap}
+.cta-body{padding:18px 20px}
+.cta-form-group{margin-bottom:12px}
+.cta-label{font-size:10px;color:var(--t2);text-transform:uppercase;letter-spacing:.05em;font-weight:600;margin-bottom:5px}
+.cta-input{width:100%;padding:9px 12px;border:.5px solid var(--b2);border-radius:var(--r8);font-size:13px;color:var(--t1);font-family:inherit;outline:none;background:var(--white);transition:border-color .15s}
+.cta-input:focus{border-color:var(--green)}
+.cta-input-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cta-select{width:100%;padding:9px 12px;border:.5px solid var(--b2);border-radius:var(--r8);font-size:13px;color:var(--t2);font-family:inherit;outline:none;background:var(--white);cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b6b68' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+.cta-btn{width:100%;padding:13px;background:var(--green);color:#fff;border:none;border-radius:var(--r8);font-size:14px;font-weight:600;cursor:pointer;margin-top:4px;transition:background .15s;letter-spacing:.02em}
+.cta-btn:hover{background:var(--green-dark)}
+.cta-btn-secondary{width:100%;padding:10px;background:transparent;color:var(--t1);border:.5px solid var(--b2);border-radius:var(--r8);font-size:13px;cursor:pointer;margin-top:8px;transition:border-color .15s}
+.cta-btn-secondary:hover{border-color:var(--t1)}
+.cta-trust{display:flex;flex-direction:column;gap:6px;padding:14px 20px;background:var(--bg);border-top:.5px solid var(--b1)}
+.cta-trust-item{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--t2)}
+.cta-trust-icon{color:var(--green);font-size:12px;flex-shrink:0}
+.cta-zonum{display:flex;align-items:center;gap:8px;padding:12px 20px;border-top:.5px solid var(--b1)}
+.cta-zonum-logo{width:24px;height:24px;background:var(--dark);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cta-zonum-txt{font-size:11px;color:var(--t2);line-height:1.4}
+.cta-zonum-txt strong{color:var(--t1)}
+.roi-pill{display:inline-flex;align-items:center;gap:4px;font-size:11px;background:#EAF3DE;color:#27500A;padding:3px 9px;border-radius:999px;margin-top:8px}
+
+/* ── SIMILAR PROJECTS ── */
+.similar-section{margin-top:36px}
+.similar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.scard{border:.5px solid var(--b1);border-radius:var(--r12);overflow:hidden;background:var(--white);cursor:pointer;transition:box-shadow .2s}
+.scard:hover{box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.scard-img{height:120px;position:relative;overflow:hidden}
+.scard-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.scard:hover .scard-img img{transform:scale(1.04)}
+.scard-badge{position:absolute;top:8px;left:8px;font-size:10px;padding:3px 8px;border-radius:var(--r8);font-weight:500}
+.sb-green{background:#E1F5EE;color:#0F6E56}
+.sb-amber{background:#FAEEDA;color:#633806}
+.scard-body{padding:10px 12px}
+.scard-price{font-size:14px;font-weight:600;color:var(--t1)}
+.scard-name{font-size:12px;font-weight:500;color:var(--t1);margin:3px 0 1px}
+.scard-loc{font-size:11px;color:var(--t2);display:flex;align-items:center;gap:3px;margin-bottom:6px}
+.scard-specs{font-size:10px;color:var(--t3);display:flex;gap:6px;padding-top:6px;border-top:.5px solid var(--b1)}
+.scard-roi{display:inline-flex;align-items:center;gap:3px;font-size:10px;background:#EAF3DE;color:#27500A;padding:2px 6px;border-radius:999px;margin-top:5px}
+
+/* ── LIGHTBOX ── */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:1000;display:none;align-items:center;justify-content:center;flex-direction:column}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:80vh;border-radius:var(--r12);object-fit:contain}
+.lb-close{position:absolute;top:20px;right:24px;font-size:28px;color:#fff;cursor:pointer;opacity:.7;line-height:1}
+.lb-close:hover{opacity:1}
+.lb-nav{display:flex;gap:16px;margin-top:14px}
+.lb-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:background .2s}
+.lb-dot.active{background:#fff}
+.lb-arrows{position:absolute;top:50%;transform:translateY(-50%);width:100%;display:flex;justify-content:space-between;padding:0 20px;pointer-events:none}
+.lb-arrow{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;cursor:pointer;pointer-events:all;font-size:18px;color:#fff;transition:background .2s}
+.lb-arrow:hover{background:rgba(255,255,255,.2)}
+
+/* ── TOAST ── */
+#toast{position:fixed;bottom:24px;right:24px;background:var(--dark);color:#fff;padding:12px 18px;border-radius:var(--r8);font-size:13px;z-index:2000;opacity:0;transition:opacity .3s;pointer-events:none;display:flex;align-items:center;gap:8px;max-width:300px}
+#toast.show{opacity:1}
+
+/* ── FOOTER ── */
+.footer{background:var(--bg);border-top:.5px solid var(--b1);padding:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:40px;border-radius:0 0 var(--r16) var(--r16)}
+.footer-links{display:flex;gap:16px;font-size:11px;color:var(--t2)}
+.footer-copy{font-size:11px;color:var(--t3)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .main-grid{grid-template-columns:1fr}
+  .sticky-card{position:static}
+  .gallery-wrap{grid-template-columns:1fr;grid-template-rows:240px auto auto;height:auto}
+  .gallery-side{grid-column:1;grid-row:3;flex-direction:row;height:80px}
+  .gallery-side .g-thumb:first-child{border-radius:0}
+  .gallery-side .g-thumb:last-child{border-radius:0 0 var(--r12) var(--r12)}
+  .gallery-bottom{grid-row:2;grid-column:1}
+  .unit-cards{grid-template-columns:1fr 1fr}
+  .amenities-grid{grid-template-columns:repeat(3,1fr)}
+  .similar-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .metrics-strip{grid-template-columns:1fr 1fr}
+  .metric:nth-child(2){border-right:none}
+  .invest-row{grid-template-columns:1fr}
+  .pois{grid-template-columns:1fr 1fr}
+  .similar-grid{grid-template-columns:1fr}
+  .nav-center,.tb-right{display:none}
+  .unit-cards{grid-template-columns:1fr}
+  .amenities-grid{grid-template-columns:repeat(3,1fr)}
+  .dev-stats{grid-template-columns:1fr 1fr}
+  .cta-input-row{grid-template-columns:1fr}
+}
+
+/* ── SOCIAL PROOF BAR ── */
+.social-proof-bar{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--white);border:.5px solid var(--b1);border-radius:var(--r8);margin-top:10px;flex-wrap:wrap}
+.sp-item{display:flex;align-items:center;gap:5px}
+.sp-icon{font-size:13px}
+.sp-text{font-size:12px;color:var(--t2)}
+.sp-text strong{color:var(--t1);font-weight:600}
+.sp-sep{color:var(--b2);font-size:14px}
+
+/* ── TIMELINE DE OBRA ── */
+.timeline-block{background:var(--white);border-radius:var(--r12);border:.5px solid var(--b1);padding:20px;margin-bottom:20px}
+.timeline-wrap{position:relative;padding:8px 0 20px}
+.timeline-track{position:absolute;top:22px;left:22px;right:22px;height:2px;background:var(--b1);z-index:0}
+.timeline-track-fill{position:absolute;top:22px;left:22px;height:2px;background:var(--green);z-index:0;width:50%;transition:width 1s ease}
+.timeline-phases{display:flex;justify-content:space-between;position:relative;z-index:1}
+.tl-phase{display:flex;flex-direction:column;align-items:center;gap:8px;flex:1}
+.tl-dot{width:22px;height:22px;border-radius:50%;border:2px solid var(--b1);background:var(--white);flex-shrink:0;position:relative;display:flex;align-items:center;justify-content:center}
+.done-dot{background:var(--green);border-color:var(--green)}
+.done-dot::after{content:'✓';color:#fff;font-size:10px;font-weight:700}
+.current-dot{background:var(--white);border-color:var(--green);border-width:2.5px}
+.pending-dot{background:var(--bg);border-color:var(--b1)}
+.tl-pulse{position:absolute;width:32px;height:32px;border-radius:50%;background:rgba(29,158,117,.2);animation:tlPulse 2s ease-in-out infinite}
+@keyframes tlPulse{0%,100%{transform:scale(.8);opacity:.6}50%{transform:scale(1.2);opacity:0}}
+.tl-label{text-align:center}
+.tl-name{font-size:11px;font-weight:500;color:var(--t1)}
+.tl-date{font-size:10px;color:var(--t3);margin-top:2px}
+.tl-phase.current .tl-name{color:var(--green-dark);font-weight:600}
+.tl-phase.done .tl-name{color:var(--t2)}
+.tl-phase.pending .tl-name{color:var(--t3)}
+.tl-progress-bar{width:60px;height:3px;background:var(--b1);border-radius:999px;overflow:hidden;margin:4px auto 0}
+.tl-progress-fill{height:100%;background:var(--green);border-radius:999px;width:45%}
+@media(max-width:640px){
+  .timeline-phases{flex-direction:column;gap:16px;align-items:flex-start;padding-left:16px}
+  .timeline-track{top:11px;left:10px;width:2px;height:calc(100% - 20px);right:auto}
+  .timeline-track-fill{top:11px;left:10px;width:2px;height:50%;right:auto}
+  .tl-phase{flex-direction:row;align-items:flex-start}
+  .tl-label{text-align:left}
+}
+
+/* ── CALCULADORA ── */
+.calc-block{background:var(--white);border-radius:var(--r12);border:.5px solid var(--b1);padding:20px;margin-bottom:20px}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.calc-inputs{display:flex;flex-direction:column;gap:14px}
+.calc-field{display:flex;flex-direction:column;gap:5px}
+.calc-field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.calc-label{font-size:11px;color:var(--t2);font-weight:500;text-transform:uppercase;letter-spacing:.04em}
+.calc-input-wrap{display:flex;align-items:center;border:.5px solid var(--b2);border-radius:var(--r8);overflow:hidden;background:var(--bg)}
+.calc-prefix,.calc-suffix{font-size:12px;color:var(--t3);padding:0 8px;white-space:nowrap}
+.calc-input-num{border:none;background:transparent;font-size:13px;color:var(--t1);padding:9px 6px;width:100%;outline:none;font-family:inherit}
+.calc-range{width:100%;accent-color:var(--green);cursor:pointer;margin:4px 0}
+.calc-range-marks{display:flex;justify-content:space-between;font-size:10px;color:var(--t3)}
+.calc-btn-group{display:flex;gap:4px}
+.calc-term-btn{flex:1;padding:7px 4px;font-size:11px;border:.5px solid var(--b2);border-radius:var(--r8);cursor:pointer;background:transparent;color:var(--t2);font-family:inherit;transition:all .15s}
+.calc-term-btn.active{background:var(--dark);color:#fff;border-color:var(--dark)}
+.calc-outputs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.calc-out-item{background:var(--bg);border-radius:var(--r8);padding:14px;border:.5px solid var(--b1)}
+.calc-out-main{background:var(--green-light);border-color:transparent}
+.calc-out-val{font-size:18px;font-weight:600;color:var(--t1)}
+.calc-out-val.green{color:var(--green-dark)}
+.calc-out-val.red{color:#A32D2D}
+.calc-out-lbl{font-size:10px;color:var(--t2);margin-top:3px}
+.calc-note{font-size:10px;color:var(--t3);margin-top:14px;line-height:1.5}
+@media(max-width:900px){.calc-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.calc-field-row{grid-template-columns:1fr}}
+
+/* ── DOCUMENTOS ── */
+.docs-block{background:var(--white);border-radius:var(--r12);border:.5px solid var(--b1);padding:20px;margin-bottom:20px}
+.docs-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.doc-card{display:flex;align-items:center;gap:10px;padding:12px;border:.5px solid var(--b1);border-radius:var(--r8);transition:border-color .15s;cursor:pointer}
+.doc-card:hover{border-color:var(--green)}
+.doc-icon{font-size:20px;flex-shrink:0;width:36px;text-align:center}
+.doc-info{flex:1;min-width:0}
+.doc-name{font-size:12px;font-weight:500;color:var(--t1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.doc-type{font-size:10px;color:var(--t3);margin-top:1px}
+.doc-badge-req{display:inline-block;font-size:9px;padding:1px 6px;border-radius:999px;background:#FAEEDA;color:#633806;margin-top:3px;font-weight:500}
+.doc-btn{flex-shrink:0;width:30px;height:30px;border-radius:50%;border:.5px solid var(--green);background:var(--green-light);color:var(--green-dark);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;font-weight:700}
+.doc-btn:hover{background:var(--green);color:#fff}
+.doc-btn.locked{border-color:var(--b1);background:var(--bg);color:var(--t3);font-size:12px}
+.doc-btn.locked:hover{background:var(--b1)}
+@media(max-width:640px){.docs-grid{grid-template-columns:1fr}}
+
+/* ── TESTIMONIOS ── */
+.testimonios-section{margin-top:36px}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.testi-card{background:var(--white);border:.5px solid var(--b1);border-radius:var(--r12);padding:16px}
+.testi-header{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:var(--green);color:#fff;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.testi-meta{flex:1;min-width:0}
+.testi-name{font-size:12px;font-weight:600;color:var(--t1);display:flex;align-items:center;flex-wrap:wrap;gap:4px}
+.testi-verified{font-size:10px;font-weight:500;background:var(--green-light);color:var(--green-dark);padding:1px 6px;border-radius:999px}
+.testi-sub{font-size:11px;color:var(--t2);margin-top:1px}
+.testi-stars{font-size:12px;color:#BA7517;margin-top:2px}
+.testi-quote{font-size:12px;color:var(--t2);line-height:1.7;font-style:italic}
+@media(max-width:900px){.testi-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.testi-grid{grid-template-columns:1fr}}
+
+/* ── WHATSAPP FAB ── */
+.wa-fab{position:fixed;bottom:72px;right:24px;width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:1500;box-shadow:0 4px 16px rgba(37,211,102,.4);animation:waPulse 2.5s ease-in-out 1s 3}
+@keyframes waPulse{0%,100%{box-shadow:0 4px 16px rgba(37,211,102,.4)}50%{box-shadow:0 4px 28px rgba(37,211,102,.7),0 0 0 8px rgba(37,211,102,.15)}}
+.wa-popup{position:fixed;bottom:134px;right:24px;width:300px;background:var(--white);border-radius:var(--r12);box-shadow:0 8px 32px rgba(0,0,0,.15);z-index:1499;display:none;overflow:hidden}
+.wa-popup.open{display:block;animation:waSlideIn .2s ease}
+@keyframes waSlideIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.wa-popup-header{background:#075E54;padding:12px 14px;display:flex;align-items:center;gap:10px}
+.wa-popup-avatar{width:36px;height:36px;border-radius:50%;background:#25D366;color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.wa-popup-name{font-size:13px;font-weight:600;color:#fff}
+.wa-popup-status{font-size:11px;color:#a8dbc4;margin-top:1px}
+.wa-popup-close{margin-left:auto;color:rgba(255,255,255,.7);font-size:22px;cursor:pointer;line-height:1;padding:0 2px}
+.wa-popup-msg{margin:14px;background:var(--bg);border-radius:var(--r8);padding:10px 12px;font-size:12px;color:var(--t1);line-height:1.6;border:.5px solid var(--b1)}
+.wa-popup-btn{display:block;margin:0 14px 14px;background:#25D366;color:#fff;text-align:center;padding:11px;border-radius:var(--r8);font-size:13px;font-weight:600;text-decoration:none;transition:background .15s}
+.wa-popup-btn:hover{background:#128C7E}
+
+/* ── MOBILE STICKY CTA ── */
+.mobile-cta-bar{display:none}
+@media(max-width:640px){
+  .mobile-cta-bar{display:flex;align-items:center;gap:8px;position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:.5px solid var(--b1);padding:10px 16px;padding-bottom:max(10px,env(safe-area-inset-bottom));z-index:1400;box-shadow:0 -4px 16px rgba(0,0,0,.08)}
+  .mobile-cta-price{flex:1}
+  .mobile-cta-from{font-size:10px;color:var(--t3)}
+  .mobile-cta-amount{font-size:15px;font-weight:600;color:var(--t1)}
+  .mobile-cta-btn{flex:2;padding:11px;background:var(--green);color:#fff;border:none;border-radius:var(--r8);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+  .mobile-cta-wa{width:42px;height:42px;border-radius:50%;background:#25D366;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0}
+  body{padding-bottom:70px}
+  #toast{bottom:80px}
+  .wa-fab{bottom:80px}
+}
+
+/* ── ACCORDION SECTIONS ── */
+.acc-toggle{width:100%;background:none;border:none;cursor:pointer;font-family:inherit;text-align:left;padding:0;margin-bottom:0}
+.acc-toggle .acc-chevron{font-size:18px;color:var(--t3);transition:transform .3s;flex-shrink:0;line-height:1;margin-left:2px}
+.acc-toggle.open .acc-chevron{transform:rotate(90deg);color:var(--green)}
+.acc-badge-mini{font-size:10px;font-weight:500;background:var(--green-light);color:var(--green-dark);padding:2px 8px;border-radius:999px;white-space:nowrap}
+.acc-body{overflow:hidden;max-height:0;transition:max-height .45s cubic-bezier(0,1,0,1)}
+.acc-body.open{max-height:900px;transition:max-height .5s ease-in-out}
+
+/* ── FAQ ── */
+.faq-block{background:var(--white);border-radius:var(--r12);border:.5px solid var(--b1);padding:20px;margin-bottom:20px}
+.faq-list{display:flex;flex-direction:column}
+.faq-item{border-bottom:.5px solid var(--b1)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{width:100%;background:none;border:none;padding:14px 0;font-size:13px;font-weight:500;color:var(--t1);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;font-family:inherit;transition:color .15s}
+.faq-q:hover{color:var(--green)}
+.faq-q.open{color:var(--green)}
+.faq-icon{font-size:18px;font-weight:300;color:var(--t3);flex-shrink:0;transition:transform .25s;line-height:1}
+.faq-q.open .faq-icon{transform:rotate(45deg);color:var(--green)}
+.faq-a{font-size:12px;color:var(--t2);line-height:1.8;overflow:hidden;max-height:0;transition:max-height .35s ease,padding .35s ease;padding-bottom:0}
+.faq-a.open{max-height:300px;padding-bottom:14px}
+
+/* ── Visit Modal ── */
+.visit-modal{position:fixed;inset:0;background:rgba(13,43,68,0.72);backdrop-filter:blur(4px);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.25s}
+.visit-modal.open{opacity:1;pointer-events:all}
+.visit-box{background:#fff;max-width:840px;width:calc(100% - 32px);border-radius:20px;overflow:hidden;display:flex;position:relative;max-height:90vh}
+.visit-left{width:300px;min-width:300px;background:#0D2B44;padding:32px 28px;display:flex;flex-direction:column;gap:0;overflow-y:auto}
+.vl-logo{font-family:'clother',sans-serif;font-size:18px;font-weight:500;color:#fff;margin-bottom:20px;letter-spacing:0.02em}
+.vl-img{width:100%;height:140px;border-radius:12px;object-fit:cover;background:#1A4F7A;margin-bottom:16px;display:block}
+.vl-img-placeholder{width:100%;height:140px;border-radius:12px;background:linear-gradient(135deg,#1A4F7A,#0D2B44);margin-bottom:16px;display:flex;align-items:center;justify-content:center;font-size:32px}
+.vl-project-name{font-family:'clother',sans-serif;font-size:15px;font-weight:500;color:#fff;margin-bottom:3px}
+.vl-project-loc{font-size:12px;color:#A8C4DC;margin-bottom:20px;display:flex;align-items:center;gap:4px}
+.vl-trust{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.vl-trust-item{display:flex;align-items:center;gap:8px;font-size:12px;color:#C4D9ED;line-height:1.4}
+.vl-trust-check{width:18px;height:18px;border-radius:50%;background:rgba(90,140,181,0.25);display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0}
+.vl-steps{display:flex;gap:6px;margin-top:auto;padding-top:16px}
+.vl-step-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.2);transition:all 0.25s}
+.vl-step-dot.active{background:#fff;width:20px;border-radius:4px}
+.visit-right{flex:1;padding:32px 28px;overflow-y:auto;background:#fff;position:relative}
+.visit-close{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;background:rgba(58,53,48,0.08);border:none;cursor:pointer;font-size:16px;color:#6B6560;display:flex;align-items:center;justify-content:center;transition:background 0.15s;z-index:1}
+.visit-close:hover{background:rgba(58,53,48,0.14)}
+.visit-step{display:none}
+.visit-step.active{display:block}
+.vstep-eyebrow{font-size:10px;color:#6B6560;text-transform:uppercase;letter-spacing:0.08em;font-weight:500;margin-bottom:6px}
+.vstep-title{font-family:'clother',sans-serif;font-size:20px;font-weight:500;color:#3A3530;margin-bottom:4px}
+.vstep-sub{font-size:12px;color:#6B6560;margin-bottom:22px;line-height:1.5}
+.city-pills{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}
+.city-pill{font-size:12px;padding:7px 14px;border-radius:999px;border:0.5px solid rgba(58,53,48,0.22);cursor:pointer;color:#6B6560;background:#F8F6F2;transition:all 0.15s;font-family:inherit}
+.city-pill:hover{border-color:#1A4F7A;color:#1A4F7A}
+.city-pill.sel{background:#1A4F7A;color:#fff;border-color:#1A4F7A}
+.project-select-wrap{margin-bottom:18px;display:none}
+.project-select-wrap.show{display:block}
+.project-select-label{font-size:11px;font-weight:500;color:#6B6560;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:7px}
+.project-select{width:100%;padding:10px 14px;border:0.5px solid rgba(58,53,48,0.22);border-radius:8px;font-size:13px;color:#3A3530;font-family:inherit;outline:none;background:#F8F6F2;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b6b68' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;transition:border-color 0.15s}
+.project-select:focus{border-color:#1A4F7A}
+.visit-type-toggle{display:flex;gap:8px;margin-bottom:20px}
+.vtype-pill{flex:1;padding:10px;border-radius:10px;border:0.5px solid rgba(58,53,48,0.22);cursor:pointer;text-align:center;font-size:13px;color:#6B6560;background:#F8F6F2;transition:all 0.15s;font-family:inherit}
+.vtype-pill:hover{border-color:#1A4F7A;color:#1A4F7A}
+.vtype-pill.sel{background:#1A4F7A;color:#fff;border-color:#1A4F7A}
+.cal-wrap{margin-bottom:18px}
+.cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.cal-month{font-size:14px;font-weight:500;color:#3A3530;font-family:'clother',sans-serif}
+.cal-nav-btn{width:28px;height:28px;border-radius:50%;border:0.5px solid rgba(58,53,48,0.22);background:transparent;cursor:pointer;font-size:12px;color:#6B6560;display:flex;align-items:center;justify-content:center;transition:all 0.15s}
+.cal-nav-btn:hover{border-color:#1A4F7A;color:#1A4F7A}
+.cal-days-header{display:grid;grid-template-columns:repeat(7,1fr);margin-bottom:4px}
+.cal-day-label{text-align:center;font-size:10px;font-weight:600;color:#888078;padding:4px 0;text-transform:uppercase;letter-spacing:0.04em}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+.cal-day{width:100%;aspect-ratio:1;border-radius:50%;border:none;background:transparent;cursor:default;font-size:12px;color:#3A3530;display:flex;align-items:center;justify-content:center;transition:all 0.15s;font-family:inherit;position:relative}
+.cal-day.empty{pointer-events:none}
+.cal-day.past{color:rgba(58,53,48,0.25);pointer-events:none}
+.cal-day.avail{cursor:pointer;font-weight:500}
+.cal-day.avail:hover{background:#DDE9F4;color:#1A4F7A}
+.cal-day.sel{background:#1A4F7A !important;color:#fff !important;font-weight:600}
+.time-slots-wrap{display:none}
+.time-slots-wrap.show{display:block}
+.time-slots-label{font-size:11px;font-weight:500;color:#6B6560;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px}
+.time-slots{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px}
+.time-slot{font-size:12px;padding:7px 12px;border-radius:8px;border:0.5px solid rgba(58,53,48,0.22);cursor:pointer;color:#6B6560;background:#F8F6F2;transition:all 0.15s;font-family:inherit}
+.time-slot:hover:not(.off){border-color:#1A4F7A;color:#1A4F7A}
+.time-slot.sel{background:#1A4F7A;color:#fff;border-color:#1A4F7A}
+.time-slot.off{color:rgba(58,53,48,0.3);border-color:rgba(58,53,48,0.1);background:transparent;cursor:not-allowed;text-decoration:line-through}
+.visit-input-group{margin-bottom:13px}
+.visit-input-label{font-size:11px;font-weight:500;color:#6B6560;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px}
+.visit-input{width:100%;padding:10px 14px;border:0.5px solid rgba(58,53,48,0.22);border-radius:8px;font-size:13px;color:#3A3530;font-family:inherit;outline:none;background:#F8F6F2;transition:border-color 0.15s}
+.visit-input:focus{border-color:#1A4F7A}
+.visit-phone-row{display:flex;gap:0}
+.visit-phone-flag{padding:10px 12px;border:0.5px solid rgba(58,53,48,0.22);border-right:none;border-radius:8px 0 0 8px;font-size:13px;background:#F8F6F2;color:#3A3530;cursor:default;white-space:nowrap}
+.visit-phone-input{flex:1;padding:10px 14px;border:0.5px solid rgba(58,53,48,0.22);border-radius:0 8px 8px 0;font-size:13px;color:#3A3530;font-family:inherit;outline:none;background:#F8F6F2;transition:border-color 0.15s}
+.visit-phone-input:focus{border-color:#1A4F7A}
+.investor-pills{display:flex;flex-wrap:wrap;gap:7px}
+.investor-pill{font-size:12px;padding:7px 13px;border-radius:999px;border:0.5px solid rgba(58,53,48,0.22);cursor:pointer;color:#6B6560;background:#F8F6F2;transition:all 0.15s;font-family:inherit}
+.investor-pill:hover{border-color:#1A4F7A;color:#1A4F7A}
+.investor-pill.sel{background:#1A4F7A;color:#fff;border-color:#1A4F7A}
+.budget-pills{display:flex;flex-wrap:wrap;gap:7px}
+.budget-pill{font-size:12px;padding:7px 13px;border-radius:999px;border:0.5px solid rgba(58,53,48,0.22);cursor:pointer;color:#6B6560;background:#F8F6F2;transition:all 0.15s;font-family:inherit}
+.budget-pill:hover{border-color:#1A4F7A;color:#1A4F7A}
+.budget-pill.sel{background:#1A4F7A;color:#fff;border-color:#1A4F7A}
+.visit-privacy{font-size:10px;color:#888078;line-height:1.6;margin-top:14px;margin-bottom:16px}
+.visit-privacy a{color:#1A4F7A;text-decoration:none}
+.visit-cta{width:100%;padding:13px;background:#1A4F7A;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;transition:background 0.15s;font-family:inherit;letter-spacing:0.02em}
+.visit-cta:hover:not(:disabled){background:#0D2B44}
+.visit-cta:disabled{background:rgba(58,53,48,0.2);color:rgba(58,53,48,0.4);cursor:not-allowed}
+.visit-back{background:transparent;border:none;color:#6B6560;font-size:13px;cursor:pointer;padding:10px 0;font-family:inherit;display:inline-flex;align-items:center;gap:4px;margin-top:8px;transition:color 0.15s}
+.visit-back:hover{color:#3A3530}
+.confirm-box{background:#DDE9F4;border-radius:12px;padding:16px;margin-bottom:18px}
+.confirm-box-title{font-size:11px;font-weight:600;color:#0D2B44;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:10px}
+.confirm-row{display:flex;align-items:center;gap:8px;font-size:13px;color:#1A4F7A;margin-bottom:6px}
+.confirm-row:last-child{margin-bottom:0}
+.confirm-icon{font-size:14px;flex-shrink:0}
+.next-steps{margin-bottom:18px}
+.next-steps-title{font-size:12px;font-weight:600;color:#3A3530;margin-bottom:10px}
+.next-step-item{display:flex;align-items:flex-start;gap:10px;font-size:12px;color:#6B6560;margin-bottom:8px;line-height:1.5}
+.next-step-num{width:20px;height:20px;border-radius:50%;background:#DDE9F4;color:#1A4F7A;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0px}
+.visit-outline-btn{width:100%;padding:11px;background:transparent;border:0.5px solid #1A4F7A;border-radius:10px;font-size:13px;font-weight:500;color:#1A4F7A;cursor:pointer;font-family:inherit;transition:all 0.15s;margin-bottom:10px}
+.visit-outline-btn:hover{background:#DDE9F4}
+.visit-dismiss-link{display:block;text-align:center;font-size:12px;color:#888078;cursor:pointer;margin-top:4px;transition:color 0.15s}
+.visit-dismiss-link:hover{color:#3A3530}
+@media(max-width:640px){
+  .visit-box{flex-direction:column;max-height:95vh;border-radius:16px 16px 0 0;position:fixed;bottom:0;left:0;right:0;width:100%;margin:0}
+  .visit-left{display:none}
+  .visit-right{padding:24px 20px 20px}
+  .visit-modal{align-items:flex-end}
+}
+</style>
+
+<link rel="canonical" href="https://zonum.com/kashi-santa-marta.html">
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="tb-left">Solo publicamos proyectos que pasan nuestra evaluación · Curaduría independiente de constructoras</div>
+  <div class="tb-right"><span>Colombia</span><span>México</span><span>Perú</span><span>Chile</span><span>+14 más</span></div>
+</div>
+
+<!-- NAV -->
+<div class="nav">
+  <a class="logo" href="zonum-app.html">
+    <img src="zonum-logo-dark.svg" alt="Zonum" height="28" style="display:block">
+  </a>
+  <div class="nav-center">
+    <span class="hl">Proyectos Colombia</span>
+    <span>Caribe &amp; Miami</span>
+    <span style="color:#B8975A;font-weight:500">★ Zonum Elite</span>
+    <span>Cesiones</span>
+    <span>Inversión</span>
+  </div>
+  <div class="nav-ctas">
+    <button class="ncta ncta-outline" onclick="openVisitModal('Kashi Santa Marta','Santa Marta')">Agendar visita</button>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menú" onclick="this.closest('.nav').querySelector('.mobile-menu').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <span>Proyectos Colombia</span>
+    <span>Caribe &amp; Miami</span>
+    <span style="color:#B8975A;font-weight:500">★ Zonum Elite</span>
+    <span>Cesiones</span>
+    <span>Inversión</span>
+  </div>
+</div>
+
+<!-- BODY WRAP -->
+<div class="wrap">
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="zonum-app.html">Inicio</a><span class="sep">›</span>
+    <a href="#">Colombia</a><span class="sep">›</span>
+    <a href="#">Santa Marta</a><span class="sep">›</span>
+    <span class="current">Kashi Santa Marta</span>
+  </div>
+
+  <!-- SOCIAL PROOF BAR -->
+  <div class="social-proof-bar">
+    <div class="sp-item"><span class="sp-icon">👁</span><span class="sp-text"><strong id="sp-views">143</strong> personas vieron esto hoy</span></div>
+    <span class="sp-sep">·</span>
+    <div class="sp-item"><span class="sp-icon">❤️</span><span class="sp-text"><strong id="sp-saves">34</strong> guardados esta semana</span></div>
+    <span class="sp-sep">·</span>
+    <div class="sp-item"><span class="sp-icon">🔥</span><span class="sp-text"><strong>3</strong> unidades reservadas este mes</span></div>
+  </div>
+
+  <!-- GALLERY -->
+  <div class="gallery-wrap">
+    <div class="gallery-main" onclick="openLightbox(0)">
+      <img id="main-img" src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1200&q=85&fit=crop&crop=center" alt="Kashi Santa Marta — Fachada principal"/>
+      <div class="gallery-badge">Preventa activa</div>
+      <div class="gallery-count">1 / 8 fotos</div>
+    </div>
+    <div class="gallery-bottom">
+      <div class="g-thumb" onclick="openLightbox(1)">
+        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&q=80&fit=crop&crop=center" alt="Sala"/>
+      </div>
+      <div class="g-thumb" onclick="openLightbox(2)">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80&fit=crop&crop=center" alt="Cocina"/>
+      </div>
+      <div class="g-thumb" onclick="openLightbox(3)">
+        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&q=80&fit=crop&crop=center" alt="Habitación"/>
+      </div>
+    </div>
+    <div class="gallery-side">
+      <div class="g-thumb" onclick="openLightbox(4)">
+        <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=400&q=80&fit=crop&crop=center" alt="Piscina"/>
+      </div>
+      <div class="g-thumb" onclick="openLightbox(5)">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=80&fit=crop&crop=center" alt="Vista al mar"/>
+      </div>
+      <div class="g-thumb" onclick="openLightbox(6)">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80&fit=crop&crop=center" alt="Terraza"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="main-grid">
+
+    <!-- ── LEFT COLUMN ── -->
+    <div>
+
+      <!-- Project Header -->
+      <div class="project-header">
+        <div class="ph-top">
+          <div>
+            <div class="ph-name">Kashi Santa Marta</div>
+            <div class="ph-loc">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="5" r="2.2" stroke="#6b6b68" stroke-width="1.2"/><path d="M6 12C6 12 1.5 8 1.5 5a4.5 4.5 0 019 0C10.5 8 6 12 6 12z" stroke="#6b6b68" stroke-width="1.2" fill="none"/></svg>
+              El Rodadero Norte, Santa Marta, Magdalena
+            </div>
+          </div>
+          <div class="ph-price-block">
+            <div class="ph-price">$320M COP</div>
+            <div class="ph-price-sub">desde · 1 habitación</div>
+            <div class="roi-pill">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 7L5 3l3 4" stroke="#27500A" stroke-width="1.3"/></svg>
+              9.2% ROI est. anual
+            </div>
+          </div>
+        </div>
+        <div class="ph-tags" style="margin-top:12px">
+          <span class="ph-tag green">✓ Curado por Zonum</span>
+          <span class="ph-tag dark">Preventa</span>
+          <span class="ph-tag">Frente al mar</span>
+          <span class="ph-tag">Entrega Q2 2027</span>
+          <span class="ph-tag">18 pisos</span>
+          <span class="ph-tag">156 unidades</span>
+        </div>
+      </div>
+
+      <!-- Metrics -->
+      <div class="metrics-strip">
+        <div class="metric">
+          <div class="metric-val green">9.2%</div>
+          <div class="metric-label">ROI est. anual</div>
+        </div>
+        <div class="metric">
+          <div class="metric-val">Q2 2027</div>
+          <div class="metric-label">Entrega estimada</div>
+        </div>
+        <div class="metric">
+          <div class="metric-val">67</div>
+          <div class="metric-label">Unidades disponibles</div>
+        </div>
+        <div class="metric">
+          <div class="metric-val gold">★ 4.9</div>
+          <div class="metric-label">Score Zonum</div>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="description-block">
+        <div class="sec-title">Sobre el proyecto</div>
+        <p class="desc-text">
+          <strong>Kashi Santa Marta</strong> es un desarrollo residencial de 18 pisos ubicado en El Rodadero Norte, una de las zonas de mayor valorización en el Caribe colombiano. El proyecto integra arquitectura contemporánea tropical con vistas panorámicas al mar Caribe y acceso directo a la playa privada del edificio.
+        </p>
+        <p class="desc-text" id="desc-extra" style="display:none">
+          Diseñado por el estudio <strong>Arquitectura + Trópico</strong>, Kashi propone unidades de 1, 2 y 3 habitaciones con acabados de alto estándar: pisos en porcelanato importado, cocinas con mesones de cuarzo, ventanería de doble vidrio y terrazas amplias en todas las unidades. El lobby principal presenta arte contemporáneo colombiano y jardines verticales de especie nativa.
+        </p>
+        <p class="desc-text" id="desc-extra2" style="display:none">
+          El proyecto cuenta con viabilidad financiera certificada por la fiduciaria <strong>Davivienda Fiduciaria</strong>, punto de equilibrio superado al 78%, licencia de construcción vigente LC-2024-089 y constructora con más de 30 años de trayectoria en la región Caribe.
+        </p>
+        <span class="desc-expand" id="expand-btn" onclick="toggleDesc()">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="#1D9E75" stroke-width="1.3"/></svg>
+          Leer más
+        </span>
+      </div>
+
+      <!-- TIMELINE DE OBRA -->
+      <div class="timeline-block">
+        <button class="sec-title acc-toggle" onclick="toggleSection('timeline-body', this)">Avance de obra<span class="acc-badge-mini">En progreso · 45%</span><span class="acc-chevron">›</span></button>
+        <div class="acc-body" id="timeline-body">
+        <div style="height:10px"></div>
+        <div class="timeline-wrap">
+          <div class="timeline-track"></div>
+          <div class="timeline-track-fill" id="tl-fill"></div>
+          <div class="timeline-phases">
+            <div class="tl-phase done">
+              <div class="tl-dot done-dot"></div>
+              <div class="tl-label"><div class="tl-name">Diseño y licencias</div><div class="tl-date">Feb 2024</div></div>
+            </div>
+            <div class="tl-phase done">
+              <div class="tl-dot done-dot"></div>
+              <div class="tl-label"><div class="tl-name">Inicio de obra</div><div class="tl-date">Jun 2024</div></div>
+            </div>
+            <div class="tl-phase done">
+              <div class="tl-dot done-dot"></div>
+              <div class="tl-label"><div class="tl-name">Cimentación</div><div class="tl-date">Oct 2024</div></div>
+            </div>
+            <div class="tl-phase current">
+              <div class="tl-dot current-dot"><div class="tl-pulse"></div></div>
+              <div class="tl-label">
+                <div class="tl-name">Estructura</div>
+                <div class="tl-date">En progreso · 45%</div>
+                <div class="tl-progress-bar"><div class="tl-progress-fill"></div></div>
+              </div>
+            </div>
+            <div class="tl-phase pending">
+              <div class="tl-dot pending-dot"></div>
+              <div class="tl-label"><div class="tl-name">Acabados</div><div class="tl-date">Q4 2026</div></div>
+            </div>
+            <div class="tl-phase pending">
+              <div class="tl-dot pending-dot"></div>
+              <div class="tl-label"><div class="tl-name">Entrega</div><div class="tl-date">Q2 2027</div></div>
+            </div>
+          </div>
+        </div>
+        </div><!-- /acc-body timeline -->
+      </div>
+
+      <!-- Unit Types -->
+      <div class="units-block">
+        <div class="sec-title">Tipos de unidad</div>
+        <div class="unit-tabs">
+          <button class="unit-tab active" onclick="filterUnits('all', this)">Todos</button>
+          <button class="unit-tab" onclick="filterUnits('1hab', this)">1 habitación</button>
+          <button class="unit-tab" onclick="filterUnits('2hab', this)">2 habitaciones</button>
+          <button class="unit-tab" onclick="filterUnits('3hab', this)">3 habitaciones</button>
+        </div>
+        <div class="unit-cards" id="unit-cards">
+          <div class="unit-card selected" data-type="1hab" onclick="selectUnit(this)">
+            <div class="uc-img"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&q=75&fit=crop" alt="1 hab"/></div>
+            <div class="uc-body">
+              <div class="uc-name">Suite 1 habitación</div>
+              <div class="uc-area">42 – 55 m² · Pisos 4–18</div>
+              <div class="uc-price">$320M – $410M COP</div>
+              <div class="uc-price-sub">desde $7.6M/m²</div>
+              <div class="uc-avail"><div class="uc-avail-dot"></div>28 disponibles</div>
+            </div>
+          </div>
+          <div class="unit-card" data-type="2hab" onclick="selectUnit(this)">
+            <div class="uc-img"><img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&q=75&fit=crop" alt="2 hab"/></div>
+            <div class="uc-body">
+              <div class="uc-name">Apartamento 2 hab.</div>
+              <div class="uc-area">68 – 85 m² · Pisos 5–18</div>
+              <div class="uc-price">$490M – $640M COP</div>
+              <div class="uc-price-sub">desde $7.2M/m²</div>
+              <div class="uc-avail"><div class="uc-avail-dot"></div>24 disponibles</div>
+            </div>
+          </div>
+          <div class="unit-card" data-type="3hab" onclick="selectUnit(this)">
+            <div class="uc-img"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&q=75&fit=crop" alt="3 hab"/></div>
+            <div class="uc-body">
+              <div class="uc-name">Penthouse 3 hab.</div>
+              <div class="uc-area">110 – 148 m² · Pisos 14–18</div>
+              <div class="uc-price">$780M – $1.050M COP</div>
+              <div class="uc-price-sub">desde $7.1M/m²</div>
+              <div class="uc-avail"><div class="uc-avail-dot"></div>15 disponibles</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Amenities -->
+      <div class="amenities-block">
+        <div class="sec-title">Amenidades</div>
+        <div class="amenities-grid">
+          <div class="amenity"><div class="amenity-icon">🏊</div>Piscina infinita</div>
+          <div class="amenity"><div class="amenity-icon">🏖</div>Playa privada</div>
+          <div class="amenity"><div class="amenity-icon">🏋️</div>Gimnasio equipado</div>
+          <div class="amenity"><div class="amenity-icon">🍹</div>Rooftop bar</div>
+          <div class="amenity"><div class="amenity-icon">💻</div>Coworking</div>
+          <div class="amenity"><div class="amenity-icon">🛏</div>Área de hamacas</div>
+          <div class="amenity"><div class="amenity-icon">🔒</div>Seguridad 24h</div>
+          <div class="amenity"><div class="amenity-icon">🚗</div>Parqueadero</div>
+          <div class="amenity"><div class="amenity-icon">🌿</div>Jardines tropicales</div>
+          <div class="amenity"><div class="amenity-icon">🧖</div>Spa &amp; sauna</div>
+          <div class="amenity"><div class="amenity-icon">🐕</div>Pet zone</div>
+          <div class="amenity"><div class="amenity-icon">⚡</div>Carga eléctrica</div>
+        </div>
+      </div>
+
+      <!-- Investment -->
+      <div class="invest-block">
+        <div class="sec-title">Análisis de inversión</div>
+        <div class="invest-row">
+          <div class="invest-item">
+            <div class="invest-val">9.2%</div>
+            <div class="invest-lbl">Rentabilidad est. anual</div>
+          </div>
+          <div class="invest-item">
+            <div class="invest-val">+38%</div>
+            <div class="invest-lbl">Valorización 5 años</div>
+          </div>
+          <div class="invest-item">
+            <div class="invest-val">$2.8M</div>
+            <div class="invest-lbl">Renta mensual est. (1 hab)</div>
+          </div>
+          <div class="invest-item">
+            <div class="invest-val">78%</div>
+            <div class="invest-lbl">Punto de equilibrio superado</div>
+          </div>
+        </div>
+        <div class="roi-bar">
+          <div class="roi-bar-label"><span>ROI vs. mercado Santa Marta</span><span style="color:#9FE1CB">9.2% vs. 6.8% promedio</span></div>
+          <div class="roi-bar-track"><div class="roi-bar-fill" id="roi-bar-fill" style="width:0%"></div></div>
+        </div>
+        <p class="invest-desc" style="margin-top:12px">Santa Marta registra una ocupación turística promedio del 78% anual. La ubicación en El Rodadero Norte, a 80m del mar, posiciona a Kashi como un activo ideal para renta vacacional corta o larga. El retorno proyectado incluye valorización del suelo, renta y plusvalía por entrega del proyecto.</p>
+        <div class="invest-note">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;margin-top:1px"><circle cx="7" cy="7" r="5.5" stroke="#8a9bb5" stroke-width="1.2"/><path d="M7 6v4M7 4.5v.5" stroke="#8a9bb5" stroke-width="1.2" stroke-linecap="round"/></svg>
+          Estimaciones basadas en datos históricos de ocupación y precios de la zona. No constituyen garantía de rentabilidad.
+        </div>
+      </div>
+
+      <!-- CALCULADORA DE FINANCIAMIENTO -->
+      <div class="calc-block">
+        <button class="sec-title acc-toggle" onclick="toggleSection('calc-body', this)">Calculadora de financiamiento<span class="acc-chevron">›</span></button>
+        <div class="acc-body" id="calc-body">
+        <div style="height:12px"></div>
+        <div class="calc-grid">
+          <div class="calc-inputs">
+            <div class="calc-field">
+              <label class="calc-label">Precio de la unidad</label>
+              <div class="calc-input-wrap">
+                <span class="calc-prefix">$</span>
+                <input class="calc-input-num" id="calc-price" type="number" value="320000000"/>
+                <span class="calc-suffix">COP</span>
+              </div>
+            </div>
+            <div class="calc-field">
+              <label class="calc-label">Cuota inicial: <strong id="calc-pct-val">30%</strong></label>
+              <input class="calc-range" id="calc-pct" type="range" min="10" max="50" value="30" step="5"/>
+              <div class="calc-range-marks"><span>10%</span><span>20%</span><span>30%</span><span>40%</span><span>50%</span></div>
+            </div>
+            <div class="calc-field-row">
+              <div class="calc-field">
+                <label class="calc-label">Tasa anual</label>
+                <div class="calc-input-wrap">
+                  <input class="calc-input-num" id="calc-rate" type="number" value="13.5" step="0.1" min="5" max="30"/>
+                  <span class="calc-suffix">%</span>
+                </div>
+              </div>
+              <div class="calc-field">
+                <label class="calc-label">Plazo</label>
+                <div class="calc-btn-group">
+                  <button class="calc-term-btn active" data-years="10">10 años</button>
+                  <button class="calc-term-btn" data-years="15">15 años</button>
+                  <button class="calc-term-btn" data-years="20">20 años</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="calc-outputs">
+            <div class="calc-out-item">
+              <div class="calc-out-val" id="calc-credito">$224.0M</div>
+              <div class="calc-out-lbl">Valor del crédito</div>
+            </div>
+            <div class="calc-out-item calc-out-main">
+              <div class="calc-out-val green" id="calc-cuota">$3.1M</div>
+              <div class="calc-out-lbl">Cuota mensual est.</div>
+            </div>
+            <div class="calc-out-item">
+              <div class="calc-out-val" id="calc-total">$372.0M</div>
+              <div class="calc-out-lbl">Total pagado</div>
+            </div>
+            <div class="calc-out-item">
+              <div class="calc-out-val green" id="calc-saving">+$1.1M</div>
+              <div class="calc-out-lbl">Ahorro vs. arriendo est.</div>
+            </div>
+          </div>
+        </div>
+        <p class="calc-note">* Estimado. Consulta con tu entidad financiera las condiciones reales.</p>
+        </div><!-- /acc-body calc -->
+      </div>
+
+      <!-- Location -->
+      <div class="location-block">
+        <div class="sec-title">Ubicación</div>
+        <div class="map-placeholder" onclick="showToast('🗺️ Abriendo Google Maps…')">
+          <div class="map-overlay">
+            <div style="font-size:28px">📍</div>
+            <div class="map-label">El Rodadero Norte, Santa Marta</div>
+            <div class="map-open">Ver en Google Maps →</div>
+          </div>
+          <div style="position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(29,158,117,.04) 0,rgba(29,158,117,.04) 10px,transparent 10px,transparent 20px)"></div>
+        </div>
+        <div class="pois">
+          <div class="poi">
+            <div class="poi-icon" style="background:#E1F5EE">🏖</div>
+            <div><div class="poi-name">Playa El Rodadero</div><div class="poi-dist">80m · a pie</div></div>
+          </div>
+          <div class="poi">
+            <div class="poi-icon" style="background:#E6F1FB">✈️</div>
+            <div><div class="poi-name">Aeropuerto Simón Bolívar</div><div class="poi-dist">12 min · carro</div></div>
+          </div>
+          <div class="poi">
+            <div class="poi-icon" style="background:#FAEEDA">🏥</div>
+            <div><div class="poi-name">Clínica La Misericordia</div><div class="poi-dist">8 min · carro</div></div>
+          </div>
+          <div class="poi">
+            <div class="poi-icon" style="background:#E1F5EE">🛒</div>
+            <div><div class="poi-name">Centro Comercial Buenavista</div><div class="poi-dist">5 min · carro</div></div>
+          </div>
+          <div class="poi">
+            <div class="poi-icon" style="background:#F3F0FF">🎓</div>
+            <div><div class="poi-name">UniMagdalena</div><div class="poi-dist">15 min · carro</div></div>
+          </div>
+          <div class="poi">
+            <div class="poi-icon" style="background:#FEF3E2">🌿</div>
+            <div><div class="poi-name">Parque Tayrona</div><div class="poi-dist">45 min · carro</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Developer -->
+      <div class="developer-block">
+        <div class="sec-title">Constructora</div>
+        <div class="dev-row">
+          <div class="dev-logo">🏗️</div>
+          <div>
+            <div class="dev-name">Grupo Kashi Construcciones</div>
+            <div class="dev-since">Fundada en 1991 · Barranquilla, Colombia</div>
+            <div class="dev-stars-row">
+              <span class="dev-stars">★★★★★</span>
+              <span class="dev-rating">4.9</span>
+              <span class="dev-reviews">(142 reseñas verificadas)</span>
+            </div>
+          </div>
+        </div>
+        <div class="dev-stats">
+          <div class="dev-stat"><div class="dev-stat-val">32</div><div class="dev-stat-lbl">Años de trayectoria</div></div>
+          <div class="dev-stat"><div class="dev-stat-val">48</div><div class="dev-stat-lbl">Proyectos entregados</div></div>
+          <div class="dev-stat"><div class="dev-stat-val">100%</div><div class="dev-stat-lbl">Entregas a tiempo</div></div>
+        </div>
+        <div style="font-size:11px;color:var(--t2);margin-bottom:10px">Otros proyectos entregados</div>
+        <div class="dev-projects">
+          <div class="dev-proj-thumb"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=200&q=75&fit=crop" alt=""/><div class="dev-proj-name">Kashi Bocagrande</div></div>
+          <div class="dev-proj-thumb"><img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=200&q=75&fit=crop" alt=""/><div class="dev-proj-name">Kashi 80 Baq.</div></div>
+          <div class="dev-proj-thumb"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=200&q=75&fit=crop" alt=""/><div class="dev-proj-name">Torres Kashi I</div></div>
+          <div class="dev-proj-thumb"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=200&q=75&fit=crop" alt=""/><div class="dev-proj-name">Kashi Cartagena</div></div>
+        </div>
+      </div>
+
+      <!-- DOCUMENTOS DEL PROYECTO -->
+      <div class="docs-block">
+        <div class="sec-title">Documentos del proyecto</div>
+        <div class="docs-grid">
+          <div class="doc-card">
+            <div class="doc-icon">📋</div>
+            <div class="doc-info"><div class="doc-name">Licencia de construcción</div><div class="doc-type">PDF · LC-2024-089</div></div>
+            <button class="doc-btn" onclick="showToast('📄 Descargando Licencia de construcción…')">↓</button>
+          </div>
+          <div class="doc-card">
+            <div class="doc-icon">🏦</div>
+            <div class="doc-info"><div class="doc-name">Certificado de fiduciaria</div><div class="doc-type">PDF · Davivienda Fiduciaria</div></div>
+            <button class="doc-btn" onclick="showToast('📄 Descargando certificado fiduciario…')">↓</button>
+          </div>
+          <div class="doc-card">
+            <div class="doc-icon">📐</div>
+            <div class="doc-info"><div class="doc-name">Planos arquitectónicos</div><div class="doc-type">PDF · Rev. 3</div><span class="doc-badge-req">Requiere registro</span></div>
+            <button class="doc-btn locked" onclick="showToast('🔒 Regístrate para descargar planos')">🔒</button>
+          </div>
+          <div class="doc-card">
+            <div class="doc-icon">📘</div>
+            <div class="doc-info"><div class="doc-name">Brochure oficial</div><div class="doc-type">PDF · 4.2 MB</div></div>
+            <button class="doc-btn" onclick="showToast('📄 Descargando brochure oficial…')">↓</button>
+          </div>
+          <div class="doc-card">
+            <div class="doc-icon">📜</div>
+            <div class="doc-info"><div class="doc-name">Reglamento de PH</div><div class="doc-type">PDF · Borrador</div><span class="doc-badge-req">Requiere registro</span></div>
+            <button class="doc-btn locked" onclick="showToast('🔒 Regístrate para ver el reglamento')">🔒</button>
+          </div>
+          <div class="doc-card">
+            <div class="doc-icon">🏗️</div>
+            <div class="doc-info"><div class="doc-name">NSR certificado</div><div class="doc-type">PDF · Norma sísmica</div></div>
+            <button class="doc-btn" onclick="showToast('📄 Descargando certificado NSR…')">↓</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /left -->
+
+    <!-- ── RIGHT COLUMN ── -->
+    <div class="sticky-card">
+      <div class="cta-card">
+        <div class="cta-header">
+          <div class="cta-badge">Kashi Santa Marta · Preventa</div>
+          <div class="cta-price">$320M COP <span style="font-size:13px;font-weight:400;color:#888780">desde</span></div>
+          <div class="cta-price-sub">1 hab · 42m² · Entrega Q2 2027</div>
+          <div class="cta-avail">
+            <div class="avail-bar-wrap">
+              <div class="avail-label"><span>Unidades vendidas</span><span>89 / 156</span></div>
+              <div class="avail-track"><div class="avail-fill" id="avail-fill" style="width:0%"></div></div>
+            </div>
+            <div class="avail-pct">57% vendido</div>
+          </div>
+        </div>
+        <div class="cta-body">
+          <div class="cta-form-group">
+            <div class="cta-label">Tu nombre</div>
+            <input class="cta-input" type="text" placeholder="Nombre completo" id="contact-name"/>
+          </div>
+          <div class="cta-form-group">
+            <div class="cta-label">Correo electrónico</div>
+            <input class="cta-input" type="email" placeholder="tucorreo@email.com" id="contact-email"/>
+          </div>
+          <div class="cta-form-group">
+            <div class="cta-input-row">
+              <div>
+                <div class="cta-label">Teléfono</div>
+                <input class="cta-input" type="tel" placeholder="+57 300 000 0000" id="contact-phone"/>
+              </div>
+              <div>
+                <div class="cta-label">Tipo de unidad</div>
+                <select class="cta-select" id="contact-unit">
+                  <option value="">Seleccionar</option>
+                  <option value="1hab">1 habitación</option>
+                  <option value="2hab">2 habitaciones</option>
+                  <option value="3hab">Penthouse 3 hab.</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="cta-form-group">
+            <div class="cta-label">¿Cuándo quieres comprar?</div>
+            <select class="cta-select" id="contact-timeline">
+              <option value="">Seleccionar</option>
+              <option>Lo antes posible</option>
+              <option>En los próximos 3 meses</option>
+              <option>En los próximos 6 meses</option>
+              <option>Solo estoy explorando</option>
+            </select>
+          </div>
+          <button class="cta-btn" onclick="submitContact()">Solicitar información gratis</button>
+          <button class="cta-btn-secondary" onclick="openVisitModal('Kashi Santa Marta','Santa Marta')">Agendar visita virtual</button>
+        </div>
+        <div class="cta-trust">
+          <div class="cta-trust-item"><span class="cta-trust-icon">✓</span>Sin compromiso de compra · Asesoría gratuita</div>
+          <div class="cta-trust-item"><span class="cta-trust-icon">✓</span>Respondemos en menos de 2 horas</div>
+          <div class="cta-trust-item"><span class="cta-trust-icon">✓</span>Tus datos están protegidos (HABEAS DATA)</div>
+        </div>
+        <div class="cta-zonum">
+          <div class="cta-zonum-logo"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="5" width="11" height="7" rx="1" fill="#fff"/><path d="M1 7l5.5-5 5.5 5" stroke="#fff" stroke-width="1.3" fill="none"/></svg></div>
+          <div class="cta-zonum-txt"><strong>Gestionado por Zonum</strong> · Coordinamos todo el proceso de compra con la constructora por ti.</div>
+        </div>
+      </div>
+    </div><!-- /right -->
+
+  </div><!-- /main-grid -->
+
+  <!-- TESTIMONIOS -->
+  <div class="testimonios-section">
+    <div class="sec-title" style="font-size:16px">Compradores verificados</div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-header">
+          <div class="testi-avatar">MR</div>
+          <div class="testi-meta">
+            <div class="testi-name">María Rodríguez <span class="testi-verified">✓ Verificado</span></div>
+            <div class="testi-sub">Medellín · Suite 1 hab.</div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="testi-quote">"Llevaba 2 años buscando apartamento en Santa Marta. Zonum me ayudó a entender todo el proceso fiduciario y la constructora cumplió al 100% con los tiempos. Mi mejor inversión."</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-header">
+          <div class="testi-avatar" style="background:#c9a96e">JC</div>
+          <div class="testi-meta">
+            <div class="testi-name">Juan Carlos Peña <span class="testi-verified">✓ Verificado</span></div>
+            <div class="testi-sub">Bogotá · Apto. 2 hab.</div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="testi-quote">"Compré para renta vacacional y en la primera temporada ya recuperé el 8% de lo invertido. La vista al mar es increíble y los acabados superaron mis expectativas."</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-header">
+          <div class="testi-avatar" style="background:#3b82f6">AM</div>
+          <div class="testi-meta">
+            <div class="testi-name">Andrea Molina <span class="testi-verified">✓ Verificado</span></div>
+            <div class="testi-sub">Miami, EE.UU. · Penthouse 3 hab.</div>
+            <div class="testi-stars">★★★★☆</div>
+          </div>
+        </div>
+        <p class="testi-quote">"Soy colombiana viviendo en Miami. Quería diversificar mi portafolio en Colombia y Kashi era lo que buscaba. El proceso para comprar siendo residente exterior fue más sencillo de lo que pensaba."</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIMILAR PROJECTS -->
+  <div class="similar-section">
+    <div class="sec-title" style="font-size:16px">Proyectos similares</div>
+    <div class="similar-grid">
+      <div class="scard" onclick="location.href='alma-luxury-lofts.html'" style="cursor:pointer">
+        <div class="scard-img">
+          <img src="https://images.unsplash.com/photo-1601933470096-0e34634ffcde?w=600&q=80&fit=crop&crop=center" alt="Reserva del Bosque"/>
+          <div class="scard-badge sb-green">Preventa</div>
+        </div>
+        <div class="scard-body">
+          <div class="scard-price">$480M COP <span style="font-size:11px;color:#a0a09d">desde</span></div>
+          <div class="scard-name">Reserva del Bosque</div>
+          <div class="scard-loc"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2" stroke="#6b6b68" stroke-width="1.2"/><path d="M5 10C5 10 1.5 7 1.5 4a3.5 3.5 0 017 0C8.5 7 5 10 5 10z" stroke="#6b6b68" stroke-width="1.2" fill="none"/></svg>El Poblado, Medellín</div>
+          <div class="scard-specs"><span>2–3 hab</span><span>·</span><span>65–90m²</span><span>·</span><span>2026</span></div>
+          <div class="scard-roi">▲ 8.1% ROI est.</div>
+        </div>
+      </div>
+      <div class="scard" onclick="location.href='buscar.html'" style="cursor:pointer">
+        <div class="scard-img">
+          <img src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?w=600&q=80&fit=crop&crop=center" alt="Océano Azul"/>
+          <div class="scard-badge sb-green">Preventa</div>
+        </div>
+        <div class="scard-body">
+          <div class="scard-price">$560M COP <span style="font-size:11px;color:#a0a09d">desde</span></div>
+          <div class="scard-name">Océano Azul Cartagena</div>
+          <div class="scard-loc"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2" stroke="#6b6b68" stroke-width="1.2"/><path d="M5 10C5 10 1.5 7 1.5 4a3.5 3.5 0 017 0C8.5 7 5 10 5 10z" stroke="#6b6b68" stroke-width="1.2" fill="none"/></svg>Bocagrande, Cartagena</div>
+          <div class="scard-specs"><span>2–3 hab</span><span>·</span><span>75–105m²</span><span>·</span><span>2027</span></div>
+          <div class="scard-roi">▲ 8.7% ROI est.</div>
+        </div>
+      </div>
+      <div class="scard" onclick="location.href='buscar.html'" style="cursor:pointer">
+        <div class="scard-img">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80&fit=crop&crop=center" alt="Coral Reef"/>
+          <div class="scard-badge sb-amber">En construcción</div>
+        </div>
+        <div class="scard-body">
+          <div class="scard-price">$280M COP <span style="font-size:11px;color:#a0a09d">desde</span></div>
+          <div class="scard-name">Coral Reef Suites</div>
+          <div class="scard-loc"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2" stroke="#6b6b68" stroke-width="1.2"/><path d="M5 10C5 10 1.5 7 1.5 4a3.5 3.5 0 017 0C8.5 7 5 10 5 10z" stroke="#6b6b68" stroke-width="1.2" fill="none"/></svg>San Andrés Isla, Colombia</div>
+          <div class="scard-specs"><span>1–2 hab</span><span>·</span><span>48–80m²</span><span>·</span><span>2026</span></div>
+          <div class="scard-roi">▲ 10.1% ROI est.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<!-- FAQ -->
+<div style="max-width:1200px;margin:0 auto;padding:0 20px">
+<div class="faq-block">
+  <div class="sec-title" style="font-size:16px">Preguntas frecuentes</div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿Cómo funciona la fiducia?<span class="faq-icon">+</span></button>
+      <div class="faq-a">La fiducia es un mecanismo de protección donde los dineros del comprador se depositan en una cuenta separada administrada por Davivienda Fiduciaria. El dinero solo se libera a la constructora cuando el proyecto alcanza su punto de equilibrio y cumple las condiciones pactadas, garantizando completamente tu inversión.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿Cuál es el proceso de compra?<span class="faq-icon">+</span></button>
+      <div class="faq-a">1. Seleccionas tu unidad y firmas la promesa de compraventa. 2. Pagas la cuota inicial en cuotas durante la construcción según el plan de pagos. 3. Al momento de entrega, gestionas el crédito hipotecario con tu banco. 4. Firmas escritura y recibes las llaves. Zonum te acompaña en cada paso del proceso.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿Puedo comprar siendo extranjero o residente en el exterior?<span class="faq-icon">+</span></button>
+      <div class="faq-a">Sí. Colombia permite a extranjeros comprar inmuebles en las mismas condiciones que los nacionales. Necesitas pasaporte vigente, número tributario y cuenta bancaria en Colombia. Los pagos pueden realizarse en dólares con conversión oficial. Zonum tiene experiencia trabajando con compradores desde EE.UU., España, México y Panamá.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si el proyecto no se entrega a tiempo?<span class="faq-icon">+</span></button>
+      <div class="faq-a">La fiducia garantiza la devolución del 100% de tus pagos si el proyecto no alcanza el punto de equilibrio. Adicionalmente, el contrato incluye cláusulas de penalidad por mora. Grupo Kashi Construcciones tiene 100% de entregas a tiempo en sus 48 proyectos anteriores y el proyecto ya superó el 78% del punto de equilibrio.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿Hay restricciones para renta vacacional (Airbnb)?<span class="faq-icon">+</span></button>
+      <div class="faq-a">No. El reglamento de propiedad horizontal de Kashi permite explícitamente la renta vacacional de corta estancia. El edificio cuenta además con un sistema de administración de rentas gestionado por el operador hotelero aliado del proyecto, lo que facilita la gestión remota para inversores que no viven en Santa Marta.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿Qué incluyen los acabados estándar?<span class="faq-icon">+</span></button>
+      <div class="faq-a">Los acabados incluyen: porcelanato importado 60×60 en áreas sociales, mesones de cuarzo en cocina y baños, ventanería de aluminio con doble vidrio, cocina con electrodomésticos Mabe, closets en madera enchapada y terraza con deck sintético. Penthouses incluyen mármol y herrajes europeos como upgrade sin costo adicional.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lb-close" onclick="closeLightboxDirect()">×</div>
+  <img class="lb-img" id="lb-img" src="" alt=""/>
+  <div class="lb-arrows">
+    <div class="lb-arrow" onclick="lbNav(-1,event)">‹</div>
+    <div class="lb-arrow" onclick="lbNav(1,event)">›</div>
+  </div>
+  <div class="lb-nav" id="lb-dots"></div>
+</div>
+
+<!-- WHATSAPP FAB -->
+<div class="wa-fab" id="wa-fab" onclick="toggleWaPopup()">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#fff"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.523 3.663 1.43 5.18L2.1 21l3.82-1.357A9.963 9.963 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.963 7.963 0 01-4.076-1.116l-.292-.173-3.025 1.073 1.073-2.965-.19-.305A7.963 7.963 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z" fill="#fff"/></svg>
+</div>
+<div class="wa-popup" id="wa-popup">
+  <div class="wa-popup-header">
+    <div class="wa-popup-avatar">K</div>
+    <div><div class="wa-popup-name">Kashi Santa Marta</div><div class="wa-popup-status">● En línea</div></div>
+    <div class="wa-popup-close" onclick="toggleWaPopup()">×</div>
+  </div>
+  <div class="wa-popup-msg">Hola, me interesa Kashi Santa Marta, ¿podrían darme más información?</div>
+  <a class="wa-popup-btn" href="https://wa.me/573001234567?text=Hola%2C%20me%20interesa%20Kashi%20Santa%20Marta%2C%20%C2%BFpodr%C3%ADan%20darme%20m%C3%A1s%20informaci%C3%B3n%3F" target="_blank" rel="noopener">Abrir en WhatsApp →</a>
+</div>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<script>
+// ── Gallery Images ──
+const galleryImages = [
+  "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1200&q=85&fit=crop&crop=center",
+  "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=85&fit=crop&crop=center",
+  "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=85&fit=crop&crop=center",
+  "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1200&q=85&fit=crop&crop=center",
+  "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=1200&q=85&fit=crop&crop=center",
+  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=85&fit=crop&crop=center",
+  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=85&fit=crop&crop=center",
+  "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=85&fit=crop&crop=center",
+];
+let currentLbIdx = 0;
+
+function openLightbox(idx) {
+  currentLbIdx = idx;
+  const lb = document.getElementById('lightbox');
+  const img = document.getElementById('lb-img');
+  img.src = galleryImages[idx];
+  lb.classList.add('open');
+  buildDots();
+}
+function closeLightbox(e) { if(e.target === document.getElementById('lightbox')) closeLightboxDirect(); }
+function closeLightboxDirect() { document.getElementById('lightbox').classList.remove('open'); }
+function lbNav(dir, e) {
+  e.stopPropagation();
+  currentLbIdx = (currentLbIdx + dir + galleryImages.length) % galleryImages.length;
+  document.getElementById('lb-img').src = galleryImages[currentLbIdx];
+  buildDots();
+}
+function buildDots() {
+  const c = document.getElementById('lb-dots');
+  c.innerHTML = galleryImages.map((_, i) =>
+    `<div class="lb-dot ${i===currentLbIdx?'active':''}" onclick="lbGoTo(${i},event)"></div>`
+  ).join('');
+}
+function lbGoTo(i, e) {
+  e.stopPropagation();
+  currentLbIdx = i;
+  document.getElementById('lb-img').src = galleryImages[i];
+  buildDots();
+}
+document.addEventListener('keydown', e => {
+  const lb = document.getElementById('lightbox');
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'ArrowRight') lbNav(1, {stopPropagation:()=>{}});
+  if (e.key === 'ArrowLeft')  lbNav(-1, {stopPropagation:()=>{}});
+  if (e.key === 'Escape') closeLightboxDirect();
+});
+
+// ── Save / Favorite ──
+let saved = false;
+function toggleSave(e) {
+  e.stopPropagation();
+  saved = !saved;
+  const btn = document.getElementById('save-btn');
+  btn.textContent = saved ? '♥' : '♡';
+  btn.classList.toggle('saved', saved);
+  showToast(saved ? '♥ Guardado en favoritos' : '♡ Eliminado de favoritos');
+}
+
+// ── Unit Tabs ──
+function filterUnits(type, btn) {
+  document.querySelectorAll('.unit-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.unit-card').forEach(card => {
+    card.style.display = (type === 'all' || card.dataset.type === type) ? '' : 'none';
+  });
+}
+function selectUnit(card) {
+  document.querySelectorAll('.unit-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+  const name = card.querySelector('.uc-name').textContent;
+  const priceText = card.querySelector('.uc-price').textContent;
+  document.getElementById('contact-unit').value = card.dataset.type;
+  // Auto-fill calculator with selected unit's starting price
+  const match = priceText.match(/\$([\d,.]+)([MB]?)/);
+  if (match) {
+    let val = parseFloat(match[1].replace(/,/g,''));
+    if (match[2] === 'M') val *= 1e6;
+    else if (match[2] === 'B') val *= 1e9;
+    const priceInput = document.getElementById('calc-price');
+    if (priceInput) { priceInput.value = Math.round(val); calcUpdate(); }
+  }
+  showToast(`✓ Seleccionado: ${name}`);
+}
+
+// ── Description expand ──
+let expanded = false;
+function toggleDesc() {
+  expanded = !expanded;
+  document.getElementById('desc-extra').style.display = expanded ? '' : 'none';
+  document.getElementById('desc-extra2').style.display = expanded ? '' : 'none';
+  const btn = document.getElementById('expand-btn');
+  btn.innerHTML = expanded
+    ? '<svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 8l4-4 4 4" stroke="#1D9E75" stroke-width="1.3"/></svg> Ver menos'
+    : '<svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="#1D9E75" stroke-width="1.3"/></svg> Leer más';
+}
+
+// ── Contact Form ──
+function submitContact() {
+  const name = document.getElementById('contact-name').value.trim();
+  const email = document.getElementById('contact-email').value.trim();
+  const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!name) { showToast('⚠️ Ingresa tu nombre'); return; }
+  if (!emailRx.test(email)) { showToast('⚠️ Ingresa un correo válido'); return; }
+  showToast('✅ ¡Solicitud enviada! Te contactaremos pronto.');
+  document.querySelector('.cta-btn').textContent = '✓ Solicitud enviada';
+  document.querySelector('.cta-btn').style.background = '#0F6E56';
+}
+
+// ── Toast ──
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+// ── Calculadora de Financiamiento ──
+let calcYears = 10;
+function fmtCOP(val) {
+  const abs = Math.abs(val);
+  const sign = val < 0 ? '-' : '';
+  if (abs >= 1e9) return sign + '$' + (abs/1e9).toFixed(1) + 'B';
+  if (abs >= 1e6) return sign + '$' + (abs/1e6).toFixed(1) + 'M';
+  return sign + '$' + Math.round(abs).toLocaleString('es-CO');
+}
+function calcUpdate() {
+  const price = parseFloat(document.getElementById('calc-price').value) || 320000000;
+  const pct   = parseFloat(document.getElementById('calc-pct').value) / 100;
+  const rate  = parseFloat(document.getElementById('calc-rate').value) / 100 / 12;
+  const n     = calcYears * 12;
+  const credito = price * (1 - pct);
+  const cuota = rate === 0 ? credito / n : credito * (rate * Math.pow(1+rate,n)) / (Math.pow(1+rate,n) - 1);
+  const total = cuota * n;
+  const saving = 2800000 - cuota;
+  document.getElementById('calc-pct-val').textContent = Math.round(pct*100) + '%';
+  document.getElementById('calc-credito').textContent = fmtCOP(credito);
+  document.getElementById('calc-cuota').textContent   = fmtCOP(cuota);
+  document.getElementById('calc-total').textContent   = fmtCOP(total);
+  const savEl = document.getElementById('calc-saving');
+  savEl.textContent = (saving >= 0 ? '+' : '') + fmtCOP(Math.abs(saving));
+  savEl.className = 'calc-out-val ' + (saving >= 0 ? 'green' : 'red');
+}
+function initCalc() {
+  document.getElementById('calc-price').addEventListener('input', calcUpdate);
+  document.getElementById('calc-pct').addEventListener('input', calcUpdate);
+  document.getElementById('calc-rate').addEventListener('input', calcUpdate);
+  document.querySelectorAll('.calc-term-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.calc-term-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      calcYears = parseInt(btn.dataset.years);
+      calcUpdate();
+    });
+  });
+  calcUpdate();
+}
+
+// ── Accordion Sections ──
+function toggleSection(id, btn) {
+  const body = document.getElementById(id);
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  btn.classList.toggle('open', !isOpen);
+}
+
+// ── Social Proof Bar ──
+function initSocialProof() {
+  let views = 143, saves = 34;
+  setInterval(() => {
+    const d = Math.floor(Math.random()*5) - 1;
+    views = Math.max(100, views + d);
+    const el = document.getElementById('sp-views');
+    if (el) { el.textContent = views; el.style.color='var(--green)'; setTimeout(()=>el.style.color='var(--t1)',700); }
+  }, 7000);
+  setInterval(() => {
+    if (Math.random() > 0.4) {
+      saves++;
+      const el = document.getElementById('sp-saves');
+      if (el) { el.textContent = saves; el.style.color='var(--green)'; setTimeout(()=>el.style.color='var(--t1)',700); }
+    }
+  }, 19000);
+}
+
+// ── WhatsApp FAB ──
+function toggleWaPopup() {
+  document.getElementById('wa-popup').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  const fab = document.getElementById('wa-fab');
+  const popup = document.getElementById('wa-popup');
+  if (popup && popup.classList.contains('open') && !popup.contains(e.target) && fab && !fab.contains(e.target)) {
+    popup.classList.remove('open');
+  }
+});
+
+// ── FAQ Accordion ──
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const answer = item.querySelector('.faq-a');
+  const isOpen = btn.classList.contains('open');
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.classList.remove('open');
+    q.closest('.faq-item').querySelector('.faq-a').classList.remove('open');
+  });
+  if (!isOpen) { btn.classList.add('open'); answer.classList.add('open'); }
+}
+
+// ── Animated bars on load ──
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('roi-bar-fill').style.width = '75%';
+    document.getElementById('avail-fill').style.width = '57%';
+    initCalc();
+    initSocialProof();
+  }, 400);
+});
+</script>
+
+<!-- ══════════════════════════ FOOTER ══════════════════════════ -->
+<div id="zonum-footer"></div>
+<script src="footer.js"></script>
+
+<!-- MOBILE STICKY CTA -->
+<div class="mobile-cta-bar" id="mobile-cta-bar">
+  <div class="mobile-cta-price">
+    <div class="mobile-cta-from">desde</div>
+    <div class="mobile-cta-amount">$320M COP</div>
+  </div>
+  <button class="mobile-cta-btn" onclick="document.querySelector('.cta-card').scrollIntoView({behavior:'smooth'})">Solicitar info</button>
+  <button class="mobile-cta-wa" onclick="toggleWaPopup()" aria-label="WhatsApp">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#fff"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.523 3.663 1.43 5.18L2.1 21l3.82-1.357A9.963 9.963 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.963 7.963 0 01-4.076-1.116l-.292-.173-3.025 1.073 1.073-2.965-.19-.305A7.963 7.963 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<!-- ── VISIT MODAL ── -->
+<div class="visit-modal" id="visitModal" role="dialog" aria-modal="true" aria-label="Agendar visita">
+  <div class="visit-box">
+    <!-- Left Panel -->
+    <div class="visit-left">
+      <div class="vl-logo">zonum</div>
+      <div class="vl-img-placeholder" id="vl-img-placeholder">🏖️</div>
+      <div class="vl-project-name" id="vl-project-name">Kashi Santa Marta</div>
+      <div class="vl-project-loc" id="vl-project-loc">
+        <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="5.5" r="2.5" stroke="#A8C4DC" stroke-width="1.2"/><path d="M7 14C7 14 2 9.5 2 5.5a5 5 0 0110 0C12 9.5 7 14 7 14z" stroke="#A8C4DC" stroke-width="1.2" fill="none"/></svg>
+        <span id="vl-project-loc-text">Santa Marta</span>
+      </div>
+      <div class="vl-trust">
+        <div class="vl-trust-item"><div class="vl-trust-check">✓</div>Sin costo · sin compromiso</div>
+        <div class="vl-trust-item"><div class="vl-trust-check">✓</div>Asesor dedicado te contacta</div>
+        <div class="vl-trust-item"><div class="vl-trust-check">✓</div>Visita virtual o presencial</div>
+      </div>
+      <div class="vl-steps">
+        <div class="vl-step-dot active" id="vldot-1"></div>
+        <div class="vl-step-dot" id="vldot-2"></div>
+        <div class="vl-step-dot" id="vldot-3"></div>
+      </div>
+    </div>
+    <!-- Right Panel -->
+    <div class="visit-right">
+      <button class="visit-close" onclick="closeVisitModal()" aria-label="Cerrar">×</button>
+
+      <!-- Step 1 -->
+      <div class="visit-step active" id="vstep-1">
+        <div class="vstep-eyebrow">Paso 1 de 3</div>
+        <div class="vstep-title">Elige el proyecto</div>
+        <div class="vstep-sub">Selecciona ciudad y proyecto de interés</div>
+        <div class="city-pills" id="cityPills">
+          <button class="city-pill" onclick="selectCity('Bogotá',this)">🏙 Bogotá</button>
+          <button class="city-pill" onclick="selectCity('Medellín',this)">⛰ Medellín</button>
+          <button class="city-pill" onclick="selectCity('Cartagena',this)">🌊 Cartagena</button>
+          <button class="city-pill" onclick="selectCity('Santa Marta',this)">🏖 Santa Marta</button>
+          <button class="city-pill" onclick="selectCity('Cali',this)">🌿 Cali</button>
+          <button class="city-pill" onclick="selectCity('Barranquilla',this)">☀️ Barranquilla</button>
+          <button class="city-pill" onclick="selectCity('Otra ciudad',this)">📍 Otra ciudad</button>
+        </div>
+        <div class="project-select-wrap" id="projectSelectWrap">
+          <div class="project-select-label">Proyecto de interés</div>
+          <select class="project-select" id="projectSelect" onchange="onProjectChange()">
+            <option value="">Seleccionar proyecto...</option>
+          </select>
+        </div>
+        <button class="visit-cta" id="step1Cta" onclick="nextStep()" disabled>Continuar →</button>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="visit-step" id="vstep-2">
+        <div class="vstep-eyebrow">Paso 2 de 3</div>
+        <div class="vstep-title">Elige fecha y hora</div>
+        <div class="vstep-sub">Agenda una visita virtual o presencial</div>
+        <div class="visit-type-toggle">
+          <button class="vtype-pill sel" id="vtype-virtual" onclick="selectVisitType('Virtual',this)">💻 Virtual</button>
+          <button class="vtype-pill" id="vtype-presencial" onclick="selectVisitType('Presencial',this)">🏢 Presencial</button>
+        </div>
+        <div class="cal-wrap">
+          <div class="cal-header">
+            <button class="cal-nav-btn" onclick="changeMonth(-1)">‹</button>
+            <div class="cal-month" id="calMonth">—</div>
+            <button class="cal-nav-btn" onclick="changeMonth(1)">›</button>
+          </div>
+          <div class="cal-days-header">
+            <div class="cal-day-label">Lu</div><div class="cal-day-label">Ma</div>
+            <div class="cal-day-label">Mi</div><div class="cal-day-label">Ju</div>
+            <div class="cal-day-label">Vi</div><div class="cal-day-label">Sa</div>
+            <div class="cal-day-label">Do</div>
+          </div>
+          <div class="cal-grid" id="calGrid"></div>
+        </div>
+        <div class="time-slots-wrap" id="timeSlotsWrap">
+          <div class="time-slots-label">Hora disponible</div>
+          <div class="time-slots" id="timeSlots"></div>
+        </div>
+        <button class="visit-cta" id="step2Cta" onclick="nextStep()" disabled>Continuar →</button>
+        <button class="visit-back" onclick="prevStep()">← Volver</button>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="visit-step" id="vstep-3">
+        <div class="vstep-eyebrow">Paso 3 de 3</div>
+        <div class="vstep-title">¿Con quién coordinamos?</div>
+        <div class="vstep-sub">Un asesor te confirmará en menos de 2 horas</div>
+        <div class="visit-input-group">
+          <div class="visit-input-label">Nombre completo *</div>
+          <input class="visit-input" id="visitNombre" type="text" placeholder="Tu nombre completo" oninput="validateStep3()">
+        </div>
+        <div class="visit-input-group">
+          <div class="visit-input-label">Correo electrónico *</div>
+          <input class="visit-input" id="visitEmail" type="email" placeholder="correo@ejemplo.com" oninput="validateStep3()">
+        </div>
+        <div class="visit-input-group">
+          <div class="visit-input-label">Teléfono</div>
+          <div class="visit-phone-row">
+            <div class="visit-phone-flag">🇨🇴 +57</div>
+            <input class="visit-phone-input" id="visitTel" type="tel" placeholder="300 000 0000">
+          </div>
+        </div>
+        <div class="visit-input-group">
+          <div class="visit-input-label">Tipo de inversor</div>
+          <div class="investor-pills" id="investorPills">
+            <button class="investor-pill" onclick="selectPill(this,'investor')">Primera inversión</button>
+            <button class="investor-pill" onclick="selectPill(this,'investor')">Tengo experiencia</button>
+            <button class="investor-pill" onclick="selectPill(this,'investor')">Inversor frecuente</button>
+          </div>
+        </div>
+        <div class="visit-input-group">
+          <div class="visit-input-label">¿Cuál es tu presupuesto?</div>
+          <div class="budget-pills" id="budgetPills">
+            <button class="budget-pill" onclick="selectPill(this,'budget')">&lt; $400M</button>
+            <button class="budget-pill" onclick="selectPill(this,'budget')">$400M – $700M</button>
+            <button class="budget-pill" onclick="selectPill(this,'budget')">$700M – $1B</button>
+            <button class="budget-pill" onclick="selectPill(this,'budget')">&gt; $1B</button>
+          </div>
+        </div>
+        <div class="visit-privacy">Al continuar, aceptas nuestros <a href="#">Términos de Uso</a> y <a href="politica-privacidad.html">Política de Privacidad</a>.</div>
+        <button class="visit-cta" id="step3Cta" onclick="submitVisit()" disabled>Confirmar visita</button>
+        <button class="visit-back" onclick="prevStep()">← Volver</button>
+      </div>
+
+      <!-- Step 4: Success -->
+      <div class="visit-step" id="vstep-4">
+        <div class="vstep-title" style="font-size:22px;margin-bottom:6px">¡Visita agendada! 🎉</div>
+        <div class="vstep-sub" style="margin-bottom:20px">Tu reserva está confirmada. ¡Nos vemos pronto!</div>
+        <div class="confirm-box">
+          <div class="confirm-box-title">Resumen de tu visita</div>
+          <div class="confirm-row"><span class="confirm-icon">🏗</span><span id="confirm-project">—</span></div>
+          <div class="confirm-row"><span class="confirm-icon">📅</span><span id="confirm-date">—</span></div>
+          <div class="confirm-row"><span class="confirm-icon">⏰</span><span id="confirm-time">—</span></div>
+          <div class="confirm-row"><span class="confirm-icon">📍</span><span id="confirm-type">—</span></div>
+        </div>
+        <div class="next-steps">
+          <div class="next-steps-title">¿Qué sigue?</div>
+          <div class="next-step-item"><div class="next-step-num">1</div><span>Recibirás un email de confirmación con los detalles</span></div>
+          <div class="next-step-item"><div class="next-step-num">2</div><span>Tu asesor te llamará en menos de 2 horas</span></div>
+          <div class="next-step-item"><div class="next-step-num">3</div><span>Te enviamos el link de la reunión o la dirección de la visita</span></div>
+        </div>
+        <a href="buscar.html" class="visit-outline-btn" style="display:block;text-align:center;text-decoration:none">Explorar más proyectos</a>
+        <span class="visit-dismiss-link" onclick="closeVisitModal()">Cerrar</span>
+      </div>
+
+    </div><!-- /visit-right -->
+  </div><!-- /visit-box -->
+</div><!-- /visit-modal -->
+
+<script>
+(function(){
+  /* ── State ── */
+  var vState = {
+    step: 1,
+    city: '',
+    project: '',
+    visitType: 'Virtual',
+    calYear: 0,
+    calMonth: 0,
+    selDate: null,
+    selTime: '',
+    availDays: []
+  };
+
+  /* ── Projects by city ── */
+  var cityProjects = {
+    'Bogotá': ['Park 100','Nórdika','Reserva El Nogal','Urbano 93'],
+    'Medellín': ['El Tesoro','Arboleda Park','Laureles 33','Montserrat Hills'],
+    'Cartagena': ['Baru Bay','Lagoon House','Marina del Caribe','Vistas del Mar'],
+    'Santa Marta': ['Kashi Santa Marta','Bello Horizonte','Playa Salguero','El Rodadero'],
+    'Cali': ['Ciudad Jardín','Menga Hills','La Flora','Chipichape Loft'],
+    'Barranquilla': ['Prado Living','El Prado Sky','Miramar 80','Caribe View'],
+    'Otra ciudad': ['Proyecto en otra ciudad']
+  };
+
+  /* ── Available time slots ── */
+  var allSlots = ['9:00 am','10:00 am','11:00 am','2:00 pm','3:00 pm','4:00 pm','5:00 pm'];
+  var offSlots = ['11:00 am','4:00 pm'];
+
+  /* ── Open / Close ── */
+  window.openVisitModal = function(projectName, city) {
+    resetModal();
+    if (city) {
+      vState.city = city;
+      var pills = document.querySelectorAll('.city-pill');
+      pills.forEach(function(p){
+        if (p.textContent.trim().indexOf(city) !== -1) {
+          p.classList.add('sel');
+        }
+      });
+      showProjectSelect(city);
+      if (projectName) {
+        vState.project = projectName;
+        setTimeout(function(){
+          var sel = document.getElementById('projectSelect');
+          for (var i = 0; i < sel.options.length; i++) {
+            if (sel.options[i].value === projectName) { sel.selectedIndex = i; break; }
+          }
+          onProjectChange();
+        }, 50);
+      }
+    }
+    updateLeftPanel();
+    var modal = document.getElementById('visitModal');
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeVisitModal = function() {
+    document.getElementById('visitModal').classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  function resetModal() {
+    vState = { step:1, city:'', project:'', visitType:'Virtual', calYear:0, calMonth:0, selDate:null, selTime:'', availDays:[] };
+    goToStep(1);
+    document.querySelectorAll('.city-pill').forEach(function(p){ p.classList.remove('sel'); });
+    document.querySelectorAll('.investor-pill,.budget-pill').forEach(function(p){ p.classList.remove('sel'); });
+    document.getElementById('projectSelectWrap').classList.remove('show');
+    document.getElementById('visitNombre').value = '';
+    document.getElementById('visitEmail').value = '';
+    document.getElementById('visitTel').value = '';
+    document.getElementById('step1Cta').disabled = true;
+    document.getElementById('step2Cta').disabled = true;
+    document.getElementById('step3Cta').disabled = true;
+    document.getElementById('vtype-virtual').classList.add('sel');
+    document.getElementById('vtype-presencial').classList.remove('sel');
+    vState.visitType = 'Virtual';
+  }
+
+  /* ── Step navigation ── */
+  window.nextStep = function() {
+    if (vState.step < 4) { vState.step++; goToStep(vState.step); }
+  };
+  window.prevStep = function() {
+    if (vState.step > 1) { vState.step--; goToStep(vState.step); }
+  };
+
+  function goToStep(n) {
+    vState.step = n;
+    for (var i = 1; i <= 4; i++) {
+      var s = document.getElementById('vstep-' + i);
+      if (s) s.classList.toggle('active', i === n);
+    }
+    for (var j = 1; j <= 3; j++) {
+      var d = document.getElementById('vldot-' + j);
+      if (d) d.classList.toggle('active', j === n || j < n);
+    }
+    if (n === 2) { initCalendar(); }
+    document.getElementById('visitModal').querySelector('.visit-right').scrollTop = 0;
+  }
+
+  /* ── City / Project ── */
+  window.selectCity = function(city, el) {
+    vState.city = city;
+    vState.project = '';
+    document.querySelectorAll('.city-pill').forEach(function(p){ p.classList.remove('sel'); });
+    el.classList.add('sel');
+    showProjectSelect(city);
+    document.getElementById('step1Cta').disabled = true;
+    updateLeftPanel();
+  };
+
+  function showProjectSelect(city) {
+    var wrap = document.getElementById('projectSelectWrap');
+    wrap.classList.add('show');
+    var sel = document.getElementById('projectSelect');
+    sel.innerHTML = '<option value="">Seleccionar proyecto...</option>';
+    var projs = cityProjects[city] || [];
+    projs.forEach(function(p) {
+      var o = document.createElement('option');
+      o.value = p; o.textContent = p;
+      sel.appendChild(o);
+    });
+    vState.project = '';
+  }
+
+  window.onProjectChange = function() {
+    var sel = document.getElementById('projectSelect');
+    vState.project = sel.value;
+    document.getElementById('step1Cta').disabled = !vState.project;
+    updateLeftPanel();
+  };
+
+  /* ── Visit type ── */
+  window.selectVisitType = function(type, el) {
+    vState.visitType = type;
+    document.querySelectorAll('.vtype-pill').forEach(function(p){ p.classList.remove('sel'); });
+    el.classList.add('sel');
+  };
+
+  /* ── Pill selector helper ── */
+  window.selectPill = function(el, group) {
+    var parent = el.parentElement;
+    parent.querySelectorAll('button').forEach(function(b){ b.classList.remove('sel'); });
+    el.classList.add('sel');
+    validateStep3();
+  };
+
+  /* ── Calendar ── */
+  function initCalendar() {
+    var now = new Date();
+    if (!vState.calYear) {
+      vState.calYear = now.getFullYear();
+      vState.calMonth = now.getMonth();
+    }
+    renderCalendar();
+  }
+
+  window.changeMonth = function(dir) {
+    vState.calMonth += dir;
+    if (vState.calMonth > 11) { vState.calMonth = 0; vState.calYear++; }
+    if (vState.calMonth < 0) { vState.calMonth = 11; vState.calYear--; }
+    vState.selDate = null;
+    vState.selTime = '';
+    document.getElementById('step2Cta').disabled = true;
+    document.getElementById('timeSlotsWrap').classList.remove('show');
+    renderCalendar();
+  };
+
+  function renderCalendar() {
+    var months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+    document.getElementById('calMonth').textContent = months[vState.calMonth] + ' ' + vState.calYear;
+    var grid = document.getElementById('calGrid');
+    grid.innerHTML = '';
+    var today = new Date();
+    today.setHours(0,0,0,0);
+    var firstDay = new Date(vState.calYear, vState.calMonth, 1);
+    var lastDay = new Date(vState.calYear, vState.calMonth + 1, 0);
+    var startDow = (firstDay.getDay() + 6) % 7;
+    var availSet = {};
+    var seed = [2,3,5,7,9,10,12,14,16,17,19,21,23,24,26,28];
+    seed.forEach(function(d){ if (d <= lastDay.getDate()) availSet[d] = true; });
+    for (var e = 0; e < startDow; e++) {
+      var empty = document.createElement('div');
+      empty.className = 'cal-day empty';
+      grid.appendChild(empty);
+    }
+    for (var d = 1; d <= lastDay.getDate(); d++) {
+      var cell = document.createElement('button');
+      cell.textContent = d;
+      var thisDate = new Date(vState.calYear, vState.calMonth, d);
+      if (thisDate < today) {
+        cell.className = 'cal-day past';
+        cell.disabled = true;
+      } else if (availSet[d]) {
+        cell.className = 'cal-day avail';
+        if (vState.selDate && vState.selDate.getDate() === d &&
+            vState.selDate.getMonth() === vState.calMonth &&
+            vState.selDate.getFullYear() === vState.calYear) {
+          cell.classList.add('sel');
+        }
+        (function(day, btn){ btn.onclick = function(){ selectDay(day, btn); }; })(thisDate, cell);
+      } else {
+        cell.className = 'cal-day past';
+        cell.disabled = true;
+      }
+      grid.appendChild(cell);
+    }
+  }
+
+  function selectDay(date, btn) {
+    vState.selDate = date;
+    vState.selTime = '';
+    document.getElementById('step2Cta').disabled = true;
+    document.querySelectorAll('#calGrid .cal-day').forEach(function(c){ c.classList.remove('sel'); });
+    btn.classList.add('sel');
+    renderTimeSlots();
+    document.getElementById('timeSlotsWrap').classList.add('show');
+  }
+
+  function renderTimeSlots() {
+    var container = document.getElementById('timeSlots');
+    container.innerHTML = '';
+    allSlots.forEach(function(t) {
+      var btn = document.createElement('button');
+      btn.className = 'time-slot' + (offSlots.indexOf(t) !== -1 ? ' off' : '');
+      btn.textContent = t;
+      if (offSlots.indexOf(t) === -1) {
+        btn.onclick = function() {
+          vState.selTime = t;
+          document.querySelectorAll('.time-slot').forEach(function(s){ s.classList.remove('sel'); });
+          btn.classList.add('sel');
+          document.getElementById('step2Cta').disabled = false;
+        };
+      }
+      container.appendChild(btn);
+    });
+  }
+
+  /* ── Step 3 validation ── */
+  window.validateStep3 = function() {
+    var nombre = document.getElementById('visitNombre').value.trim();
+    var email = document.getElementById('visitEmail').value.trim();
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    document.getElementById('step3Cta').disabled = !(nombre && emailOk);
+  };
+
+  /* ── Submit ── */
+  window.submitVisit = function() {
+    var months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+    document.getElementById('confirm-project').textContent = vState.project || 'Proyecto seleccionado';
+    var dateStr = vState.selDate
+      ? (vState.selDate.getDate() + ' de ' + months[vState.selDate.getMonth()] + ' ' + vState.selDate.getFullYear())
+      : '—';
+    document.getElementById('confirm-date').textContent = dateStr;
+    document.getElementById('confirm-time').textContent = vState.selTime || '—';
+    document.getElementById('confirm-type').textContent = vState.visitType;
+    goToStep(4);
+  };
+
+  /* ── Left panel ── */
+  function updateLeftPanel() {
+    var name = vState.project || (vState.city ? 'Proyectos en ' + vState.city : 'Kashi Santa Marta');
+    var loc = vState.city || 'Santa Marta';
+    document.getElementById('vl-project-name').textContent = name;
+    document.getElementById('vl-project-loc-text').textContent = loc;
+  }
+
+  /* ── Keyboard + overlay close ── */
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeVisitModal();
+  });
+  document.getElementById('visitModal').addEventListener('click', function(e){
+    if (e.target === this) closeVisitModal();
+  });
+
+})();
+</script>
+<!-- COOKIE BANNER -->
+<style>
+.cookie-bar{position:fixed;bottom:0;left:0;right:0;background:#2D2820;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;z-index:500;transform:translateY(100%);transition:transform 0.4s;flex-wrap:wrap}
+.cookie-bar.visible{transform:translateY(0)}
+.cookie-text{font-size:12px;color:#C8B89A;line-height:1.5;flex:1;min-width:200px}
+.cookie-text a{color:#B8975A;text-decoration:underline}
+.cookie-btns{display:flex;gap:8px;flex-shrink:0}
+.cookie-btn{font-size:12px;padding:7px 16px;border-radius:6px;cursor:pointer;font-family:inherit;font-weight:500;border:none}
+.cookie-accept{background:#1A4F7A;color:#fff}
+.cookie-reject{background:transparent;color:#888078;border:0.5px solid rgba(200,184,154,0.3)!important}
+</style>
+<div class="cookie-bar" id="cookie-bar">
+  <span class="cookie-text">Usamos cookies para mejorar tu experiencia y analizar el tráfico. <a href="politica-privacidad.html">Política de Privacidad</a></span>
+  <div class="cookie-btns">
+    <button class="cookie-btn cookie-reject" onclick="dismissCookies(false)">Solo esenciales</button>
+    <button class="cookie-btn cookie-accept" onclick="dismissCookies(true)">Aceptar todo</button>
+  </div>
+</div>
+<script>
+(function(){
+  if(!localStorage.getItem('zonum_cookies')){
+    setTimeout(function(){ var b=document.getElementById('cookie-bar'); if(b) b.classList.add('visible'); }, 1200);
+  }
+})();
+function dismissCookies(a){
+  localStorage.setItem('zonum_cookies', a?'all':'essential');
+  var b=document.getElementById('cookie-bar'); if(b) b.classList.remove('visible');
+}
+</script>
+
+</body>
+</html>

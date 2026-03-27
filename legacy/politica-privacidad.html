@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Privacidad y Tratamiento de Datos · Zonum</title>
+<meta name="description" content="Política de privacidad, tratamiento de datos personales y política de cookies de Zonum. Cumplimiento con la Ley 1581 de 2012 (Habeas Data) de Colombia.">
+<meta property="og:title" content="Política de Privacidad · Zonum">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="https://use.typekit.net/bnk2dxj.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#F2EEE6;min-height:100vh}
+:root{
+  --azul-base:#1A4F7A;--azul-noche:#0D2B44;--azul-neblina:#A8C4DC;
+  --concreto-oscuro:#3A3530;--concreto-medio:#6B6560;--piedra:#888078;
+  --lino:#F2EEE6;--blanco-calido:#F8F6F2;--oro-acento:#B8975A;
+  --color-background-primary:#F8F6F2;--color-background-secondary:#F2EEE6;
+  --color-text-primary:#3A3530;--color-text-secondary:#6B6560;--color-text-tertiary:#888078;
+  --color-border-tertiary:rgba(58,53,48,0.12);--color-border-secondary:rgba(58,53,48,0.22);
+  --border-radius-md:8px;--border-radius-lg:12px;--font-heading:'clother',sans-serif;
+}
+.topbar{background:#0D2B44;padding:6px 24px;display:flex;align-items:center;justify-content:space-between}
+.tb-left{font-size:11px;color:#A8C4DC;letter-spacing:0.05em}
+.tb-right{font-size:11px;color:#888078;display:flex;gap:16px}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--color-background-primary);border-bottom:0.5px solid var(--color-border-tertiary);position:sticky;top:0;z-index:100}
+.nav-center{display:flex;gap:20px;font-size:13px;color:var(--color-text-secondary)}
+.nav-center span{cursor:pointer}
+.nav-ctas{display:flex;gap:8px;align-items:center}
+.ncta{font-size:12px;padding:7px 14px;border-radius:var(--border-radius-md);cursor:pointer;border:0.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-primary);font-family:inherit}
+.ncta-dark{background:#3A3530;color:#fff;border-color:#3A3530}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px;background:transparent;border:none}
+.hamburger span{display:block;width:18px;height:2px;background:var(--color-text-primary);border-radius:2px}
+.mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--color-background-primary);border-bottom:0.5px solid var(--color-border-tertiary);padding:12px 20px;flex-direction:column;gap:12px;z-index:100;box-shadow:0 4px 12px rgba(0,0,0,0.08)}
+.mobile-menu.open{display:flex}
+.mobile-menu span{font-size:13px;color:var(--color-text-secondary);cursor:pointer;padding:4px 0}
+.hero{background:#0D2B44;padding:56px 28px 48px}
+.hero-inner{max-width:900px;margin:0 auto}
+.breadcrumb{font-size:12px;color:#A8C4DC;margin-bottom:20px;display:flex;gap:6px}
+.breadcrumb a{color:#A8C4DC;text-decoration:none}
+.hero-title{font-family:var(--font-heading);font-size:34px;font-weight:500;color:#fff;margin-bottom:8px}
+.hero-sub{font-size:14px;color:#A8C4DC;line-height:1.6}
+/* TOC sidebar */
+.doc-layout{max-width:1100px;margin:0 auto;padding:48px 28px;display:grid;grid-template-columns:220px 1fr;gap:48px;align-items:start}
+.toc{position:sticky;top:80px;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:12px;padding:20px}
+.toc-title{font-size:11px;font-weight:700;color:#3A3530;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px}
+.toc a{display:block;font-size:12px;color:var(--color-text-secondary);text-decoration:none;padding:5px 0;border-bottom:0.5px solid var(--color-border-tertiary);line-height:1.4}
+.toc a:last-child{border-bottom:none}
+.toc a:hover{color:#1A4F7A}
+.toc a.active{color:#1A4F7A;font-weight:600}
+/* Doc body */
+.doc-body{background:var(--color-background-primary);border-radius:16px;border:0.5px solid var(--color-border-tertiary);padding:40px}
+.doc-body h2{font-family:var(--font-heading);font-size:20px;font-weight:500;color:#3A3530;margin:40px 0 12px;padding-top:8px;line-height:1.2}
+.doc-body h2:first-child{margin-top:0}
+.doc-body h3{font-size:15px;font-weight:600;color:#3A3530;margin:24px 0 8px}
+.doc-body p{font-size:14px;color:#3A3530;line-height:1.8;margin-bottom:14px}
+.doc-body ul{margin:0 0 14px 20px}
+.doc-body ul li{font-size:14px;color:#3A3530;line-height:1.8;margin-bottom:6px}
+.doc-body table{width:100%;border-collapse:collapse;font-size:13px;margin:16px 0 20px}
+.doc-body table th{padding:10px 14px;text-align:left;background:#EFF4F9;font-weight:600;color:#3A3530;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;border:0.5px solid var(--color-border-tertiary)}
+.doc-body table td{padding:10px 14px;border:0.5px solid var(--color-border-tertiary);color:#6B6560;vertical-align:top}
+.doc-body table td:first-child{color:#3A3530;font-weight:500}
+.update-badge{display:inline-block;background:#EFF4F9;border:0.5px solid #DDE9F4;border-radius:6px;padding:4px 12px;font-size:11px;color:#1A4F7A;font-weight:600;margin-bottom:24px}
+.contact-box{background:#EFF4F9;border-radius:12px;padding:24px;margin:28px 0;border:0.5px solid #DDE9F4}
+.contact-box-title{font-size:14px;font-weight:600;color:#1A4F7A;margin-bottom:8px}
+.contact-box p{font-size:13px;color:#6B6560;margin-bottom:4px}
+@media(max-width:900px){
+  .doc-layout{grid-template-columns:1fr}
+  .toc{position:static}
+  .nav-center,.nav-ctas{display:none}
+  .hamburger{display:flex}
+}
+</style>
+
+<link rel="canonical" href="https://zonum.com/politica-privacidad.html">
+</head>
+<body>
+
+<div class="topbar">
+  <span class="tb-left">ZONUM · DOCUMENTOS LEGALES</span>
+  <div class="tb-right"><span>contacto@zonum.com</span></div>
+</div>
+
+<nav class="nav">
+  <a href="zonum-app.html" style="text-decoration:none"><img src="zonum-logo-dark.svg" alt="Zonum" height="28"></a>
+  <div class="nav-center">
+    <span onclick="location.href='buscar.html'">Proyectos</span>
+    <span onclick="location.href='mapa-colombia.html'">Mapa</span>
+    <span onclick="location.href='calculadora.html'">Calculadora</span>
+    <span style="color:#B8975A;font-weight:500" onclick="location.href='elite.html'">★ Elite</span>
+    <span onclick="location.href='sobre-zonum.html'">Nosotros</span>
+  </div>
+  <div class="nav-ctas">
+    <button class="ncta ncta-dark" onclick="location.href='buscar.html'">Ver proyectos</button>
+  </div>
+  <button class="hamburger" id="hamburgerBtn"><span></span><span></span><span></span></button>
+  <div class="mobile-menu" id="mobileMenu">
+    <span onclick="location.href='buscar.html'">Proyectos</span>
+    <span onclick="location.href='mapa-colombia.html'">Mapa</span>
+    <span onclick="location.href='calculadora.html'">Calculadora</span>
+    <span onclick="location.href='elite.html'" style="color:#B8975A">★ Elite</span>
+    <span onclick="location.href='sobre-zonum.html'">Nosotros</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="zonum-app.html">Inicio</a>
+      <span style="color:#5A8CB5;font-size:10px">›</span>
+      <span style="color:#A8C4DC">Política de Privacidad</span>
+    </div>
+    <h1 class="hero-title">Política de Privacidad y Tratamiento de Datos</h1>
+    <p class="hero-sub">Información sobre cómo recolectamos, usamos y protegemos tus datos personales de acuerdo con la Ley 1581 de 2012 (Habeas Data) de Colombia.</p>
+  </div>
+</div>
+
+<div style="background:#F2EEE6;padding-bottom:60px">
+<div class="doc-layout">
+
+  <div class="toc">
+    <div class="toc-title">Contenido</div>
+    <a href="#responsable">1. Responsable del tratamiento</a>
+    <a href="#datos">2. Datos que recopilamos</a>
+    <a href="#finalidad">3. Finalidad del tratamiento</a>
+    <a href="#derechos">4. Tus derechos</a>
+    <a href="#cookies">5. Política de cookies</a>
+    <a href="#seguridad">6. Seguridad de los datos</a>
+    <a href="#terceros">7. Transferencia a terceros</a>
+    <a href="#menores">8. Menores de edad</a>
+    <a href="#terminos" id="toc-terminos">9. Términos y condiciones</a>
+    <a href="#contacto">10. Contacto</a>
+  </div>
+
+  <div class="doc-body">
+    <div class="update-badge">Última actualización: 1 de enero de 2026</div>
+
+    <h2 id="responsable">1. Responsable del tratamiento de datos</h2>
+    <p>El responsable del tratamiento de sus datos personales es <strong>Zonum S.A.S.</strong>, sociedad debidamente constituida bajo las leyes de la República de Colombia, con domicilio en Calle 90 # 11-44, Oficina 408, Bogotá, D.C., Colombia.</p>
+    <ul>
+      <li><strong>NIT:</strong> 901.XXX.XXX-X</li>
+      <li><strong>Correo electrónico:</strong> privacidad@zonum.com</li>
+      <li><strong>Teléfono:</strong> +57 (601) 321 4567</li>
+    </ul>
+
+    <h2 id="datos">2. Datos personales que recopilamos</h2>
+    <p>En función de cómo interactúes con nuestra plataforma, podemos recopilar los siguientes datos:</p>
+    <table>
+      <thead><tr><th>Categoría</th><th>Dato</th><th>Cómo se recopila</th></tr></thead>
+      <tbody>
+        <tr><td>Identificación</td><td>Nombre completo</td><td>Formularios de contacto / agendamiento</td></tr>
+        <tr><td>Contacto</td><td>Correo electrónico</td><td>Formularios, suscripción newsletter</td></tr>
+        <tr><td>Contacto</td><td>Número de teléfono / WhatsApp</td><td>Formularios de agendamiento</td></tr>
+        <tr><td>Técnicos</td><td>Dirección IP, navegador, sistema operativo</td><td>Automático al navegar el sitio</td></tr>
+        <tr><td>Comportamiento</td><td>Páginas visitadas, tiempo en página, clicks</td><td>Cookies de análisis (con consentimiento)</td></tr>
+        <tr><td>Preferencias</td><td>Proyectos guardados, filtros de búsqueda</td><td>localStorage del navegador</td></tr>
+      </tbody>
+    </table>
+    <p>No recopilamos datos sensibles (datos de salud, origen étnico, creencias religiosas, datos biométricos, opiniones políticas) ni datos financieros como números de cuenta, tarjetas de crédito o documentos de identidad.</p>
+
+    <h2 id="finalidad">3. Finalidad del tratamiento</h2>
+    <p>Los datos personales recopilados se utilizan exclusivamente para las siguientes finalidades:</p>
+    <ul>
+      <li><strong>Gestión de contacto y asesoría:</strong> responder consultas, agendar visitas y conectarte con asesores especializados.</li>
+      <li><strong>Envío de newsletter:</strong> comunicaciones comerciales sobre proyectos, análisis de mercado e invitaciones a eventos (solo con consentimiento previo).</li>
+      <li><strong>Mejora de la plataforma:</strong> análisis del comportamiento de navegación para optimizar la experiencia del usuario.</li>
+      <li><strong>Cumplimiento legal:</strong> conservación de registros exigidos por la normativa colombiana.</li>
+    </ul>
+    <p>No vendemos, alquilamos ni cedemos datos personales a terceros con fines comerciales propios.</p>
+
+    <h2 id="derechos">4. Tus derechos como titular de los datos</h2>
+    <p>De conformidad con la Ley 1581 de 2012 y el Decreto 1377 de 2013, tienes los siguientes derechos:</p>
+    <ul>
+      <li><strong>Conocer:</strong> acceder de forma gratuita a los datos que hemos recopilado sobre ti.</li>
+      <li><strong>Actualizar y rectificar:</strong> solicitar la corrección de datos inexactos o incompletos.</li>
+      <li><strong>Suprimir:</strong> solicitar la eliminación de tus datos cuando no exista obligación legal de conservarlos.</li>
+      <li><strong>Revocar la autorización:</strong> retirar el consentimiento otorgado para el tratamiento de datos en cualquier momento.</li>
+      <li><strong>Presentar quejas:</strong> ante la Superintendencia de Industria y Comercio (SIC) por infracciones a la normativa de protección de datos.</li>
+    </ul>
+    <p>Para ejercer cualquiera de estos derechos, escríbenos a <strong>privacidad@zonum.com</strong> con el asunto "Derechos Habeas Data". Responderemos en un plazo máximo de 10 días hábiles.</p>
+
+    <h2 id="cookies">5. Política de cookies</h2>
+    <p>Zonum utiliza cookies y tecnologías similares para garantizar el funcionamiento correcto del sitio y mejorar tu experiencia de navegación.</p>
+    <h3>Tipos de cookies que usamos</h3>
+    <table>
+      <thead><tr><th>Tipo</th><th>Finalidad</th><th>Duración</th><th>¿Requiere consentimiento?</th></tr></thead>
+      <tbody>
+        <tr><td>Esenciales</td><td>Funcionamiento básico del sitio (sesión, preferencias de cookies)</td><td>Sesión / 1 año</td><td>No</td></tr>
+        <tr><td>Analíticas</td><td>Medir el tráfico y comportamiento en el sitio (Google Analytics)</td><td>2 años</td><td>Sí</td></tr>
+        <tr><td>Funcionales</td><td>Recordar preferencias (proyectos guardados, filtros)</td><td>Local / indefinido</td><td>No (localStorage)</td></tr>
+        <tr><td>Marketing</td><td>Publicidad personalizada en redes sociales (Meta Pixel)</td><td>90 días</td><td>Sí</td></tr>
+      </tbody>
+    </table>
+    <p>Puedes gestionar tus preferencias de cookies a través del banner que aparece en tu primera visita o actualizando la configuración de tu navegador. Si rechazas las cookies no esenciales, algunas funcionalidades de análisis y personalización no estarán disponibles, pero el sitio seguirá funcionando con normalidad.</p>
+
+    <h2 id="seguridad">6. Seguridad de los datos</h2>
+    <p>Implementamos medidas técnicas y organizativas razonables para proteger tus datos personales contra accesos no autorizados, alteración, divulgación o destrucción. Estas incluyen:</p>
+    <ul>
+      <li>Transmisión cifrada mediante HTTPS/TLS en todas las comunicaciones.</li>
+      <li>Control de acceso a sistemas internos basado en roles y permisos.</li>
+      <li>Políticas internas de manejo de datos para el equipo de Zonum.</li>
+      <li>No almacenamos datos de tarjetas de crédito ni información financiera sensible en nuestros servidores.</li>
+    </ul>
+    <p>En caso de una brecha de seguridad que afecte tus datos, te notificaremos en un plazo máximo de 72 horas, conforme a las mejores prácticas del sector.</p>
+
+    <h2 id="terceros">7. Transferencia de datos a terceros</h2>
+    <p>Para prestar el servicio, podemos compartir datos con los siguientes terceros bajo acuerdos de confidencialidad y protección de datos:</p>
+    <ul>
+      <li><strong>Proveedores de tecnología:</strong> servicios de hosting, correo electrónico transaccional y gestión de CRM.</li>
+      <li><strong>Herramientas de análisis:</strong> Google Analytics (anonimización de IP activada).</li>
+      <li><strong>Asesores inmobiliarios:</strong> cuando solicitas ser contactado, tus datos son compartidos con el asesor asignado en Zonum.</li>
+    </ul>
+    <p>No compartimos datos con constructoras u otras empresas externas a Zonum sin tu consentimiento explícito.</p>
+
+    <h2 id="menores">8. Menores de edad</h2>
+    <p>Zonum es una plataforma dirigida a personas mayores de 18 años. No recopilamos intencionalmente datos de menores de edad. Si detectamos que hemos recopilado información de un menor sin el consentimiento parental, procederemos a eliminar dichos datos de forma inmediata.</p>
+
+    <h2 id="terminos">9. Términos y condiciones de uso</h2>
+    <p>El uso de la plataforma Zonum implica la aceptación de los siguientes términos:</p>
+    <h3>Uso permitido</h3>
+    <ul>
+      <li>Acceder a la información de proyectos con fines de investigación y toma de decisiones de inversión personales.</li>
+      <li>Utilizar las herramientas de calculadora y comparador para evaluar proyectos.</li>
+      <li>Contactar asesores para recibir orientación sobre proyectos específicos.</li>
+    </ul>
+    <h3>Uso no permitido</h3>
+    <ul>
+      <li>Reproducir, distribuir o comercializar el contenido de Zonum sin autorización escrita.</li>
+      <li>Utilizar sistemas automatizados para extraer datos masivos de la plataforma (scraping).</li>
+      <li>Publicar información falsa o engañosa sobre proyectos o constructoras.</li>
+    </ul>
+    <h3>Limitación de responsabilidad</h3>
+    <p>La información publicada en Zonum tiene carácter educativo e informativo. Las proyecciones de ROI y valorización son estimaciones basadas en datos históricos y no constituyen garantía de rentabilidad. Zonum no es asesor financiero ni inmobiliario registrado. Las decisiones de inversión son de exclusiva responsabilidad del usuario.</p>
+
+    <h2 id="contacto">10. Contacto para asuntos de privacidad</h2>
+    <div class="contact-box">
+      <div class="contact-box-title">Oficial de Protección de Datos — Zonum S.A.S.</div>
+      <p><strong>Correo:</strong> privacidad@zonum.com</p>
+      <p><strong>Dirección:</strong> Calle 90 # 11-44, Of. 408, Bogotá, D.C., Colombia</p>
+      <p><strong>Horario de atención:</strong> Lunes a viernes, 8:00 a.m. – 5:00 p.m. (hora Colombia)</p>
+      <p style="margin-top:10px;font-size:12px;color:#888078">Responderemos en un plazo máximo de 10 días hábiles a partir de la recepción de tu solicitud.</p>
+    </div>
+
+    <p style="font-size:12px;color:#888078;margin-top:28px;line-height:1.6">Esta política puede ser actualizada periódicamente. La fecha de la última modificación siempre aparecerá al inicio del documento. Te recomendamos revisarla con regularidad. El uso continuado de la plataforma tras una actualización implica la aceptación de la nueva versión.</p>
+  </div>
+
+</div>
+</div>
+
+<div id="zonum-footer"></div>
+<script src="footer.js"></script>
+
+<!-- COOKIE BANNER -->
+<style>
+.cookie-bar{position:fixed;bottom:0;left:0;right:0;background:#2D2820;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;z-index:500;transform:translateY(100%);transition:transform 0.4s;flex-wrap:wrap}
+.cookie-bar.visible{transform:translateY(0)}
+.cookie-text{font-size:12px;color:#C8B89A;line-height:1.5;flex:1;min-width:200px}
+.cookie-text a{color:#B8975A;text-decoration:underline}
+.cookie-btns{display:flex;gap:8px;flex-shrink:0}
+.cookie-btn{font-size:12px;padding:7px 16px;border-radius:6px;cursor:pointer;font-family:inherit;font-weight:500;border:none}
+.cookie-accept{background:#1A4F7A;color:#fff}
+.cookie-reject{background:transparent;color:#888078;border:0.5px solid rgba(200,184,154,0.3)!important}
+</style>
+<div class="cookie-bar" id="cookie-bar">
+  <span class="cookie-text">Usamos cookies para mejorar tu experiencia y analizar el tráfico. <a href="politica-privacidad.html">Política de Privacidad</a></span>
+  <div class="cookie-btns">
+    <button class="cookie-btn cookie-reject" onclick="dismissCookies(false)">Solo esenciales</button>
+    <button class="cookie-btn cookie-accept" onclick="dismissCookies(true)">Aceptar todo</button>
+  </div>
+</div>
+<script>
+(function(){
+  var hBtn=document.getElementById('hamburgerBtn'),mMenu=document.getElementById('mobileMenu');
+  if(hBtn)hBtn.addEventListener('click',function(e){e.stopPropagation();mMenu.classList.toggle('open');});
+  document.addEventListener('click',function(e){if(mMenu&&!mMenu.contains(e.target)&&e.target!==hBtn)mMenu.classList.remove('open');});
+
+  /* TOC active on scroll */
+  var links=document.querySelectorAll('.toc a');
+  window.addEventListener('scroll',function(){
+    var cur='';
+    links.forEach(function(a){
+      var id=a.getAttribute('href').slice(1);
+      var el=document.getElementById(id);
+      if(el&&el.getBoundingClientRect().top<120) cur=id;
+    });
+    links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+cur);});
+  },{passive:true});
+
+  /* Cookie */
+  if(!localStorage.getItem('zonum_cookies')){
+    setTimeout(function(){ var b=document.getElementById('cookie-bar'); if(b) b.classList.add('visible'); }, 1200);
+  }
+})();
+function dismissCookies(a){
+  localStorage.setItem('zonum_cookies', a?'all':'essential');
+  var b=document.getElementById('cookie-bar'); if(b) b.classList.remove('visible');
+}
+</script>
+<!-- WHATSAPP FAB -->
+<style>
+.wa-fab{position:fixed;bottom:28px;right:24px;z-index:400;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.wa-btn{width:52px;height:52px;border-radius:50%;background:#25D366;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.45);transition:transform .2s}
+.wa-btn:hover{transform:scale(1.08)}
+.wa-popup{display:none;background:#fff;border-radius:14px;box-shadow:0 8px 32px rgba(0,0,0,.14);padding:16px;width:240px;border:.5px solid rgba(58,53,48,0.12)}
+.wa-popup.open{display:block}
+.wa-popup-title{font-size:13px;font-weight:600;color:#3A3530;margin-bottom:4px}
+.wa-popup-sub{font-size:11px;color:#6B6560;margin-bottom:12px;line-height:1.5}
+.wa-popup-btn{display:block;width:100%;padding:9px;background:#25D366;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;font-family:inherit}
+.wa-close-row{display:flex;justify-content:flex-end;margin-bottom:6px}
+.wa-close{font-size:14px;color:#888078;cursor:pointer;background:none;border:none;padding:0}
+</style>
+<div class="wa-fab">
+  <div class="wa-popup" id="wa-popup">
+    <div class="wa-close-row"><button class="wa-close" onclick="document.getElementById('wa-popup').classList.remove('open')">✕</button></div>
+    <div class="wa-popup-title">¿Tienes preguntas?</div>
+    <div class="wa-popup-sub">Un asesor Zonum responde en menos de 10 minutos.</div>
+    <a class="wa-popup-btn" href="https://wa.me/576013214567?text=Hola%2C+quiero+saber+m%C3%A1s+sobre+Zonum" target="_blank" rel="noopener">Chatear ahora →</a>
+  </div>
+  <button class="wa-btn" onclick="document.getElementById('wa-popup').classList.toggle('open')" aria-label="WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M13 2C7.477 2 3 6.477 3 12c0 1.89.525 3.656 1.438 5.163L3 23l5.988-1.413A9.953 9.953 0 0013 22c5.523 0 10-4.477 10-10S18.523 2 13 2z" fill="white"/><path d="M9.5 9.5c.2-.5.7-1.5 1.5-1.5.3 0 .5.1.7.3l1 2c.1.3 0 .6-.2.8l-.5.5c.4.8 1.4 1.8 2.2 2.2l.5-.5c.2-.2.5-.3.8-.2l2 1c.2.1.3.4.3.7 0 .8-1 1.3-1.5 1.5C14 17 10 14 9.5 9.5z" fill="#25D366"/></svg>
+  </button>
+</div>
+
+</body>
+</html>

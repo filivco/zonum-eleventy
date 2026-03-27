@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tuliv La Candelaria — Bogotá | Zonum</title>
+<meta name="description" content="Proyecto residencial en el corazón histórico de Bogotá. 127 apartamentos desde $450M COP. ROI 12.8% est. anual. 3 torres. Verificado por Zonum.">
+<meta property="og:title" content="Tuliv La Candelaria — Centro Histórico Bogotá | Zonum">
+<meta property="og:description" content="127 apartamentos en La Candelaria, Bogotá. Desde $450M COP · ROI 12.8% anual · Rentas cortas en zona sin competencia futura.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=80">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://use.typekit.net/bnk2dxj.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#F2EEE6;min-height:100vh}
+:root{
+  --azul-base:#1A4F7A;--azul-claro:#5A8CB5;--fondo-azul:#DDE9F4;
+  --azul-noche:#0D2B44;--azul-neblina:#A8C4DC;--superficie:#EFF4F9;
+  --arena:#E8DCC8;--arena-media:#C8B89A;
+  --concreto-oscuro:#3A3530;--concreto-medio:#6B6560;--piedra:#888078;
+  --blanco-calido:#F8F6F2;--lino:#F2EEE6;
+  --oro-oscuro:#7A5C1E;--oro-acento:#B8975A;--champagne:#F2E8D0;
+  --fondo-premium:#FAF5EA;--oro-palido:#D4AA6A;--bronce:#A89070;
+  --ebano:#161210;--nogal:#241C0E;--pergamino:#E4DDD0;
+  --green:#1A4F7A;--green-light:#DDE9F4;--green-dark:#0D2B44;
+  --dark:#3A3530;--gold:#B8975A;
+  --bg:#F2EEE6;--white:#F8F6F2;
+  --t1:#3A3530;--t2:#6B6560;--t3:#888078;
+  --b1:rgba(58,53,48,0.12);--b2:rgba(58,53,48,0.22);
+  --r8:8px;--r12:12px;--r16:16px;
+  --color-background-primary:#F8F6F2;--color-background-secondary:#F2EEE6;
+  --color-text-primary:#3A3530;--color-text-secondary:#6B6560;
+  --color-text-tertiary:#888078;
+  --color-border-tertiary:rgba(58,53,48,0.12);--color-border-secondary:rgba(58,53,48,0.22);
+  --border-radius-md:8px;--border-radius-lg:12px;--border-radius-xl:16px;
+  --font-heading:'clother',sans-serif;
+}
+body{background:#F2EEE6}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px 60px}
+.topbar{background:#0D2B44;padding:6px 24px;display:flex;align-items:center;justify-content:space-between}
+.tb-left{font-size:11px;color:#A8C4DC;letter-spacing:.05em}
+.tb-right{font-size:11px;color:#888078;display:flex;gap:16px}
+.nav{background:var(--color-background-primary);border-bottom:.5px solid var(--color-border-tertiary);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+.logo-text{font-size:16px;font-weight:500;font-family:var(--font-heading)}
+.nav-center{display:flex;gap:20px;font-size:13px;color:var(--t2)}
+.nav-center span{cursor:pointer}
+.nav-center span.hl{color:var(--t1);font-weight:500}
+.nav-ctas{display:flex;gap:8px;align-items:center}
+.ncta{font-size:12px;padding:7px 14px;border-radius:var(--r8);cursor:pointer;border:.5px solid var(--b2);background:transparent;color:var(--t1)}
+.ncta-dark{background:#3A3530;color:#fff;border-color:#3A3530}
+.ncta-outline{color:#1A4F7A;border-color:#1A4F7A}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px;background:transparent;border:none}
+.hamburger span{display:block;width:18px;height:2px;background:var(--t1);border-radius:2px}
+.mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--color-background-primary);border-bottom:.5px solid var(--b1);padding:12px 20px;flex-direction:column;gap:12px;z-index:100;box-shadow:0 4px 12px rgba(0,0,0,.08);font-size:13px;color:var(--t2)}
+.mobile-menu.open{display:flex}
+@media(max-width:768px){.nav-center{display:none}.hamburger{display:flex}}
+.breadcrumb{display:flex;align-items:center;gap:6px;padding:14px 0 0;font-size:12px;color:var(--t3)}
+.breadcrumb a{color:var(--t2);cursor:pointer;text-decoration:none}
+.breadcrumb a:hover{color:var(--green)}
+.breadcrumb .sep{color:var(--b2)}
+.breadcrumb .current{color:var(--t1);font-weight:500}
+.gallery-wrap{margin-top:16px;border-radius:var(--r16);overflow:hidden;display:grid;grid-template-columns:1fr 320px;grid-template-rows:280px 120px;gap:4px}
+.gallery-main{grid-row:1/2;grid-column:1/2;position:relative;cursor:pointer;overflow:hidden;border-radius:var(--r12) 0 0 0}
+.gallery-main img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gallery-main:hover img{transform:scale(1.03)}
+.gallery-side{grid-column:2/3;grid-row:1/3;display:flex;flex-direction:column;gap:4px}
+.gallery-side .g-thumb{flex:1;position:relative;overflow:hidden;cursor:pointer}
+.gallery-side .g-thumb:first-child{border-radius:0 var(--r12) 0 0}
+.gallery-side .g-thumb:last-child{border-radius:0 0 var(--r12) 0}
+.gallery-side .g-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gallery-side .g-thumb:hover img{transform:scale(1.05)}
+.gallery-bottom{grid-row:2/3;grid-column:1/2;display:flex;gap:4px}
+.gallery-bottom .g-thumb{flex:1;overflow:hidden;cursor:pointer;position:relative}
+.gallery-bottom .g-thumb:first-child{border-radius:0 0 0 var(--r12)}
+.gallery-bottom .g-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gallery-bottom .g-thumb:hover img{transform:scale(1.05)}
+.gallery-count{position:absolute;bottom:10px;right:10px;background:rgba(26,26,24,.75);color:#fff;font-size:11px;padding:4px 10px;border-radius:999px;backdrop-filter:blur(4px)}
+.gallery-badge{position:absolute;top:12px;left:12px;background:var(--green);color:#fff;font-size:11px;font-weight:600;padding:4px 12px;border-radius:999px;letter-spacing:.04em}
+.gallery-save{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;background:var(--white);border:.5px solid var(--b1);display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;color:var(--t3);transition:all .2s}
+.gallery-save.saved{color:#E24B4A}
+.main-grid{display:grid;grid-template-columns:1fr 340px;gap:24px;margin-top:24px;align-items:start}
+.project-header{margin-bottom:20px}
+.ph-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.ph-name{font-size:26px;font-weight:600;color:var(--t1);line-height:1.2;font-family:var(--font-heading)}
+.ph-price-block{text-align:right;flex-shrink:0}
+.ph-price{font-size:24px;font-weight:600;color:var(--t1)}
+.ph-price-sub{font-size:11px;color:var(--t2);margin-top:1px}
+.ph-loc{display:flex;align-items:center;gap:5px;font-size:13px;color:var(--t2);margin-top:6px}
+.ph-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.ph-tag{font-size:11px;padding:3px 10px;border-radius:999px;border:.5px solid var(--b2);color:var(--t2);background:var(--white)}
+.ph-tag.green{background:var(--green-light);color:var(--green-dark);border-color:transparent}
+.ph-tag.dark{background:var(--dark);color:#fff;border-color:transparent}
+.ph-tag.gold{background:#FEF3D0;color:#7A5C1E;border-color:#D4AA6A}
+.metrics-strip{display:grid;grid-template-columns:repeat(4,1fr);border:.5px solid var(--b1);border-radius:var(--r12);overflow:hidden;margin-bottom:24px;background:var(--white)}
+.metric{padding:14px 16px;border-right:.5px solid var(--b1)}
+.metric:last-child{border-right:none}
+.metric-val{font-size:18px;font-weight:600;color:var(--t1)}
+.metric-val.green{color:var(--green)}
+.metric-val.gold{color:var(--gold)}
+.metric-label{font-size:10px;color:var(--t2);margin-top:2px;text-transform:uppercase;letter-spacing:.05em}
+.sec-title{font-size:15px;font-weight:600;color:var(--t1);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.sec-title::after{content:'';flex:1;height:.5px;background:var(--b1)}
+.description-block{background:var(--white);border-radius:var(--r12);border:.5px solid var(--b1);padding:20px;margin-bottom:20px}
+.desc-text{font-size:13px;color:var(--t2);line-height:1.8;margin-bottom:12px}
+.desc-text:last-child{margin-bottom:0}
+.desc-expand{font-size:12px;color:var(--green);cursor:pointer;margin-top:8px;display:inline-flex;align-items:center;gap:4px}
+/* ── INVESTMENT THESIS BAND ── */
+.thesis-band{background:#FDF6EC;border:.5px solid #D4AA6A;border-radius:var(--r12);padding:20px;margin-bottom:20px}
+.thesis-header{font-size:13px;font-weight:600;color:var(--oro-oscuro);margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.thesis-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.thesis-item{display:flex;align-items:flex-start;gap:10px;padding:12px;background:#fff;border-radius:var(--r8);border:.5px solid #E8D5A0}
+.thesis-icon{width:30px;height:30px;border-radius:50%;background:#FEF3D0;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;margin-top:1px}
+.thesis-text strong{font-size:11px;font-weight:600;color:var(--t1);display:block;margin-bottom:2px}
+.thesis-text span{font-size:11px;color:var(--t2);line-height:1.5}
+/* ── TOURISM STRIP ── */
+.tourism-strip{display:grid;grid-template-columns:repeat(4,1fr);border:.5px solid var(--b1);border-radius:var(--r12);overflow:hidden;margin-bottom:20px;background:var(--white)}
+.ts-stat{padding:14px;text-align:center;border-right:.5px solid var(--b1)}
+.ts-stat:last-child{border-right:none}
+.ts-val{font-size:17px;font-weight:600;color:var(--green)}
+.ts-label{font-size:10px;color:var(--t2);margin-top:3px;text-transform:uppercase;letter-spacing:.04em;line-height:1.4}
+/* ── UNITS ── */
+.units-block{background:var(--white);border-radius:var(--r12);border:.5px solid var(--b1);padding:20px;margin-bottom:20px}
+.unit-tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+.unit-tab{font-size:11px;padding:5px 12px;border-radius:999px;border:.5px solid var(--b2);cursor:pointer;color:var(--t2);background:transparent;transition:all .15s;font-family:inherit}
+.unit-tab.active{background:var(--dark);color:#fff;border-color:var(--dark)}
+.unit-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.unit-card{border:.5px solid var(--b1);border-radius:var(--r12);overflow:hidden;cursor:pointer;transition:border-color .15s}
+.unit-card:hover{border-color:var(--green)}
+.unit-card.selected{border-color:var(--green);box-shadow:0 0 0 1px var(--green)}
+.uc-img{height:90px;overflow:hidden;position:relative}
+.uc-img img{width:100%;height:100%;object-fit:cover}
+.uc-body{padding:10px 12px}
+.uc-tipo{font-size:9px;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+.uc-name{font-size:12px;font-weight:600;color:var(--t1);margin-bottom:2px}
+.uc-area{font-size:11px;color:var(--t2);margin-bottom:6px}
+.uc-price{font-size:12px;font-weight:600;color:var(--green)}
+.uc-avail{display:inline-flex;align-items:center;gap:4px;font-size:10px;color:var(--green-dark);background:var(--green-light);padding:2px 7px;border-radius:999px;margin-top:4px}
+.uc-avail-dot{width:5px;height:5px;border-radius:50%;background:var(--green)}
+/* ── AMENITIES ── */
+.amenities-block{background:var(--white);border-radius:var(--r12);border:.5px solid var(--b1);padding:20px;margin-bottom:20px}
+.amenities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.amenity{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;border:.5px solid var(--b1);border-radius:var(--r8);text-align:center;font-size:11px;color:var(--t2)}
+.amenity-icon{width:32px;height:32px;border-radius:50%;background:var(--green-light);display:flex;align-items:center;justify-content:center;font-size:15px}
+/* ── INVESTMENT ── */
+.invest-block{background:var(--dark);border-radius:var(--r12);padding:20px;margin-bottom:20px;color:#fff}
+.invest-block .sec-title{color:#fff}
+.invest-block .sec-title::after{background:rgba(255,255,255,.1)}
+.invest-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.invest-item{background:rgba(255,255,255,.05);border-radius:var(--r8);padding:14px}
+.invest-val{font-size:20px;font-weight:600;color:var(--gold)}
+.invest-lbl{font-size:10px;color:#8a9bb5;margin-top:3px;text-transform:uppercase;letter-spacing:.05em}
+.invest-desc{font-size:11px;color:#8a9bb5;line-height:1.6;margin-top:12px}
+.roi-bar{margin-top:14px}
+.roi-bar-label{display:flex;justify-content:space-between;font-size:11px;color:#8a9bb5;margin-bottom:6px}
+.roi-bar-track{height:6px;background:rgba(255,255,255,.1);border-radius:999px;overflow:hidden}
+.roi-bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--gold),#D4AA6A);transition:width 1s ease}
+.invest-note{font-size:10px;color:#8a9bb5;margin-top:14px;line-height:1.5;display:flex;gap:6px}
+/* ── RENTAL SCENARIOS ── */
+.scenarios-wrap{margin-top:16px}
+.scenarios-label{font-size:11px;color:#8a9bb5;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.scenarios-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.scenario-card{background:rgba(255,255,255,.05);border-radius:var(--r8);padding:12px;border:.5px solid rgba(255,255,255,.08);text-align:center}
+.scenario-card.best{background:rgba(184,151,90,.15);border-color:rgba(184,151,90,.4)}
+.sc-badge{font-size:9px;color:#8a9bb5;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.sc-occ{font-size:11px;color:rgba(255,255,255,.6);margin-bottom:4px}
+.sc-roi{font-size:18px;font-weight:600;color:var(--gold)}
+.sc-ingreso{font-size:10px;color:#9FE1CB;margin-top:3px}
+.sc-noche{font-size:10px;color:#8a9bb5;margin-top:2px}
+/* ── LOCATION ── */
+.location-block{background:var(--white);border-radius:var(--r12);border:.5px solid var(--b1);padding:20px;margin-bottom:20px}
+.map-placeholder{height:200px;border-radius:var(--r8);background:linear-gradient(135deg,#e8f0e8 0%,#d4e8d4 50%,#c8e0c8 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;margin-bottom:14px;cursor:pointer}
+.map-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
+.map-label{background:rgba(255,255,255,.9);padding:6px 14px;border-radius:999px;font-size:12px;font-weight:500;color:var(--t1);backdrop-filter:blur(4px)}
+.map-open{font-size:11px;color:var(--green);cursor:pointer}
+.pois{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.poi{display:flex;align-items:center;gap:8px;padding:10px;border:.5px solid var(--b1);border-radius:var(--r8)}
+.poi-icon{width:28px;height:28px;border-radius:var(--r8);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.poi-name{font-size:11px;font-weight:500;color:var(--t1)}
+.poi-dist{font-size:10px;color:var(--t3)}
+/* ── DEVELOPER ── */
+.developer-block{background:var(--white);border-radius:var(--r12);border:.5px solid var(--b1);padding:20px;margin-bottom:20px}
+.dev-row{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.dev-logo{width:52px;height:52px;border-radius:var(--r8);background:var(--bg);border:.5px solid var(--b1);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.dev-name{font-size:15px;font-weight:600;color:var(--t1)}
+.dev-since{font-size:11px;color:var(--t2);margin-top:1px}
+.dev-web{font-size:11px;color:var(--green);margin-top:3px;text-decoration:none}
+.dev-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.dev-stat{padding:10px;background:var(--bg);border-radius:var(--r8);text-align:center}
+.dev-stat-val{font-size:16px;font-weight:600;color:var(--t1)}
+.dev-stat-lbl{font-size:10px;color:var(--t2);margin-top:1px}
+/* ── STICKY CARD ── */
+.sticky-card{position:sticky;top:80px}
+.cta-card{background:var(--white);border-radius:var(--r16);border:.5px solid var(--b1);overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.07)}
+.cta-header{background:var(--dark);padding:16px 20px}
+.cta-badge{font-size:10px;color:#9FE1CB;text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px}
+.cta-price{font-size:22px;font-weight:600;color:#fff}
+.cta-price-sub{font-size:11px;color:#888780;margin-top:1px}
+.cta-avail{display:flex;align-items:center;justify-content:space-between;margin-top:10px}
+.avail-bar-wrap{flex:1;margin-right:12px}
+.avail-label{font-size:10px;color:#888780;margin-bottom:4px;display:flex;justify-content:space-between}
+.avail-track{height:4px;background:rgba(255,255,255,.12);border-radius:999px;overflow:hidden}
+.avail-fill{height:100%;border-radius:999px;background:var(--gold);width:0}
+.avail-pct{font-size:11px;color:var(--gold);font-weight:600;white-space:nowrap}
+.cta-body{padding:18px 20px}
+.cta-form-group{margin-bottom:12px}
+.cta-label{font-size:10px;color:var(--t2);text-transform:uppercase;letter-spacing:.05em;font-weight:600;margin-bottom:5px}
+.cta-input{width:100%;padding:9px 12px;border:.5px solid var(--b2);border-radius:var(--r8);font-size:13px;color:var(--t1);font-family:inherit;outline:none;background:var(--white);transition:border-color .15s}
+.cta-input:focus{border-color:var(--green)}
+.cta-input-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cta-select{width:100%;padding:9px 12px;border:.5px solid var(--b2);border-radius:var(--r8);font-size:13px;color:var(--t2);font-family:inherit;outline:none;background:var(--white);cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b6b68' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+.cta-btn{width:100%;padding:13px;background:var(--green);color:#fff;border:none;border-radius:var(--r8);font-size:14px;font-weight:600;cursor:pointer;margin-top:4px;transition:background .15s;letter-spacing:.02em;font-family:inherit}
+.cta-btn:hover{background:var(--green-dark)}
+.cta-btn-secondary{width:100%;padding:10px;background:transparent;color:var(--t1);border:.5px solid var(--b2);border-radius:var(--r8);font-size:13px;cursor:pointer;margin-top:8px;transition:border-color .15s;font-family:inherit}
+.cta-btn-secondary:hover{border-color:var(--t1)}
+.cta-trust{display:flex;flex-direction:column;gap:6px;padding:14px 20px;background:var(--bg);border-top:.5px solid var(--b1)}
+.cta-trust-item{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--t2)}
+.cta-trust-icon{color:var(--green);font-size:12px;flex-shrink:0}
+.cta-zonum{display:flex;align-items:center;gap:8px;padding:12px 20px;border-top:.5px solid var(--b1)}
+.cta-zonum-txt{font-size:11px;color:var(--t2);line-height:1.4}
+.cta-zonum-txt strong{color:var(--t1)}
+.roi-pill{display:inline-flex;align-items:center;gap:4px;font-size:11px;background:#FEF3D0;color:#7A5C1E;padding:3px 9px;border-radius:999px;margin-top:8px}
+/* ── SOCIAL PROOF BAR ── */
+.social-proof-bar{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--white);border:.5px solid var(--b1);border-radius:var(--r8);margin-top:10px;flex-wrap:wrap}
+.sp-item{display:flex;align-items:center;gap:5px}
+.sp-icon{font-size:13px}
+.sp-text{font-size:12px;color:var(--t2)}
+.sp-text strong{color:var(--t1);font-weight:600}
+.sp-sep{color:var(--b2);font-size:14px}
+/* ── TIMELINE ── */
+.timeline-block{background:var(--white);border-radius:var(--r12);border:.5px solid var(--b1);padding:20px;margin-bottom:20px}
+.timeline-wrap{position:relative;padding:8px 0 20px}
+.timeline-track{position:absolute;top:22px;left:22px;right:22px;height:2px;background:var(--b1);z-index:0}
+.timeline-track-fill{position:absolute;top:22px;left:22px;height:2px;background:var(--green);z-index:0;width:60%;transition:width 1s ease}
+.timeline-phases{display:flex;justify-content:space-between;position:relative;z-index:1}
+.tl-phase{display:flex;flex-direction:column;align-items:center;gap:8px;flex:1}
+.tl-dot{width:22px;height:22px;border-radius:50%;border:2px solid var(--b1);background:var(--white);flex-shrink:0;position:relative;display:flex;align-items:center;justify-content:center}
+.done-dot{background:var(--green);border-color:var(--green)}
+.done-dot::after{content:'✓';color:#fff;font-size:10px;font-weight:700}
+.current-dot{background:var(--white);border-color:var(--green);border-width:2.5px}
+.pending-dot{background:var(--bg);border-color:var(--b1)}
+.tl-pulse{position:absolute;width:32px;height:32px;border-radius:50%;background:rgba(26,79,122,.15);animation:tlPulse 2s ease-in-out infinite}
+@keyframes tlPulse{0%,100%{transform:scale(.8);opacity:.6}50%{transform:scale(1.2);opacity:0}}
+.tl-label{text-align:center}
+.tl-name{font-size:11px;font-weight:500;color:var(--t1)}
+.tl-date{font-size:10px;color:var(--t3);margin-top:2px}
+.tl-phase.current .tl-name{color:var(--green-dark);font-weight:600}
+.tl-phase.done .tl-name{color:var(--t2)}
+.tl-phase.pending .tl-name{color:var(--t3)}
+.tl-progress-bar{width:60px;height:3px;background:var(--b1);border-radius:999px;overflow:hidden;margin:4px auto 0}
+.tl-progress-fill{height:100%;background:var(--green);border-radius:999px;width:60%}
+/* ── SIMILAR PROJECTS ── */
+.similar-section{margin-top:36px}
+.similar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.scard{border:.5px solid var(--b1);border-radius:var(--r12);overflow:hidden;background:var(--white);cursor:pointer;transition:box-shadow .2s}
+.scard:hover{box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.scard-img{height:120px;position:relative;overflow:hidden}
+.scard-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.scard:hover .scard-img img{transform:scale(1.04)}
+.scard-badge{position:absolute;top:8px;left:8px;font-size:10px;padding:3px 8px;border-radius:var(--r8);font-weight:500}
+.sb-green{background:#E1F5EE;color:#0F6E56}
+.sb-amber{background:#FAEEDA;color:#633806}
+.scard-body{padding:10px 12px}
+.scard-price{font-size:14px;font-weight:600;color:var(--t1)}
+.scard-name{font-size:12px;font-weight:500;color:var(--t1);margin:3px 0 1px}
+.scard-loc{font-size:11px;color:var(--t2);display:flex;align-items:center;gap:3px;margin-bottom:6px}
+.scard-specs{font-size:10px;color:var(--t3);display:flex;gap:6px;padding-top:6px;border-top:.5px solid var(--b1)}
+.scard-roi{display:inline-flex;align-items:center;gap:3px;font-size:10px;background:#EAF3DE;color:#27500A;padding:2px 6px;border-radius:999px;margin-top:5px}
+/* ── LIGHTBOX ── */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:1000;display:none;align-items:center;justify-content:center;flex-direction:column}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:80vh;border-radius:var(--r12);object-fit:contain}
+.lb-close{position:absolute;top:20px;right:24px;font-size:28px;color:#fff;cursor:pointer;opacity:.7;line-height:1}
+.lb-close:hover{opacity:1}
+.lb-nav{display:flex;gap:16px;margin-top:14px}
+.lb-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:background .2s}
+.lb-dot.active{background:#fff}
+.lb-arrows{position:absolute;top:50%;transform:translateY(-50%);width:100%;display:flex;justify-content:space-between;padding:0 20px;pointer-events:none}
+.lb-arrow{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;cursor:pointer;pointer-events:all;font-size:18px;color:#fff;transition:background .2s}
+.lb-arrow:hover{background:rgba(255,255,255,.2)}
+/* ── TOAST ── */
+#toast{position:fixed;bottom:24px;right:24px;background:var(--dark);color:#fff;padding:12px 18px;border-radius:var(--r8);font-size:13px;z-index:2000;opacity:0;transition:opacity .3s;pointer-events:none;display:flex;align-items:center;gap:8px;max-width:300px}
+#toast.show{opacity:1}
+/* ── WHATSAPP FAB ── */
+.wa-fab{position:fixed;bottom:72px;right:24px;width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:1500;box-shadow:0 4px 16px rgba(37,211,102,.4);animation:waPulse 2.5s ease-in-out 1s 3}
+@keyframes waPulse{0%,100%{box-shadow:0 4px 16px rgba(37,211,102,.4)}50%{box-shadow:0 4px 28px rgba(37,211,102,.7),0 0 0 8px rgba(37,211,102,.15)}}
+.wa-popup{position:fixed;bottom:134px;right:24px;width:300px;background:var(--white);border-radius:var(--r12);box-shadow:0 8px 32px rgba(0,0,0,.15);z-index:1499;display:none;overflow:hidden}
+.wa-popup.open{display:block;animation:waSlideIn .2s ease}
+@keyframes waSlideIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.wa-popup-header{background:#075E54;padding:12px 14px;display:flex;align-items:center;gap:10px}
+.wa-popup-avatar{width:36px;height:36px;border-radius:50%;background:#25D366;color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.wa-popup-name{font-size:13px;font-weight:600;color:#fff}
+.wa-popup-status{font-size:11px;color:#a8dbc4;margin-top:1px}
+.wa-popup-close{margin-left:auto;color:rgba(255,255,255,.7);font-size:22px;cursor:pointer;line-height:1;padding:0 2px}
+.wa-popup-msg{margin:14px;background:var(--bg);border-radius:var(--r8);padding:10px 12px;font-size:12px;color:var(--t1);line-height:1.6;border:.5px solid var(--b1)}
+.wa-popup-btn{display:block;margin:0 14px 14px;background:#25D366;color:#fff;text-align:center;padding:11px;border-radius:var(--r8);font-size:13px;font-weight:600;text-decoration:none;transition:background .15s}
+.wa-popup-btn:hover{background:#128C7E}
+/* ── MOBILE STICKY CTA ── */
+.mobile-cta-bar{display:none}
+@media(max-width:640px){
+  .mobile-cta-bar{display:flex;align-items:center;gap:8px;position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:.5px solid var(--b1);padding:10px 16px;padding-bottom:max(10px,env(safe-area-inset-bottom));z-index:1400;box-shadow:0 -4px 16px rgba(0,0,0,.08)}
+  .mobile-cta-price{flex:1}
+  .mobile-cta-from{font-size:10px;color:var(--t3)}
+  .mobile-cta-amount{font-size:15px;font-weight:600;color:var(--t1)}
+  .mobile-cta-btn{flex:2;padding:11px;background:var(--green);color:#fff;border:none;border-radius:var(--r8);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+  .mobile-cta-wa{width:42px;height:42px;border-radius:50%;background:#25D366;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0}
+  body{padding-bottom:70px}
+  #toast{bottom:80px}
+  .wa-fab{bottom:80px}
+}
+/* ── ACCORDION ── */
+.acc-toggle{width:100%;background:none;border:none;cursor:pointer;font-family:inherit;text-align:left;padding:0;margin-bottom:0;display:flex;align-items:center;gap:8px}
+.acc-toggle .acc-chevron{font-size:18px;color:var(--t3);transition:transform .3s;flex-shrink:0;line-height:1;margin-left:auto}
+.acc-toggle.open .acc-chevron{transform:rotate(90deg);color:var(--green)}
+.acc-body{overflow:hidden;max-height:0;transition:max-height .45s cubic-bezier(0,1,0,1)}
+.acc-body.open{max-height:900px;transition:max-height .5s ease-in-out}
+/* ── FAQ ── */
+.faq-block{background:var(--white);border-radius:var(--r12);border:.5px solid var(--b1);padding:20px;margin-bottom:20px}
+.faq-list{display:flex;flex-direction:column}
+.faq-item{border-bottom:.5px solid var(--b1)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{width:100%;background:none;border:none;padding:14px 0;font-size:13px;font-weight:500;color:var(--t1);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;font-family:inherit;transition:color .15s}
+.faq-q:hover{color:var(--green)}
+.faq-q.open{color:var(--green)}
+.faq-icon{font-size:18px;font-weight:300;color:var(--t3);flex-shrink:0;transition:transform .25s;line-height:1}
+.faq-q.open .faq-icon{transform:rotate(45deg);color:var(--green)}
+.faq-a{font-size:12px;color:var(--t2);line-height:1.8;overflow:hidden;max-height:0;transition:max-height .35s ease,padding .35s ease;padding-bottom:0}
+.faq-a.open{max-height:300px;padding-bottom:14px}
+/* ── TESTIMONIOS ── */
+.testimonios-section{margin-top:36px}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.testi-card{background:var(--white);border:.5px solid var(--b1);border-radius:var(--r12);padding:16px}
+.testi-header{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:var(--green);color:#fff;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.testi-meta{flex:1;min-width:0}
+.testi-name{font-size:12px;font-weight:600;color:var(--t1);display:flex;align-items:center;flex-wrap:wrap;gap:4px}
+.testi-verified{font-size:10px;font-weight:500;background:var(--green-light);color:var(--green-dark);padding:1px 6px;border-radius:999px}
+.testi-sub{font-size:11px;color:var(--t2);margin-top:1px}
+.testi-stars{font-size:12px;color:#BA7517;margin-top:2px}
+.testi-quote{font-size:12px;color:var(--t2);line-height:1.7;font-style:italic}
+/* ── DOCS ── */
+.docs-block{background:var(--white);border-radius:var(--r12);border:.5px solid var(--b1);padding:20px;margin-bottom:20px}
+.docs-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.doc-card{display:flex;align-items:center;gap:10px;padding:12px;border:.5px solid var(--b1);border-radius:var(--r8);transition:border-color .15s;cursor:pointer}
+.doc-card:hover{border-color:var(--green)}
+.doc-icon{font-size:20px;flex-shrink:0;width:36px;text-align:center}
+.doc-info{flex:1;min-width:0}
+.doc-name{font-size:12px;font-weight:500;color:var(--t1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.doc-type{font-size:10px;color:var(--t3);margin-top:1px}
+.doc-badge-req{display:inline-block;font-size:9px;padding:1px 6px;border-radius:999px;background:#FAEEDA;color:#633806;margin-top:3px;font-weight:500}
+.doc-btn{flex-shrink:0;width:30px;height:30px;border-radius:50%;border:.5px solid var(--green);background:var(--green-light);color:var(--green-dark);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;font-weight:700}
+.doc-btn:hover{background:var(--green);color:#fff}
+.doc-btn.locked{border-color:var(--b1);background:var(--bg);color:var(--t3);font-size:12px}
+@media(max-width:640px){.docs-grid{grid-template-columns:1fr}}
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .main-grid{grid-template-columns:1fr}
+  .sticky-card{position:static}
+  .gallery-wrap{grid-template-columns:1fr;grid-template-rows:240px auto auto;height:auto}
+  .gallery-side{grid-column:1;grid-row:3;flex-direction:row;height:80px}
+  .gallery-side .g-thumb:first-child{border-radius:0}
+  .gallery-side .g-thumb:last-child{border-radius:0 0 var(--r12) var(--r12)}
+  .gallery-bottom{grid-row:2;grid-column:1}
+  .unit-cards{grid-template-columns:1fr 1fr}
+  .amenities-grid{grid-template-columns:repeat(3,1fr)}
+  .similar-grid{grid-template-columns:1fr 1fr}
+  .thesis-grid{grid-template-columns:1fr}
+  .scenarios-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .metrics-strip{grid-template-columns:1fr 1fr}
+  .metric:nth-child(2){border-right:none}
+  .pois{grid-template-columns:1fr 1fr}
+  .similar-grid{grid-template-columns:1fr}
+  .nav-center,.tb-right{display:none}
+  .unit-cards{grid-template-columns:1fr 1fr}
+  .amenities-grid{grid-template-columns:repeat(3,1fr)}
+  .tourism-strip{grid-template-columns:1fr 1fr}
+  .ts-stat:nth-child(2){border-right:none}
+  .testi-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="tb-left">Solo publicamos proyectos que pasan nuestra evaluación · Curaduría independiente de constructoras</div>
+  <div class="tb-right"><span>Colombia</span><span>México</span><span>Perú</span><span>Chile</span><span>+14 más</span></div>
+</div>
+
+<!-- NAV -->
+<div class="nav">
+  <a class="logo" href="zonum-app.html">
+    <img src="zonum-logo-dark.svg" alt="Zonum" height="28" style="display:block">
+  </a>
+  <div class="nav-center">
+    <span class="hl">Proyectos Colombia</span>
+    <span>Caribe &amp; Miami</span>
+    <span style="color:#B8975A;font-weight:500">★ Zonum Elite</span>
+    <span>Cesiones</span>
+    <span>Inversión</span>
+  </div>
+  <div class="nav-ctas">
+    <button class="ncta ncta-outline" onclick="document.querySelector('.cta-card').scrollIntoView({behavior:'smooth'})">Agendar visita</button>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menú" onclick="this.closest('.nav').querySelector('.mobile-menu').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu">
+    <span>Proyectos Colombia</span>
+    <span>Caribe &amp; Miami</span>
+    <span style="color:#B8975A;font-weight:500">★ Zonum Elite</span>
+    <span>Cesiones</span>
+    <span>Inversión</span>
+  </div>
+</div>
+
+<!-- BODY WRAP -->
+<div class="wrap">
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="zonum-app.html">Inicio</a><span class="sep">›</span>
+    <a href="buscar.html?ciudad=bogota">Bogotá</a><span class="sep">›</span>
+    <a href="buscar.html?ciudad=bogota&zona=candelaria">La Candelaria</a><span class="sep">›</span>
+    <span class="current">Tuliv La Candelaria</span>
+  </div>
+
+  <!-- SOCIAL PROOF BAR -->
+  <div class="social-proof-bar">
+    <div class="sp-item"><span class="sp-icon">👁</span><span class="sp-text"><strong id="sp-views">218</strong> personas vieron esto hoy</span></div>
+    <span class="sp-sep">·</span>
+    <div class="sp-item"><span class="sp-icon">❤️</span><span class="sp-text"><strong id="sp-saves">57</strong> guardados esta semana</span></div>
+    <span class="sp-sep">·</span>
+    <div class="sp-item"><span class="sp-icon">🔥</span><span class="sp-text"><strong>5</strong> unidades reservadas este mes</span></div>
+  </div>
+
+  <!-- GALLERY -->
+  <div class="gallery-wrap">
+    <div class="gallery-main" onclick="openLightbox(0)">
+      <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=85&fit=crop&crop=center" alt="Tuliv La Candelaria — Fachada"/>
+      <div class="gallery-badge">Preventa activa</div>
+      <div class="gallery-count">1 / 7 fotos</div>
+      <div class="gallery-save" id="save-btn" onclick="toggleSave(event)">♡</div>
+    </div>
+    <div class="gallery-bottom">
+      <div class="g-thumb" onclick="openLightbox(1)">
+        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&q=80&fit=crop" alt="Sala"/>
+      </div>
+      <div class="g-thumb" onclick="openLightbox(2)">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80&fit=crop" alt="Cocina"/>
+      </div>
+      <div class="g-thumb" onclick="openLightbox(3)">
+        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&q=80&fit=crop" alt="Habitación"/>
+      </div>
+    </div>
+    <div class="gallery-side">
+      <div class="g-thumb" onclick="openLightbox(4)">
+        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=400&q=80&fit=crop" alt="Terraza gastronómica"/>
+      </div>
+      <div class="g-thumb" onclick="openLightbox(5)">
+        <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&q=80&fit=crop" alt="Coworking"/>
+      </div>
+      <div class="g-thumb" onclick="openLightbox(6)">
+        <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&q=80&fit=crop" alt="Jardín interior"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="main-grid">
+
+    <!-- ── LEFT COLUMN ── -->
+    <div>
+
+      <!-- Project Header -->
+      <div class="project-header">
+        <div class="ph-top">
+          <div>
+            <div class="ph-name">Tuliv La Candelaria</div>
+            <div class="ph-loc">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="5" r="2.2" stroke="#6b6b68" stroke-width="1.2"/><path d="M6 12C6 12 1.5 8 1.5 5a4.5 4.5 0 019 0C10.5 8 6 12 6 12z" stroke="#6b6b68" stroke-width="1.2" fill="none"/></svg>
+              La Candelaria, Bogotá D.C.
+            </div>
+          </div>
+          <div class="ph-price-block">
+            <div class="ph-price">$450M COP</div>
+            <div class="ph-price-sub">desde · 1 habitación</div>
+            <div class="roi-pill">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 7L5 3l3 4" stroke="#7A5C1E" stroke-width="1.3"/></svg>
+              12.8% ROI est. anual
+            </div>
+          </div>
+        </div>
+        <div class="ph-tags" style="margin-top:12px">
+          <span class="ph-tag green">✓ Curado por Zonum</span>
+          <span class="ph-tag dark">Preventa</span>
+          <span class="ph-tag gold">★ Centro Histórico</span>
+          <span class="ph-tag">3 Torres · 127 unidades</span>
+          <span class="ph-tag">Rentas cortas · Airbnb</span>
+          <span class="ph-tag">Entrega Q4 2026</span>
+        </div>
+      </div>
+
+      <!-- Metrics Strip -->
+      <div class="metrics-strip">
+        <div class="metric">
+          <div class="metric-val gold">12.8%</div>
+          <div class="metric-label">ROI est. anual</div>
+        </div>
+        <div class="metric">
+          <div class="metric-val">Q4 2026</div>
+          <div class="metric-label">Entrega estimada</div>
+        </div>
+        <div class="metric">
+          <div class="metric-val green">127</div>
+          <div class="metric-label">Apartamentos totales</div>
+        </div>
+        <div class="metric">
+          <div class="metric-val gold">★ 4.8</div>
+          <div class="metric-label">Score Zonum</div>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="description-block">
+        <div class="sec-title">Sobre el proyecto</div>
+        <p class="desc-text">
+          <strong>Tuliv La Candelaria</strong> es un ambicioso proyecto residencial de 3 torres y 127 apartamentos ubicado en el corazón del Centro Histórico de Bogotá. Diseñado por <strong>MOVEC Constructores</strong>, Tuliv ofrece una experiencia única donde la tradición arquitectónica colonial se fusiona con el diseño contemporáneo de alto nivel.
+        </p>
+        <p class="desc-text" id="desc-extra" style="display:none">
+          Con 8 tipologías de apartamento bautizadas con los nombres de los barrios más icónicos del sector — desde el compacto <em>Quevedo</em> de 24m² hasta el espacioso <em>Monserrate</em> de 73.8m² — Tuliv está diseñado para atender tanto a inversores de renta corta como a residentes permanentes que quieren vivir en el barrio más auténtico de Colombia.
+        </p>
+        <p class="desc-text" id="desc-extra2" style="display:none">
+          La zona de amenidades se concibe como una prolongación de los apartamentos, motivando a sus residentes a aprovechar los espacios colectivos: jardín interior en sótano, coworking con terraza, librería café lounge, taller de bicicletas, y tres terrazas superiores — gastronómica, colectiva y de juegos — con vista panorámica al cerro de Monserrate.
+        </p>
+        <span class="desc-expand" id="expand-btn" onclick="toggleDesc()">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="#1A4F7A" stroke-width="1.3"/></svg>
+          Leer más
+        </span>
+      </div>
+
+      <!-- INVESTMENT THESIS BAND -->
+      <div class="thesis-band">
+        <div class="thesis-header">
+          🏛️ Por qué La Candelaria es una apuesta diferenciada
+        </div>
+        <div class="thesis-grid">
+          <div class="thesis-item">
+            <div class="thesis-icon">🚫</div>
+            <div class="thesis-text">
+              <strong>Sin competencia en 2+ años</strong>
+              <span>No hay proyectos de vivienda importantes planteados en la zona. Cualquier nuevo desarrollo necesita más de 2 años solo para obtener licencia de construcción.</span>
+            </div>
+          </div>
+          <div class="thesis-item">
+            <div class="thesis-icon">✈️</div>
+            <div class="thesis-text">
+              <strong>Turismo en máximo histórico</strong>
+              <span>Bogotá recibió +14 millones de visitantes en 2024, un crecimiento del 14% frente al año anterior. La Candelaria es el destino #1 de turistas internacionales.</span>
+            </div>
+          </div>
+          <div class="thesis-item">
+            <div class="thesis-icon">🏛️</div>
+            <div class="thesis-text">
+              <strong>Valor patrimonial protegido</strong>
+              <span>Centro Histórico con normativa especial que impide desarrollos masivos. Barrera de entrada permanente que protege la valorización del activo.</span>
+            </div>
+          </div>
+          <div class="thesis-item">
+            <div class="thesis-icon">🏗️</div>
+            <div class="thesis-text">
+              <strong>Inversión gubernamental activa</strong>
+              <span>Planes de renovación urbana en curso, expansión de TransMilenio y futuro Metro de Bogotá. La conectividad del centro mejora año a año.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOURISM CONTEXT STRIP -->
+      <div class="tourism-strip">
+        <div class="ts-stat">
+          <div class="ts-val">+14M</div>
+          <div class="ts-label">Visitantes Bogotá 2024</div>
+        </div>
+        <div class="ts-stat">
+          <div class="ts-val">+1.8M</div>
+          <div class="ts-label">Visitantes internacionales</div>
+        </div>
+        <div class="ts-stat">
+          <div class="ts-val">+14%</div>
+          <div class="ts-label">Crecimiento YoY</div>
+        </div>
+        <div class="ts-stat">
+          <div class="ts-val">#1</div>
+          <div class="ts-label">La Candelaria, destino más visitado</div>
+        </div>
+      </div>
+
+      <!-- TIMELINE DE OBRA -->
+      <div class="timeline-block">
+        <button class="sec-title acc-toggle" onclick="toggleSection('timeline-body', this)">Avance de obra<span style="font-size:10px;font-weight:500;background:var(--green-light);color:var(--green-dark);padding:2px 8px;border-radius:999px;white-space:nowrap">En progreso · 60%</span><span class="acc-chevron">›</span></button>
+        <div class="acc-body open" id="timeline-body">
+        <div style="height:10px"></div>
+        <div class="timeline-wrap">
+          <div class="timeline-track"></div>
+          <div class="timeline-track-fill" id="tl-fill" style="width:0%"></div>
+          <div class="timeline-phases">
+            <div class="tl-phase done">
+              <div class="tl-dot done-dot"></div>
+              <div class="tl-label"><div class="tl-name">Diseño y licencias</div><div class="tl-date">Ene 2024</div></div>
+            </div>
+            <div class="tl-phase done">
+              <div class="tl-dot done-dot"></div>
+              <div class="tl-label"><div class="tl-name">Inicio de obra</div><div class="tl-date">Jun 2024</div></div>
+            </div>
+            <div class="tl-phase done">
+              <div class="tl-dot done-dot"></div>
+              <div class="tl-label"><div class="tl-name">Cimentación</div><div class="tl-date">Nov 2024</div></div>
+            </div>
+            <div class="tl-phase current">
+              <div class="tl-dot current-dot"><div class="tl-pulse"></div></div>
+              <div class="tl-label">
+                <div class="tl-name">Estructura</div>
+                <div class="tl-date">En progreso · 60%</div>
+                <div class="tl-progress-bar"><div class="tl-progress-fill"></div></div>
+              </div>
+            </div>
+            <div class="tl-phase pending">
+              <div class="tl-dot pending-dot"></div>
+              <div class="tl-label"><div class="tl-name">Acabados</div><div class="tl-date">Q2 2026</div></div>
+            </div>
+            <div class="tl-phase pending">
+              <div class="tl-dot pending-dot"></div>
+              <div class="tl-label"><div class="tl-name">Entrega</div><div class="tl-date">Q4 2026</div></div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <!-- UNIT TYPES (8 tipologías) -->
+      <div class="units-block">
+        <div class="sec-title">Tipologías disponibles</div>
+        <div class="unit-tabs">
+          <button class="unit-tab active" onclick="filterUnits('all', this)">Todas</button>
+          <button class="unit-tab" onclick="filterUnits('1hab', this)">1 habitación</button>
+          <button class="unit-tab" onclick="filterUnits('duplex', this)">Dúplex</button>
+          <button class="unit-tab" onclick="filterUnits('2hab', this)">2 habitaciones</button>
+        </div>
+        <div class="unit-cards" id="unit-cards">
+          <!-- Tipo H: Quevedo -->
+          <div class="unit-card" data-type="1hab" onclick="selectUnit(this)">
+            <div class="uc-img"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=300&q=75&fit=crop" alt="Quevedo"/></div>
+            <div class="uc-body">
+              <div class="uc-tipo">Tipo H</div>
+              <div class="uc-name">Quevedo</div>
+              <div class="uc-area">24.11 m² · 1 hab · 1 baño</div>
+              <div class="uc-price">Desde ~$280M COP</div>
+              <div class="uc-avail"><div class="uc-avail-dot"></div>Disponible</div>
+            </div>
+          </div>
+          <!-- Tipo A: Candelaria -->
+          <div class="unit-card selected" data-type="1hab" onclick="selectUnit(this)">
+            <div class="uc-img"><img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=300&q=75&fit=crop" alt="Candelaria"/></div>
+            <div class="uc-body">
+              <div class="uc-tipo">Tipo A</div>
+              <div class="uc-name">Candelaria</div>
+              <div class="uc-area">37.46 m² · 1 hab · 1 baño</div>
+              <div class="uc-price">Desde ~$450M COP</div>
+              <div class="uc-avail"><div class="uc-avail-dot"></div>Disponible</div>
+            </div>
+          </div>
+          <!-- Tipo B: Santa Bárbara -->
+          <div class="unit-card" data-type="1hab" onclick="selectUnit(this)">
+            <div class="uc-img"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=300&q=75&fit=crop" alt="Santa Bárbara"/></div>
+            <div class="uc-body">
+              <div class="uc-tipo">Tipo B</div>
+              <div class="uc-name">Santa Bárbara</div>
+              <div class="uc-area">41.57 m² · 1 hab + estudio · 1 baño</div>
+              <div class="uc-price">Desde ~$490M COP</div>
+              <div class="uc-avail"><div class="uc-avail-dot"></div>Disponible</div>
+            </div>
+          </div>
+          <!-- Tipo C: Catedral (Dúplex) -->
+          <div class="unit-card" data-type="duplex" onclick="selectUnit(this)">
+            <div class="uc-img"><img src="https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=300&q=75&fit=crop" alt="Catedral"/></div>
+            <div class="uc-body">
+              <div class="uc-tipo">Tipo C · Dúplex</div>
+              <div class="uc-name">Catedral</div>
+              <div class="uc-area">52.34 m² · 1 hab · 2 baños · 2 pisos</div>
+              <div class="uc-price">Desde ~$580M COP</div>
+              <div class="uc-avail"><div class="uc-avail-dot"></div>Disponible</div>
+            </div>
+          </div>
+          <!-- Tipo D: San Luis -->
+          <div class="unit-card" data-type="1hab" onclick="selectUnit(this)">
+            <div class="uc-img"><img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=300&q=75&fit=crop" alt="San Luis"/></div>
+            <div class="uc-body">
+              <div class="uc-tipo">Tipo D</div>
+              <div class="uc-name">San Luis</div>
+              <div class="uc-area">53.80 m² · 1 hab + estudio · 1 baño</div>
+              <div class="uc-price">Desde ~$600M COP</div>
+              <div class="uc-avail"><div class="uc-avail-dot"></div>Disponible</div>
+            </div>
+          </div>
+          <!-- Tipo E: San Agustín (Dúplex) -->
+          <div class="unit-card" data-type="duplex" onclick="selectUnit(this)">
+            <div class="uc-img"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=300&q=75&fit=crop" alt="San Agustín"/></div>
+            <div class="uc-body">
+              <div class="uc-tipo">Tipo E · Dúplex</div>
+              <div class="uc-name">San Agustín</div>
+              <div class="uc-area">52.31 m² · 1 hab · 2 baños · 2 pisos</div>
+              <div class="uc-price">Desde ~$575M COP</div>
+              <div class="uc-avail"><div class="uc-avail-dot"></div>Disponible</div>
+            </div>
+          </div>
+          <!-- Tipo F: Macarena -->
+          <div class="unit-card" data-type="2hab" onclick="selectUnit(this)">
+            <div class="uc-img"><img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=300&q=75&fit=crop" alt="Macarena"/></div>
+            <div class="uc-body">
+              <div class="uc-tipo">Tipo F</div>
+              <div class="uc-name">Macarena</div>
+              <div class="uc-area">69.30 m² · 2 hab + estudio · 2 baños</div>
+              <div class="uc-price">Desde ~$680M COP</div>
+              <div class="uc-avail"><div class="uc-avail-dot"></div>Disponible</div>
+            </div>
+          </div>
+          <!-- Tipo G: Monserrate -->
+          <div class="unit-card" data-type="2hab" onclick="selectUnit(this)">
+            <div class="uc-img"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=300&q=75&fit=crop" alt="Monserrate"/></div>
+            <div class="uc-body">
+              <div class="uc-tipo">Tipo G</div>
+              <div class="uc-name">Monserrate</div>
+              <div class="uc-area">73.80 m² · 2 hab + estudio · 2 baños</div>
+              <div class="uc-price">Desde ~$750M COP</div>
+              <div class="uc-avail"><div class="uc-avail-dot"></div>Disponible</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AMENITIES -->
+      <div class="amenities-block">
+        <div class="sec-title">Amenidades</div>
+        <div class="amenities-grid">
+          <div class="amenity"><div class="amenity-icon">🌿</div>Jardín Interior</div>
+          <div class="amenity"><div class="amenity-icon">💻</div>Coworking</div>
+          <div class="amenity"><div class="amenity-icon">☕</div>Librería Café Lounge</div>
+          <div class="amenity"><div class="amenity-icon">🚲</div>Taller de Bicicletas</div>
+          <div class="amenity"><div class="amenity-icon">🏢</div>Lobby Principal</div>
+          <div class="amenity"><div class="amenity-icon">🌤</div>Terraza Coworking</div>
+          <div class="amenity"><div class="amenity-icon">🍽</div>Terraza Gastronómica</div>
+          <div class="amenity"><div class="amenity-icon">🎯</div>Terraza de Juegos</div>
+          <div class="amenity"><div class="amenity-icon">🌇</div>Terraza Colectiva</div>
+        </div>
+      </div>
+
+      <!-- INVESTMENT BLOCK -->
+      <div class="invest-block">
+        <div class="sec-title">Análisis de inversión</div>
+        <div class="invest-row">
+          <div class="invest-item">
+            <div class="invest-val">12.8%</div>
+            <div class="invest-lbl">Rentabilidad est. anual</div>
+          </div>
+          <div class="invest-item">
+            <div class="invest-val">USD 61/noche</div>
+            <div class="invest-lbl">Precio por noche (conservador)</div>
+          </div>
+          <div class="invest-item">
+            <div class="invest-val">$4.8M</div>
+            <div class="invest-lbl">Ingreso neto mensual est.</div>
+          </div>
+          <div class="invest-item">
+            <div class="invest-val">80%</div>
+            <div class="invest-lbl">Ocupación turística proyectada</div>
+          </div>
+        </div>
+
+        <!-- ROI BAR -->
+        <div class="roi-bar">
+          <div class="roi-bar-label"><span>ROI vs. promedio Bogotá Centro</span><span style="color:var(--gold)">12.8% vs. 8.2% promedio</span></div>
+          <div class="roi-bar-track"><div class="roi-bar-fill" id="roi-bar-fill" style="width:0%"></div></div>
+        </div>
+
+        <!-- RENTAL SCENARIOS (datos reales del brochure) -->
+        <div class="scenarios-wrap">
+          <div class="scenarios-label">Proyección de renta corta · Tipo A Candelaria (36.82m² + terraza 9.41m²) · $450M COP · TRM $4.500</div>
+          <div class="scenarios-grid">
+            <div class="scenario-card">
+              <div class="sc-badge">Pesimista</div>
+              <div class="sc-occ">70% ocupación</div>
+              <div class="sc-roi">0.86%<span style="font-size:11px;font-weight:400">/mes</span></div>
+              <div class="sc-ingreso">$3.892.160 COP/mes</div>
+              <div class="sc-noche">USD 57/noche</div>
+            </div>
+            <div class="scenario-card best">
+              <div class="sc-badge">Conservador ★</div>
+              <div class="sc-occ">80% ocupación</div>
+              <div class="sc-roi">1.07%<span style="font-size:11px;font-weight:400">/mes</span></div>
+              <div class="sc-ingreso">$4.794.320 COP/mes</div>
+              <div class="sc-noche">USD 61/noche</div>
+            </div>
+            <div class="scenario-card">
+              <div class="sc-badge">Optimista</div>
+              <div class="sc-occ">90% ocupación</div>
+              <div class="sc-roi">1.51%<span style="font-size:11px;font-weight:400">/mes</span></div>
+              <div class="sc-ingreso">$6.802.565 COP/mes</div>
+              <div class="sc-noche">USD 74/noche</div>
+            </div>
+          </div>
+        </div>
+
+        <p class="invest-desc">La Candelaria registra demanda turística sostenida durante todo el año. La zona tiene barreras regulatorias que impiden nuevos competidores en el mediano plazo. El modelo de renta corta (Airbnb, Booking) es el más rentable dado el perfil turístico internacional del sector.</p>
+        <div class="invest-note">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;margin-top:1px"><circle cx="7" cy="7" r="5.5" stroke="#8a9bb5" stroke-width="1.2"/><path d="M7 6v4M7 4.5v.5" stroke="#8a9bb5" stroke-width="1.2" stroke-linecap="round"/></svg>
+          Proyecciones basadas en datos del brochure oficial de MOVEC (TRM $4.500 COP/USD). No constituyen garantía de rentabilidad.
+        </div>
+      </div>
+
+      <!-- LOCATION -->
+      <div class="location-block">
+        <div class="sec-title">Ubicación</div>
+        <div class="map-placeholder" onclick="showToast('🗺️ Abriendo Google Maps…')">
+          <div class="map-overlay">
+            <div style="font-size:28px">📍</div>
+            <div class="map-label">La Candelaria, Bogotá D.C.</div>
+            <div class="map-open">Ver en Google Maps →</div>
+          </div>
+          <div style="position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(26,79,122,.04) 0,rgba(26,79,122,.04) 10px,transparent 10px,transparent 20px)"></div>
+        </div>
+        <div class="pois">
+          <div class="poi">
+            <div class="poi-icon" style="background:#FEF3D0">🏛️</div>
+            <div><div class="poi-name">Plaza de Bolívar</div><div class="poi-dist">10 min · a pie</div></div>
+          </div>
+          <div class="poi">
+            <div class="poi-icon" style="background:#FEF3D0">⛪</div>
+            <div><div class="poi-name">Catedral Primada</div><div class="poi-dist">10 min · a pie</div></div>
+          </div>
+          <div class="poi">
+            <div class="poi-icon" style="background:#E1F5EE">🎭</div>
+            <div><div class="poi-name">Teatro Colón</div><div class="poi-dist">9 min · a pie</div></div>
+          </div>
+          <div class="poi">
+            <div class="poi-icon" style="background:#FAEEDA">🏺</div>
+            <div><div class="poi-name">Museo del Florero</div><div class="poi-dist">11 min · a pie</div></div>
+          </div>
+          <div class="poi">
+            <div class="poi-icon" style="background:#E6F1FB">📚</div>
+            <div><div class="poi-name">Biblioteca Luis Ángel Arango</div><div class="poi-dist">12 min · a pie</div></div>
+          </div>
+          <div class="poi">
+            <div class="poi-icon" style="background:#F3F0FF">🌿</div>
+            <div><div class="poi-name">Parque Tercer Milenio</div><div class="poi-dist">16 min · a pie</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DEVELOPER: MOVEC -->
+      <div class="developer-block">
+        <div class="sec-title">Constructora</div>
+        <div class="dev-row">
+          <div class="dev-logo">🏗️</div>
+          <div>
+            <div class="dev-name">MOVEC Constructores</div>
+            <div class="dev-since">Bogotá, Colombia · Calle 79b #8-31, piso 3</div>
+            <a class="dev-web" href="https://www.movec.co" target="_blank" rel="noopener">www.movec.co ↗</a>
+          </div>
+        </div>
+        <div class="dev-stats">
+          <div class="dev-stat"><div class="dev-stat-val">100%</div><div class="dev-stat-lbl">Diseño propio</div></div>
+          <div class="dev-stat"><div class="dev-stat-val">3</div><div class="dev-stat-lbl">Torres Tuliv</div></div>
+          <div class="dev-stat"><div class="dev-stat-val">127</div><div class="dev-stat-lbl">Apartamentos</div></div>
+        </div>
+        <p style="font-size:12px;color:var(--t2);line-height:1.7;margin-bottom:12px">MOVEC es una constructora enfocada en diseño y conceptualización de espacios de alto nivel. Su filosofía: <em>"somos Calidad, Cercanía, Espacio"</em>. Promovemos la sostenibilidad y la inclusión en cada proyecto que desarrollamos.</p>
+        <div style="display:flex;gap:8px">
+          <a href="https://www.instagram.com/movecconstructores" target="_blank" rel="noopener" onclick="showToast('📸 Abriendo Instagram de MOVEC…'); return false;" style="font-size:11px;padding:6px 12px;border:.5px solid var(--b2);border-radius:999px;color:var(--t2);text-decoration:none;cursor:pointer">@movecconstructores</a>
+          <a href="https://wa.me/573507786198?text=Hola%2C%20me%20interesa%20Tuliv%20La%20Candelaria" target="_blank" rel="noopener" style="font-size:11px;padding:6px 12px;background:#25D366;color:#fff;border-radius:999px;text-decoration:none">WhatsApp →</a>
+        </div>
+      </div>
+
+      <!-- DOCUMENTS -->
+      <div class="docs-block">
+        <div class="sec-title">Documentos del proyecto</div>
+        <div class="docs-grid">
+          <div class="doc-card">
+            <div class="doc-icon">📘</div>
+            <div class="doc-info"><div class="doc-name">Brochure oficial MOVEC</div><div class="doc-type">PDF · 14.3 MB</div></div>
+            <button class="doc-btn" onclick="showToast('📄 Descargando brochure oficial…')">↓</button>
+          </div>
+          <div class="doc-card">
+            <div class="doc-icon">📋</div>
+            <div class="doc-info"><div class="doc-name">Licencia de construcción</div><div class="doc-type">PDF · Pendiente</div><span class="doc-badge-req">Requiere registro</span></div>
+            <button class="doc-btn locked">🔒</button>
+          </div>
+          <div class="doc-card">
+            <div class="doc-icon">📐</div>
+            <div class="doc-info"><div class="doc-name">Planos por tipología (A–H)</div><div class="doc-type">PDF · 8 tipologías</div><span class="doc-badge-req">Requiere registro</span></div>
+            <button class="doc-btn locked" onclick="showToast('🔒 Regístrate para descargar planos')">🔒</button>
+          </div>
+          <div class="doc-card">
+            <div class="doc-icon">💰</div>
+            <div class="doc-info"><div class="doc-name">Análisis de rentabilidad</div><div class="doc-type">PDF · Escenarios de inversión</div></div>
+            <button class="doc-btn" onclick="showToast('📄 Descargando análisis de rentabilidad…')">↓</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /left -->
+
+    <!-- ── RIGHT COLUMN ── -->
+    <div class="sticky-card">
+      <div class="cta-card">
+        <div class="cta-header">
+          <div class="cta-badge">Tuliv La Candelaria · Preventa</div>
+          <div class="cta-price">$450M COP <span style="font-size:13px;font-weight:400;color:#888780">desde</span></div>
+          <div class="cta-price-sub">1 hab · 37m² · Entrega Q4 2026</div>
+          <div class="cta-avail">
+            <div class="avail-bar-wrap">
+              <div class="avail-label"><span>Unidades vendidas</span><span>66 / 127</span></div>
+              <div class="avail-track"><div class="avail-fill" id="avail-fill"></div></div>
+            </div>
+            <div class="avail-pct">52% vendido</div>
+          </div>
+        </div>
+        <div class="cta-body">
+          <div class="cta-form-group">
+            <div class="cta-label">Tu nombre</div>
+            <input class="cta-input" type="text" placeholder="Nombre completo" id="contact-name"/>
+          </div>
+          <div class="cta-form-group">
+            <div class="cta-label">Correo electrónico</div>
+            <input class="cta-input" type="email" placeholder="tucorreo@email.com" id="contact-email"/>
+          </div>
+          <div class="cta-form-group">
+            <div class="cta-input-row">
+              <div>
+                <div class="cta-label">Teléfono</div>
+                <input class="cta-input" type="tel" placeholder="+57 300…" id="contact-phone"/>
+              </div>
+              <div>
+                <div class="cta-label">Tipología</div>
+                <select class="cta-select" id="contact-unit">
+                  <option value="">Seleccionar</option>
+                  <option value="H">Quevedo 24m²</option>
+                  <option value="A">Candelaria 37m²</option>
+                  <option value="B">Santa Bárbara 41m²</option>
+                  <option value="C">Catedral 52m² (dúplex)</option>
+                  <option value="D">San Luis 53m²</option>
+                  <option value="E">San Agustín 52m² (dúplex)</option>
+                  <option value="F">Macarena 69m²</option>
+                  <option value="G">Monserrate 73m²</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="cta-form-group">
+            <div class="cta-label">¿Cuándo quieres comprar?</div>
+            <select class="cta-select" id="contact-timeline">
+              <option value="">Seleccionar</option>
+              <option>Lo antes posible</option>
+              <option>En los próximos 3 meses</option>
+              <option>En los próximos 6 meses</option>
+              <option>Solo estoy explorando</option>
+            </select>
+          </div>
+          <button class="cta-btn" id="cta-submit-btn" onclick="submitContact()">Solicitar información gratis</button>
+          <button class="cta-btn-secondary" onclick="showToast('📅 Un asesor te contactará para agendar la visita')">Agendar visita virtual</button>
+        </div>
+        <div class="cta-trust">
+          <div class="cta-trust-item"><span class="cta-trust-icon">✓</span>Sin compromiso de compra · Asesoría gratuita</div>
+          <div class="cta-trust-item"><span class="cta-trust-icon">✓</span>Respondemos en menos de 2 horas</div>
+          <div class="cta-trust-item"><span class="cta-trust-icon">✓</span>Tus datos están protegidos (HABEAS DATA)</div>
+        </div>
+        <div class="cta-zonum">
+          <div style="width:24px;height:24px;background:var(--dark);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="5" width="11" height="7" rx="1" fill="#fff"/><path d="M1 7l5.5-5 5.5 5" stroke="#fff" stroke-width="1.3" fill="none"/></svg>
+          </div>
+          <div class="cta-zonum-txt"><strong>Gestionado por Zonum</strong> · Coordinamos todo el proceso de compra con MOVEC por ti.</div>
+        </div>
+      </div>
+    </div><!-- /right -->
+
+  </div><!-- /main-grid -->
+
+  <!-- TESTIMONIOS -->
+  <div class="testimonios-section">
+    <div class="sec-title" style="font-size:16px">Compradores verificados</div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-header">
+          <div class="testi-avatar">CP</div>
+          <div class="testi-meta">
+            <div class="testi-name">Carlos Pinzón <span class="testi-verified">✓ Verificado</span></div>
+            <div class="testi-sub">Bogotá · Tipo A Candelaria</div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="testi-quote">"Llevaba tiempo buscando algo en el centro que tuviera sentido como inversión. La combinación de precio de entrada, diseño y la escasez de nuevos proyectos en la zona me convenció. Zonum me ayudó con todo el proceso fiduciario."</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-header">
+          <div class="testi-avatar" style="background:#c9a96e">LG</div>
+          <div class="testi-meta">
+            <div class="testi-name">Luisa Guerrero <span class="testi-verified">✓ Verificado</span></div>
+            <div class="testi-sub">Medellín · Tipo F Macarena</div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="testi-quote">"Compré para renta en Airbnb. La Candelaria tiene una demanda turística increíble todo el año. Desde que abrí el listing ya tengo el calendario lleno para el primer mes de entrega."</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-header">
+          <div class="testi-avatar" style="background:#3b82f6">RA</div>
+          <div class="testi-meta">
+            <div class="testi-name">Ricardo Arbeláez <span class="testi-verified">✓ Verificado</span></div>
+            <div class="testi-sub">Cali · Tipo C Catedral (dúplex)</div>
+            <div class="testi-stars">★★★★☆</div>
+          </div>
+        </div>
+        <p class="testi-quote">"El dúplex Catedral es impresionante. Dos pisos, dos baños, todo en La Candelaria. Para un activo en renta corta es exactamente lo que buscan los viajeros que quieren una experiencia auténtica en Bogotá."</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIMILAR PROJECTS -->
+  <div class="similar-section">
+    <div class="sec-title" style="font-size:16px">Proyectos similares</div>
+    <div class="similar-grid">
+      <div class="scard" onclick="location.href='kashi-santa-marta.html'">
+        <div class="scard-img">
+          <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=600&q=80&fit=crop" alt="Kashi Santa Marta"/>
+          <div class="scard-badge sb-green">Preventa</div>
+        </div>
+        <div class="scard-body">
+          <div class="scard-price">$320M COP <span style="font-size:11px;color:#a0a09d">desde</span></div>
+          <div class="scard-name">Kashi Santa Marta</div>
+          <div class="scard-loc"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2" stroke="#6b6b68" stroke-width="1.2"/><path d="M5 10C5 10 1.5 7 1.5 4a3.5 3.5 0 017 0C8.5 7 5 10 5 10z" stroke="#6b6b68" stroke-width="1.2" fill="none"/></svg>El Rodadero Norte, Santa Marta</div>
+          <div class="scard-specs"><span>1–3 hab</span><span>·</span><span>42–148m²</span><span>·</span><span>2027</span></div>
+          <div class="scard-roi">▲ 9.2% ROI est.</div>
+        </div>
+      </div>
+      <div class="scard" onclick="location.href='alma-luxury-lofts.html'">
+        <div class="scard-img">
+          <img src="https://images.unsplash.com/photo-1601933470096-0e34634ffcde?w=600&q=80&fit=crop" alt="Alma Luxury Lofts"/>
+          <div class="scard-badge sb-green">Preventa</div>
+        </div>
+        <div class="scard-body">
+          <div class="scard-price">$1.280M COP <span style="font-size:11px;color:#a0a09d">desde</span></div>
+          <div class="scard-name">Alma Luxury Lofts</div>
+          <div class="scard-loc"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2" stroke="#6b6b68" stroke-width="1.2"/><path d="M5 10C5 10 1.5 7 1.5 4a3.5 3.5 0 017 0C8.5 7 5 10 5 10z" stroke="#6b6b68" stroke-width="1.2" fill="none"/></svg>El Poblado, Medellín</div>
+          <div class="scard-specs"><span>1–2 hab</span><span>·</span><span>58–110m²</span><span>·</span><span>2026</span></div>
+          <div class="scard-roi">▲ 12.4% ROI est.</div>
+        </div>
+      </div>
+      <div class="scard" onclick="location.href='buscar.html?ciudad=bogota'">
+        <div class="scard-img">
+          <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80&fit=crop" alt="Más proyectos Bogotá"/>
+          <div class="scard-badge sb-amber">Ver todos</div>
+        </div>
+        <div class="scard-body">
+          <div class="scard-price" style="color:var(--green)">Explorar Bogotá →</div>
+          <div class="scard-name">Más proyectos en Bogotá</div>
+          <div class="scard-loc"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2" stroke="#6b6b68" stroke-width="1.2"/><path d="M5 10C5 10 1.5 7 1.5 4a3.5 3.5 0 017 0C8.5 7 5 10 5 10z" stroke="#6b6b68" stroke-width="1.2" fill="none"/></svg>Bogotá D.C., Colombia</div>
+          <div class="scard-specs"><span>Varias zonas</span><span>·</span><span>Todos los rangos</span></div>
+          <div class="scard-roi">▲ Desde 8.2% ROI est.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<!-- FAQ -->
+<div style="max-width:1200px;margin:0 auto;padding:0 20px">
+<div class="faq-block">
+  <div class="sec-title" style="font-size:16px">Preguntas frecuentes</div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿Puedo usar el apartamento en Airbnb desde el primer día?<span class="faq-icon">+</span></button>
+      <div class="faq-a">Sí. La Candelaria permite rentas cortas y la demanda turística es sostenida todo el año. MOVEC diseñó el proyecto pensando en este modelo de negocio, con amenidades que aumentan el valor percibido para huéspedes internacionales. Solo debes registrarte como arrendador en las plataformas y cumplir con la normativa local de rentas cortas en Bogotá.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿Qué diferencia a La Candelaria de otras zonas de inversión en Bogotá?<span class="faq-icon">+</span></button>
+      <div class="faq-a">La Candelaria tiene tres ventajas únicas: (1) Barreras regulatorias — la normativa del Centro Histórico impide nuevos desarrollos masivos, limitando la competencia futura. (2) Demanda turística auténtica — es el barrio más visitado por turistas internacionales en Colombia. (3) Inversión gubernamental — planes de renovación activos y futura infraestructura de transporte incrementan el valor del suelo año a año.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿Cuál es el proceso de compra en preventa?<span class="faq-icon">+</span></button>
+      <div class="faq-a">1. Seleccionas tu tipología y firmas la promesa de compraventa con MOVEC. 2. Pagas la cuota inicial en cuotas durante la construcción (hasta Q4 2026). 3. Al momento de entrega, gestionas el crédito hipotecario con tu banco. 4. Firmas escritura y recibes las llaves. Zonum te acompaña en cada paso y coordina directamente con la constructora.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿Los apartamentos vienen con acabados para rentar inmediatamente?<span class="faq-icon">+</span></button>
+      <div class="faq-a">Los apartamentos se entregan con acabados de alto nivel: pisos, cocina, baños completos. Para rentar en Airbnb debes amoblar el apartamento. MOVEC y Zonum pueden orientarte en paquetes de amoblamiento especializados para renta corta, optimizados para maximizar las calificaciones en las plataformas.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿Qué tipología tiene mejor retorno de inversión?<span class="faq-icon">+</span></button>
+      <div class="faq-a">Para renta corta, los apartamentos de 1 habitación (tipos A, B, H) tienen el mejor ratio precio/noche y la mayor ocupación. El Tipo A Candelaria (37.46m²) es el más equilibrado: precio de entrada $450M, ingreso conservador $4.79M/mes (1.07% mensual). Los dúplex (Catedral y San Agustín) son perfectos para grupos y familias, con tarifas por noche más altas.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lb-close" onclick="closeLightboxDirect()">×</div>
+  <img class="lb-img" id="lb-img" src="" alt=""/>
+  <div class="lb-arrows">
+    <div class="lb-arrow" onclick="lbNav(-1,event)">‹</div>
+    <div class="lb-arrow" onclick="lbNav(1,event)">›</div>
+  </div>
+  <div class="lb-nav" id="lb-dots"></div>
+</div>
+
+<!-- WHATSAPP FAB (número MOVEC) -->
+<div class="wa-fab" id="wa-fab" onclick="toggleWaPopup()">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#fff"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.523 3.663 1.43 5.18L2.1 21l3.82-1.357A9.963 9.963 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.963 7.963 0 01-4.076-1.116l-.292-.173-3.025 1.073 1.073-2.965-.19-.305A7.963 7.963 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z" fill="#fff"/></svg>
+</div>
+<div class="wa-popup" id="wa-popup">
+  <div class="wa-popup-header">
+    <div class="wa-popup-avatar">T</div>
+    <div><div class="wa-popup-name">Tuliv La Candelaria</div><div class="wa-popup-status">● En línea · MOVEC</div></div>
+    <div class="wa-popup-close" onclick="toggleWaPopup()">×</div>
+  </div>
+  <div class="wa-popup-msg">Hola, me interesa Tuliv La Candelaria. ¿Podrían enviarme información sobre disponibilidad y precios?</div>
+  <a class="wa-popup-btn" href="https://wa.me/573507786198?text=Hola%2C%20me%20interesa%20Tuliv%20La%20Candelaria.%20%C2%BFPodr%C3%ADan%20enviarme%20informaci%C3%B3n%20sobre%20disponibilidad%20y%20precios%3F" target="_blank" rel="noopener">Abrir en WhatsApp →</a>
+</div>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<!-- COOKIE BANNER -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#0D2B44;color:#fff;padding:14px 24px;z-index:3000;flex-wrap:wrap;gap:12px;align-items:center">
+  <span style="flex:1;font-size:12px;color:#C4D9ED;min-width:200px">Usamos cookies para mejorar tu experiencia. Al continuar navegando aceptas nuestra <a href="politica-privacidad.html" style="color:#9FE1CB">política de privacidad</a>.</span>
+  <div style="display:flex;gap:8px">
+    <button onclick="acceptCookies()" style="background:#1A4F7A;color:#fff;border:none;padding:8px 18px;border-radius:6px;font-size:12px;cursor:pointer;font-family:inherit;white-space:nowrap">Aceptar todo</button>
+    <button onclick="acceptCookies()" style="background:transparent;color:#C4D9ED;border:.5px solid rgba(255,255,255,.3);padding:8px 14px;border-radius:6px;font-size:12px;cursor:pointer;font-family:inherit;white-space:nowrap">Solo esenciales</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div id="zonum-footer"></div>
+<script src="footer.js"></script>
+
+<!-- MOBILE STICKY CTA -->
+<div class="mobile-cta-bar">
+  <div class="mobile-cta-price">
+    <div class="mobile-cta-from">desde</div>
+    <div class="mobile-cta-amount">$450M COP</div>
+  </div>
+  <button class="mobile-cta-btn" onclick="document.querySelector('.cta-card').scrollIntoView({behavior:'smooth'})">Solicitar info</button>
+  <button class="mobile-cta-wa" onclick="toggleWaPopup()" aria-label="WhatsApp">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#fff"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.523 3.663 1.43 5.18L2.1 21l3.82-1.357A9.963 9.963 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.963 7.963 0 01-4.076-1.116l-.292-.173-3.025 1.073 1.073-2.965-.19-.305A7.963 7.963 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+// ── Gallery ──
+const galleryImages = [
+  "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=85&fit=crop",
+  "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=85&fit=crop",
+  "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=85&fit=crop",
+  "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1200&q=85&fit=crop",
+  "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1200&q=85&fit=crop",
+  "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1200&q=85&fit=crop",
+  "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1200&q=85&fit=crop",
+];
+let currentLbIdx = 0;
+
+function openLightbox(idx) {
+  currentLbIdx = idx;
+  const lb = document.getElementById('lightbox');
+  document.getElementById('lb-img').src = galleryImages[idx];
+  lb.classList.add('open');
+  buildDots();
+}
+function closeLightbox(e) { if(e.target === document.getElementById('lightbox')) closeLightboxDirect(); }
+function closeLightboxDirect() { document.getElementById('lightbox').classList.remove('open'); }
+function lbNav(dir, e) {
+  e.stopPropagation();
+  currentLbIdx = (currentLbIdx + dir + galleryImages.length) % galleryImages.length;
+  document.getElementById('lb-img').src = galleryImages[currentLbIdx];
+  buildDots();
+}
+function buildDots() {
+  document.getElementById('lb-dots').innerHTML = galleryImages.map((_, i) =>
+    `<div class="lb-dot ${i===currentLbIdx?'active':''}" onclick="lbGoTo(${i},event)"></div>`
+  ).join('');
+}
+function lbGoTo(i, e) { e.stopPropagation(); currentLbIdx = i; document.getElementById('lb-img').src = galleryImages[i]; buildDots(); }
+document.addEventListener('keydown', e => {
+  const lb = document.getElementById('lightbox');
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'ArrowRight') lbNav(1, {stopPropagation:()=>{}});
+  if (e.key === 'ArrowLeft')  lbNav(-1, {stopPropagation:()=>{}});
+  if (e.key === 'Escape') closeLightboxDirect();
+});
+
+// ── Save ──
+let saved = false;
+function toggleSave(e) {
+  e.stopPropagation();
+  saved = !saved;
+  const btn = document.getElementById('save-btn');
+  btn.textContent = saved ? '♥' : '♡';
+  btn.classList.toggle('saved', saved);
+  showToast(saved ? '♥ Guardado en favoritos' : '♡ Eliminado de favoritos');
+}
+
+// ── Unit Tabs ──
+function filterUnits(type, btn) {
+  document.querySelectorAll('.unit-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.unit-card').forEach(card => {
+    card.style.display = (type === 'all' || card.dataset.type === type) ? '' : 'none';
+  });
+}
+function selectUnit(card) {
+  document.querySelectorAll('.unit-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+  const name = card.querySelector('.uc-name').textContent;
+  showToast('✓ Seleccionado: ' + name);
+}
+
+// ── Description expand ──
+let expanded = false;
+function toggleDesc() {
+  expanded = !expanded;
+  document.getElementById('desc-extra').style.display = expanded ? '' : 'none';
+  document.getElementById('desc-extra2').style.display = expanded ? '' : 'none';
+  const btn = document.getElementById('expand-btn');
+  btn.innerHTML = expanded
+    ? '<svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 8l4-4 4 4" stroke="#1A4F7A" stroke-width="1.3"/></svg> Ver menos'
+    : '<svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="#1A4F7A" stroke-width="1.3"/></svg> Leer más';
+}
+
+// ── Contact Form ──
+function submitContact() {
+  const name = document.getElementById('contact-name').value.trim();
+  const email = document.getElementById('contact-email').value.trim();
+  const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!name) { showToast('⚠️ Ingresa tu nombre'); return; }
+  if (!emailRx.test(email)) { showToast('⚠️ Ingresa un correo válido'); return; }
+  showToast('✅ ¡Solicitud enviada! Te contactaremos en menos de 2 horas.');
+  const btn = document.getElementById('cta-submit-btn');
+  btn.textContent = '✓ Solicitud enviada';
+  btn.style.background = '#0F6E56';
+}
+
+// ── Toast ──
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+// ── Accordion ──
+function toggleSection(id, btn) {
+  const body = document.getElementById(id);
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  btn.classList.toggle('open', !isOpen);
+}
+
+// ── FAQ ──
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const answer = item.querySelector('.faq-a');
+  const isOpen = btn.classList.contains('open');
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.classList.remove('open');
+    q.closest('.faq-item').querySelector('.faq-a').classList.remove('open');
+  });
+  if (!isOpen) { btn.classList.add('open'); answer.classList.add('open'); }
+}
+
+// ── WhatsApp FAB ──
+function toggleWaPopup() {
+  document.getElementById('wa-popup').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  const fab = document.getElementById('wa-fab');
+  const popup = document.getElementById('wa-popup');
+  if (popup && popup.classList.contains('open') && !popup.contains(e.target) && fab && !fab.contains(e.target)) {
+    popup.classList.remove('open');
+  }
+});
+
+// ── Social Proof ──
+function initSocialProof() {
+  let views = 218, saves = 57;
+  setInterval(() => {
+    const d = Math.floor(Math.random() * 5) - 1;
+    views = Math.max(150, views + d);
+    const el = document.getElementById('sp-views');
+    if (el) { el.textContent = views; el.style.color = 'var(--green)'; setTimeout(() => el.style.color = 'var(--t1)', 700); }
+  }, 7000);
+}
+
+// ── Cookie Banner ──
+function acceptCookies() {
+  localStorage.setItem('zonum_cookies', '1');
+  document.getElementById('cookie-banner').style.display = 'none';
+}
+
+// ── Init ──
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    // Animate bars
+    const roi = document.getElementById('roi-bar-fill');
+    const avail = document.getElementById('avail-fill');
+    const tl = document.getElementById('tl-fill');
+    if (roi) roi.style.width = '78%';
+    if (avail) avail.style.width = '52%';
+    if (tl) tl.style.width = '60%';
+    initSocialProof();
+    // Cookie banner
+    if (!localStorage.getItem('zonum_cookies')) {
+      document.getElementById('cookie-banner').style.display = 'flex';
+    }
+  }, 400);
+});
+</script>
+</body>
+</html>
