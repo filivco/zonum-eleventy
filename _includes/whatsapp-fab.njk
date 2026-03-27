@@ -1,0 +1,35 @@
+<style>
+.wa-fab{position:fixed;bottom:24px;right:24px;z-index:999;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+.wa-popup{background:#fff;border-radius:16px;padding:16px 18px;box-shadow:0 8px 32px rgba(0,0,0,0.15);max-width:260px;display:none;animation:fadeUp .25s ease}
+.wa-popup.open{display:block}
+.wa-popup-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.wa-popup-avatar{width:40px;height:40px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center}
+.wa-popup-name{font-size:13px;font-weight:600;color:#3A3530}
+.wa-popup-status{font-size:11px;color:#888078}
+.wa-popup-msg{font-size:13px;color:#6B6560;line-height:1.5;margin-bottom:14px}
+.wa-popup-btn{display:block;background:#25D366;color:#fff;text-decoration:none;border-radius:8px;padding:10px 16px;font-size:13px;font-weight:600;text-align:center}
+.wa-btn{width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 16px rgba(37,211,102,0.4);border:none;transition:transform .2s}
+.wa-btn:hover{transform:scale(1.08)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+</style>
+
+<div class="wa-fab" id="waFab">
+  <div class="wa-popup" id="waPopup">
+    <div class="wa-popup-header">
+      <div class="wa-popup-avatar">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2C6.03 2 2 6.03 2 11c0 1.77.49 3.43 1.34 4.84L2 20l4.26-1.32A8.96 8.96 0 0011 20c4.97 0 9-4.03 9-9s-4.03-9-9-9z" fill="white"/></svg>
+      </div>
+      <div>
+        <div class="wa-popup-name">Zonum Asesores</div>
+        <div class="wa-popup-status">● En línea · responde en minutos</div>
+      </div>
+    </div>
+    <div class="wa-popup-msg">Hola 👋 ¿Te ayudo a encontrar el proyecto ideal para tu inversión?</div>
+    <a href="https://wa.me/573001234567?text=Hola%2C%20me%20interesa%20conocer%20proyectos%20de%20inversi%C3%B3n%20inmobiliaria%20en%20Colombia" target="_blank" class="wa-popup-btn">
+      Abrir WhatsApp →
+    </a>
+  </div>
+  <button class="wa-btn" onclick="document.getElementById('waPopup').classList.toggle('open')" aria-label="WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M13 2C6.92 2 2 6.92 2 13c0 2.18.62 4.21 1.7 5.93L2 24l5.24-1.68A10.93 10.93 0 0013 24c6.08 0 11-4.92 11-11S19.08 2 13 2z" fill="white"/><path d="M9.5 8.5c-.3 0-.8.1-1.2.55-.4.45-1.3 1.3-1.3 3.15s1.33 3.65 1.52 3.9c.2.25 2.6 4.1 6.35 5.58 3.75 1.48 3.75 1 4.4.93.65-.07 2.1-.86 2.4-1.68.3-.82.3-1.52.2-1.67-.1-.15-.35-.24-.75-.43-.4-.2-2.35-1.17-2.72-1.3-.37-.13-.63-.2-.9.2-.27.4-.9 1.3-1.1 1.56-.2.27-.4.3-.8.1-.4-.2-1.65-.6-3.15-1.93-1.16-1.04-1.95-2.32-2.17-2.72-.22-.4-.02-.6.17-.8.17-.17.4-.45.6-.67.2-.22.27-.37.4-.62.13-.25.07-.47-.03-.67-.1-.2-.9-2.17-1.23-2.97-.3-.75-.6-.65-.9-.65z" fill="#25D366"/></svg>
+  </button>
+</div>

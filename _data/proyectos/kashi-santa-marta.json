@@ -1,0 +1,93 @@
+{
+  "slug": "kashi-santa-marta",
+  "nombre": "Kashi Santa Marta",
+  "constructora": "Kashi",
+  "ciudad": "Santa Marta",
+  "zona": "Taganga",
+  "pais": "Colombia",
+  "estado": "en_construccion",
+  "precio_desde": 320000000,
+  "precio_label": "~$320M COP",
+  "roi_anual": 14.8,
+  "roi_label": "14.8% ROI est. anual",
+  "entrega": "Q3 2026",
+  "torres": 2,
+  "unidades": 96,
+  "score": 4.9,
+  "tags": ["Playa", "Airbnb Ready", "Vista al mar", "Taganga"],
+  "tipo_proyecto": "Residencial vacacional",
+  "descripcion": "Kashi Santa Marta es el primer proyecto residencial de lujo frente al mar en Taganga. Diseñado para renta vacacional de corto plazo, cada apartamento tiene acabados de hotel boutique y acceso directo a la playa.",
+  "og_image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80",
+  "whatsapp": "573001234567",
+  "imagenes": [
+    "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80",
+    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+    "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
+    "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+    "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800&q=80",
+    "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80",
+    "https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=800&q=80"
+  ],
+  "tipologias": [
+    { "tipo": "A", "nombre": "Taganga", "m2": 48, "hab": 1, "banos": 1, "precio": 320000000, "notas": "" },
+    { "tipo": "B", "nombre": "Bello Horizonte", "m2": 58, "hab": 1, "banos": 1, "precio": 390000000, "notas": "+ terraza" },
+    { "tipo": "C", "nombre": "Bahía Concha", "m2": 72, "hab": 2, "banos": 2, "precio": 480000000, "notas": "" },
+    { "tipo": "D", "nombre": "Pozos Colorados", "m2": 88, "hab": 2, "banos": 2, "precio": 590000000, "notas": "+ estudio" }
+  ],
+  "amenidades": [
+    { "emoji": "🏊", "nombre": "Piscina infinita" },
+    { "emoji": "🍹", "nombre": "Beach Club" },
+    { "emoji": "🏋️", "nombre": "Gimnasio" },
+    { "emoji": "🌅", "nombre": "Rooftop" },
+    { "emoji": "🚿", "nombre": "Ducha solar" },
+    { "emoji": "🅿️", "nombre": "Parqueaderos" },
+    { "emoji": "🔒", "nombre": "Seguridad 24h" },
+    { "emoji": "📱", "nombre": "Concierge digital" },
+    { "emoji": "🤿", "nombre": "Área snorkel" }
+  ],
+  "pois": [
+    { "emoji": "🏖️", "nombre": "Playa Taganga", "tiempo": "1 min", "modo": "a pie" },
+    { "emoji": "✈️", "nombre": "Aeropuerto Simón Bolívar", "tiempo": "15 min", "modo": "en carro" },
+    { "emoji": "🏙️", "nombre": "Centro Santa Marta", "tiempo": "10 min", "modo": "en carro" },
+    { "emoji": "🐠", "nombre": "Parque Tayrona", "tiempo": "45 min", "modo": "en carro" },
+    { "emoji": "🎭", "nombre": "El Rodadero", "tiempo": "20 min", "modo": "en carro" },
+    { "emoji": "🏔️", "nombre": "Ciudad Perdida", "tiempo": "4 hr", "modo": "tour" }
+  ],
+  "escenarios": [
+    { "nombre": "Pesimista", "ocupacion": 65, "precio_noche_usd": 85, "ingreso_mensual": 3200000, "roi_mensual": 1.0 },
+    { "nombre": "Conservador", "ocupacion": 75, "precio_noche_usd": 95, "ingreso_mensual": 4100000, "roi_mensual": 1.28, "destacado": true },
+    { "nombre": "Optimista", "ocupacion": 85, "precio_noche_usd": 110, "ingreso_mensual": 5400000, "roi_mensual": 1.69 }
+  ],
+  "timeline": [
+    { "fase": "Preventa", "fecha": "Q1 2025", "activo": true, "descripcion": "Reserva tu unidad con descuento de lanzamiento" },
+    { "fase": "Construcción", "fecha": "Q2 2025", "activo": false, "descripcion": "Inicio de obras, actualizaciones mensuales" },
+    { "fase": "Entrega", "fecha": "Q3 2026", "activo": false, "descripcion": "Entrega de llaves y activación de rentas" }
+  ],
+  "brand": {
+    "primary": "#0B6E8A",
+    "primary_dark": "#064558",
+    "primary_light": "#D0EEF5",
+    "accent": "#00B4D8",
+    "accent_light": "#E0F7FC",
+    "bg": "#EAF5F8",
+    "bg_card": "#F5FBFD",
+    "invest_bg": "#032A38",
+    "invest_text": "#A8DDE8",
+    "invest_sub": "#4A8FA0",
+    "tag_style": "background:#D0EEF5;color:#044A5E;border-color:#7ACDE0",
+    "badge_style": "background:#0B6E8A",
+    "roi_badge_style": "color:#055A6E;background:#D0EEF5",
+    "metric_color": "#0B6E8A",
+    "cta_btn": "#0B6E8A",
+    "cta_btn_hover": "#064558"
+  },
+  "constructora_info": {
+    "nombre": "Kashi Desarrolladores",
+    "ciudad": "Santa Marta, Colombia",
+    "web": "https://kashi.co",
+    "instagram": "@kashidesarrolladores",
+    "descripcion": "Constructora especializada en proyectos de renta vacacional en el Caribe colombiano.",
+    "proyectos_entregados": 3,
+    "anos_experiencia": 8
+  }
+}

@@ -1,0 +1,575 @@
+---
+layout: proyecto-layout.njk
+pagination:
+  data: proyectosData
+  size: 1
+  alias: p
+permalink: "proyectos/{{ p.slug }}/"
+---
+<style>
+
+/* ── GALERÍA ── */
+.gallery-wrap{margin-top:16px;border-radius:16px;overflow:hidden;display:grid;grid-template-columns:1fr 280px;grid-template-rows:260px 120px;gap:4px}
+.gallery-main{grid-row:1/2;grid-column:1/2;position:relative;cursor:pointer;overflow:hidden;border-radius:12px 0 0 0}
+.gallery-main img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gallery-main:hover img{transform:scale(1.03)}
+.gallery-side{grid-column:2/3;grid-row:1/3;display:flex;flex-direction:column;gap:4px}
+.gallery-side .g-thumb{flex:1;position:relative;overflow:hidden;cursor:pointer}
+.gallery-side .g-thumb:first-child{border-radius:0 12px 0 0}
+.gallery-side .g-thumb:last-child{border-radius:0 0 12px 0}
+.gallery-side .g-thumb img,.gallery-bottom .g-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gallery-side .g-thumb:hover img,.gallery-bottom .g-thumb:hover img{transform:scale(1.05)}
+.gallery-bottom{grid-row:2/3;grid-column:1/2;display:flex;gap:4px}
+.gallery-bottom .g-thumb{flex:1;overflow:hidden;cursor:pointer;position:relative}
+.gallery-bottom .g-thumb:first-child{border-radius:0 0 0 12px}
+.gallery-count{position:absolute;bottom:10px;right:10px;background:rgba(26,26,24,.75);color:#fff;font-size:11px;padding:4px 10px;border-radius:999px;backdrop-filter:blur(4px)}
+.gallery-badge{position:absolute;top:12px;left:12px;background:var(--brand-primary);color:#fff;font-size:11px;font-weight:600;padding:4px 12px;border-radius:999px}
+.gallery-save{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;background:var(--white);border:.5px solid var(--b1);display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;color:var(--t3)}
+
+/* ── LAYOUT ── */
+.breadcrumb{display:flex;align-items:center;gap:6px;padding:14px 0 0;font-size:12px;color:var(--t3)}
+.breadcrumb a{color:var(--t2);text-decoration:none}.breadcrumb a:hover{color:var(--green)}
+.breadcrumb .sep{color:var(--b2)}.breadcrumb .current{color:var(--t1);font-weight:500}
+.social-proof-bar{background:var(--white);border:.5px solid var(--b1);border-radius:10px;padding:10px 16px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--t2);flex-wrap:wrap;margin-bottom:4px}
+.sp-item{display:flex;align-items:center;gap:4px}.sp-sep{color:var(--b2)}
+.main-grid{display:grid;grid-template-columns:1fr 340px;gap:28px;align-items:start;margin-top:24px}
+@media(max-width:900px){.main-grid{grid-template-columns:1fr}.right-col{order:-1}}
+.left-col{min-width:0}
+.right-col{position:sticky;top:90px}
+
+/* ── PH HEADER ── */
+.ph-header{background:var(--white);border:.5px solid var(--b1);border-radius:16px;padding:20px 24px;margin-bottom:16px}
+.ph-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.ph-title{font-size:26px;font-weight:700;font-family:var(--font-heading);color:var(--t1)}
+.ph-price{text-align:right}.ph-price-main{font-size:22px;font-weight:700;color:var(--t1)}
+.ph-price-sub{font-size:12px;color:var(--t2)}.ph-roi-badge{font-size:11px;padding:3px 10px;border-radius:20px;display:inline-block;margin-top:4px}
+.ph-loc{font-size:13px;color:var(--t2);margin-bottom:14px}
+.ph-tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:11px;padding:4px 10px;border-radius:20px;border:.5px solid var(--b1);background:var(--white);color:var(--t2)}
+.tag.accent{background:var(--champagne);color:var(--oro-oscuro);border-color:var(--oro-palido)}
+.tag.green{background:#e8f5ed;color:#1a6b3a;border-color:#b8dfc5}
+
+/* ── METRICS ── */
+.metrics-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:var(--white);border:.5px solid var(--b1);border-radius:12px;overflow:hidden;margin-bottom:16px}
+.metric{padding:16px;border-right:.5px solid var(--b1);text-align:center}
+.metric:last-child{border-right:none}
+.metric-val{font-size:18px;font-weight:700;color:var(--brand-primary);font-family:var(--font-heading)}
+.metric-lab{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--t3);margin-top:2px}
+@media(max-width:600px){.metrics-strip{grid-template-columns:repeat(2,1fr)}.metric:nth-child(2){border-right:none}.metric:nth-child(3){border-top:.5px solid var(--b1)}.metric:nth-child(4){border-top:.5px solid var(--b1);border-right:none}}
+
+/* ── SECCIÓN GENÉRICA ── */
+.section{background:var(--white);border:.5px solid var(--b1);border-radius:16px;padding:24px;margin-bottom:16px}
+.section-title{font-size:15px;font-weight:600;font-family:var(--font-heading);color:var(--t1);margin-bottom:16px}
+.section-body{font-size:14px;color:var(--t2);line-height:1.7}
+
+/* ── TIMELINE ── */
+.timeline{display:flex;gap:0;margin-top:4px}
+.tl-item{flex:1;position:relative;padding:0 0 0 24px}
+.tl-item:not(:last-child)::after{content:'';position:absolute;top:10px;left:28px;right:-4px;height:1px;background:var(--b1)}
+.tl-dot{width:20px;height:20px;border-radius:50%;border:2px solid var(--b1);background:var(--white);position:absolute;left:0;top:0;display:flex;align-items:center;justify-content:center}
+.tl-dot.active{background:var(--brand-primary);border-color:var(--brand-primary)}
+.tl-dot.active::after{content:'✓';font-size:10px;color:#fff;font-weight:700}
+.tl-label{font-size:11px;font-weight:600;color:var(--t1);margin-top:28px;margin-bottom:2px}
+.tl-date{font-size:11px;color:var(--brand-primary);font-weight:500}
+.tl-desc{font-size:11px;color:var(--t3);line-height:1.4;margin-top:4px}
+
+/* ── TIPOLOGÍAS ── */
+.unit-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.unit-tab{font-size:12px;padding:6px 14px;border-radius:20px;border:.5px solid var(--b1);background:transparent;color:var(--t2);cursor:pointer;transition:all .2s}
+.unit-tab.active{background:var(--brand-primary);color:#fff;border-color:var(--brand-primary)}
+.units-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.unit-card{background:var(--white);border:.5px solid var(--b1);border-radius:12px;overflow:hidden;cursor:pointer;transition:all .2s}
+.unit-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.1);transform:translateY(-2px)}
+.unit-card[data-hidden]{display:none}
+.uc-img{height:140px;overflow:hidden}
+.uc-img img{width:100%;height:100%;object-fit:cover}
+.uc-body{padding:12px}
+.uc-tipo{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--t3);margin-bottom:2px}
+.uc-name{font-size:14px;font-weight:600;color:var(--t1);font-family:var(--font-heading)}
+.uc-specs{font-size:12px;color:var(--t2);margin:4px 0}
+.uc-price{font-size:13px;font-weight:600;color:var(--brand-primary)}
+.uc-badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:10px;background:#e8f5ed;color:#1a6b3a;margin-top:6px}
+
+/* ── AMENIDADES ── */
+.amenities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:600px){.amenities-grid{grid-template-columns:repeat(2,1fr)}}
+.amenity{background:var(--lino);border-radius:10px;padding:14px 12px;display:flex;align-items:center;gap:10px}
+.am-emoji{font-size:20px;flex-shrink:0}
+.am-name{font-size:13px;color:var(--t1)}
+
+/* ── INVERSIÓN ── */
+.invest-block{background:var(--brand-invest-bg);border-radius:16px;padding:28px;margin-bottom:16px;color:#fff}
+.ib-title{font-size:16px;font-weight:700;font-family:var(--font-heading);margin-bottom:6px}
+.ib-subtitle{font-size:13px;color:var(--brand-invest-sub);margin-bottom:24px}
+.scenarios{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:600px){.scenarios{grid-template-columns:1fr}}
+.sc-card{background:rgba(255,255,255,.08);border-radius:12px;padding:16px;border:.5px solid rgba(255,255,255,.12);position:relative}
+.sc-card.best{background:rgba(184,151,90,.15);border-color:var(--oro-palido)}
+.sc-badge{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#A8C4DC;margin-bottom:8px}
+.sc-card.best .sc-badge{color:var(--oro-palido)}
+.sc-best-label{position:absolute;top:10px;right:10px;font-size:9px;background:var(--oro-acento);color:var(--ebano);padding:2px 8px;border-radius:10px;font-weight:700}
+.sc-occ{font-size:12px;color:var(--brand-invest-text);margin-bottom:10px;opacity:.8}
+.sc-roi{font-size:24px;font-weight:700;font-family:var(--font-heading);color:#fff}
+.sc-roi-lab{font-size:11px;color:#A8C4DC;margin-bottom:8px}
+.sc-ingreso{font-size:13px;color:#E8DCC8}
+.sc-noche{font-size:11px;color:var(--brand-invest-text);margin-top:4px;opacity:.7}
+
+/* ── TESIS ── */
+.thesis-band{background:var(--champagne);border:.5px solid var(--oro-palido);border-radius:16px;padding:24px;margin-bottom:16px}
+.thesis-header{font-size:14px;font-weight:600;color:var(--oro-oscuro);margin-bottom:16px}
+.thesis-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(max-width:600px){.thesis-grid{grid-template-columns:1fr}}
+.thesis-item{display:flex;gap:10px;align-items:flex-start}
+.th-check{width:20px;height:20px;border-radius:50%;background:var(--oro-acento);color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;margin-top:1px}
+.th-title{font-size:13px;font-weight:600;color:var(--t1)}
+.th-detail{font-size:12px;color:var(--t2);margin-top:2px}
+
+/* ── MAPA ── */
+.poi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+@media(max-width:600px){.poi-grid{grid-template-columns:repeat(2,1fr)}}
+.poi-item{background:var(--lino);border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:8px}
+.poi-emoji{font-size:18px;flex-shrink:0}
+.poi-name{font-size:12px;font-weight:500;color:var(--t1)}
+.poi-dist{font-size:11px;color:var(--t3)}
+
+/* ── CONSTRUCTORA ── */
+.dev-header{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.dev-logo{width:52px;height:52px;background:var(--lino);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.dev-name{font-size:15px;font-weight:600;color:var(--t1)}
+.dev-loc{font-size:12px;color:var(--t2);margin-top:2px}
+.dev-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:.5px solid var(--b1);border-radius:10px;overflow:hidden;margin-bottom:14px}
+.dev-stat{padding:12px;text-align:center;border-right:.5px solid var(--b1)}
+.dev-stat:last-child{border-right:none}
+.dev-stat-val{font-size:16px;font-weight:700;color:var(--t1)}
+.dev-stat-lab{font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:.05em;margin-top:2px}
+.dev-desc{font-size:13px;color:var(--t2);line-height:1.6;margin-bottom:14px}
+.dev-links{display:flex;gap:8px}
+.dev-link{font-size:12px;padding:7px 14px;border-radius:8px;text-decoration:none;cursor:pointer}
+.dev-link.outline{border:.5px solid var(--b2);color:var(--t2);background:transparent}
+.dev-link.wa{background:#25D366;color:#fff;border:none}
+
+/* ── CTA CARD ── */
+.cta-card{background:var(--white);border:.5px solid var(--b1);border-radius:16px;padding:22px;box-shadow:0 4px 20px rgba(0,0,0,0.07)}
+.cta-price{font-size:22px;font-weight:700;color:var(--t1);font-family:var(--font-heading)}
+.cta-price-sub{font-size:12px;color:var(--t2);margin-bottom:4px}
+.cta-roi{font-size:12px;color:#1a6b3a;background:#e8f5ed;display:inline-block;padding:3px 10px;border-radius:20px;margin-bottom:16px}
+.avail-bar-wrap{margin-bottom:16px}
+.avail-bar-label{display:flex;justify-content:space-between;font-size:11px;color:var(--t2);margin-bottom:5px}
+.avail-bar-bg{height:5px;background:var(--b1);border-radius:4px}
+.avail-bar-fill{height:5px;background:var(--brand-primary);border-radius:4px;transition:width .8s ease}
+.cta-form{display:flex;flex-direction:column;gap:10px;margin-bottom:14px}
+.cta-input{border:.5px solid var(--b2);border-radius:8px;padding:10px 14px;font-size:13px;color:var(--t1);background:var(--white);font-family:inherit;outline:none;transition:border .2s}
+.cta-input:focus{border-color:var(--azul-base)}
+.cta-btn{padding:13px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;border:none;background:var(--brand-primary);color:#fff;width:100%;font-family:inherit}
+.cta-btn:hover{background:var(--brand-dark)}
+.cta-wa-btn{padding:11px;border-radius:10px;font-size:13px;cursor:pointer;border:none;background:#25D366;color:#fff;width:100%;font-family:inherit}
+.cta-trust{display:flex;flex-direction:column;gap:6px;border-top:.5px solid var(--b1);padding-top:14px;margin-top:6px}
+.cta-trust-item{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--t3)}
+.cta-trust-icon{font-size:13px}
+
+/* ── SIMILAR ── */
+.similar-section{margin-top:40px}
+.similar-title{font-size:18px;font-weight:700;font-family:var(--font-heading);color:var(--t1);margin-bottom:16px}
+.similar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:700px){.similar-grid{grid-template-columns:1fr}}
+.sim-card{background:var(--white);border:.5px solid var(--b1);border-radius:14px;overflow:hidden;cursor:pointer;text-decoration:none;color:inherit;display:block}
+.sim-img{height:160px;overflow:hidden}
+.sim-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.sim-card:hover .sim-img img{transform:scale(1.05)}
+.sim-body{padding:14px}
+.sim-city{font-size:11px;color:var(--t3);margin-bottom:4px}
+.sim-name{font-size:14px;font-weight:600;color:var(--t1);font-family:var(--font-heading);margin-bottom:8px}
+.sim-row{display:flex;justify-content:space-between;font-size:12px;color:var(--t2)}
+.sim-price{font-weight:600;color:var(--brand-primary)}
+
+/* ── LIGHTBOX ── */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:1000;align-items:center;justify-content:center}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:85vh;border-radius:8px;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:24px;font-size:28px;color:#fff;cursor:pointer;background:none;border:none}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);font-size:32px;color:#fff;cursor:pointer;background:none;border:none;padding:0 20px}
+.lb-prev{left:0}.lb-next{right:0}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);background:#3A3530;color:#fff;padding:12px 24px;border-radius:10px;font-size:13px;opacity:0;transition:all .3s;z-index:1001;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+<div class="wrap">
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="/">Inicio</a><span class="sep">›</span>
+    <a href="/buscar/?ciudad={{ p.ciudad | lower }}">{{ p.ciudad }}</a><span class="sep">›</span>
+    <span class="current">{{ p.nombre }}</span>
+  </div>
+
+  <!-- SOCIAL PROOF -->
+  <div class="social-proof-bar" style="margin-top:12px">
+    <div class="sp-item"><span>👁</span><span><strong id="sp-views">{{ [142, 178, 203, 256, 189] | random }}</strong> personas vieron esto hoy</span></div>
+    <span class="sp-sep">·</span>
+    <div class="sp-item"><span>❤️</span><span><strong>{{ [43, 57, 72, 38] | random }}</strong> guardados esta semana</span></div>
+    <span class="sp-sep">·</span>
+    <div class="sp-item"><span>🔥</span><span><strong>{{ [3, 5, 7, 4] | random }}</strong> unidades reservadas este mes</span></div>
+  </div>
+
+  <!-- GALLERY -->
+  <div class="gallery-wrap">
+    <div class="gallery-main" onclick="openLightbox(0)">
+      <img src="{{ p.imagenes[0] }}" alt="{{ p.nombre }}">
+      <div class="gallery-badge">{{ p.estado | replace("_", " ") | title }}</div>
+      <div class="gallery-save" onclick="event.stopPropagation();this.classList.toggle('saved')" style="position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;background:#F8F6F2;border:.5px solid rgba(58,53,48,0.12);display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;color:#888078">♡</div>
+    </div>
+    <div class="gallery-side">
+      <div class="g-thumb" onclick="openLightbox(1)"><img src="{{ p.imagenes[1] }}" alt=""></div>
+      <div class="g-thumb" onclick="openLightbox(2)"><img src="{{ p.imagenes[2] }}" alt=""></div>
+    </div>
+    <div class="gallery-bottom">
+      <div class="g-thumb" onclick="openLightbox(3)"><img src="{{ p.imagenes[3] }}" alt=""></div>
+      <div class="g-thumb" onclick="openLightbox(4)"><img src="{{ p.imagenes[4] }}" alt=""></div>
+      <div class="g-thumb" style="position:relative" onclick="openLightbox(5)">
+        <img src="{{ p.imagenes[5] }}" alt="">
+        <div class="gallery-count">1 / {{ p.imagenes | length }} fotos</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="main-grid">
+
+    <!-- ── LEFT COL ── -->
+    <div class="left-col">
+
+      <!-- PH HEADER -->
+      <div class="ph-header">
+        <div class="ph-top">
+          <h1 class="ph-title">{{ p.nombre }}</h1>
+          <div class="ph-price">
+            <div class="ph-price-main">{{ p.precio_label }}</div>
+            <div class="ph-price-sub">desde · {% if p.tipologias[0].hab == 1 %}1 habitación{% else %}{{ p.tipologias[0].hab }} habitaciones{% endif %}</div>
+            <div class="ph-roi-badge" style="{{ brand.roi_badge_style }}">▲ {{ p.roi_anual }}% ROI est. anual</div>
+          </div>
+        </div>
+        <div class="ph-loc">📍 {{ p.zona }}, {{ p.ciudad }}</div>
+        <div class="ph-tags">
+          <span class="tag green">✓ Curado por Zonum</span>
+          {% for tag in p.tags %}
+            <span class="tag" style="{% if loop.index == 1 %}{{ brand.tag_style }}{% endif %}">{{ tag }}</span>
+          {% endfor %}
+          {% if p.entrega %}<span class="tag">Entrega {{ p.entrega }}</span>{% endif %}
+        </div>
+      </div>
+
+      <!-- METRICS -->
+      <div class="metrics-strip">
+        <div class="metric">
+          <div class="metric-val">{{ p.roi_anual }}%</div>
+          <div class="metric-lab">ROI est. anual</div>
+        </div>
+        <div class="metric">
+          <div class="metric-val">{{ p.entrega }}</div>
+          <div class="metric-lab">Entrega estimada</div>
+        </div>
+        <div class="metric">
+          <div class="metric-val">{{ p.unidades }}</div>
+          <div class="metric-lab">Apartamentos totales</div>
+        </div>
+        <div class="metric">
+          <div class="metric-val">⭐ {{ p.score }}</div>
+          <div class="metric-lab">Score Zonum</div>
+        </div>
+      </div>
+
+      <!-- DESCRIPCIÓN -->
+      <div class="section">
+        <div class="section-title">Sobre el proyecto</div>
+        <div class="section-body">{{ p.descripcion }}</div>
+      </div>
+
+      <!-- TESIS DE INVERSIÓN (si existe) -->
+      {% if p.tesis_inversion %}
+      <div class="thesis-band">
+        <div class="thesis-header">🏛️ Por qué {{ p.zona }} es una apuesta diferenciada</div>
+        <div class="thesis-grid">
+          {% for item in p.tesis_inversion %}
+          <div class="thesis-item">
+            <div class="th-check">✓</div>
+            <div>
+              <div class="th-title">{{ item.titulo }}</div>
+              <div class="th-detail">{{ item.detalle }}</div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- TIMELINE -->
+      <div class="section">
+        <div class="section-title">Cronograma del proyecto</div>
+        <div class="timeline">
+          {% for fase in p.timeline %}
+          <div class="tl-item">
+            <div class="tl-dot{% if fase.activo %} active{% endif %}"></div>
+            <div class="tl-label">{{ fase.fase }}</div>
+            <div class="tl-date">{{ fase.fecha }}</div>
+            <div class="tl-desc">{{ fase.descripcion }}</div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- TIPOLOGÍAS -->
+      <div class="section">
+        <div class="section-title">Tipologías disponibles</div>
+        <div class="unit-tabs" id="unitTabs">
+          <button class="unit-tab active" onclick="filterUnits('all',this)">Todas</button>
+          <button class="unit-tab" onclick="filterUnits('1',this)">1 habitación</button>
+          {% set has_duplex = false %}
+          {% for t in p.tipologias %}{% if 'úplex' in t.notas or 'uplex' in t.notas %}{% set has_duplex = true %}{% endif %}{% endfor %}
+          {% if has_duplex %}<button class="unit-tab" onclick="filterUnits('duplex',this)">Dúplex</button>{% endif %}
+          {% set max_hab = 1 %}{% for t in p.tipologias %}{% if t.hab > max_hab %}{% set max_hab = t.hab %}{% endif %}{% endfor %}
+          {% if max_hab >= 2 %}<button class="unit-tab" onclick="filterUnits('2',this)">2 habitaciones</button>{% endif %}
+        </div>
+        <div class="units-grid" id="unitsGrid">
+          {% for t in p.tipologias %}
+          {% set img_idx = loop.index0 % p.imagenes | length %}
+          <div class="unit-card" data-hab="{{ t.hab }}" data-notas="{{ t.notas | lower }}" onclick="openVisitModal('{{ p.nombre }} Tipo {{ t.tipo }}','{{ p.ciudad }}')">
+            <div class="uc-img"><img src="{{ p.imagenes[img_idx] }}" alt="{{ t.nombre }}" loading="lazy"></div>
+            <div class="uc-body">
+              <div class="uc-tipo">Tipo {{ t.tipo }}{% if t.notas %} · {{ t.notas }}{% endif %}</div>
+              <div class="uc-name">{{ t.nombre }}</div>
+              <div class="uc-specs">{{ t.m2 }} m² · {{ t.hab }} hab · {{ t.banos }} baño{% if t.banos > 1 %}s{% endif %}</div>
+              <div class="uc-price">Desde ~{{ t.precio | copM }}</div>
+              <span class="uc-badge">● Disponible</span>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- AMENIDADES -->
+      <div class="section">
+        <div class="section-title">Amenidades · {{ p.amenidades | length }} espacios</div>
+        <div class="amenities-grid">
+          {% for am in p.amenidades %}
+          <div class="amenity">
+            <span class="am-emoji">{{ am.emoji }}</span>
+            <span class="am-name">{{ am.nombre }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- INVERSIÓN -->
+      <div class="invest-block">
+        <div class="ib-title">Análisis de rentabilidad · Renta corta</div>
+        <div class="ib-subtitle">Simulación basada en plataformas como Airbnb y Booking para {{ p.zona }}, {{ p.ciudad }}</div>
+        <div class="scenarios">
+          {% for sc in p.escenarios %}
+          <div class="sc-card{% if sc.destacado %} best{% endif %}">
+            {% if sc.destacado %}<div class="sc-best-label">Recomendado</div>{% endif %}
+            <div class="sc-badge">{{ sc.nombre }}</div>
+            <div class="sc-occ">{{ sc.ocupacion }}% ocupación · USD {{ sc.precio_noche_usd }}/noche</div>
+            <div class="sc-roi">{{ sc.roi_mensual }}%</div>
+            <div class="sc-roi-lab">rentabilidad / mes</div>
+            <div class="sc-ingreso">{{ sc.ingreso_mensual | cop }} / mes</div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- UBICACIÓN -->
+      <div class="section">
+        <div class="section-title">Ubicación</div>
+        <div style="background:#E8DCC8;border-radius:12px;height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-bottom:16px">
+          <div style="font-size:28px">📍</div>
+          <div style="font-size:13px;font-weight:500;color:#3A3530;margin-top:8px">{{ p.zona }}, {{ p.ciudad }}</div>
+          <a href="https://maps.google.com/?q={{ p.zona }},{{ p.ciudad }},Colombia" target="_blank" style="font-size:12px;color:{{ brand.primary }};margin-top:6px;text-decoration:none">Ver en Google Maps →</a>
+        </div>
+        <div class="poi-grid">
+          {% for poi in p.pois %}
+          <div class="poi-item">
+            <span class="poi-emoji">{{ poi.emoji }}</span>
+            <div>
+              <div class="poi-name">{{ poi.nombre }}</div>
+              <div class="poi-dist">{{ poi.tiempo }} · {{ poi.modo }}</div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- CONSTRUCTORA -->
+      <div class="section">
+        <div class="section-title">Constructora</div>
+        <div class="dev-header">
+          <div class="dev-logo">🏗️</div>
+          <div>
+            <div class="dev-name">{{ p.constructora_info.nombre }}</div>
+            <div class="dev-loc">{{ p.constructora_info.ciudad }}{% if p.constructora_info.direccion %} · {{ p.constructora_info.direccion }}{% endif %}</div>
+            {% if p.constructora_info.web %}<a href="{{ p.constructora_info.web }}" target="_blank" style="font-size:12px;color:{{ brand.primary }}">{{ p.constructora_info.web | replace("https://","") }} ↗</a>{% endif %}
+          </div>
+        </div>
+        <div class="dev-stats">
+          <div class="dev-stat">
+            <div class="dev-stat-val">100%</div>
+            <div class="dev-stat-lab">Diseño propio</div>
+          </div>
+          <div class="dev-stat">
+            <div class="dev-stat-val">{{ p.torres }}</div>
+            <div class="dev-stat-lab">Torres {{ p.nombre | truncate(8, true, "") }}</div>
+          </div>
+          <div class="dev-stat">
+            <div class="dev-stat-val">{{ p.unidades }}</div>
+            <div class="dev-stat-lab">Apartamentos</div>
+          </div>
+        </div>
+        <div class="dev-desc">{{ p.constructora_info.descripcion }}</div>
+        <div class="dev-links">
+          {% if p.constructora_info.instagram %}<a href="https://instagram.com/{{ p.constructora_info.instagram | replace('@','') }}" target="_blank" class="dev-link outline">{{ p.constructora_info.instagram }}</a>{% endif %}
+          <a href="https://wa.me/{{ p.whatsapp }}?text={{ ('Hola, me interesa ' + p.nombre) | urlencode }}" target="_blank" class="dev-link wa">WhatsApp →</a>
+        </div>
+      </div>
+
+    </div><!-- end left-col -->
+
+    <!-- ── RIGHT COL (CTA) ── -->
+    <div class="right-col">
+      <div class="cta-card">
+        <div class="cta-price">{{ p.precio_label }}</div>
+        <div class="cta-price-sub">desde · por unidad</div>
+        <div class="cta-roi" style="{{ brand.roi_badge_style }};display:inline-block;padding:3px 10px;border-radius:20px;margin-bottom:16px">▲ {{ p.roi_anual }}% ROI estimado anual</div>
+        <div class="avail-bar-wrap">
+          <div class="avail-bar-label">
+            <span>Disponibilidad</span>
+            <span id="availPct">68% disponible</span>
+          </div>
+          <div class="avail-bar-bg"><div class="avail-bar-fill" style="width:68%"></div></div>
+        </div>
+        <form class="cta-form" onsubmit="handleCtaSubmit(event)">
+          <input class="cta-input" type="text" placeholder="Tu nombre" required>
+          <input class="cta-input" type="tel" placeholder="WhatsApp / Teléfono" required>
+          <input class="cta-input" type="email" placeholder="Correo electrónico">
+          <button class="cta-btn" type="submit">Quiero más información</button>
+        </form>
+        <a href="https://wa.me/{{ p.whatsapp }}?text={{ ('Hola, me interesa conocer más sobre ' + p.nombre + ' en ' + p.ciudad) | urlencode }}" target="_blank" class="cta-wa-btn" style="display:block;text-align:center;text-decoration:none;margin-bottom:14px">
+          💬 WhatsApp directo
+        </a>
+        <div class="cta-trust">
+          <div class="cta-trust-item"><span class="cta-trust-icon">✓</span> Proyecto verificado por Zonum</div>
+          <div class="cta-trust-item"><span class="cta-trust-icon">🔒</span> Tus datos no se comparten sin permiso</div>
+          <div class="cta-trust-item"><span class="cta-trust-icon">📋</span> Asesoría sin costo adicional</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end main-grid -->
+
+  <!-- PROYECTOS SIMILARES -->
+  {% set todos_proyectos = collections.proyectosData %}
+  {% if todos_proyectos | length > 1 %}
+  <div class="similar-section">
+    <div class="similar-title">Proyectos similares</div>
+    <div class="similar-grid">
+      {% for sim in todos_proyectos %}
+        {% if sim.slug != p.slug %}
+        <a class="sim-card" href="/proyectos/{{ sim.slug }}/">
+          <div class="sim-img"><img src="{{ sim.imagenes[0] }}" alt="{{ sim.nombre }}" loading="lazy"></div>
+          <div class="sim-body">
+            <div class="sim-city">{{ sim.zona }}, {{ sim.ciudad }}</div>
+            <div class="sim-name">{{ sim.nombre }}</div>
+            <div class="sim-row">
+              <span class="sim-price">{{ sim.precio_label }}</span>
+              <span>{{ sim.roi_anual }}% ROI</span>
+            </div>
+          </div>
+        </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+</div><!-- end wrap -->
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <button class="lb-prev" onclick="event.stopPropagation();shiftLightbox(-1)">‹</button>
+  <img class="lb-img" id="lbImg" src="" alt="">
+  <button class="lb-next" onclick="event.stopPropagation();shiftLightbox(1)">›</button>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+var IMAGES = {{ p.imagenes | dump | safe }};
+var lbIdx = 0;
+
+function openLightbox(i) {
+  lbIdx = i;
+  document.getElementById('lbImg').src = IMAGES[i];
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function shiftLightbox(dir) {
+  lbIdx = (lbIdx + dir + IMAGES.length) % IMAGES.length;
+  document.getElementById('lbImg').src = IMAGES[lbIdx];
+}
+document.addEventListener('keydown', function(e) {
+  if(e.key === 'Escape') closeLightbox();
+  if(e.key === 'ArrowLeft') shiftLightbox(-1);
+  if(e.key === 'ArrowRight') shiftLightbox(1);
+});
+
+function filterUnits(filter, btn) {
+  document.querySelectorAll('.unit-tab').forEach(function(t){ t.classList.remove('active'); });
+  btn.classList.add('active');
+  document.querySelectorAll('.unit-card').forEach(function(card) {
+    var hab = card.dataset.hab;
+    var notas = card.dataset.notas || '';
+    var show = filter === 'all' ||
+               (filter === 'duplex' && notas.indexOf('plex') > -1) ||
+               (filter === '1' && hab === '1') ||
+               (filter === '2' && hab === '2');
+    card.style.display = show ? '' : 'none';
+  });
+}
+
+function handleCtaSubmit(e) {
+  e.preventDefault();
+  showToast('✓ ¡Recibido! Te contactamos en menos de 24h');
+  e.target.reset();
+  setTimeout(function() {
+    window.open('https://wa.me/{{ p.whatsapp }}?text={{ ("Hola, me interesa " + p.nombre) | urlencode }}', '_blank');
+  }, 800);
+}
+
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, 3500);
+}
+
+// Animate availability bar on scroll
+var bar = document.querySelector('.avail-bar-fill');
+if(bar) {
+  var obs = new IntersectionObserver(function(entries) {
+    if(entries[0].isIntersecting) { bar.style.width = '68%'; obs.disconnect(); }
+  });
+  obs.observe(bar);
+}
+
+// Random social proof numbers (refresh every 2 min)
+function updateSocialProof() {
+  var el = document.getElementById('sp-views');
+  if(el) el.textContent = Math.floor(Math.random() * 120 + 80);
+}
+setInterval(updateSocialProof, 120000);
+</script>

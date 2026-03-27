@@ -1,0 +1,44 @@
+<!-- TOPBAR -->
+<div style="background:#0D2B44;padding:6px 24px;display:flex;align-items:center;justify-content:space-between">
+  <div style="font-size:11px;color:#A8C4DC;letter-spacing:.05em">Solo publicamos proyectos que pasan nuestra evaluación · Curaduría independiente de constructoras</div>
+  <div style="font-size:11px;color:#888078;display:flex;gap:16px">
+    <span>Colombia</span><span>México</span><span>Perú</span><span>Chile</span><span>+14 más</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<div style="background:var(--color-background-primary);border-bottom:.5px solid var(--color-border-tertiary);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100" id="mainNav">
+  <a href="/" style="display:flex;align-items:center;gap:8px;text-decoration:none">
+    <img src="/assets/zonum-logo-dark.svg" alt="Zonum" height="28" style="display:block">
+  </a>
+  <div id="navCenter" style="display:flex;gap:20px;font-size:13px;color:var(--color-text-secondary)">
+    <a href="/buscar/" style="color:var(--color-text-primary);font-weight:500;text-decoration:none">Proyectos Colombia</a>
+    <a href="/buscar/?zona=caribe" style="text-decoration:none;color:inherit">Caribe &amp; Miami</a>
+    <a href="/elite/" style="color:#B8975A;font-weight:500;text-decoration:none">★ Zonum Elite</a>
+    <a href="/buscar/?tipo=cesion" style="text-decoration:none;color:inherit">Cesiones</a>
+    <a href="/calculadora/" style="text-decoration:none;color:inherit">Inversión</a>
+  </div>
+  <div style="display:flex;gap:8px;align-items:center">
+    <button onclick="openVisitModal()" style="font-size:12px;padding:7px 14px;border-radius:8px;cursor:pointer;border:.5px solid #1A4F7A;background:transparent;color:#1A4F7A">Agendar visita</button>
+    <button id="hamburgerBtn" aria-label="Menú" onclick="document.getElementById('mobileMenu').classList.toggle('open')" style="display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px;background:transparent;border:none" id="hamburgerBtn">
+      <span style="display:block;width:18px;height:2px;background:var(--color-text-primary);border-radius:2px"></span>
+      <span style="display:block;width:18px;height:2px;background:var(--color-text-primary);border-radius:2px"></span>
+      <span style="display:block;width:18px;height:2px;background:var(--color-text-primary);border-radius:2px"></span>
+    </button>
+  </div>
+  <div id="mobileMenu" style="display:none;position:absolute;top:100%;left:0;right:0;background:var(--color-background-primary);border-bottom:.5px solid var(--color-border-tertiary);padding:12px 20px;flex-direction:column;gap:12px;z-index:100;box-shadow:0 4px 12px rgba(0,0,0,0.08);font-size:13px;color:var(--color-text-secondary)">
+    <a href="/buscar/" style="text-decoration:none;color:inherit">Proyectos Colombia</a>
+    <a href="/buscar/?zona=caribe" style="text-decoration:none;color:inherit">Caribe &amp; Miami</a>
+    <a href="/elite/" style="color:#B8975A;font-weight:500;text-decoration:none">★ Zonum Elite</a>
+    <a href="/buscar/?tipo=cesion" style="text-decoration:none;color:inherit">Cesiones</a>
+    <a href="/calculadora/" style="text-decoration:none;color:inherit">Inversión</a>
+  </div>
+</div>
+
+<style>
+  @media(max-width:768px){
+    #navCenter{display:none!important}
+    #hamburgerBtn{display:flex!important}
+    #mobileMenu.open{display:flex!important}
+  }
+</style>

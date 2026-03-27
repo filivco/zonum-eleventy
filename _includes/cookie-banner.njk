@@ -1,0 +1,21 @@
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:var(--color-background-primary,#F8F6F2);border-top:.5px solid var(--color-border-tertiary,rgba(58,53,48,0.12));padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px;z-index:998;flex-wrap:wrap;box-shadow:0 -4px 20px rgba(0,0,0,0.06)" id="cookieBanner">
+  <span style="font-size:12px;color:var(--color-text-secondary,#6B6560);flex:1">
+    Usamos cookies para mejorar tu experiencia. Al continuar navegando aceptas nuestra <a href="/politica-privacidad/" style="color:var(--azul-base,#1A4F7A)">política de privacidad</a>.
+  </span>
+  <div style="display:flex;gap:10px;flex-shrink:0">
+    <button onclick="acceptCookies('essential')" style="font-size:12px;padding:8px 16px;border-radius:8px;cursor:pointer;border:.5px solid var(--color-border-secondary,rgba(58,53,48,0.22));background:transparent;color:var(--color-text-secondary,#6B6560)">Solo esenciales</button>
+    <button onclick="acceptCookies('all')" style="font-size:12px;padding:8px 16px;border-radius:8px;cursor:pointer;border:none;background:#3A3530;color:#fff">Aceptar todo</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var b = document.getElementById('cookieBanner');
+  if(!localStorage.getItem('zonum_cookies')) { b.style.display='flex'; }
+  function acceptCookies(type) {
+    localStorage.setItem('zonum_cookies', type);
+    b.style.display = 'none';
+  }
+  window.acceptCookies = acceptCookies;
+})();
+</script>

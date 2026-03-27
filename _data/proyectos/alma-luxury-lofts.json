@@ -1,0 +1,93 @@
+{
+  "slug": "alma-luxury-lofts",
+  "nombre": "Alma Luxury Lofts",
+  "constructora": "Alma Group",
+  "ciudad": "Medellín",
+  "zona": "El Poblado",
+  "pais": "Colombia",
+  "estado": "preventa",
+  "precio_desde": 380000000,
+  "precio_label": "~$380M COP",
+  "roi_anual": 11.4,
+  "roi_label": "11.4% ROI est. anual",
+  "entrega": "Q1 2027",
+  "torres": 1,
+  "unidades": 64,
+  "score": 4.7,
+  "tags": ["El Poblado", "Loft", "Airbnb Ready", "Medellín"],
+  "tipo_proyecto": "Lofts residenciales",
+  "descripcion": "Alma Luxury Lofts redefine el concepto de vida urbana en El Poblado, Medellín. 64 lofts de doble altura con acabados europeos, diseñados para rentas de corto y mediano plazo en el barrio más cosmopolita de Colombia.",
+  "og_image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
+  "whatsapp": "573001234568",
+  "imagenes": [
+    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
+    "https://images.unsplash.com/photo-1600566753151-384129cf4e3e?w=800&q=80",
+    "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=800&q=80",
+    "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80",
+    "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80",
+    "https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800&q=80",
+    "https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=800&q=80"
+  ],
+  "tipologias": [
+    { "tipo": "A", "nombre": "Loft Studio", "m2": 42, "hab": 1, "banos": 1, "precio": 380000000, "notas": "Doble altura" },
+    { "tipo": "B", "nombre": "Loft Master", "m2": 58, "hab": 1, "banos": 1, "precio": 490000000, "notas": "Doble altura + mezanine" },
+    { "tipo": "C", "nombre": "Loft Duplex", "m2": 76, "hab": 2, "banos": 2, "precio": 640000000, "notas": "2 pisos completos" },
+    { "tipo": "D", "nombre": "Penthouse", "m2": 110, "hab": 2, "banos": 2, "precio": 920000000, "notas": "+ terraza privada" }
+  ],
+  "amenidades": [
+    { "emoji": "🏊", "nombre": "Piscina rooftop" },
+    { "emoji": "🏋️", "nombre": "Gimnasio" },
+    { "emoji": "🍸", "nombre": "Sky Bar" },
+    { "emoji": "💻", "nombre": "Coworking" },
+    { "emoji": "🅿️", "nombre": "Parqueaderos" },
+    { "emoji": "🔒", "nombre": "Seguridad 24h" },
+    { "emoji": "🛎️", "nombre": "Concierge" },
+    { "emoji": "🚿", "nombre": "Spa y sauna" },
+    { "emoji": "🌿", "nombre": "Jardín vertical" }
+  ],
+  "pois": [
+    { "emoji": "🛍️", "nombre": "Parque Lleras", "tiempo": "5 min", "modo": "a pie" },
+    { "emoji": "🏥", "nombre": "Clínica El Rosario", "tiempo": "8 min", "modo": "a pie" },
+    { "emoji": "✈️", "nombre": "Aeropuerto José M. Córdova", "tiempo": "35 min", "modo": "en carro" },
+    { "emoji": "🌺", "nombre": "Jardín Botánico", "tiempo": "20 min", "modo": "Metro" },
+    { "emoji": "🎨", "nombre": "Museo de Arte Moderno", "tiempo": "25 min", "modo": "Metro" },
+    { "emoji": "⛰️", "nombre": "Cerro Nutibara", "tiempo": "15 min", "modo": "en carro" }
+  ],
+  "escenarios": [
+    { "nombre": "Pesimista", "ocupacion": 65, "precio_noche_usd": 70, "ingreso_mensual": 2900000, "roi_mensual": 0.76 },
+    { "nombre": "Conservador", "ocupacion": 75, "precio_noche_usd": 80, "ingreso_mensual": 3800000, "roi_mensual": 1.0, "destacado": true },
+    { "nombre": "Optimista", "ocupacion": 85, "precio_noche_usd": 95, "ingreso_mensual": 5100000, "roi_mensual": 1.34 }
+  ],
+  "timeline": [
+    { "fase": "Preventa", "fecha": "Q4 2024", "activo": true, "descripcion": "Últimas unidades con precio de preventa" },
+    { "fase": "Construcción", "fecha": "Q2 2025", "activo": false, "descripcion": "Estructura y acabados de lujo" },
+    { "fase": "Entrega", "fecha": "Q1 2027", "activo": false, "descripcion": "Entrega de llaves y activación de rentas" }
+  ],
+  "brand": {
+    "primary": "#2C2828",
+    "primary_dark": "#161212",
+    "primary_light": "#EAE5E0",
+    "accent": "#C9A15A",
+    "accent_light": "#F5EDD8",
+    "bg": "#F2EDE8",
+    "bg_card": "#FAF7F4",
+    "invest_bg": "#111010",
+    "invest_text": "#D4B47A",
+    "invest_sub": "#8A7A60",
+    "tag_style": "background:#EAE5E0;color:#2C2828;border-color:#C9A15A",
+    "badge_style": "background:#2C2828",
+    "roi_badge_style": "color:#6B4E10;background:#F5EDD8",
+    "metric_color": "#2C2828",
+    "cta_btn": "#2C2828",
+    "cta_btn_hover": "#161212"
+  },
+  "constructora_info": {
+    "nombre": "Alma Group",
+    "ciudad": "Medellín, Colombia",
+    "web": "https://almagroup.co",
+    "instagram": "@almagroup.co",
+    "descripcion": "Alma Group es una desarrolladora inmobiliaria especializada en proyectos de lujo urbano en Medellín. Enfocada en diseño contemporáneo y alta rentabilidad para inversores.",
+    "proyectos_entregados": 5,
+    "anos_experiencia": 12
+  }
+}

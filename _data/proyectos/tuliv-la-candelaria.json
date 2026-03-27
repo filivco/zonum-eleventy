@@ -1,0 +1,105 @@
+{
+  "slug": "tuliv-la-candelaria",
+  "nombre": "Tuliv La Candelaria",
+  "constructora": "MOVEC",
+  "ciudad": "Bogotá",
+  "zona": "La Candelaria",
+  "pais": "Colombia",
+  "estado": "preventa",
+  "precio_desde": 450000000,
+  "precio_label": "~$450M COP",
+  "roi_anual": 12.8,
+  "roi_label": "12.8% ROI est. anual",
+  "entrega": "Q4 2026",
+  "torres": 3,
+  "unidades": 127,
+  "score": 4.8,
+  "tags": ["Centro Histórico", "Preventa", "Rentas cortas · Airbnb", "Bogotá"],
+  "tipo_proyecto": "Residencial patrimonial",
+  "descripcion": "Tuliv La Candelaria es el primer proyecto de vivienda nueva de alto estándar en el corazón histórico de Bogotá. Con 3 torres y 127 apartamentos, aprovecha la creciente demanda turística del barrio declarado patrimonio nacional, con restricciones de licencia que limitan la competencia futura.",
+  "og_image": "https://images.unsplash.com/photo-1576089172869-4f5f6f315620?w=1200&q=80",
+  "whatsapp": "573507786198",
+  "imagenes": [
+    "https://images.unsplash.com/photo-1576089172869-4f5f6f315620?w=1200&q=80",
+    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+    "https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=800&q=80",
+    "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
+    "https://images.unsplash.com/photo-1571155236234-b9cc48f3bbcc?w=800&q=80",
+    "https://images.unsplash.com/photo-1590673378791-db66e94d3481?w=800&q=80",
+    "https://images.unsplash.com/photo-1567518715312-5dd19a6b9b56?w=800&q=80"
+  ],
+  "tipologias": [
+    { "tipo": "H", "nombre": "Quevedo", "m2": 24.11, "hab": 1, "banos": 1, "precio": 280000000, "notas": "" },
+    { "tipo": "A", "nombre": "Candelaria", "m2": 37.46, "m2_privada": 36.00, "hab": 1, "banos": 1, "precio": 450000000, "notas": "" },
+    { "tipo": "B", "nombre": "Santa Bárbara", "m2": 41.57, "hab": 1, "banos": 1, "precio": 490000000, "notas": "+ estudio" },
+    { "tipo": "C", "nombre": "Catedral", "m2": 52.34, "hab": 1, "banos": 2, "precio": 580000000, "notas": "Dúplex" },
+    { "tipo": "D", "nombre": "San Luis", "m2": 53.80, "m2_privada": 44.60, "hab": 1, "banos": 1, "precio": 600000000, "notas": "+ estudio" },
+    { "tipo": "E", "nombre": "San Agustín", "m2": 52.31, "hab": 1, "banos": 2, "precio": 575000000, "notas": "Dúplex" },
+    { "tipo": "F", "nombre": "Macarena", "m2": 69.30, "m2_privada": 59.30, "hab": 2, "banos": 2, "precio": 750000000, "notas": "+ estudio" },
+    { "tipo": "G", "nombre": "Monserrate", "m2": 73.80, "m2_privada": 63.40, "hab": 2, "banos": 2, "precio": 820000000, "notas": "+ estudio" }
+  ],
+  "amenidades": [
+    { "emoji": "🌿", "nombre": "Jardín Interior" },
+    { "emoji": "💻", "nombre": "Coworking" },
+    { "emoji": "🌤️", "nombre": "Terraza Coworking" },
+    { "emoji": "🚲", "nombre": "Taller de Bicicletas" },
+    { "emoji": "🏛️", "nombre": "Lobby" },
+    { "emoji": "📚", "nombre": "Librería Café Lounge" },
+    { "emoji": "🌇", "nombre": "Terraza Colectiva" },
+    { "emoji": "🍽️", "nombre": "Terraza Gastronómica" },
+    { "emoji": "🎮", "nombre": "Terraza de Juegos" }
+  ],
+  "pois": [
+    { "emoji": "🏛️", "nombre": "Plaza de Bolívar", "tiempo": "10 min", "modo": "a pie" },
+    { "emoji": "⛪", "nombre": "Catedral Primada", "tiempo": "10 min", "modo": "a pie" },
+    { "emoji": "🎭", "nombre": "Teatro Colón", "tiempo": "9 min", "modo": "a pie" },
+    { "emoji": "🏺", "nombre": "Museo del Florero", "tiempo": "11 min", "modo": "a pie" },
+    { "emoji": "📚", "nombre": "Biblioteca Luis Ángel Arango", "tiempo": "12 min", "modo": "a pie" },
+    { "emoji": "🌳", "nombre": "Parque Tercer Milenio", "tiempo": "16 min", "modo": "a pie" }
+  ],
+  "escenarios": [
+    { "nombre": "Pesimista", "ocupacion": 70, "precio_noche_usd": 57, "ingreso_mensual": 3892160, "roi_mensual": 0.86 },
+    { "nombre": "Conservador", "ocupacion": 80, "precio_noche_usd": 61, "ingreso_mensual": 4794320, "roi_mensual": 1.07, "destacado": true },
+    { "nombre": "Optimista", "ocupacion": 90, "precio_noche_usd": 74, "ingreso_mensual": 6802565, "roi_mensual": 1.51 }
+  ],
+  "timeline": [
+    { "fase": "Preventa", "fecha": "Q1 2025", "activo": true, "descripcion": "Precio de lanzamiento con condiciones especiales" },
+    { "fase": "Construcción", "fecha": "Q2 2025", "activo": false, "descripcion": "3 torres simultáneas, actualizaciones mensuales" },
+    { "fase": "Entrega", "fecha": "Q4 2026", "activo": false, "descripcion": "Entrega de llaves y activación de rentas cortas" }
+  ],
+  "constructora_info": {
+    "nombre": "MOVEC Constructores",
+    "ciudad": "Bogotá, Colombia",
+    "direccion": "Calle 79b #8-31, piso 3",
+    "web": "https://movec.co",
+    "instagram": "@movecconstructores",
+    "whatsapp": "573507786198",
+    "descripcion": "MOVEC es una constructora enfocada en diseño y conceptualización de espacios de alto nivel. Su filosofía: "somos Calidad, Cercanía, Espacio". Promovemos la sostenibilidad y la inclusión en cada proyecto.",
+    "proyectos_entregados": 3,
+    "anos_experiencia": 10
+  },
+  "brand": {
+    "primary": "#7C4A2D",
+    "primary_dark": "#4A2818",
+    "primary_light": "#F0E0D2",
+    "accent": "#C8823A",
+    "accent_light": "#F5E8D5",
+    "bg": "#F5EDE4",
+    "bg_card": "#FBF5EF",
+    "invest_bg": "#3D1F0E",
+    "invest_text": "#E8C9A8",
+    "invest_sub": "#A07858",
+    "tag_style": "background:#F0E0D2;color:#5C2E10;border-color:#C8A080",
+    "badge_style": "background:#7C4A2D",
+    "roi_badge_style": "color:#7C2D12;background:#FDE8D8",
+    "metric_color": "#7C4A2D",
+    "cta_btn": "#7C4A2D",
+    "cta_btn_hover": "#5C2E10"
+  },
+  "tesis_inversion": [
+    { "titulo": "Sin competencia próxima", "detalle": "2+ años para nuevas licencias de construcción en zona patrimonial" },
+    { "titulo": "14M visitantes en 2024", "detalle": "+14% YoY — La Candelaria es el barrio más visitado de Bogotá" },
+    { "titulo": "Valor patrimonial UNESCO", "detalle": "Protección legal que garantiza preservación del entorno histórico" },
+    { "titulo": "Conectividad futura", "detalle": "Metro de Bogotá + TransMilenio a metros del proyecto" }
+  ]
+}

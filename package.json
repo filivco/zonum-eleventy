@@ -1,0 +1,12 @@
+{
+  "name": "zonum",
+  "version": "1.0.0",
+  "description": "Zonum — Plataforma inmobiliaria Colombia",
+  "scripts": {
+    "dev": "eleventy --serve --port=3000",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}

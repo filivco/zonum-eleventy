@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title if title else "Zonum — Inversión Inmobiliaria Colombia" }}</title>
+<meta name="description" content="{{ description if description else 'La plataforma de inversión inmobiliaria con curaduría independiente de constructoras. Proyectos en Colombia, México, Perú y Chile.' }}">
+<meta property="og:title" content="{{ og_title if og_title else title }}">
+<meta property="og:description" content="{{ og_description if og_description else description }}">
+<meta property="og:image" content="{{ og_image if og_image else 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80' }}">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://use.typekit.net/bnk2dxj.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#F2EEE6;min-height:100vh}
+:root{
+  --azul-base:#1A4F7A;
+  --azul-claro:#5A8CB5;
+  --fondo-azul:#DDE9F4;
+  --azul-noche:#0D2B44;
+  --azul-neblina:#A8C4DC;
+  --superficie:#EFF4F9;
+  --arena:#E8DCC8;
+  --arena-media:#C8B89A;
+  --concreto-oscuro:#3A3530;
+  --concreto-medio:#6B6560;
+  --piedra:#888078;
+  --blanco-calido:#F8F6F2;
+  --lino:#F2EEE6;
+  --oro-oscuro:#7A5C1E;
+  --oro-acento:#B8975A;
+  --champagne:#F2E8D0;
+  --fondo-premium:#FAF5EA;
+  --oro-palido:#D4AA6A;
+  --bronce:#A89070;
+  --ebano:#161210;
+  --nogal:#241C0E;
+  --pergamino:#E4DDD0;
+  --green:#1A4F7A;--green-light:#DDE9F4;--green-dark:#0D2B44;
+  --dark:#3A3530;--gold:#B8975A;
+  --bg:#F2EEE6;--white:#F8F6F2;
+  --t1:#3A3530;--t2:#6B6560;--t3:#888078;
+  --b1:rgba(58,53,48,0.12);--b2:rgba(58,53,48,0.22);
+  --r8:8px;--r12:12px;--r16:16px;
+  --color-background-primary:#F8F6F2;
+  --color-background-secondary:#F2EEE6;
+  --color-text-primary:#3A3530;
+  --color-text-secondary:#6B6560;
+  --color-text-tertiary:#888078;
+  --color-border-tertiary:rgba(58,53,48,0.12);
+  --color-border-secondary:rgba(58,53,48,0.22);
+  --border-radius-md:8px;--border-radius-lg:12px;--border-radius-xl:16px;
+  --font-heading:'clother',sans-serif;
+}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px 40px}
+{{ extra_css | safe if extra_css }}
+</style>
+{% if extra_head %}{{ extra_head | safe }}{% endif %}
+</head>
+<body>
+
+{% include "nav.njk" %}
+
+{{ content | safe }}
+
+{% include "footer.njk" %}
+{% include "whatsapp-fab.njk" %}
+{% include "cookie-banner.njk" %}
+
+<script>
+// Shared JS utilities
+function openVisitModal(proyecto, ciudad) {
+  var msg = encodeURIComponent('Hola, quiero agendar una visita para ' + (proyecto || 'un proyecto') + (ciudad ? ' en ' + ciudad : ''));
+  window.open('https://wa.me/573001234567?text=' + msg, '_blank');
+}
+</script>
+{% if extra_js %}{{ extra_js | safe }}{% endif %}
+</body>
+</html>

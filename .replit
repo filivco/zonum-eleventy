@@ -1,0 +1,14 @@
+run = "npm run dev"
+entrypoint = "index.njk"
+
+[nix]
+channel = "stable-23_11"
+
+[deployment]
+run = ["sh", "-c", "npm run build && npx serve _site -l 3000"]
+deploymentTarget = "static"
+publicDir = "_site"
+
+[[ports]]
+localPort = 3000
+externalPort = 80
