@@ -1,0 +1,538 @@
+---
+layout: base.njk
+title: "Mapa de Colombia · Zonum"
+description: "Explora el mapa interactivo de proyectos curados por ciudad. Medellín, Bogotá, Cartagena, Santa Marta, Cali y más."
+extra_css: |
+  /* Heading typeface */
+  .page-title,.stat-n,.city-list-header,.cc-name,.logo-text{font-family:var(--font-heading)}
+
+  /* LAYOUT */
+  .page{max-width:1200px;margin:0 auto;padding:28px 24px}
+  .page-header{margin-bottom:24px}
+  .page-title{font-size:22px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
+  .page-sub{font-size:13px;color:var(--color-text-secondary)}
+  .main-grid{display:grid;grid-template-columns:1fr 340px;gap:20px;align-items:start}
+
+  /* MAP CONTAINER */
+  .map-wrap{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:16px;overflow:hidden;position:relative}
+  .map-toolbar{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:0.5px solid var(--color-border-tertiary)}
+  .map-label{font-size:11px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:0.06em}
+  .map-zoom{display:flex;gap:6px}
+  .zoom-btn{width:28px;height:28px;border:0.5px solid var(--color-border-tertiary);border-radius:6px;background:var(--color-background-primary);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;color:var(--color-text-secondary);font-weight:300}
+  .zoom-btn:hover{background:#DDE9F4;border-color:#1A4F7A;color:#1A4F7A}
+  .svg-map{display:block;width:100%;height:auto;cursor:grab}
+  .svg-map:active{cursor:grabbing}
+
+  /* City dots */
+  .city-dot{cursor:pointer;transition:all 0.2s}
+  .city-dot circle{transition:r 0.2s, fill 0.2s}
+  .city-dot:hover circle.outer{r:12}
+  .city-dot.featured circle.inner{fill:#1A4F7A}
+  .city-dot.featured circle.outer{fill:rgba(26,79,122,0.18)}
+  .city-label{font-size:11px;fill:#1A1A18;font-weight:600;pointer-events:none;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+  .city-count{font-size:9px;fill:#5A5550;pointer-events:none;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+
+  /* MAP LEGEND */
+  .map-legend{display:flex;gap:16px;padding:10px 16px;border-top:0.5px solid var(--color-border-tertiary);font-size:11px;color:var(--color-text-secondary)}
+  .leg-item{display:flex;align-items:center;gap:5px}
+  .leg-dot{width:8px;height:8px;border-radius:50%}
+
+  /* SIDEBAR */
+  .sidebar{}
+  .city-list-header{font-size:11px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px}
+  .city-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:12px;padding:14px 16px;margin-bottom:8px;cursor:pointer;transition:border-color 0.15s,box-shadow 0.15s}
+  .city-card:hover{border-color:#1A4F7A;box-shadow:0 2px 12px rgba(26,79,122,0.1)}
+  .city-card.active{border-color:#1A4F7A;background:#DDE9F4}
+  .cc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+  .cc-name{font-size:13px;font-weight:500;color:var(--color-text-primary)}
+  .cc-badge{font-size:9px;padding:2px 8px;border-radius:999px;font-weight:500}
+  .cc-badge.coast{background:#E1F0FB;color:#0C447C}
+  .cc-badge.andean{background:#E8F5E9;color:#1B5E20}
+  .cc-badge.pacific{background:#FFF8E1;color:#795548}
+  .cc-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:8px}
+  .cc-stat{text-align:center;background:#F2EEE6;border-radius:6px;padding:6px 4px}
+  .cc-stat-n{font-size:13px;font-weight:600;color:#1A4F7A}
+  .cc-stat-l{font-size:9px;color:var(--color-text-secondary);margin-top:1px}
+
+  /* TOOLTIP */
+  .map-tooltip{position:absolute;background:#3A3530;color:#fff;font-size:11px;padding:8px 12px;border-radius:8px;pointer-events:none;opacity:0;transition:opacity 0.15s;white-space:nowrap;z-index:50}
+  .map-tooltip.show{opacity:1}
+  .tt-name{font-weight:500;margin-bottom:2px}
+  .tt-meta{font-size:10px;color:rgba(255,255,255,0.65)}
+
+  /* STATS BAR */
+  .stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-bottom:20px;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:12px;overflow:hidden}
+  .stat-item{padding:14px 16px;border-right:0.5px solid var(--color-border-tertiary);text-align:center}
+  .stat-item:last-child{border-right:none}
+  .stat-n{font-size:20px;font-weight:600;color:#1A4F7A}
+  .stat-l{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
+
+  @media(max-width:900px){
+    .main-grid{grid-template-columns:1fr}
+    .stats-bar{grid-template-columns:repeat(2,1fr)}
+    .stats-bar .stat-item:nth-child(2){border-right:none}
+    .stats-bar .stat-item:nth-child(1),.stats-bar .stat-item:nth-child(2){border-bottom:0.5px solid var(--color-border-tertiary)}
+  }
+---
+
+<div class="page">
+  <div class="page-header">
+    <div class="page-title">Mercado inmobiliario en Colombia</div>
+    <div class="page-sub">Ciudades con proyectos curados · Cobertura de Cali a Santa Marta</div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-n">1,294</div><div class="stat-l">Proyectos activos</div></div>
+    <div class="stat-item"><div class="stat-n">6</div><div class="stat-l">Ciudades principales</div></div>
+    <div class="stat-item"><div class="stat-n">8.1%</div><div class="stat-l">Rendimiento promedio</div></div>
+    <div class="stat-item"><div class="stat-n">$320M</div><div class="stat-l">Precio de entrada COP</div></div>
+  </div>
+
+  <div class="main-grid">
+
+    <!-- MAP -->
+    <div class="map-wrap">
+      <div class="map-toolbar">
+        <span class="map-label">Colombia · Cali → Santa Marta</span>
+        <div class="map-zoom">
+          <button class="zoom-btn" onclick="zoomIn()">+</button>
+          <button class="zoom-btn" onclick="zoomOut()">−</button>
+          <button class="zoom-btn" onclick="resetZoom()" style="font-size:11px;width:auto;padding:0 8px">Reset</button>
+        </div>
+      </div>
+
+      <!--
+        Map coordinate system: Simplemaps co.svg native 1000×1000 space.
+        City positions computed from department circle anchors:
+          Antioquia (Medellín) cx=443.2 cy=404.2 → lat 6.24°N lon -75.57°W
+          Atlántico (Barranquilla) cx=465 cy=196.2 → lat 10.96°N lon -74.80°W
+          scale_x = 28.31 px/deg  |  scale_y = -44.07 px/deg
+          x = (lon + 74.80) × 28.31 + 465
+          y = (10.96 − lat) × 44.07 + 196.2
+
+        Computed positions:
+          Cali        (−76.52°, 3.42°)  → x=416, y=529
+          Medellín    (−75.57°, 6.24°)  → x=443, y=404
+          Bogotá      (−74.07°, 4.71°)  → x=486, y=472
+          Bucaramanga (−73.12°, 7.12°)  → x=513, y=365
+          Barranquilla(−74.80°,10.96°)  → x=465, y=196
+          Cartagena   (−75.51°,10.39°)  → x=445, y=221
+          Santa Marta (−74.20°,11.24°)  → x=482, y=184
+
+        viewBox "300 150 320 480" focuses on the western corridor Cali → Santa Marta.
+      -->
+      <svg id="colMap" class="svg-map" viewBox="300 150 320 480" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="dotShadow" x="-100%" y="-100%" width="300%" height="300%">
+            <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="rgba(13,43,68,0.35)"/>
+          </filter>
+          <clipPath id="mapClip">
+            <rect x="300" y="150" width="320" height="480"/>
+          </clipPath>
+        </defs>
+
+        <!-- Sea background -->
+        <rect x="0" y="0" width="1000" height="1000" fill="#A8C8E0"/>
+
+        <!-- Real Colombia map from Simplemaps co.svg -->
+        <image href="/assets/co.svg" x="0" y="0" width="1000" height="1000"/>
+
+        <!-- Route line: Cali → Medellín → Bogotá → Bucaramanga → Barranquilla → Cartagena → Santa Marta -->
+        <polyline points="416,529 443,404 486,472 513,365 465,196 445,221 482,184"
+          fill="none" stroke="#1A4F7A" stroke-width="2" stroke-dasharray="5,6" opacity="0.5"/>
+
+        <!-- ══════════════ CITY DOTS (Simplemaps coordinate space) ══════════════ -->
+
+        <!-- Cali (−76.52°, 3.42°) → 416, 529 -->
+        <g class="city-dot featured" id="dot-cali" onclick="selectCity('cali')" transform="translate(416,529)">
+          <circle class="outer" r="10" fill="rgba(26,79,122,0.20)"/>
+          <circle class="inner" r="5" fill="#1A4F7A" filter="url(#dotShadow)"/>
+          <text class="city-label" x="-38" y="-6">Cali</text>
+          <text class="city-count" x="-38" y="6">142 proy.</text>
+        </g>
+
+        <!-- Medellín (−75.57°, 6.24°) → 443, 404 -->
+        <g class="city-dot featured" id="dot-medellin" onclick="selectCity('medellin')" transform="translate(443,404)">
+          <circle class="outer" r="13" fill="rgba(26,79,122,0.20)"/>
+          <circle class="inner" r="6" fill="#1A4F7A" filter="url(#dotShadow)"/>
+          <text class="city-label" x="-66" y="-6">Medellín</text>
+          <text class="city-count" x="-66" y="6">312 proy.</text>
+        </g>
+
+        <!-- Bogotá (−74.07°, 4.71°) → 486, 472 -->
+        <g class="city-dot featured" id="dot-bogota" onclick="selectCity('bogota')" transform="translate(486,472)">
+          <circle class="outer" r="15" fill="rgba(13,43,68,0.18)"/>
+          <circle class="inner" r="7" fill="#0D2B44" filter="url(#dotShadow)"/>
+          <text x="0" y="3" text-anchor="middle" font-size="8" fill="white" font-weight="700">★</text>
+          <text class="city-label" x="20" y="-6" font-weight="700">Bogotá</text>
+          <text class="city-count" x="20" y="7">486 proy.</text>
+        </g>
+
+        <!-- Bucaramanga (−73.12°, 7.12°) → 513, 365 -->
+        <g class="city-dot" id="dot-bucaramanga" onclick="selectCity('bucaramanga')" transform="translate(513,365)">
+          <circle class="outer" r="8" fill="rgba(107,101,96,0.18)"/>
+          <circle class="inner" r="4" fill="#6B6560" filter="url(#dotShadow)"/>
+          <text class="city-label" x="12" y="4" font-size="10">Bucaramanga</text>
+        </g>
+
+        <!-- Barranquilla (−74.80°, 10.96°) → 465, 196 -->
+        <g class="city-dot featured" id="dot-barranquilla" onclick="selectCity('barranquilla')" transform="translate(465,196)">
+          <circle class="outer" r="10" fill="rgba(26,79,122,0.20)"/>
+          <circle class="inner" r="5" fill="#1A4F7A" filter="url(#dotShadow)"/>
+          <text class="city-label" x="12" y="-4">Barranquilla</text>
+          <text class="city-count" x="12" y="8">98 proy.</text>
+        </g>
+
+        <!-- Cartagena (−75.51°, 10.39°) → 445, 221 -->
+        <g class="city-dot featured" id="dot-cartagena" onclick="selectCity('cartagena')" transform="translate(445,221)">
+          <circle class="outer" r="10" fill="rgba(26,79,122,0.20)"/>
+          <circle class="inner" r="5" fill="#1A4F7A" filter="url(#dotShadow)"/>
+          <text class="city-label" x="-72" y="-4">Cartagena</text>
+          <text class="city-count" x="-72" y="8">180 proy.</text>
+        </g>
+
+        <!-- Santa Marta (−74.20°, 11.24°) → 482, 184 -->
+        <g class="city-dot featured" id="dot-santa-marta" onclick="selectCity('santa-marta')" transform="translate(482,184)">
+          <circle class="outer" r="10" fill="rgba(26,79,122,0.20)"/>
+          <circle class="inner" r="5" fill="#1A4F7A" filter="url(#dotShadow)"/>
+          <text class="city-label" x="12" y="-4">Santa Marta</text>
+          <text class="city-count" x="12" y="8">180 proy.</text>
+        </g>
+
+        <!-- Manizales (−75.52°, 5.07°) → 445, 456 -->
+        <g class="city-dot" id="dot-manizales" onclick="selectCity('manizales')" transform="translate(445,456)">
+          <circle class="outer" r="6" fill="rgba(107,101,96,0.15)"/>
+          <circle class="inner" r="3" fill="#888078" filter="url(#dotShadow)"/>
+          <text class="city-label" x="9" y="4" font-size="9">Manizales</text>
+        </g>
+
+        <!-- Pereira (−75.69°, 4.81°) → 440, 467 -->
+        <g class="city-dot" id="dot-pereira" onclick="selectCity('pereira')" transform="translate(440,467)">
+          <circle class="outer" r="6" fill="rgba(107,101,96,0.15)"/>
+          <circle class="inner" r="3" fill="#888078" filter="url(#dotShadow)"/>
+          <text class="city-label" x="-56" y="4" font-size="9">Pereira</text>
+        </g>
+
+        <!-- Scale bar (bottom-left of focused viewBox) -->
+        <line x1="312" y1="615" x2="356" y2="615" stroke="#3A3530" stroke-width="1.2" opacity="0.5"/>
+        <line x1="312" y1="611" x2="312" y2="619" stroke="#3A3530" stroke-width="1.2" opacity="0.5"/>
+        <line x1="356" y1="611" x2="356" y2="619" stroke="#3A3530" stroke-width="1.2" opacity="0.5"/>
+        <text x="334" y="610" text-anchor="middle" font-size="8" fill="#3A3530" opacity="0.6" font-family="-apple-system,sans-serif">≈ 100 km</text>
+
+        <!-- North arrow -->
+        <text x="315" y="596" text-anchor="middle" font-size="13" fill="#3A3530" opacity="0.55">↑</text>
+        <text x="315" y="606" text-anchor="middle" font-size="8" fill="#3A3530" opacity="0.55" font-family="-apple-system,sans-serif">N</text>
+
+      </svg>
+
+      <!-- Tooltip -->
+      <div class="map-tooltip" id="mapTooltip">
+        <div class="tt-name" id="ttName">—</div>
+        <div class="tt-meta" id="ttMeta">—</div>
+      </div>
+
+      <div class="map-legend">
+        <div class="leg-item"><div class="leg-dot" style="background:#1A4F7A"></div> Ciudad principal</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#888078"></div> Ciudad secundaria</div>
+        <div class="leg-item"><div class="leg-dot" style="width:14px;height:4px;border-radius:2px;background:#1A4F7A;opacity:0.4"></div> Corredor Cali–Santa Marta</div>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="city-list-header">Ciudades con proyectos curados</div>
+
+      <div class="city-card active" id="card-bogota" onclick="selectCity('bogota')">
+        <div class="cc-top">
+          <span class="cc-name">🏙 Bogotá</span>
+          <span class="cc-badge andean">Andina · Capital</span>
+        </div>
+        <div style="font-size:11px;color:var(--color-text-secondary);line-height:1.5">Chapinero, Usaquén, Nororiente. Mayor mercado del país con alta valorización en preventa.</div>
+        <div class="cc-stats">
+          <div class="cc-stat"><div class="cc-stat-n">486</div><div class="cc-stat-l">Proyectos</div></div>
+          <div class="cc-stat"><div class="cc-stat-n">7.8%</div><div class="cc-stat-l">ROI est.</div></div>
+          <div class="cc-stat"><div class="cc-stat-n">$450M</div><div class="cc-stat-l">Desde COP</div></div>
+        </div>
+      </div>
+
+      <div class="city-card" id="card-medellin" onclick="selectCity('medellin')">
+        <div class="cc-top">
+          <span class="cc-name">🌿 Medellín</span>
+          <span class="cc-badge andean">Andina</span>
+        </div>
+        <div style="font-size:11px;color:var(--color-text-secondary);line-height:1.5">El Poblado, Laureles, Envigado. Valorización sostenida +8.2% anual. Destino de retiro extranjero.</div>
+        <div class="cc-stats">
+          <div class="cc-stat"><div class="cc-stat-n">312</div><div class="cc-stat-l">Proyectos</div></div>
+          <div class="cc-stat"><div class="cc-stat-n">8.2%</div><div class="cc-stat-l">ROI est.</div></div>
+          <div class="cc-stat"><div class="cc-stat-n">$380M</div><div class="cc-stat-l">Desde COP</div></div>
+        </div>
+      </div>
+
+      <div class="city-card" id="card-cartagena" onclick="selectCity('cartagena')">
+        <div class="cc-top">
+          <span class="cc-name">🌊 Cartagena</span>
+          <span class="cc-badge coast">Caribe</span>
+        </div>
+        <div style="font-size:11px;color:var(--color-text-secondary);line-height:1.5">Bocagrande, Manga, Getsemaní. Renta vacacional hasta 11% en temporada alta. Demanda USD.</div>
+        <div class="cc-stats">
+          <div class="cc-stat"><div class="cc-stat-n">180</div><div class="cc-stat-l">Proyectos</div></div>
+          <div class="cc-stat"><div class="cc-stat-n">9.4%</div><div class="cc-stat-l">ROI est.</div></div>
+          <div class="cc-stat"><div class="cc-stat-n">$420M</div><div class="cc-stat-l">Desde COP</div></div>
+        </div>
+      </div>
+
+      <div class="city-card" id="card-santa-marta" onclick="selectCity('santa-marta')">
+        <div class="cc-top">
+          <span class="cc-name">🏖 Santa Marta</span>
+          <span class="cc-badge coast">Caribe</span>
+        </div>
+        <div style="font-size:11px;color:var(--color-text-secondary);line-height:1.5">Playa Colorado, El Rodadero, Bello Horizonte. Mercado emergente con mayor upside del Caribe colombiano.</div>
+        <div class="cc-stats">
+          <div class="cc-stat"><div class="cc-stat-n">180</div><div class="cc-stat-l">Proyectos</div></div>
+          <div class="cc-stat"><div class="cc-stat-n">9.2%</div><div class="cc-stat-l">ROI est.</div></div>
+          <div class="cc-stat"><div class="cc-stat-n">$320M</div><div class="cc-stat-l">Desde COP</div></div>
+        </div>
+      </div>
+
+      <div class="city-card" id="card-barranquilla" onclick="selectCity('barranquilla')">
+        <div class="cc-top">
+          <span class="cc-name">🏢 Barranquilla</span>
+          <span class="cc-badge coast">Caribe</span>
+        </div>
+        <div style="font-size:11px;color:var(--color-text-secondary);line-height:1.5">Puerto Colombia, El Golf, Sur. Ciudad industrial con mayor crecimiento poblacional del Caribe.</div>
+        <div class="cc-stats">
+          <div class="cc-stat"><div class="cc-stat-n">98</div><div class="cc-stat-l">Proyectos</div></div>
+          <div class="cc-stat"><div class="cc-stat-n">7.5%</div><div class="cc-stat-l">ROI est.</div></div>
+          <div class="cc-stat"><div class="cc-stat-n">$290M</div><div class="cc-stat-l">Desde COP</div></div>
+        </div>
+      </div>
+
+      <div class="city-card" id="card-cali" onclick="selectCity('cali')">
+        <div class="cc-top">
+          <span class="cc-name">🏔 Cali</span>
+          <span class="cc-badge pacific">Pacífico</span>
+        </div>
+        <div style="font-size:11px;color:var(--color-text-secondary);line-height:1.5">Ciudad Jardín, Oeste, Valle del Cauca. Segunda economía del Pacífico colombiano con fuerte demanda residencial.</div>
+        <div class="cc-stats">
+          <div class="cc-stat"><div class="cc-stat-n">142</div><div class="cc-stat-l">Proyectos</div></div>
+          <div class="cc-stat"><div class="cc-stat-n">7.2%</div><div class="cc-stat-l">ROI est.</div></div>
+          <div class="cc-stat"><div class="cc-stat-n">$310M</div><div class="cc-stat-l">Desde COP</div></div>
+        </div>
+      </div>
+
+      <a href="/" style="display:block;margin-top:12px;padding:12px;background:#1A4F7A;color:#fff;border-radius:10px;font-size:13px;font-weight:500;text-align:center;text-decoration:none;cursor:pointer">Ver proyectos disponibles →</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- VISIT MODAL -->
+<style>
+.modal-overlay{position:fixed;inset:0;background:rgba(13,43,68,.6);backdrop-filter:blur(4px);z-index:600;display:none;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal-box{background:#F8F6F2;border-radius:16px;max-width:640px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,.18)}
+.modal-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:.5px solid rgba(58,53,48,0.12)}
+.modal-title{font-size:17px;font-weight:600;color:#3A3530;font-family:var(--font-heading)}
+.modal-close{width:32px;height:32px;border-radius:50%;border:.5px solid rgba(58,53,48,0.12);background:transparent;cursor:pointer;font-size:16px;color:#6B6560}
+.modal-steps{display:flex;padding:20px 24px 0}
+.mstep{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative}
+.mstep:not(:last-child)::after{content:'';position:absolute;top:12px;left:calc(50% + 16px);right:calc(-50% + 16px);height:1px;background:rgba(58,53,48,0.12)}
+.mstep-circle{width:24px;height:24px;border-radius:50%;border:.5px solid rgba(58,53,48,0.22);display:flex;align-items:center;justify-content:center;font-size:11px;color:#6B6560;background:#F8F6F2;transition:all .2s;z-index:1}
+.mstep.active .mstep-circle{background:#1A4F7A;color:#fff;border-color:#1A4F7A}
+.mstep.done .mstep-circle{background:#DDE9F4;color:#1A4F7A;border-color:#1A4F7A}
+.mstep-label{font-size:10px;color:#888078;text-align:center}
+.mstep.active .mstep-label{color:#3A3530;font-weight:500}
+.modal-content{padding:24px}
+.mpanel{display:none}.mpanel.active{display:block}
+.mfield{margin-bottom:14px}
+.mfield label{display:block;font-size:11px;color:#6B6560;text-transform:uppercase;letter-spacing:.05em;font-weight:600;margin-bottom:5px}
+.mfield input,.mfield select{width:100%;padding:9px 12px;border:.5px solid rgba(58,53,48,0.22);border-radius:8px;font-size:13px;color:#3A3530;font-family:inherit;outline:none;background:#F8F6F2}
+.mfield input:focus,.mfield select:focus{border-color:#1A4F7A}
+.mfield-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mslot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.mslot{padding:10px 8px;border:.5px solid rgba(58,53,48,0.22);border-radius:8px;text-align:center;cursor:pointer;font-size:12px;color:#3A3530;transition:all .15s}
+.mslot.selected{background:#1A4F7A;color:#fff;border-color:#1A4F7A}
+.mtime-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.mtime{padding:8px 4px;border:.5px solid rgba(58,53,48,0.22);border-radius:8px;text-align:center;cursor:pointer;font-size:12px;color:#6B6560;transition:all .15s}
+.mtime.selected{background:#1A4F7A;color:#fff;border-color:#1A4F7A}
+.modal-footer{display:flex;justify-content:space-between;padding:16px 24px;border-top:.5px solid rgba(58,53,48,0.12)}
+.mbtn{padding:10px 20px;border-radius:8px;font-size:13px;cursor:pointer;border:.5px solid rgba(58,53,48,0.22);background:transparent;color:#3A3530;font-family:inherit}
+.mbtn-primary{background:#1A4F7A;color:#fff;border-color:#1A4F7A;font-weight:600;padding:10px 28px}
+.msuccess{text-align:center;padding:20px 0}
+.msuccess-icon{font-size:48px;margin-bottom:12px}
+.msuccess h3{font-size:20px;font-weight:600;color:#3A3530;margin-bottom:8px;font-family:var(--font-heading)}
+.msuccess p{font-size:13px;color:#6B6560;line-height:1.7}
+</style>
+<div class="modal-overlay" id="visit-modal">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div class="modal-title" id="modal-project-name">Agendar visita</div>
+      <button class="modal-close" onclick="closeVisitModal()">✕</button>
+    </div>
+    <div class="modal-steps">
+      <div class="mstep active" id="step-ind-1"><div class="mstep-circle">1</div><div class="mstep-label">Tus datos</div></div>
+      <div class="mstep" id="step-ind-2"><div class="mstep-circle">2</div><div class="mstep-label">Fecha y hora</div></div>
+      <div class="mstep" id="step-ind-3"><div class="mstep-circle">3</div><div class="mstep-label">Confirmación</div></div>
+    </div>
+    <div class="modal-content">
+      <div class="mpanel active" id="mpanel-1">
+        <div class="mfield-row">
+          <div class="mfield"><label>Nombre</label><input type="text" placeholder="Tu nombre"></div>
+          <div class="mfield"><label>Apellido</label><input type="text" placeholder="Tu apellido"></div>
+        </div>
+        <div class="mfield"><label>Correo electrónico</label><input type="email" placeholder="tu@email.com"></div>
+        <div class="mfield-row">
+          <div class="mfield"><label>Teléfono</label><input type="tel" placeholder="+57 300…"></div>
+          <div class="mfield"><label>Ciudad de interés</label><select><option>Medellín</option><option>Bogotá</option><option>Santa Marta</option><option>Cartagena</option><option>Cali</option></select></div>
+        </div>
+      </div>
+      <div class="mpanel" id="mpanel-2">
+        <p style="font-size:12px;color:#6B6560;margin-bottom:12px">Selecciona la fecha de visita</p>
+        <div class="mslot-grid">
+          <div class="mslot" onclick="this.closest('.mslot-grid').querySelectorAll('.mslot').forEach(s=>s.classList.remove('selected'));this.classList.add('selected')">Lun 24 Mar</div>
+          <div class="mslot selected" onclick="this.closest('.mslot-grid').querySelectorAll('.mslot').forEach(s=>s.classList.remove('selected'));this.classList.add('selected')">Mar 25 Mar</div>
+          <div class="mslot" onclick="this.closest('.mslot-grid').querySelectorAll('.mslot').forEach(s=>s.classList.remove('selected'));this.classList.add('selected')">Mié 26 Mar</div>
+          <div class="mslot" onclick="this.closest('.mslot-grid').querySelectorAll('.mslot').forEach(s=>s.classList.remove('selected'));this.classList.add('selected')">Jue 27 Mar</div>
+          <div class="mslot" onclick="this.closest('.mslot-grid').querySelectorAll('.mslot').forEach(s=>s.classList.remove('selected'));this.classList.add('selected')">Vie 28 Mar</div>
+          <div class="mslot" onclick="this.closest('.mslot-grid').querySelectorAll('.mslot').forEach(s=>s.classList.remove('selected'));this.classList.add('selected')">Sáb 29 Mar</div>
+        </div>
+        <p style="font-size:12px;color:#6B6560;margin:16px 0 0">Hora preferida</p>
+        <div class="mtime-grid">
+          <div class="mtime" onclick="this.closest('.mtime-grid').querySelectorAll('.mtime').forEach(t=>t.classList.remove('selected'));this.classList.add('selected')">9:00 am</div>
+          <div class="mtime selected" onclick="this.closest('.mtime-grid').querySelectorAll('.mtime').forEach(t=>t.classList.remove('selected'));this.classList.add('selected')">10:30 am</div>
+          <div class="mtime" onclick="this.closest('.mtime-grid').querySelectorAll('.mtime').forEach(t=>t.classList.remove('selected'));this.classList.add('selected')">12:00 pm</div>
+          <div class="mtime" onclick="this.closest('.mtime-grid').querySelectorAll('.mtime').forEach(t=>t.classList.remove('selected'));this.classList.add('selected')">2:00 pm</div>
+        </div>
+      </div>
+      <div class="mpanel" id="mpanel-3">
+        <div style="background:#F2EEE6;border-radius:12px;padding:16px;margin-bottom:16px">
+          <p style="font-size:12px;font-weight:600;color:#3A3530;margin-bottom:8px">Resumen</p>
+          <div style="font-size:13px;color:#6B6560;display:flex;flex-direction:column;gap:6px">
+            <div style="display:flex;justify-content:space-between"><span>Fecha</span><span style="color:#3A3530">Martes 25 Mar</span></div>
+            <div style="display:flex;justify-content:space-between"><span>Hora</span><span style="color:#3A3530">10:30 am</span></div>
+          </div>
+        </div>
+        <p style="font-size:12px;color:#6B6560;line-height:1.7">Un asesor Zonum confirmará tu visita por correo electrónico. Sin pago anticipado.</p>
+      </div>
+      <div class="mpanel" id="mpanel-success">
+        <div class="msuccess"><div class="msuccess-icon">✅</div><h3>¡Visita agendada!</h3><p>Te contactaremos en menos de 2 horas para confirmar.</p></div>
+      </div>
+    </div>
+    <div class="modal-footer" id="modal-footer">
+      <button class="mbtn" id="mbtn-back" onclick="mPrev()" style="visibility:hidden">← Anterior</button>
+      <button class="mbtn mbtn-primary" id="mbtn-next" onclick="mNext()">Siguiente →</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── City data ──
+const cities = {
+  'bogota':       { name:'Bogotá',       lat:4.71,  lon:-74.07 },
+  'medellin':     { name:'Medellín',     lat:6.24,  lon:-75.57 },
+  'cartagena':    { name:'Cartagena',    lat:10.39, lon:-75.51 },
+  'santa-marta':  { name:'Santa Marta',  lat:11.24, lon:-74.20 },
+  'barranquilla': { name:'Barranquilla', lat:10.96, lon:-74.80 },
+  'cali':         { name:'Cali',         lat:3.42,  lon:-76.52 },
+  'bucaramanga':  { name:'Bucaramanga',  lat:7.12,  lon:-73.12 },
+  'manizales':    { name:'Manizales',    lat:5.07,  lon:-75.52 },
+  'pereira':      { name:'Pereira',      lat:4.81,  lon:-75.69 },
+};
+
+// ── Select city ──
+function selectCity(id) {
+  document.querySelectorAll('.city-card').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.city-dot').forEach(d => d.style.filter = '');
+
+  const card = document.getElementById('card-' + id);
+  if (card) {
+    card.classList.add('active');
+    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  const dot = document.getElementById('dot-' + id);
+  if (dot) dot.style.filter = 'drop-shadow(0 0 8px rgba(26,79,122,0.7))';
+}
+
+// ── SVG zoom/pan ──
+const svg = document.getElementById('colMap');
+const originalVB = '300 150 320 480';
+
+function setVB(x, y, w, h) {
+  svg.setAttribute('viewBox', `${x} ${y} ${w} ${h}`);
+}
+
+function zoomIn() {
+  const [x, y, w, h] = svg.getAttribute('viewBox').split(' ').map(Number);
+  const cx = x + w/2, cy = y + h/2;
+  const nw = w * 0.75, nh = h * 0.75;
+  setVB(cx - nw/2, cy - nh/2, nw, nh);
+}
+function zoomOut() {
+  const [x, y, w, h] = svg.getAttribute('viewBox').split(' ').map(Number);
+  const cx = x + w/2, cy = y + h/2;
+  const nw = Math.min(w * 1.33, 700), nh = Math.min(h * 1.33, 850);
+  setVB(cx - nw/2, cy - nh/2, nw, nh);
+}
+function resetZoom() { svg.setAttribute('viewBox', originalVB); }
+
+// ── SVG pan (drag) ──
+let dragging = false, dragStart = { x: 0, y: 0 };
+svg.addEventListener('mousedown', e => { dragging = true; dragStart = { x: e.clientX, y: e.clientY }; });
+svg.addEventListener('mousemove', e => {
+  if (!dragging) return;
+  const [x, y, w, h] = svg.getAttribute('viewBox').split(' ').map(Number);
+  const rect = svg.getBoundingClientRect();
+  const scaleX = w / rect.width, scaleY = h / rect.height;
+  const dx = (e.clientX - dragStart.x) * scaleX;
+  const dy = (e.clientY - dragStart.y) * scaleY;
+  setVB(x - dx, y - dy, w, h);
+  dragStart = { x: e.clientX, y: e.clientY };
+});
+svg.addEventListener('mouseup', () => { dragging = false; });
+svg.addEventListener('mouseleave', () => { dragging = false; });
+
+// ── Mouse wheel zoom ──
+svg.addEventListener('wheel', e => {
+  e.preventDefault();
+  const [x, y, w, h] = svg.getAttribute('viewBox').split(' ').map(Number);
+  const rect = svg.getBoundingClientRect();
+  const mx = x + (e.clientX - rect.left) / rect.width * w;
+  const my = y + (e.clientY - rect.top) / rect.height * h;
+  const factor = e.deltaY > 0 ? 1.15 : 0.87;
+  const nw = Math.min(Math.max(w * factor, 80), 700);
+  const nh = Math.min(Math.max(h * factor, 80), 850);
+  setVB(mx - (mx - x) * (nw/w), my - (my - y) * (nh/h), nw, nh);
+}, { passive: false });
+
+// ── Init ──
+selectCity('bogota');
+
+var _ms = 1;
+function openVisitModal(p, c) {
+  if(p) document.getElementById('modal-project-name').textContent = 'Agendar visita · ' + p;
+  document.getElementById('visit-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  _ms = 1; _mvShow(1);
+}
+function closeVisitModal() {
+  document.getElementById('visit-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('visit-modal').addEventListener('click', function(e){ if(e.target===this) closeVisitModal(); });
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeVisitModal(); });
+function _mvShow(n) {
+  _ms = n;
+  document.querySelectorAll('.mpanel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.mstep').forEach(function(s,i){
+    s.classList.remove('active','done');
+    if(i+1 < n) s.classList.add('done'); else if(i+1===n) s.classList.add('active');
+  });
+  document.getElementById(n>3?'mpanel-success':'mpanel-'+n).classList.add('active');
+  document.getElementById('modal-footer').style.display = n>3 ? 'none' : '';
+  document.getElementById('mbtn-back').style.visibility = n===1 ? 'hidden' : 'visible';
+  document.getElementById('mbtn-next').textContent = n===3 ? 'Confirmar ✓' : 'Siguiente →';
+}
+function mNext() { if(_ms<3) _mvShow(_ms+1); else _mvShow(4); }
+function mPrev() { if(_ms>1) _mvShow(_ms-1); }
+</script>

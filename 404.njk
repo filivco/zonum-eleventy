@@ -1,0 +1,140 @@
+---
+layout: base.njk
+title: "Página no encontrada — Zonum"
+description: "La página que buscas no existe. Explora los proyectos verificados en Colombia, el Caribe y Miami."
+permalink: /404.html
+extra_css: |
+  body{display:flex;flex-direction:column}
+  /* HERO 404 */
+  .hero-404{flex:1;display:flex;align-items:center;justify-content:center;padding:60px 20px;text-align:center}
+  .hero-inner{max-width:560px;width:100%}
+  .big-num{font-family:var(--font-heading);font-size:120px;font-weight:700;color:var(--azul-noche);line-height:1;letter-spacing:-4px;opacity:.12;user-select:none;position:absolute}
+  .icon-wrap{position:relative;width:100px;height:100px;margin:0 auto 32px;display:flex;align-items:center;justify-content:center}
+  .icon-bg{width:80px;height:80px;border-radius:50%;background:var(--fondo-azul);display:flex;align-items:center;justify-content:center}
+  .icon-bg svg{width:36px;height:36px}
+  .error-code{font-size:12px;font-weight:600;color:var(--azul-base);text-transform:uppercase;letter-spacing:.12em;margin-bottom:12px}
+  .error-title{font-family:var(--font-heading);font-size:32px;font-weight:700;color:var(--concreto-oscuro);line-height:1.2;margin-bottom:16px}
+  .error-desc{font-size:15px;color:var(--concreto-medio);line-height:1.7;margin-bottom:32px}
+  .search-bar{display:flex;align-items:center;background:var(--blanco-calido);border:.5px solid var(--b2);border-radius:var(--r8);padding:0 16px;margin-bottom:24px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+  .search-bar input{flex:1;border:none;outline:none;font-size:14px;color:var(--color-text-primary);font-family:inherit;height:48px;background:transparent}
+  .search-bar button{background:var(--azul-base);color:#fff;border:none;border-radius:6px;padding:8px 16px;font-size:13px;cursor:pointer;font-family:inherit;font-weight:500}
+  .search-bar button:hover{background:var(--azul-noche)}
+  .ql-label{font-size:11px;color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+  .ql-pills{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:40px}
+  .ql-pill{font-size:12px;padding:6px 14px;border-radius:999px;border:.5px solid var(--b2);color:var(--color-text-secondary);cursor:pointer;background:var(--blanco-calido);transition:all .15s;text-decoration:none;display:inline-block}
+  .ql-pill:hover{border-color:var(--azul-base);color:var(--azul-base);background:var(--fondo-azul)}
+  .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn-primary{padding:12px 24px;background:var(--azul-base);color:#fff;border:none;border-radius:var(--r8);font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-family:inherit;transition:background .15s}
+  .btn-primary:hover{background:var(--azul-noche)}
+  .btn-secondary{padding:12px 24px;background:transparent;color:var(--color-text-primary);border:.5px solid var(--b2);border-radius:var(--r8);font-size:14px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-family:inherit;transition:all .15s}
+  .btn-secondary:hover{border-color:var(--color-text-primary)}
+  .suggestions{max-width:1100px;margin:0 auto;padding:0 20px 60px}
+  .sug-title{font-family:var(--font-heading);font-size:18px;font-weight:600;color:var(--concreto-oscuro);text-align:center;margin-bottom:20px}
+  .sug-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .sug-card{background:var(--blanco-calido);border:.5px solid var(--b1);border-radius:var(--r12);overflow:hidden;cursor:pointer;transition:box-shadow .2s;text-decoration:none;display:block}
+  .sug-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.08)}
+  .sug-img{height:120px;overflow:hidden;position:relative}
+  .sug-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+  .sug-card:hover .sug-img img{transform:scale(1.04)}
+  .sug-badge{position:absolute;top:8px;left:8px;font-size:10px;padding:3px 8px;border-radius:var(--r8);font-weight:500;background:var(--fondo-azul);color:var(--azul-noche)}
+  .sug-body{padding:12px 14px}
+  .sug-price{font-size:14px;font-weight:600;color:var(--concreto-oscuro);font-family:var(--font-heading)}
+  .sug-name{font-size:12px;color:var(--concreto-oscuro);margin:2px 0}
+  .sug-loc{font-size:11px;color:var(--concreto-medio);margin-bottom:6px}
+  .sug-roi{display:inline-flex;align-items:center;gap:3px;font-size:10px;background:var(--champagne);color:var(--oro-oscuro);padding:2px 6px;border-radius:999px}
+  @media(max-width:768px){.sug-grid{grid-template-columns:1fr 1fr}.error-title{font-size:24px}.big-num{font-size:80px}}
+  @media(max-width:500px){.sug-grid{grid-template-columns:1fr}}
+---
+
+<!-- HERO 404 -->
+<div class="hero-404">
+  <div class="hero-inner">
+    <div class="error-code">Error 404</div>
+    <div class="icon-wrap">
+      <div class="icon-bg">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 28L17 8l12 20H5z" stroke="#1A4F7A" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M17 15v6M17 23.5v1" stroke="#1A4F7A" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+    <h1 class="error-title">Página no encontrada</h1>
+    <p class="error-desc">El proyecto o la página que buscas no existe, fue movida o el enlace puede estar desactualizado. Prueba con una búsqueda o explora nuestros proyectos curados.</p>
+
+    <div class="search-bar">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;margin-right:10px"><circle cx="7" cy="7" r="4.5" stroke="#888078" stroke-width="1.4"/><path d="M10.5 10.5L14 14" stroke="#888078" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <input type="text" placeholder="Busca proyectos por ciudad, barrio o nombre…" id="search-input" onkeydown="handleSearch(event)">
+      <button onclick="doSearch()">Buscar</button>
+    </div>
+
+    <div class="ql-label">Búsquedas frecuentes</div>
+    <div class="ql-pills">
+      <a class="ql-pill" href="/medellin/">Medellín</a>
+      <a class="ql-pill" href="/buscar/">Santa Marta</a>
+      <a class="ql-pill" href="/buscar/">Cartagena</a>
+      <a class="ql-pill" href="/buscar/">Bogotá</a>
+      <a class="ql-pill" href="/elite/">Luxury</a>
+      <a class="ql-pill" href="/calculadora/">Calcular rentabilidad</a>
+      <a class="ql-pill" href="/comparar/">Comparar proyectos</a>
+    </div>
+
+    <div class="cta-row">
+      <a href="/" class="btn-primary">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Ir al inicio
+      </a>
+      <a href="/buscar/" class="btn-secondary">Ver todos los proyectos</a>
+    </div>
+  </div>
+</div>
+
+<!-- SUGGESTIONS -->
+<div class="suggestions">
+  <div class="sug-title">Proyectos que te podrían interesar</div>
+  <div class="sug-grid">
+    <a href="/proyectos/kashi-santa-marta/" class="sug-card">
+      <div class="sug-img">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&q=70" alt="Kashi Santa Marta">
+        <div class="sug-badge">Curado</div>
+      </div>
+      <div class="sug-body">
+        <div class="sug-price">$890.000.000</div>
+        <div class="sug-name">Kashi Santa Marta</div>
+        <div class="sug-loc">📍 Taganga, Santa Marta</div>
+        <div class="sug-roi">↑ 14.8% ROI estimado</div>
+      </div>
+    </a>
+    <a href="/proyectos/alma-luxury-lofts/" class="sug-card">
+      <div class="sug-img">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=70" alt="Alma Luxury Lofts">
+        <div class="sug-badge" style="background:var(--champagne);color:var(--oro-oscuro)">★ Luxury</div>
+      </div>
+      <div class="sug-body">
+        <div class="sug-price">$1.280.000.000</div>
+        <div class="sug-name">Alma Luxury Lofts</div>
+        <div class="sug-loc">📍 El Poblado, Medellín</div>
+        <div class="sug-roi">↑ 12.4% ROI estimado</div>
+      </div>
+    </a>
+    <a href="/buscar/" class="sug-card">
+      <div class="sug-img">
+        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=400&q=70" alt="Proyectos Bogotá">
+        <div class="sug-badge">Nuevo</div>
+      </div>
+      <div class="sug-body">
+        <div class="sug-price">$620.000.000</div>
+        <div class="sug-name">Reserva 90 · Bogotá</div>
+        <div class="sug-loc">📍 Chico, Bogotá</div>
+        <div class="sug-roi">↑ 10.2% ROI estimado</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<script>
+function handleSearch(e) { if(e.key==='Enter') doSearch(); }
+function doSearch() {
+  var q = document.getElementById('search-input').value.trim();
+  if(q) location.href = '/buscar/';
+}
+</script>

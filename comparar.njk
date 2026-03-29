@@ -1,0 +1,924 @@
+---
+layout: base.njk
+title: "Comparar proyectos inmobiliarios · Zonum"
+description: "Compara lado a lado los mejores proyectos inmobiliarios nuevos en Colombia. ROI, precio, entrega, score Zonum."
+extra_css: |
+  /* ── Page layout ── */
+  .page-inner{max-width:1200px;margin:0 auto;padding:48px 28px 80px}
+
+  /* ── Breadcrumb ── */
+  .breadcrumb{font-size:12px;color:var(--color-text-tertiary);margin-bottom:20px;display:flex;align-items:center;gap:6px}
+  .breadcrumb a{color:var(--color-text-tertiary);text-decoration:none}
+  .breadcrumb a:hover{color:var(--azul-base)}
+  .breadcrumb-sep{color:var(--color-border-secondary)}
+
+  /* ── Page header ── */
+  .page-header{margin-bottom:40px}
+  .page-title{font-family:var(--font-heading);font-size:32px;font-weight:500;color:var(--color-text-primary);margin-bottom:8px;line-height:1.2}
+  .page-sub{font-size:14px;color:var(--color-text-secondary);line-height:1.6}
+
+  /* ── Selector grid ── */
+  .selector-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px}
+  .selector-col{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:18px 20px}
+  .selector-label{font-size:10px;font-weight:600;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px}
+  .selector-select{width:100%;padding:10px 14px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);font-size:13px;color:var(--color-text-primary);font-family:inherit;outline:none;background:var(--color-background-secondary);cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b6b68' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;transition:border-color 0.15s}
+  .selector-select:focus{border-color:var(--azul-base)}
+  .selector-num{font-size:11px;color:var(--color-text-tertiary);margin-bottom:4px}
+
+  /* ── Comparison table ── */
+  #compareSection{display:none}
+  .compare-table-wrap{overflow-x:auto;border-radius:var(--border-radius-lg);border:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary);margin-bottom:32px}
+  .compare-table{width:100%;border-collapse:collapse;min-width:600px}
+  .compare-table th{padding:16px 20px;font-size:11px;font-weight:600;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:0.07em;border-bottom:0.5px solid var(--color-border-tertiary);text-align:left;background:var(--color-background-secondary)}
+  .compare-table th.proj-col{text-align:left}
+  .compare-table td{padding:14px 20px;font-size:13px;color:var(--color-text-primary);border-bottom:0.5px solid var(--color-border-tertiary);vertical-align:middle}
+  .compare-table td:first-child{font-size:11px;font-weight:600;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:0.06em;width:170px;background:var(--color-background-secondary)}
+  .compare-table tr:last-child td{border-bottom:none}
+  .compare-table td.winner{background:#DDE9F4}
+  .compare-table td.empty-cell{color:var(--color-text-tertiary);font-style:italic}
+
+  /* Project header in table */
+  .proj-header-cell{background:var(--color-background-primary) !important}
+  .proj-name{font-family:var(--font-heading);font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:2px}
+  .proj-city{font-size:11px;color:var(--color-text-secondary)}
+
+  /* Score bar */
+  .score-bar-wrap{display:flex;align-items:center;gap:10px}
+  .score-bar-track{flex:1;height:6px;background:rgba(58,53,48,0.1);border-radius:3px;overflow:hidden;min-width:60px}
+  .score-bar-fill{height:100%;border-radius:3px;background:var(--azul-base);transition:width 0.4s ease}
+  .score-val{font-size:13px;font-weight:600;color:var(--azul-base);min-width:24px}
+
+  /* ── CTA row ── */
+  .cta-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px}
+  .cta-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:20px;display:flex;flex-direction:column;gap:12px}
+  .cta-card-name{font-family:var(--font-heading);font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .cta-card-price{font-size:18px;font-weight:700;color:var(--azul-base)}
+  .cta-btn{width:100%;padding:11px;background:var(--azul-base);color:#fff;border:none;border-radius:var(--border-radius-md);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:background 0.15s}
+  .cta-btn:hover{background:var(--azul-noche)}
+  .cta-link{display:block;text-align:center;font-size:12px;color:var(--azul-base);cursor:pointer;text-decoration:none;margin-top:2px}
+  .cta-link:hover{text-decoration:underline}
+
+  /* ── Empty state ── */
+  #emptyState{text-align:center;padding:60px 20px}
+  .empty-svg{margin:0 auto 24px;display:block}
+  .empty-title{font-family:var(--font-heading);font-size:20px;color:var(--color-text-primary);margin-bottom:8px}
+  .empty-sub{font-size:14px;color:var(--color-text-secondary);line-height:1.6}
+
+  /* ── Visit Modal ── */
+  .visit-modal{position:fixed;inset:0;background:rgba(13,43,68,0.72);backdrop-filter:blur(4px);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.25s}
+  .visit-modal.open{opacity:1;pointer-events:all}
+  .visit-box{background:#fff;max-width:840px;width:calc(100% - 32px);border-radius:20px;overflow:hidden;display:flex;position:relative;max-height:90vh}
+  .visit-left{width:300px;min-width:300px;background:#0D2B44;padding:32px 28px;display:flex;flex-direction:column;gap:0;overflow-y:auto}
+  .vl-logo{font-family:'clother',sans-serif;font-size:18px;font-weight:500;color:#fff;margin-bottom:20px;letter-spacing:0.02em}
+  .vl-img-placeholder{width:100%;height:140px;border-radius:12px;background:linear-gradient(135deg,#1A4F7A,#0D2B44);margin-bottom:16px;display:flex;align-items:center;justify-content:center;font-size:32px}
+  .vl-project-name{font-family:'clother',sans-serif;font-size:15px;font-weight:500;color:#fff;margin-bottom:3px}
+  .vl-project-loc{font-size:12px;color:#A8C4DC;margin-bottom:20px;display:flex;align-items:center;gap:4px}
+  .vl-trust{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+  .vl-trust-item{display:flex;align-items:center;gap:8px;font-size:12px;color:#C4D9ED;line-height:1.4}
+  .vl-trust-check{width:18px;height:18px;border-radius:50%;background:rgba(90,140,181,0.25);display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0}
+  .vl-steps{display:flex;gap:6px;margin-top:auto;padding-top:16px}
+  .vl-step-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.2);transition:all 0.25s}
+  .vl-step-dot.active{background:#fff;width:20px;border-radius:4px}
+  .visit-right{flex:1;padding:32px 28px;overflow-y:auto;background:#fff;position:relative}
+  .visit-close{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;background:rgba(58,53,48,0.08);border:none;cursor:pointer;font-size:16px;color:#6B6560;display:flex;align-items:center;justify-content:center;transition:background 0.15s;z-index:1}
+  .visit-close:hover{background:rgba(58,53,48,0.14)}
+  .visit-step{display:none}
+  .visit-step.active{display:block}
+  .vstep-eyebrow{font-size:10px;color:#6B6560;text-transform:uppercase;letter-spacing:0.08em;font-weight:500;margin-bottom:6px}
+  .vstep-title{font-family:'clother',sans-serif;font-size:20px;font-weight:500;color:#3A3530;margin-bottom:4px}
+  .vstep-sub{font-size:12px;color:#6B6560;margin-bottom:22px;line-height:1.5}
+  .city-pills{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}
+  .city-pill{font-size:12px;padding:7px 14px;border-radius:999px;border:0.5px solid rgba(58,53,48,0.22);cursor:pointer;color:#6B6560;background:#F8F6F2;transition:all 0.15s;font-family:inherit}
+  .city-pill:hover{border-color:#1A4F7A;color:#1A4F7A}
+  .city-pill.sel{background:#1A4F7A;color:#fff;border-color:#1A4F7A}
+  .project-select-wrap{margin-bottom:18px;display:none}
+  .project-select-wrap.show{display:block}
+  .project-select-label{font-size:11px;font-weight:500;color:#6B6560;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:7px}
+  .project-select{width:100%;padding:10px 14px;border:0.5px solid rgba(58,53,48,0.22);border-radius:8px;font-size:13px;color:#3A3530;font-family:inherit;outline:none;background:#F8F6F2;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b6b68' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;transition:border-color 0.15s}
+  .project-select:focus{border-color:#1A4F7A}
+  .visit-type-toggle{display:flex;gap:8px;margin-bottom:20px}
+  .vtype-pill{flex:1;padding:10px;border-radius:10px;border:0.5px solid rgba(58,53,48,0.22);cursor:pointer;text-align:center;font-size:13px;color:#6B6560;background:#F8F6F2;transition:all 0.15s;font-family:inherit}
+  .vtype-pill:hover{border-color:#1A4F7A;color:#1A4F7A}
+  .vtype-pill.sel{background:#1A4F7A;color:#fff;border-color:#1A4F7A}
+  .cal-wrap{margin-bottom:18px}
+  .cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+  .cal-month{font-size:14px;font-weight:500;color:#3A3530;font-family:'clother',sans-serif}
+  .cal-nav-btn{width:28px;height:28px;border-radius:50%;border:0.5px solid rgba(58,53,48,0.22);background:transparent;cursor:pointer;font-size:12px;color:#6B6560;display:flex;align-items:center;justify-content:center;transition:all 0.15s}
+  .cal-nav-btn:hover{border-color:#1A4F7A;color:#1A4F7A}
+  .cal-days-header{display:grid;grid-template-columns:repeat(7,1fr);margin-bottom:4px}
+  .cal-day-label{text-align:center;font-size:10px;font-weight:600;color:#888078;padding:4px 0;text-transform:uppercase;letter-spacing:0.04em}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+  .cal-day{width:100%;aspect-ratio:1;border-radius:50%;border:none;background:transparent;cursor:default;font-size:12px;color:#3A3530;display:flex;align-items:center;justify-content:center;transition:all 0.15s;font-family:inherit}
+  .cal-day.empty{pointer-events:none}
+  .cal-day.past{color:rgba(58,53,48,0.25);pointer-events:none}
+  .cal-day.avail{cursor:pointer;font-weight:500}
+  .cal-day.avail:hover{background:#DDE9F4;color:#1A4F7A}
+  .cal-day.sel{background:#1A4F7A !important;color:#fff !important;font-weight:600}
+  .time-slots-wrap{display:none}
+  .time-slots-wrap.show{display:block}
+  .time-slots-label{font-size:11px;font-weight:500;color:#6B6560;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px}
+  .time-slots{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px}
+  .time-slot{font-size:12px;padding:7px 12px;border-radius:8px;border:0.5px solid rgba(58,53,48,0.22);cursor:pointer;color:#6B6560;background:#F8F6F2;transition:all 0.15s;font-family:inherit}
+  .time-slot:hover:not(.off){border-color:#1A4F7A;color:#1A4F7A}
+  .time-slot.sel{background:#1A4F7A;color:#fff;border-color:#1A4F7A}
+  .time-slot.off{color:rgba(58,53,48,0.3);border-color:rgba(58,53,48,0.1);background:transparent;cursor:not-allowed;text-decoration:line-through}
+  .visit-input-group{margin-bottom:13px}
+  .visit-input-label{font-size:11px;font-weight:500;color:#6B6560;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px}
+  .visit-input{width:100%;padding:10px 14px;border:0.5px solid rgba(58,53,48,0.22);border-radius:8px;font-size:13px;color:#3A3530;font-family:inherit;outline:none;background:#F8F6F2;transition:border-color 0.15s}
+  .visit-input:focus{border-color:#1A4F7A}
+  .visit-phone-row{display:flex;gap:0}
+  .visit-phone-flag{padding:10px 12px;border:0.5px solid rgba(58,53,48,0.22);border-right:none;border-radius:8px 0 0 8px;font-size:13px;background:#F8F6F2;color:#3A3530;cursor:default;white-space:nowrap}
+  .visit-phone-input{flex:1;padding:10px 14px;border:0.5px solid rgba(58,53,48,0.22);border-radius:0 8px 8px 0;font-size:13px;color:#3A3530;font-family:inherit;outline:none;background:#F8F6F2;transition:border-color 0.15s}
+  .visit-phone-input:focus{border-color:#1A4F7A}
+  .investor-pills{display:flex;flex-wrap:wrap;gap:7px}
+  .investor-pill{font-size:12px;padding:7px 13px;border-radius:999px;border:0.5px solid rgba(58,53,48,0.22);cursor:pointer;color:#6B6560;background:#F8F6F2;transition:all 0.15s;font-family:inherit}
+  .investor-pill:hover{border-color:#1A4F7A;color:#1A4F7A}
+  .investor-pill.sel{background:#1A4F7A;color:#fff;border-color:#1A4F7A}
+  .budget-pills{display:flex;flex-wrap:wrap;gap:7px}
+  .budget-pill{font-size:12px;padding:7px 13px;border-radius:999px;border:0.5px solid rgba(58,53,48,0.22);cursor:pointer;color:#6B6560;background:#F8F6F2;transition:all 0.15s;font-family:inherit}
+  .budget-pill:hover{border-color:#1A4F7A;color:#1A4F7A}
+  .budget-pill.sel{background:#1A4F7A;color:#fff;border-color:#1A4F7A}
+  .visit-privacy{font-size:10px;color:#888078;line-height:1.6;margin-top:14px;margin-bottom:16px}
+  .visit-privacy a{color:#1A4F7A;text-decoration:none}
+  .visit-cta{width:100%;padding:13px;background:#1A4F7A;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;transition:background 0.15s;font-family:inherit;letter-spacing:0.02em}
+  .visit-cta:hover:not(:disabled){background:#0D2B44}
+  .visit-cta:disabled{background:rgba(58,53,48,0.2);color:rgba(58,53,48,0.4);cursor:not-allowed}
+  .visit-back{background:transparent;border:none;color:#6B6560;font-size:13px;cursor:pointer;padding:10px 0;font-family:inherit;display:inline-flex;align-items:center;gap:4px;margin-top:8px;transition:color 0.15s}
+  .visit-back:hover{color:#3A3530}
+  .confirm-box{background:#DDE9F4;border-radius:12px;padding:16px;margin-bottom:18px}
+  .confirm-box-title{font-size:11px;font-weight:600;color:#0D2B44;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:10px}
+  .confirm-row{display:flex;align-items:center;gap:8px;font-size:13px;color:#1A4F7A;margin-bottom:6px}
+  .confirm-row:last-child{margin-bottom:0}
+  .confirm-icon{font-size:14px;flex-shrink:0}
+  .next-steps{margin-bottom:18px}
+  .next-steps-title{font-size:12px;font-weight:600;color:#3A3530;margin-bottom:10px}
+  .next-step-item{display:flex;align-items:flex-start;gap:10px;font-size:12px;color:#6B6560;margin-bottom:8px;line-height:1.5}
+  .next-step-num{width:20px;height:20px;border-radius:50%;background:#DDE9F4;color:#1A4F7A;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .visit-outline-btn{width:100%;padding:11px;background:transparent;border:0.5px solid #1A4F7A;border-radius:10px;font-size:13px;font-weight:500;color:#1A4F7A;cursor:pointer;font-family:inherit;transition:all 0.15s;margin-bottom:10px;display:block;text-align:center;text-decoration:none}
+  .visit-outline-btn:hover{background:#DDE9F4}
+  .visit-dismiss-link{display:block;text-align:center;font-size:12px;color:#888078;cursor:pointer;margin-top:4px;transition:color 0.15s}
+  .visit-dismiss-link:hover{color:#3A3530}
+
+  /* ── Footer bottom bar ── */
+  .footer-bar{background:var(--color-background-secondary);border-top:0.5px solid var(--color-border-tertiary);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .footer-bar-links{display:flex;gap:20px;flex-wrap:wrap}
+  .footer-bar-links span{font-size:11px;color:var(--color-text-secondary);cursor:pointer}
+  .footer-bar-links span:hover{color:var(--color-text-primary)}
+  .footer-bar-copy{font-size:11px;color:var(--color-text-tertiary)}
+
+  /* ── Responsive ── */
+  @media(max-width:900px){
+    .selector-grid{grid-template-columns:1fr 1fr}
+    .cta-row{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:600px){
+    .selector-grid{grid-template-columns:1fr}
+    .cta-row{grid-template-columns:1fr}
+    .page-title{font-size:24px}
+    .page-inner{padding:28px 16px 60px}
+    .compare-table-wrap{border-radius:var(--border-radius-md)}
+    .visit-box{flex-direction:column;max-height:95vh;border-radius:16px 16px 0 0;position:fixed;bottom:0;left:0;right:0;width:100%;margin:0}
+    .visit-left{display:none}
+    .visit-right{padding:24px 20px 20px}
+    .visit-modal{align-items:flex-end}
+    .footer-bar{flex-direction:column;align-items:flex-start}
+  }
+---
+
+<!-- Main content -->
+<div class="page-inner">
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a href="/">Inicio</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Comparar proyectos</span>
+  </div>
+
+  <!-- Page header -->
+  <div class="page-header">
+    <h1 class="page-title">Comparar proyectos</h1>
+    <p class="page-sub">Selecciona hasta 3 proyectos para ver sus métricas lado a lado</p>
+  </div>
+
+  <!-- Project selectors -->
+  <div class="selector-grid">
+    <div class="selector-col">
+      <div class="selector-num">Proyecto 1</div>
+      <div class="selector-label">Selecciona un proyecto</div>
+      <select class="selector-select" id="sel0" onchange="onSelectChange(0)">
+        <option value="">— Seleccionar proyecto —</option>
+        <option value="kashi">Kashi Santa Marta ($320M · Santa Marta)</option>
+        <option value="alma">Alma Luxury Lofts ($680M · Medellín)</option>
+        <option value="parque93">Parque 93 Residences ($540M · Bogotá)</option>
+        <option value="laureles">Laureles 60 ($380M · Medellín)</option>
+        <option value="sanfernando">San Fernando Lofts ($720M · Cali)</option>
+        <option value="kaali">Torre Kaali Cartagena ($480M · Cartagena)</option>
+      </select>
+    </div>
+    <div class="selector-col">
+      <div class="selector-num">Proyecto 2</div>
+      <div class="selector-label">Selecciona un proyecto</div>
+      <select class="selector-select" id="sel1" onchange="onSelectChange(1)">
+        <option value="">— Seleccionar proyecto —</option>
+        <option value="kashi">Kashi Santa Marta ($320M · Santa Marta)</option>
+        <option value="alma">Alma Luxury Lofts ($680M · Medellín)</option>
+        <option value="parque93">Parque 93 Residences ($540M · Bogotá)</option>
+        <option value="laureles">Laureles 60 ($380M · Medellín)</option>
+        <option value="sanfernando">San Fernando Lofts ($720M · Cali)</option>
+        <option value="kaali">Torre Kaali Cartagena ($480M · Cartagena)</option>
+      </select>
+    </div>
+    <div class="selector-col">
+      <div class="selector-num">Proyecto 3 <span style="font-size:10px;color:#888078">(opcional)</span></div>
+      <div class="selector-label">Selecciona un proyecto</div>
+      <select class="selector-select" id="sel2" onchange="onSelectChange(2)">
+        <option value="">— Seleccionar proyecto —</option>
+        <option value="kashi">Kashi Santa Marta ($320M · Santa Marta)</option>
+        <option value="alma">Alma Luxury Lofts ($680M · Medellín)</option>
+        <option value="parque93">Parque 93 Residences ($540M · Bogotá)</option>
+        <option value="laureles">Laureles 60 ($380M · Medellín)</option>
+        <option value="sanfernando">San Fernando Lofts ($720M · Cali)</option>
+        <option value="kaali">Torre Kaali Cartagena ($480M · Cartagena)</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Empty state -->
+  <div id="emptyState">
+    <svg class="empty-svg" width="120" height="90" viewBox="0 0 120 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Building left -->
+      <rect x="8" y="28" width="44" height="58" rx="2" fill="#DDE9F4" stroke="#A8C4DC" stroke-width="1.5"/>
+      <rect x="16" y="38" width="10" height="10" rx="1" fill="#5A8CB5" opacity="0.6"/>
+      <rect x="32" y="38" width="10" height="10" rx="1" fill="#5A8CB5" opacity="0.6"/>
+      <rect x="16" y="54" width="10" height="10" rx="1" fill="#5A8CB5" opacity="0.6"/>
+      <rect x="32" y="54" width="10" height="10" rx="1" fill="#5A8CB5" opacity="0.6"/>
+      <rect x="20" y="68" width="16" height="18" rx="1" fill="#A8C4DC"/>
+      <!-- Building right -->
+      <rect x="68" y="18" width="44" height="68" rx="2" fill="#EFF4F9" stroke="#A8C4DC" stroke-width="1.5"/>
+      <rect x="76" y="28" width="10" height="10" rx="1" fill="#5A8CB5" opacity="0.6"/>
+      <rect x="92" y="28" width="10" height="10" rx="1" fill="#5A8CB5" opacity="0.6"/>
+      <rect x="76" y="44" width="10" height="10" rx="1" fill="#5A8CB5" opacity="0.6"/>
+      <rect x="92" y="44" width="10" height="10" rx="1" fill="#5A8CB5" opacity="0.6"/>
+      <rect x="76" y="60" width="10" height="10" rx="1" fill="#5A8CB5" opacity="0.6"/>
+      <rect x="92" y="60" width="10" height="10" rx="1" fill="#5A8CB5" opacity="0.6"/>
+      <rect x="80" y="74" width="16" height="12" rx="1" fill="#A8C4DC"/>
+      <!-- VS badge -->
+      <circle cx="60" cy="55" r="12" fill="#1A4F7A"/>
+      <text x="60" y="59" text-anchor="middle" font-family="'clother',sans-serif" font-size="9" font-weight="600" fill="#fff">VS</text>
+      <!-- Ground line -->
+      <line x1="4" y1="86" x2="116" y2="86" stroke="#C8B89A" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <p class="empty-title">Comienza tu comparación</p>
+    <p class="empty-sub">Selecciona proyectos arriba para comenzar la comparación</p>
+  </div>
+
+  <!-- Compare section (hidden until 2+ selected) -->
+  <div id="compareSection">
+
+    <!-- Table -->
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th style="width:170px">Métrica</th>
+            <th class="proj-col" id="th0"></th>
+            <th class="proj-col" id="th1"></th>
+            <th class="proj-col" id="th2" style="display:none"></th>
+          </tr>
+        </thead>
+        <tbody id="compareBody"></tbody>
+      </table>
+    </div>
+
+    <!-- CTA row -->
+    <div class="cta-row" id="ctaRow"></div>
+
+  </div>
+</div>
+
+<!-- Visit Modal -->
+<div class="visit-modal" id="visitModal" role="dialog" aria-modal="true" aria-label="Agendar visita">
+  <div class="visit-box">
+    <div class="visit-left">
+      <div class="vl-logo">zonum</div>
+      <div class="vl-img-placeholder" id="vl-img-placeholder">🏙️</div>
+      <div class="vl-project-name" id="vl-project-name">Proyectos seleccionados</div>
+      <div class="vl-project-loc" id="vl-project-loc">
+        <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="5.5" r="2.5" stroke="#A8C4DC" stroke-width="1.2"/><path d="M7 14C7 14 2 9.5 2 5.5a5 5 0 0110 0C12 9.5 7 14 7 14z" stroke="#A8C4DC" stroke-width="1.2" fill="none"/></svg>
+        <span id="vl-project-loc-text">Colombia</span>
+      </div>
+      <div class="vl-trust">
+        <div class="vl-trust-item"><div class="vl-trust-check">✓</div>Sin costo · sin compromiso</div>
+        <div class="vl-trust-item"><div class="vl-trust-check">✓</div>Asesor dedicado te contacta</div>
+        <div class="vl-trust-item"><div class="vl-trust-check">✓</div>Visita virtual o presencial</div>
+      </div>
+      <div class="vl-steps">
+        <div class="vl-step-dot active" id="vldot-1"></div>
+        <div class="vl-step-dot" id="vldot-2"></div>
+        <div class="vl-step-dot" id="vldot-3"></div>
+      </div>
+    </div>
+    <div class="visit-right">
+      <button class="visit-close" onclick="closeVisitModal()" aria-label="Cerrar">×</button>
+
+      <!-- Step 1 -->
+      <div class="visit-step active" id="vstep-1">
+        <div class="vstep-eyebrow">Paso 1 de 3</div>
+        <div class="vstep-title">Elige el proyecto</div>
+        <div class="vstep-sub">Selecciona ciudad y proyecto de interés</div>
+        <div class="city-pills" id="cityPills">
+          <button class="city-pill" onclick="selectCity('Bogotá',this)">🏙 Bogotá</button>
+          <button class="city-pill" onclick="selectCity('Medellín',this)">⛰ Medellín</button>
+          <button class="city-pill" onclick="selectCity('Cartagena',this)">🌊 Cartagena</button>
+          <button class="city-pill" onclick="selectCity('Santa Marta',this)">🏖 Santa Marta</button>
+          <button class="city-pill" onclick="selectCity('Cali',this)">🌿 Cali</button>
+          <button class="city-pill" onclick="selectCity('Barranquilla',this)">☀️ Barranquilla</button>
+          <button class="city-pill" onclick="selectCity('Otra ciudad',this)">📍 Otra ciudad</button>
+        </div>
+        <div class="project-select-wrap" id="projectSelectWrap">
+          <div class="project-select-label">Proyecto de interés</div>
+          <select class="project-select" id="projectSelect" onchange="onProjectChange()">
+            <option value="">Seleccionar proyecto...</option>
+          </select>
+        </div>
+        <button class="visit-cta" id="step1Cta" onclick="nextStep()" disabled>Continuar →</button>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="visit-step" id="vstep-2">
+        <div class="vstep-eyebrow">Paso 2 de 3</div>
+        <div class="vstep-title">Elige fecha y hora</div>
+        <div class="vstep-sub">Agenda una visita virtual o presencial</div>
+        <div class="visit-type-toggle">
+          <button class="vtype-pill sel" id="vtype-virtual" onclick="selectVisitType('Virtual',this)">💻 Virtual</button>
+          <button class="vtype-pill" id="vtype-presencial" onclick="selectVisitType('Presencial',this)">🏢 Presencial</button>
+        </div>
+        <div class="cal-wrap">
+          <div class="cal-header">
+            <button class="cal-nav-btn" onclick="changeMonth(-1)">‹</button>
+            <div class="cal-month" id="calMonth">—</div>
+            <button class="cal-nav-btn" onclick="changeMonth(1)">›</button>
+          </div>
+          <div class="cal-days-header">
+            <div class="cal-day-label">Lu</div><div class="cal-day-label">Ma</div>
+            <div class="cal-day-label">Mi</div><div class="cal-day-label">Ju</div>
+            <div class="cal-day-label">Vi</div><div class="cal-day-label">Sa</div>
+            <div class="cal-day-label">Do</div>
+          </div>
+          <div class="cal-grid" id="calGrid"></div>
+        </div>
+        <div class="time-slots-wrap" id="timeSlotsWrap">
+          <div class="time-slots-label">Hora disponible</div>
+          <div class="time-slots" id="timeSlots"></div>
+        </div>
+        <button class="visit-cta" id="step2Cta" onclick="nextStep()" disabled>Continuar →</button>
+        <button class="visit-back" onclick="prevStep()">← Volver</button>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="visit-step" id="vstep-3">
+        <div class="vstep-eyebrow">Paso 3 de 3</div>
+        <div class="vstep-title">¿Con quién coordinamos?</div>
+        <div class="vstep-sub">Un asesor te confirmará en menos de 2 horas</div>
+        <div class="visit-input-group">
+          <div class="visit-input-label">Nombre completo *</div>
+          <input class="visit-input" id="visitNombre" type="text" placeholder="Tu nombre completo" oninput="validateStep3()">
+        </div>
+        <div class="visit-input-group">
+          <div class="visit-input-label">Correo electrónico *</div>
+          <input class="visit-input" id="visitEmail" type="email" placeholder="correo@ejemplo.com" oninput="validateStep3()">
+        </div>
+        <div class="visit-input-group">
+          <div class="visit-input-label">Teléfono</div>
+          <div class="visit-phone-row">
+            <div class="visit-phone-flag">🇨🇴 +57</div>
+            <input class="visit-phone-input" id="visitTel" type="tel" placeholder="300 000 0000">
+          </div>
+        </div>
+        <div class="visit-input-group">
+          <div class="visit-input-label">Tipo de inversor</div>
+          <div class="investor-pills" id="investorPills">
+            <button class="investor-pill" onclick="selectPill(this,'investor')">Primera inversión</button>
+            <button class="investor-pill" onclick="selectPill(this,'investor')">Tengo experiencia</button>
+            <button class="investor-pill" onclick="selectPill(this,'investor')">Inversor frecuente</button>
+          </div>
+        </div>
+        <div class="visit-input-group">
+          <div class="visit-input-label">¿Cuál es tu presupuesto?</div>
+          <div class="budget-pills" id="budgetPills">
+            <button class="budget-pill" onclick="selectPill(this,'budget')">&lt; $400M</button>
+            <button class="budget-pill" onclick="selectPill(this,'budget')">$400M – $700M</button>
+            <button class="budget-pill" onclick="selectPill(this,'budget')">$700M – $1B</button>
+            <button class="budget-pill" onclick="selectPill(this,'budget')">&gt; $1B</button>
+          </div>
+        </div>
+        <div class="visit-privacy">Al continuar, aceptas nuestros <a href="#">Términos de Uso</a> y <a href="/politica-privacidad/">Política de Privacidad</a>.</div>
+        <button class="visit-cta" id="step3Cta" onclick="submitVisit()" disabled>Confirmar visita</button>
+        <button class="visit-back" onclick="prevStep()">← Volver</button>
+      </div>
+
+      <!-- Step 4: Success -->
+      <div class="visit-step" id="vstep-4">
+        <div class="vstep-title" style="font-size:22px;margin-bottom:6px">Visita agendada</div>
+        <div class="vstep-sub" style="margin-bottom:20px">Tu reserva está confirmada. ¡Nos vemos pronto!</div>
+        <div class="confirm-box">
+          <div class="confirm-box-title">Resumen de tu visita</div>
+          <div class="confirm-row"><span class="confirm-icon">🏗</span><span id="confirm-project">—</span></div>
+          <div class="confirm-row"><span class="confirm-icon">📅</span><span id="confirm-date">—</span></div>
+          <div class="confirm-row"><span class="confirm-icon">⏰</span><span id="confirm-time">—</span></div>
+          <div class="confirm-row"><span class="confirm-icon">📍</span><span id="confirm-type">—</span></div>
+        </div>
+        <div class="next-steps">
+          <div class="next-steps-title">¿Qué sigue?</div>
+          <div class="next-step-item"><div class="next-step-num">1</div><span>Recibirás un email de confirmación con los detalles</span></div>
+          <div class="next-step-item"><div class="next-step-num">2</div><span>Tu asesor te llamará en menos de 2 horas</span></div>
+          <div class="next-step-item"><div class="next-step-num">3</div><span>Te enviamos el link de la reunión o la dirección de la visita</span></div>
+        </div>
+        <a href="/" class="visit-outline-btn">Explorar más proyectos</a>
+        <span class="visit-dismiss-link" onclick="closeVisitModal()">Cerrar</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+
+/* ── Project data ── */
+var projects = {
+  kashi: {
+    name: 'Kashi Santa Marta',
+    city: 'Santa Marta',
+    tipo: 'Apartamentos',
+    precio: '$320M',
+    precioNum: 320,
+    areaMin: 48, areaMax: 92,
+    entrega: 'Q3 2026',
+    roi: 12.4, roiStr: '12.4%',
+    tir: 16.8, tirStr: '16.8%',
+    plusvalia: 28, plusvaliaStr: '28%',
+    score: 8.6,
+    unidades: 34,
+    constructora: 'Grupo Kashi',
+    estado: 'En construcción'
+  },
+  alma: {
+    name: 'Alma Luxury Lofts',
+    city: 'Medellín',
+    tipo: 'Lofts de lujo',
+    precio: '$680M',
+    precioNum: 680,
+    areaMin: 65, areaMax: 130,
+    entrega: 'Q1 2027',
+    roi: 14.1, roiStr: '14.1%',
+    tir: 18.5, tirStr: '18.5%',
+    plusvalia: 35, plusvaliaStr: '35%',
+    score: 9.2,
+    unidades: 18,
+    constructora: 'Constructora Alma',
+    estado: 'Planos aprobados'
+  },
+  parque93: {
+    name: 'Parque 93 Residences',
+    city: 'Bogotá',
+    tipo: 'Apartamentos',
+    precio: '$540M',
+    precioNum: 540,
+    areaMin: 55, areaMax: 110,
+    entrega: 'Q4 2026',
+    roi: 11.8, roiStr: '11.8%',
+    tir: 15.3, tirStr: '15.3%',
+    plusvalia: 22, plusvaliaStr: '22%',
+    score: 8.1,
+    unidades: 56,
+    constructora: 'InmoCentro S.A.',
+    estado: 'En construcción'
+  },
+  laureles: {
+    name: 'Laureles 60',
+    city: 'Medellín',
+    tipo: 'Apartamentos',
+    precio: '$380M',
+    precioNum: 380,
+    areaMin: 52, areaMax: 88,
+    entrega: 'Q2 2027',
+    roi: 13.2, roiStr: '13.2%',
+    tir: 17.1, tirStr: '17.1%',
+    plusvalia: 30, plusvaliaStr: '30%',
+    score: 8.8,
+    unidades: 42,
+    constructora: 'Urbana Medellín',
+    estado: 'Preventa'
+  },
+  sanfernando: {
+    name: 'San Fernando Lofts',
+    city: 'Cali',
+    tipo: 'Lofts',
+    precio: '$720M',
+    precioNum: 720,
+    areaMin: 70, areaMax: 145,
+    entrega: 'Q2 2026',
+    roi: 15.0, roiStr: '15.0%',
+    tir: 19.2, tirStr: '19.2%',
+    plusvalia: 38, plusvaliaStr: '38%',
+    score: 9.5,
+    unidades: 12,
+    constructora: 'Desarrollo SF',
+    estado: 'Listo para entrega'
+  },
+  kaali: {
+    name: 'Torre Kaali Cartagena',
+    city: 'Cartagena',
+    tipo: 'Apartamentos frente al mar',
+    precio: '$480M',
+    precioNum: 480,
+    areaMin: 58, areaMax: 115,
+    entrega: 'Q1 2027',
+    roi: 13.7, roiStr: '13.7%',
+    tir: 17.9, tirStr: '17.9%',
+    plusvalia: 33, plusvaliaStr: '33%',
+    score: 9.0,
+    unidades: 28,
+    constructora: 'Grupo Kaali',
+    estado: 'En construcción'
+  }
+};
+
+/* Metrics definition: key, label, higherIsBetter (true), or lowerIsBetter (false) */
+var metrics = [
+  { key: 'precio',     label: 'Precio desde',        compare: false, render: function(p){ return p.precio; } },
+  { key: 'city',       label: 'Ciudad',               compare: null,  render: function(p){ return p.city; } },
+  { key: 'tipo',       label: 'Tipo',                 compare: null,  render: function(p){ return p.tipo; } },
+  { key: 'area',       label: 'Área mín / máx',       compare: true,  numKey: 'areaMax', render: function(p){ return p.areaMin + ' – ' + p.areaMax + ' m²'; } },
+  { key: 'entrega',    label: 'Entrega estimada',     compare: null,  render: function(p){ return p.entrega; } },
+  { key: 'roi',        label: 'ROI estimado',         compare: true,  numKey: 'roi', render: function(p){ return p.roiStr; } },
+  { key: 'tir',        label: 'TIR proyectada',       compare: true,  numKey: 'tir', render: function(p){ return p.tirStr; } },
+  { key: 'plusvalia',  label: 'Plusvalía esperada',   compare: true,  numKey: 'plusvalia', render: function(p){ return p.plusvaliaStr; } },
+  { key: 'score',      label: 'Score Zonum',          compare: true,  numKey: 'score', render: null },
+  { key: 'unidades',   label: 'Unidades disponibles', compare: false, numKey: 'unidades', render: function(p){ return p.unidades + ' uds.'; } },
+  { key: 'constructora', label: 'Constructora',       compare: null,  render: function(p){ return p.constructora; } },
+  { key: 'estado',     label: 'Estado obra',          compare: null,  render: function(p){ return p.estado; } }
+];
+
+var selected = [null, null, null];
+
+window.onSelectChange = function(col) {
+  var val = document.getElementById('sel' + col).value;
+  selected[col] = val || null;
+  renderCompare();
+};
+
+function renderCompare() {
+  var filled = selected.filter(function(s){ return s; });
+  var emptyState = document.getElementById('emptyState');
+  var compareSection = document.getElementById('compareSection');
+
+  if (filled.length < 2) {
+    emptyState.style.display = 'block';
+    compareSection.style.display = 'none';
+    return;
+  }
+
+  emptyState.style.display = 'none';
+  compareSection.style.display = 'block';
+
+  var hasTh2 = !!selected[2];
+  document.getElementById('th2').style.display = hasTh2 ? '' : 'none';
+
+  /* Render column headers */
+  for (var c = 0; c < 3; c++) {
+    var th = document.getElementById('th' + c);
+    if (selected[c]) {
+      var p = projects[selected[c]];
+      th.innerHTML = '<div class="proj-name">' + p.name + '</div><div class="proj-city">' + p.city + '</div>';
+    } else {
+      th.innerHTML = '';
+    }
+    if (c === 2) th.style.display = hasTh2 ? '' : 'none';
+  }
+
+  /* Render table body */
+  var tbody = document.getElementById('compareBody');
+  tbody.innerHTML = '';
+
+  metrics.forEach(function(m) {
+    var tr = document.createElement('tr');
+
+    /* Label cell */
+    var labelTd = document.createElement('td');
+    labelTd.textContent = m.label;
+    tr.appendChild(labelTd);
+
+    /* Determine winner column index for numeric metrics */
+    var winnerCol = -1;
+    if (m.compare !== null && m.numKey) {
+      var vals = [];
+      for (var c = 0; c < 3; c++) {
+        if (selected[c]) vals.push({ col: c, val: projects[selected[c]][m.numKey] });
+      }
+      if (vals.length >= 2) {
+        if (m.compare === true) {
+          vals.sort(function(a,b){ return b.val - a.val; });
+        } else {
+          vals.sort(function(a,b){ return a.val - b.val; });
+        }
+        winnerCol = vals[0].col;
+      }
+    }
+
+    /* Data cells */
+    for (var col = 0; col < 3; col++) {
+      var td = document.createElement('td');
+      if (col === 2) td.style.display = hasTh2 ? '' : 'none';
+
+      if (!selected[col]) {
+        td.className = 'empty-cell';
+        td.textContent = '—';
+        tr.appendChild(td);
+        continue;
+      }
+
+      var proj = projects[selected[col]];
+      if (winnerCol === col) td.classList.add('winner');
+
+      if (m.key === 'score') {
+        /* Score bar */
+        var wrap = document.createElement('div');
+        wrap.className = 'score-bar-wrap';
+        var track = document.createElement('div');
+        track.className = 'score-bar-track';
+        var fill = document.createElement('div');
+        fill.className = 'score-bar-fill';
+        fill.style.width = (proj.score * 10) + '%';
+        var scoreVal = document.createElement('span');
+        scoreVal.className = 'score-val';
+        scoreVal.textContent = proj.score;
+        track.appendChild(fill);
+        wrap.appendChild(track);
+        wrap.appendChild(scoreVal);
+        td.appendChild(wrap);
+      } else {
+        td.textContent = m.render(proj);
+      }
+
+      tr.appendChild(td);
+    }
+
+    tbody.appendChild(tr);
+  });
+
+  /* CTA row */
+  renderCtaRow(hasTh2);
+}
+
+function renderCtaRow(hasTh2) {
+  var ctaRow = document.getElementById('ctaRow');
+  ctaRow.innerHTML = '';
+
+  /* Match grid to number of active columns */
+  var activeCols = selected.filter(function(s){ return s; }).length;
+  ctaRow.style.gridTemplateColumns = 'repeat(' + activeCols + ',1fr)';
+
+  var rendered = 0;
+  for (var c = 0; c < 3; c++) {
+    if (!selected[c]) continue;
+    var p = projects[selected[c]];
+    var card = document.createElement('div');
+    card.className = 'cta-card';
+    card.innerHTML =
+      '<div class="cta-card-name">' + p.name + '</div>' +
+      '<div class="cta-card-price">Desde ' + p.precio + '</div>' +
+      '<button class="cta-btn" onclick="openVisitModal(\'' + p.name + '\',\'' + p.city + '\')">Agendar visita</button>' +
+      '<a href="#" class="cta-link">Ver ficha completa →</a>';
+    ctaRow.appendChild(card);
+    rendered++;
+  }
+}
+
+/* ── Hamburger ── */
+var hamburger = document.getElementById('hamburgerBtn');
+var mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', function(e){
+  e.stopPropagation();
+  mobileMenu.classList.toggle('open');
+});
+document.addEventListener('click', function(e){
+  if (!mobileMenu.contains(e.target) && e.target !== hamburger) {
+    mobileMenu.classList.remove('open');
+  }
+});
+
+/* ── Visit Modal ── */
+var vState = { step:1, city:'', project:'', visitType:'Virtual', calYear:0, calMonth:0, selDate:null, selTime:'', availDays:[] };
+var cityProjects = {
+  'Bogotá': ['Parque 93 Residences','Park 100','Reserva El Nogal'],
+  'Medellín': ['Alma Luxury Lofts','Laureles 60','Arboleda Park'],
+  'Cartagena': ['Torre Kaali Cartagena','Baru Bay','Marina del Caribe'],
+  'Santa Marta': ['Kashi Santa Marta','Playa Salguero','El Rodadero'],
+  'Cali': ['San Fernando Lofts','Ciudad Jardín','Menga Hills'],
+  'Barranquilla': ['Prado Living','El Prado Sky','Miramar 80'],
+  'Otra ciudad': ['Proyecto en otra ciudad']
+};
+var allSlots = ['9:00 am','10:00 am','11:00 am','2:00 pm','3:00 pm','4:00 pm','5:00 pm'];
+var offSlots = ['11:00 am','4:00 pm'];
+
+window.openVisitModal = function(projectName, city) {
+  resetModal();
+  if (city) {
+    vState.city = city;
+    document.querySelectorAll('.city-pill').forEach(function(p){
+      if (p.textContent.trim().indexOf(city) !== -1) p.classList.add('sel');
+    });
+    showProjectSelect(city);
+    if (projectName) {
+      vState.project = projectName;
+      setTimeout(function(){
+        var sel = document.getElementById('projectSelect');
+        for (var i = 0; i < sel.options.length; i++) {
+          if (sel.options[i].value === projectName) { sel.selectedIndex = i; break; }
+        }
+        onProjectChange();
+      }, 50);
+    }
+  }
+  updateLeftPanel();
+  document.getElementById('visitModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+};
+
+window.closeVisitModal = function() {
+  document.getElementById('visitModal').classList.remove('open');
+  document.body.style.overflow = '';
+};
+
+function resetModal() {
+  vState = { step:1, city:'', project:'', visitType:'Virtual', calYear:0, calMonth:0, selDate:null, selTime:'' };
+  goToStep(1);
+  document.querySelectorAll('.city-pill').forEach(function(p){ p.classList.remove('sel'); });
+  document.querySelectorAll('.investor-pill,.budget-pill').forEach(function(p){ p.classList.remove('sel'); });
+  document.getElementById('projectSelectWrap').classList.remove('show');
+  document.getElementById('visitNombre').value = '';
+  document.getElementById('visitEmail').value = '';
+  document.getElementById('visitTel').value = '';
+  document.getElementById('step1Cta').disabled = true;
+  document.getElementById('step2Cta').disabled = true;
+  document.getElementById('step3Cta').disabled = true;
+  document.getElementById('vtype-virtual').classList.add('sel');
+  document.getElementById('vtype-presencial').classList.remove('sel');
+  vState.visitType = 'Virtual';
+}
+
+window.nextStep = function() { if (vState.step < 4) { vState.step++; goToStep(vState.step); } };
+window.prevStep = function() { if (vState.step > 1) { vState.step--; goToStep(vState.step); } };
+
+function goToStep(n) {
+  vState.step = n;
+  for (var i = 1; i <= 4; i++) {
+    var s = document.getElementById('vstep-' + i);
+    if (s) s.classList.toggle('active', i === n);
+  }
+  for (var j = 1; j <= 3; j++) {
+    var d = document.getElementById('vldot-' + j);
+    if (d) d.classList.toggle('active', j === n || j < n);
+  }
+  if (n === 2) initCalendar();
+  document.getElementById('visitModal').querySelector('.visit-right').scrollTop = 0;
+}
+
+window.selectCity = function(city, el) {
+  vState.city = city; vState.project = '';
+  document.querySelectorAll('.city-pill').forEach(function(p){ p.classList.remove('sel'); });
+  el.classList.add('sel');
+  showProjectSelect(city);
+  document.getElementById('step1Cta').disabled = true;
+  updateLeftPanel();
+};
+
+function showProjectSelect(city) {
+  var wrap = document.getElementById('projectSelectWrap');
+  wrap.classList.add('show');
+  var sel = document.getElementById('projectSelect');
+  sel.innerHTML = '<option value="">Seleccionar proyecto...</option>';
+  var projs = cityProjects[city] || [];
+  projs.forEach(function(p) { var o = document.createElement('option'); o.value = p; o.textContent = p; sel.appendChild(o); });
+  vState.project = '';
+}
+
+window.onProjectChange = function() {
+  var sel = document.getElementById('projectSelect');
+  vState.project = sel.value;
+  document.getElementById('step1Cta').disabled = !vState.project;
+  updateLeftPanel();
+};
+
+window.selectVisitType = function(type, el) {
+  vState.visitType = type;
+  document.querySelectorAll('.vtype-pill').forEach(function(p){ p.classList.remove('sel'); });
+  el.classList.add('sel');
+};
+
+window.selectPill = function(el, group) {
+  el.parentElement.querySelectorAll('button').forEach(function(b){ b.classList.remove('sel'); });
+  el.classList.add('sel');
+  validateStep3();
+};
+
+function initCalendar() {
+  var now = new Date();
+  if (!vState.calYear) { vState.calYear = now.getFullYear(); vState.calMonth = now.getMonth(); }
+  renderCalendar();
+}
+
+window.changeMonth = function(dir) {
+  vState.calMonth += dir;
+  if (vState.calMonth > 11) { vState.calMonth = 0; vState.calYear++; }
+  if (vState.calMonth < 0) { vState.calMonth = 11; vState.calYear--; }
+  vState.selDate = null; vState.selTime = '';
+  document.getElementById('step2Cta').disabled = true;
+  document.getElementById('timeSlotsWrap').classList.remove('show');
+  renderCalendar();
+};
+
+function renderCalendar() {
+  var months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+  document.getElementById('calMonth').textContent = months[vState.calMonth] + ' ' + vState.calYear;
+  var grid = document.getElementById('calGrid');
+  grid.innerHTML = '';
+  var today = new Date(); today.setHours(0,0,0,0);
+  var firstDay = new Date(vState.calYear, vState.calMonth, 1);
+  var lastDay = new Date(vState.calYear, vState.calMonth + 1, 0);
+  var startDow = (firstDay.getDay() + 6) % 7;
+  var availSet = {};
+  [2,3,5,7,9,10,12,14,16,17,19,21,23,24,26,28].forEach(function(d){ if (d <= lastDay.getDate()) availSet[d] = true; });
+  for (var e = 0; e < startDow; e++) { var emp = document.createElement('div'); emp.className = 'cal-day empty'; grid.appendChild(emp); }
+  for (var d = 1; d <= lastDay.getDate(); d++) {
+    var cell = document.createElement('button');
+    cell.textContent = d;
+    var thisDate = new Date(vState.calYear, vState.calMonth, d);
+    if (thisDate < today || !availSet[d]) {
+      cell.className = 'cal-day past'; cell.disabled = true;
+    } else {
+      cell.className = 'cal-day avail';
+      if (vState.selDate && vState.selDate.getDate() === d && vState.selDate.getMonth() === vState.calMonth) cell.classList.add('sel');
+      (function(day, btn){ btn.onclick = function(){ selectDay(day, btn); }; })(thisDate, cell);
+    }
+    grid.appendChild(cell);
+  }
+}
+
+function selectDay(date, btn) {
+  vState.selDate = date; vState.selTime = '';
+  document.getElementById('step2Cta').disabled = true;
+  document.querySelectorAll('#calGrid .cal-day').forEach(function(c){ c.classList.remove('sel'); });
+  btn.classList.add('sel');
+  renderTimeSlots();
+  document.getElementById('timeSlotsWrap').classList.add('show');
+}
+
+function renderTimeSlots() {
+  var container = document.getElementById('timeSlots');
+  container.innerHTML = '';
+  allSlots.forEach(function(t) {
+    var btn = document.createElement('button');
+    btn.className = 'time-slot' + (offSlots.indexOf(t) !== -1 ? ' off' : '');
+    btn.textContent = t;
+    if (offSlots.indexOf(t) === -1) {
+      btn.onclick = function() {
+        vState.selTime = t;
+        document.querySelectorAll('.time-slot').forEach(function(s){ s.classList.remove('sel'); });
+        btn.classList.add('sel');
+        document.getElementById('step2Cta').disabled = false;
+      };
+    }
+    container.appendChild(btn);
+  });
+}
+
+window.validateStep3 = function() {
+  var nombre = document.getElementById('visitNombre').value.trim();
+  var email = document.getElementById('visitEmail').value.trim();
+  document.getElementById('step3Cta').disabled = !(nombre && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
+};
+
+window.submitVisit = function() {
+  var months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+  document.getElementById('confirm-project').textContent = vState.project || 'Proyecto seleccionado';
+  document.getElementById('confirm-date').textContent = vState.selDate ? (vState.selDate.getDate() + ' de ' + months[vState.selDate.getMonth()] + ' ' + vState.selDate.getFullYear()) : '—';
+  document.getElementById('confirm-time').textContent = vState.selTime || '—';
+  document.getElementById('confirm-type').textContent = vState.visitType;
+  goToStep(4);
+};
+
+function updateLeftPanel() {
+  var name = vState.project || (vState.city ? 'Proyectos en ' + vState.city : 'Proyectos seleccionados');
+  document.getElementById('vl-project-name').textContent = name;
+  document.getElementById('vl-project-loc-text').textContent = vState.city || 'Colombia';
+}
+
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeVisitModal(); });
+document.getElementById('visitModal').addEventListener('click', function(e){ if (e.target === this) closeVisitModal(); });
+
+})();
+</script>

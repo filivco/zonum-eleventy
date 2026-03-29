@@ -1,0 +1,336 @@
+---
+layout: base.njk
+title: "Zonum Insights — Análisis del mercado inmobiliario en Colombia"
+description: "Análisis independientes del mercado inmobiliario en Colombia: valorización por ciudad, tendencias de arriendo, ROI por zona y guías para inversores."
+extra_css: |
+  /* Hero */
+  .hero{background:#0D2B44;padding:56px 28px 48px;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 600px 300px at 80% 50%,rgba(26,79,122,0.3) 0%,transparent 70%)}
+  .hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+  .hero-eyebrow{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#B8975A;margin-bottom:12px;font-weight:500}
+  .hero-title{font-family:var(--font-heading);font-size:38px;font-weight:500;color:#fff;line-height:1.15;margin-bottom:12px;max-width:640px}
+  .hero-sub{font-size:14px;color:#A8C4DC;line-height:1.7;max-width:520px;margin-bottom:36px}
+  .hero-search{display:flex;gap:0;max-width:480px}
+  .hero-search input{flex:1;padding:12px 16px;background:rgba(255,255,255,0.08);border:0.5px solid rgba(168,196,220,0.25);border-right:none;border-radius:8px 0 0 8px;font-size:13px;color:#fff;font-family:inherit;outline:none}
+  .hero-search input::placeholder{color:#5A8CB5}
+  .hero-search button{padding:12px 20px;background:#B8975A;color:#fff;border:none;border-radius:0 8px 8px 0;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}
+
+  /* Filter pills */
+  .filter-bar{background:var(--color-background-primary);border-bottom:0.5px solid var(--color-border-tertiary);padding:0 28px}
+  .filter-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:8px;padding:14px 0;flex-wrap:wrap}
+  .filter-label{font-size:11px;color:#888078;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-right:4px}
+  .filter-pill{padding:6px 14px;border-radius:999px;font-size:12px;cursor:pointer;font-weight:500;border:0.5px solid var(--color-border-secondary);background:#fff;color:#6B6560;transition:all 0.15s;font-family:inherit}
+  .filter-pill.active{background:#1A4F7A;color:#fff;border-color:#1A4F7A}
+  .filter-pill:hover:not(.active){background:#F2EEE6}
+
+  /* Main layout */
+  .main-inner{max-width:1200px;margin:0 auto;padding:40px 28px}
+
+  /* Featured article */
+  .featured{display:grid;grid-template-columns:1.4fr 1fr;gap:0;background:var(--color-background-primary);border-radius:20px;border:0.5px solid var(--color-border-tertiary);overflow:hidden;margin-bottom:40px;cursor:pointer}
+  .featured:hover .featured-title{color:#1A4F7A}
+  .featured-img{height:360px;object-fit:cover;width:100%;display:block;background:#DDE9F4}
+  .featured-body{padding:40px}
+  .featured-cat{font-size:10px;color:#B8975A;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:6px}
+  .featured-cat::before{content:'★';color:#B8975A}
+  .featured-title{font-family:var(--font-heading);font-size:26px;font-weight:500;color:#3A3530;line-height:1.2;margin-bottom:14px;transition:color 0.15s}
+  .featured-excerpt{font-size:14px;color:#6B6560;line-height:1.7;margin-bottom:24px}
+  .featured-meta{display:flex;align-items:center;gap:16px;font-size:11px;color:#888078;margin-bottom:28px}
+  .featured-cta{display:inline-block;background:#1A4F7A;color:#fff;border:none;border-radius:8px;padding:11px 20px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none}
+  .featured-badge{display:inline-flex;align-items:center;gap:5px;background:#DDE9F4;border-radius:6px;padding:3px 10px;font-size:10px;font-weight:600;color:#1A4F7A;margin-bottom:16px}
+
+  /* Articles grid */
+  .section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+  .section-title{font-family:var(--font-heading);font-size:18px;font-weight:500;color:#3A3530}
+  .section-link{font-size:12px;color:#1A4F7A;font-weight:500;cursor:pointer;text-decoration:none}
+  .articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px}
+  .acard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:16px;overflow:hidden;cursor:pointer;transition:box-shadow 0.2s}
+  .acard:hover{box-shadow:0 4px 20px rgba(0,0,0,0.08)}
+  .acard:hover .acard-title{color:#1A4F7A}
+  .acard-img{height:160px;object-fit:cover;width:100%;display:block;background:var(--color-background-secondary)}
+  .acard-body{padding:20px}
+  .acard-cat{font-size:10px;color:#B8975A;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px}
+  .acard-title{font-family:var(--font-heading);font-size:16px;font-weight:500;color:#3A3530;margin-bottom:8px;line-height:1.3;transition:color 0.15s}
+  .acard-excerpt{font-size:12px;color:#6B6560;line-height:1.6;margin-bottom:14px}
+  .acard-footer{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:#888078}
+  .acard-read{color:#1A4F7A;font-weight:500;font-size:11px}
+  .acard-coming{display:inline-block;background:#F2EEE6;border-radius:4px;padding:2px 8px;font-size:10px;color:#888078;font-weight:500}
+
+  /* Stats band */
+  .stats-band{background:#EFF4F9;border-radius:16px;padding:28px;margin-bottom:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .stat-item{text-align:center;border-right:0.5px solid rgba(26,79,122,0.15);padding:0 20px}
+  .stat-item:last-child{border-right:none}
+  .stat-val{font-family:var(--font-heading);font-size:28px;font-weight:500;color:#1A4F7A;margin-bottom:4px}
+  .stat-lbl{font-size:11px;color:#6B6560;line-height:1.4}
+
+  /* Newsletter */
+  .newsletter{background:#0D2B44;border-radius:20px;padding:48px;display:grid;grid-template-columns:1fr 400px;gap:40px;align-items:center;margin-bottom:40px}
+  .nl-title{font-family:var(--font-heading);font-size:26px;font-weight:500;color:#fff;margin-bottom:8px;line-height:1.2}
+  .nl-sub{font-size:14px;color:#A8C4DC;line-height:1.6}
+  .nl-form{display:flex;flex-direction:column;gap:10px}
+  .nl-input{padding:12px 16px;border:0.5px solid rgba(168,196,220,0.25);border-radius:8px;font-size:13px;color:#fff;font-family:inherit;background:rgba(255,255,255,0.07);outline:none}
+  .nl-input::placeholder{color:#5A8CB5}
+  .nl-btn{background:#B8975A;color:#fff;border:none;border-radius:8px;padding:12px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit}
+  .nl-btn:hover{background:#A07A46}
+  .nl-note{font-size:11px;color:#5A8CB5;line-height:1.5}
+
+  /* City tabs */
+  .city-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+  .city-tab{padding:7px 16px;border-radius:999px;font-size:12px;cursor:pointer;font-weight:500;border:0.5px solid var(--color-border-secondary);background:#fff;color:#6B6560;font-family:inherit}
+  .city-tab.active{background:#1A4F7A;color:#fff;border-color:#1A4F7A}
+
+  @media(max-width:900px){
+    .featured{grid-template-columns:1fr}
+    .featured-img{height:240px}
+    .articles-grid{grid-template-columns:1fr 1fr}
+    .newsletter{grid-template-columns:1fr}
+    .stats-band{grid-template-columns:1fr 1fr}
+    .stat-item:nth-child(2){border-right:none}
+  }
+  @media(max-width:600px){
+    .hero-title{font-size:28px}
+    .articles-grid{grid-template-columns:1fr}
+    .stats-band{grid-template-columns:1fr 1fr}
+    .newsletter{padding:28px}
+  }
+---
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="breadcrumb" style="font-size:12px;color:#A8C4DC;margin-bottom:16px;display:flex;gap:6px">
+      <a href="/" style="color:#A8C4DC;text-decoration:none">Inicio</a>
+      <span style="color:#5A8CB5;font-size:10px">›</span>
+      <span>Zonum Insights</span>
+    </div>
+    <div class="hero-eyebrow">Zonum Insights</div>
+    <h1 class="hero-title">El mercado inmobiliario explicado con datos reales</h1>
+    <p class="hero-sub">Análisis independientes de valorización, ROI por zona, tendencias de arriendo y guías prácticas para inversores en Colombia, el Caribe y Miami.</p>
+    <div class="hero-search">
+      <input type="text" id="search-input" placeholder="Buscar análisis: Medellín, ROI, Cartagena…" onkeydown="if(event.key==='Enter')doSearch()">
+      <button onclick="doSearch()">Buscar</button>
+    </div>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <span class="filter-label">Filtrar por:</span>
+    <button class="filter-pill active" data-filter="all" onclick="filterArticles('all',this)">Todo</button>
+    <button class="filter-pill" data-filter="mercado" onclick="filterArticles('mercado',this)">Mercado</button>
+    <button class="filter-pill" data-filter="inversion" onclick="filterArticles('inversion',this)">Inversión</button>
+    <button class="filter-pill" data-filter="ciudad" onclick="filterArticles('ciudad',this)">Por ciudad</button>
+    <button class="filter-pill" data-filter="guia" onclick="filterArticles('guia',this)">Guías</button>
+    <button class="filter-pill" data-filter="elite" onclick="filterArticles('elite',this)" style="color:#B8975A;border-color:#E8DCC8">★ Elite</button>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div style="background:#F2EEE6;padding-bottom:60px">
+<div class="main-inner">
+
+  <!-- FEATURED -->
+  <div class="featured" onclick="location.href='/insights/medellin-valorizacion/'">
+    <img class="featured-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80&fit=crop" alt="Medellín skyline">
+    <div class="featured-body">
+      <div class="featured-badge">📈 Más leído esta semana</div>
+      <div class="featured-cat">Mercado · Medellín</div>
+      <h2 class="featured-title">Valorización en Medellín 2024–2028: datos reales para invertir con certeza</h2>
+      <p class="featured-excerpt">¿Cuánto vale el m² en El Poblado hoy? ¿Qué zonas tienen el mayor potencial de valorización? Datos de Zonum + Lonja de Medellín, análisis independiente.</p>
+      <div class="featured-meta">
+        <span>📅 Marzo 2026</span>
+        <span>⏱ 15 min de lectura</span>
+        <span>👁 4.2K lecturas</span>
+      </div>
+      <a class="featured-cta" href="/insights/medellin-valorizacion/">Leer análisis completo →</a>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-band">
+    <div class="stat-item">
+      <div class="stat-val">42</div>
+      <div class="stat-lbl">análisis publicados<br>desde 2022</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val">12</div>
+      <div class="stat-lbl">ciudades y mercados<br>cubiertos</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val">18K</div>
+      <div class="stat-lbl">lectores mensuales<br>promedio</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val">100%</div>
+      <div class="stat-lbl">datos de fuentes<br>independientes</div>
+    </div>
+  </div>
+
+  <!-- ARTICLES GRID -->
+  <div class="section-header">
+    <div class="section-title">Análisis recientes</div>
+  </div>
+
+  <div class="city-tabs">
+    <button class="city-tab active" onclick="filterCity('all',this)">Todos</button>
+    <button class="city-tab" onclick="filterCity('medellin',this)">Medellín</button>
+    <button class="city-tab" onclick="filterCity('cartagena',this)">Cartagena</button>
+    <button class="city-tab" onclick="filterCity('bogota',this)">Bogotá</button>
+    <button class="city-tab" onclick="filterCity('miami',this)">Miami</button>
+    <button class="city-tab" onclick="filterCity('caribe',this)">Caribe</button>
+  </div>
+
+  <div class="articles-grid" id="articles-grid">
+
+    <div class="acard" data-city="medellin" data-cat="mercado" onclick="location.href='/insights/medellin-valorizacion/'">
+      <img class="acard-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=70&fit=crop" alt="Medellín">
+      <div class="acard-body">
+        <div class="acard-cat">Mercado · Medellín</div>
+        <div class="acard-title">Valorización en Medellín 2024–2028</div>
+        <p class="acard-excerpt">Precio por m² por zona, ROI verificado y proyecciones para el inversor que quiere datos reales.</p>
+        <div class="acard-footer"><span>Marzo 2026 · 15 min</span><span class="acard-read">Leer →</span></div>
+      </div>
+    </div>
+
+    <div class="acard" data-city="cartagena" data-cat="ciudad" onclick="location.href='/buscar/?ciudad=cartagena'">
+      <img class="acard-img" src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=500&q=70&fit=crop" alt="Cartagena">
+      <div class="acard-body">
+        <div class="acard-cat">Ciudad · Cartagena</div>
+        <div class="acard-title">Cartagena 2025: el boom del Caribe colombiano</div>
+        <p class="acard-excerpt">Bocagrande, Getsemaní y Manga: las tres zonas con mayor rentabilidad en el mercado de arriendo turístico.</p>
+        <div class="acard-footer"><span>Próximamente</span><span class="acard-coming">En preparación</span></div>
+      </div>
+    </div>
+
+    <div class="acard" data-city="all" data-cat="inversion" onclick="location.href='/calculadora/'">
+      <div class="acard-img" style="background:linear-gradient(135deg,#0D2B44 0%,#1A4F7A 100%);display:flex;align-items:center;justify-content:center">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="8" y="10" width="32" height="28" rx="4" stroke="#A8C4DC" stroke-width="1.5"/><path d="M16 30l6-8 6 4 8-10" stroke="#B8975A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="acard-body">
+        <div class="acard-cat">Inversión · Herramienta</div>
+        <div class="acard-title">Cómo calcular el ROI real de un proyecto inmobiliario</div>
+        <p class="acard-excerpt">Guía paso a paso para evaluar un proyecto nuevo: qué incluir, qué excluir y cómo comparar escenarios.</p>
+        <div class="acard-footer"><span>Febrero 2026 · 8 min</span><span class="acard-read">Leer →</span></div>
+      </div>
+    </div>
+
+    <div class="acard" data-city="bogota" data-cat="ciudad" onclick="location.href='/buscar/?ciudad=bogota'">
+      <img class="acard-img" src="https://images.unsplash.com/photo-1570641963303-92ce4845ed4c?w=500&q=70&fit=crop" alt="Bogotá">
+      <div class="acard-body">
+        <div class="acard-cat">Ciudad · Bogotá</div>
+        <div class="acard-title">Bogotá estratos 4–6: dónde está la rentabilidad en 2025</div>
+        <p class="acard-excerpt">El Chico, Rosales y Usaquén siguen siendo el norte rentable, pero Chapinero y La Candelaria abren oportunidades inesperadas.</p>
+        <div class="acard-footer"><span>Próximamente</span><span class="acard-coming">En preparación</span></div>
+      </div>
+    </div>
+
+    <div class="acard" data-city="all" data-cat="guia" onclick="location.href='/sobre-zonum/'">
+      <div class="acard-img" style="background:linear-gradient(135deg,#5A3E1A 0%,#B8975A 100%);display:flex;align-items:center;justify-content:center">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="10" y="8" width="28" height="32" rx="3" stroke="#fff" stroke-width="1.5" opacity="0.8"/><path d="M16 18h16M16 24h16M16 30h10" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/></svg>
+      </div>
+      <div class="acard-body">
+        <div class="acard-cat">Guía · Extranjeros</div>
+        <div class="acard-title">Cómo comprar propiedad nueva en Colombia siendo extranjero</div>
+        <p class="acard-excerpt">Promesa de compraventa, fiducia inmobiliaria, declaración de cambio y registro: el proceso completo en 6 pasos.</p>
+        <div class="acard-footer"><span>Enero 2026 · 12 min</span><span class="acard-read">Leer →</span></div>
+      </div>
+    </div>
+
+    <div class="acard" data-city="caribe" data-cat="elite" onclick="location.href='/elite/'">
+      <img class="acard-img" src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=500&q=70&fit=crop" alt="Caribe">
+      <div class="acard-body">
+        <div class="acard-cat" style="color:#B8975A">★ Elite · Caribe</div>
+        <div class="acard-title">San Andrés y el mercado de propiedades USD en el Caribe colombiano</div>
+        <p class="acard-excerpt">Los proyectos de lujo frente al mar en San Andrés generan los ROI más altos de Colombia. Análisis de oferta y demanda.</p>
+        <div class="acard-footer"><span>Próximamente</span><span class="acard-coming" style="background:#FAF5EA;color:#B8975A">★ Elite</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- NEWSLETTER -->
+  <div class="newsletter">
+    <div>
+      <div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#B8975A;margin-bottom:10px;font-weight:500">Newsletter semanal</div>
+      <div class="nl-title">Recibe el análisis antes que nadie</div>
+      <p class="nl-sub">Cada semana: un análisis de mercado, datos de valorización y los proyectos con mejor relación riesgo-retorno. Sin spam, cancelación en un clic.</p>
+    </div>
+    <div class="nl-form">
+      <input class="nl-input" type="text" id="nl-name" placeholder="Tu nombre">
+      <input class="nl-input" type="email" id="nl-email" placeholder="Correo electrónico">
+      <select class="nl-input" id="nl-ciudad" style="appearance:none;cursor:pointer;background:rgba(255,255,255,0.07)">
+        <option value="" style="background:#1A4F7A">Ciudad de interés</option>
+        <option value="medellin" style="background:#1A4F7A">Medellín</option>
+        <option value="cartagena" style="background:#1A4F7A">Cartagena</option>
+        <option value="bogota" style="background:#1A4F7A">Bogotá</option>
+        <option value="miami" style="background:#1A4F7A">Miami</option>
+        <option value="caribe" style="background:#1A4F7A">Caribe / San Andrés</option>
+      </select>
+      <button class="nl-btn" id="nl-btn" onclick="subscribeNewsletter()">Suscribirme gratis →</button>
+      <div id="nl-success" style="display:none;background:rgba(184,151,90,0.15);border-radius:8px;padding:12px;font-size:12px;color:#B8975A;font-weight:500;text-align:center">✅ ¡Listo! Te enviamos el primer análisis esta semana.</div>
+      <p class="nl-note">Sin spam. Cancela en cualquier momento. Tus datos están protegidos por nuestra Política de Privacidad.</p>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="display:flex;align-items:center;justify-content:space-between;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:16px;padding:28px;flex-wrap:wrap;gap:20px">
+    <div>
+      <div style="font-family:var(--font-heading);font-size:18px;color:#3A3530;margin-bottom:6px">¿Los análisis te convencieron?</div>
+      <p style="font-size:13px;color:#6B6560">Explora los proyectos verificados o calcula el retorno de tu inversión.</p>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <button onclick="location.href='/buscar/'" style="background:#1A4F7A;color:#fff;border:none;border-radius:8px;padding:11px 20px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">Ver proyectos →</button>
+      <button onclick="location.href='/calculadora/'" style="background:transparent;color:#1A4F7A;border:0.5px solid #1A4F7A;border-radius:8px;padding:11px 20px;font-size:13px;cursor:pointer;font-family:inherit">Calculadora de ROI</button>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<script>
+(function(){
+  var hBtn=document.getElementById('hamburgerBtn'),mMenu=document.getElementById('mobileMenu');
+  if(hBtn)hBtn.addEventListener('click',function(e){e.stopPropagation();mMenu.classList.toggle('open');});
+  document.addEventListener('click',function(e){if(mMenu&&!mMenu.contains(e.target)&&e.target!==hBtn)mMenu.classList.remove('open');});
+})();
+
+function doSearch(){
+  var q=document.getElementById('search-input').value.trim().toLowerCase();
+  if(!q) return;
+  var cityMap={medellin:'medellin',medellín:'medellin',cartagena:'cartagena',bogota:'bogota',bogotá:'bogota',miami:'miami'};
+  for(var key in cityMap){
+    if(q.indexOf(key)>-1){location.href='/buscar/?ciudad='+cityMap[key];return;}
+  }
+  location.href='/buscar/';
+}
+
+function filterArticles(cat, btn){
+  document.querySelectorAll('.filter-pill').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  var cards=document.querySelectorAll('.acard');
+  cards.forEach(function(c){
+    c.style.display=(cat==='all'||c.getAttribute('data-cat')===cat)?'block':'none';
+  });
+}
+
+function filterCity(city, btn){
+  document.querySelectorAll('.city-tab').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  var cards=document.querySelectorAll('.acard');
+  cards.forEach(function(c){
+    var cardCity=c.getAttribute('data-city');
+    c.style.display=(city==='all'||cardCity==='all'||cardCity===city)?'block':'none';
+  });
+}
+
+function subscribeNewsletter(){
+  var n=document.getElementById('nl-name').value.trim();
+  var e=document.getElementById('nl-email').value.trim();
+  if(!n||!e||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)){
+    alert('Por favor ingresa tu nombre y un correo válido.');return;
+  }
+  document.getElementById('nl-btn').style.display='none';
+  document.getElementById('nl-success').style.display='block';
+}
+</script>

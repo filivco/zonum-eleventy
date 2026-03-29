@@ -1,0 +1,202 @@
+---
+layout: base.njk
+title: "Cesiones disponibles — Zonum"
+description: "Unidades en cesión de los mejores proyectos inmobiliarios en Colombia. Kashi Santa Marta, Alma Luxury Lofts, Tuliv La Candelaria y más."
+extra_head: '<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>'
+extra_css: |
+  .page-hero{background:#0D2B44;padding:48px 28px 40px}
+  .page-hero-inner{max-width:1200px;margin:0 auto}
+  .breadcrumb{font-size:12px;color:#A8C4DC;margin-bottom:16px;display:flex;gap:6px;align-items:center}
+  .breadcrumb a{color:#A8C4DC;text-decoration:none}
+  .page-title{font-family:var(--font-heading);font-size:36px;font-weight:500;color:#fff;margin-bottom:8px;line-height:1.2}
+  .page-sub{font-size:14px;color:#A8C4DC;line-height:1.6;max-width:560px}
+  .filter-bar{background:var(--color-background-primary);border-bottom:.5px solid var(--color-border-tertiary);padding:16px 28px;position:sticky;top:57px;z-index:50}
+  .filter-bar-inner{max-width:1200px;margin:0 auto;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .filter-select{padding:8px 12px;border:.5px solid var(--color-border-secondary);border-radius:8px;font-size:13px;color:var(--color-text-primary);font-family:inherit;background:#fff;outline:none;cursor:pointer;min-width:140px}
+  .filter-select:focus{border-color:var(--azul-base)}
+  .filter-clear{font-size:12px;color:var(--azul-base);cursor:pointer;padding:8px 12px;border:.5px solid var(--azul-base);border-radius:8px;background:transparent;font-family:inherit;white-space:nowrap}
+  .results-count{font-size:12px;color:var(--color-text-tertiary);margin-left:auto}
+  .cesiones-wrap{max-width:1200px;margin:0 auto;padding:32px 28px 60px}
+  .cesiones-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .cesion-card{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:16px;overflow:hidden;transition:box-shadow .2s;display:flex;flex-direction:column}
+  .cesion-card:hover{box-shadow:0 6px 24px rgba(0,0,0,.09)}
+  .card-img{height:160px;overflow:hidden;position:relative;background:#DDE9F4}
+  .card-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+  .cesion-card:hover .card-img img{transform:scale(1.04)}
+  .card-badge{position:absolute;top:10px;left:10px;font-size:10px;padding:3px 9px;border-radius:8px;font-weight:600}
+  .badge-disponible{background:#E9F3E6;color:#1B5E20}
+  .badge-reservado{background:#FFF3E0;color:#E65100}
+  .badge-negociacion{background:#FFF8F0;color:#B8975A}
+  .card-body{padding:16px 18px;display:flex;flex-direction:column;flex:1;gap:6px}
+  .card-proyecto{font-size:11px;color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:.07em;font-weight:600}
+  .card-tipo{font-size:15px;font-weight:600;color:var(--color-text-primary);font-family:var(--font-heading)}
+  .card-detalles{display:flex;gap:12px;font-size:12px;color:var(--color-text-secondary)}
+  .card-precio{font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--azul-base);margin-top:4px}
+  .card-ganancia{font-size:11px;color:#1B5E20;background:#E9F3E6;padding:3px 8px;border-radius:999px;display:inline-flex;align-items:center;gap:3px;width:fit-content}
+  .card-footer{margin-top:auto;padding:12px 18px;border-top:.5px solid var(--color-border-tertiary);display:flex;gap:8px}
+  .btn-wa{flex:1;background:#25D366;color:#fff;border:none;border-radius:8px;padding:9px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;text-align:center;display:block}
+  .btn-wa:hover{background:#20BD5A}
+  .btn-info{flex:0 0 auto;background:transparent;border:.5px solid var(--color-border-secondary);border-radius:8px;padding:9px 14px;font-size:13px;color:var(--color-text-secondary);cursor:pointer;font-family:inherit;text-decoration:none;display:block}
+  .btn-info:hover{border-color:var(--azul-base);color:var(--azul-base)}
+  .empty-state{text-align:center;padding:80px 20px;color:var(--color-text-tertiary)}
+  .empty-state svg{margin:0 auto 16px;display:block}
+  .empty-title{font-family:var(--font-heading);font-size:18px;color:var(--color-text-primary);margin-bottom:8px}
+  @media(max-width:900px){.cesiones-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){.cesiones-grid{grid-template-columns:1fr}.filter-bar-inner{flex-direction:column;align-items:stretch}.results-count{margin-left:0}}
+---
+
+<script>
+window.CESIONES = {{ cesiones | dump | safe }};
+</script>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span style="color:#5A8CB5;font-size:10px">›</span>
+      <span style="color:#A8C4DC">Cesiones</span>
+    </div>
+    <h1 class="page-title">Cesiones disponibles</h1>
+    <p class="page-sub">Unidades en cesión con precios negociados directamente con el cedente. Sin intermediarios, con toda la información.</p>
+  </div>
+</div>
+
+<div x-data="cesionesApp()" x-init="init()">
+
+  <div class="filter-bar">
+    <div class="filter-bar-inner">
+
+      <select class="filter-select" x-model="filtros.ciudad" @change="filtrar()">
+        <option value="">Todas las ciudades</option>
+        <option value="Santa Marta">Santa Marta</option>
+        <option value="Medellín">Medellín</option>
+        <option value="Bogotá">Bogotá</option>
+      </select>
+
+      <select class="filter-select" x-model="filtros.proyecto" @change="filtrar()">
+        <option value="">Todos los proyectos</option>
+        <template x-for="p in proyectosUnicos" :key="p">
+          <option :value="p" x-text="p"></option>
+        </template>
+      </select>
+
+      <select class="filter-select" x-model="filtros.tipo" @change="filtrar()">
+        <option value="">Todos los tipos</option>
+        <option value="1 hab">1 habitación</option>
+        <option value="2 hab">2 habitaciones</option>
+        <option value="Loft">Loft</option>
+        <option value="Penthouse">Penthouse</option>
+        <option value="Dúplex">Dúplex</option>
+      </select>
+
+      <select class="filter-select" x-model="filtros.estado" @change="filtrar()">
+        <option value="">Cualquier estado</option>
+        <option value="disponible">Disponible</option>
+        <option value="en_negociacion">En negociación</option>
+      </select>
+
+      <button class="filter-clear" @click="limpiarFiltros()" x-show="hayFiltrosActivos()">
+        Limpiar filtros
+      </button>
+
+      <span class="results-count" x-text="resultados.length + ' cesión' + (resultados.length !== 1 ? 'es' : '')"></span>
+
+    </div>
+  </div>
+
+  <div class="cesiones-wrap">
+    <div class="cesiones-grid" x-show="resultados.length > 0">
+      <template x-for="c in resultados" :key="c.id">
+        <div class="cesion-card">
+          <div class="card-img">
+            <img :src="c.imagen || 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=70'" :alt="c.proyecto_nombre" loading="lazy">
+            <span class="card-badge"
+              :class="{'badge-disponible': c.estado === 'disponible', 'badge-reservado': c.estado === 'reservado', 'badge-negociacion': c.estado === 'en_negociacion'}"
+              x-text="c.estado === 'disponible' ? 'Disponible' : c.estado === 'en_negociacion' ? 'En negociación' : 'Reservado'">
+            </span>
+          </div>
+          <div class="card-body">
+            <div class="card-proyecto" x-text="c.proyecto_nombre + ' · ' + c.ciudad"></div>
+            <div class="card-tipo" x-text="c.tipo + (c.tipologia ? ' — Tipología ' + c.tipologia : '')"></div>
+            <div class="card-detalles">
+              <span x-show="c.m2" x-text="c.m2 + ' m²'"></span>
+              <span x-show="c.piso" x-text="'Piso ' + c.piso"></span>
+              <span x-show="c.vista" x-text="'Vista ' + c.vista"></span>
+              <span x-show="c.parqueadero" style="color:#1B5E20">P</span>
+            </div>
+            <div class="card-precio" x-text="formatCOP(c.precio_cesion)"></div>
+            <div class="card-ganancia" x-show="c.ganancia_cedente > 0">
+              <span>↑</span>
+              <span x-text="formatCOP(c.ganancia_cedente) + ' ganancia'"></span>
+            </div>
+            <div style="font-size:11px;color:var(--color-text-tertiary)" x-show="c.entrega_estimada">
+              Entrega: <span x-text="c.entrega_estimada"></span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a class="btn-wa"
+              :href="'https://wa.me/' + (c.whatsapp || '573001234567') + '?text=' + encodeURIComponent('Hola, me interesa la cesión ' + c.id + ' — ' + c.tipo + ' en ' + c.proyecto_nombre + ' (' + formatCOP(c.precio_cesion) + ')')"
+              target="_blank" rel="noopener">
+              WhatsApp →
+            </a>
+            <a class="btn-info" :href="'/proyectos/' + c.proyecto_slug + '/'">Ver proyecto</a>
+          </div>
+        </div>
+      </template>
+    </div>
+
+    <div class="empty-state" x-show="resultados.length === 0">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="24" r="20" stroke="#DDE9F4" stroke-width="2"/>
+        <path d="M16 24h16M24 16v16" stroke="#A8C4DC" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <div class="empty-title">Sin resultados</div>
+      <p style="font-size:13px;margin-bottom:20px">No hay cesiones con esos filtros. Intenta con otros criterios.</p>
+      <button @click="limpiarFiltros()" style="background:var(--azul-base);color:#fff;border:none;border-radius:8px;padding:10px 20px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">Ver todas las cesiones</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function cesionesApp() {
+  return {
+    todas: [],
+    resultados: [],
+    proyectosUnicos: [],
+    filtros: { ciudad: '', proyecto: '', tipo: '', estado: '' },
+
+    init() {
+      this.todas = window.CESIONES || [];
+      this.proyectosUnicos = [...new Set(this.todas.map(c => c.proyecto_nombre))].sort();
+      this.resultados = [...this.todas];
+    },
+
+    filtrar() {
+      this.resultados = this.todas.filter(c => {
+        if (this.filtros.ciudad && c.ciudad !== this.filtros.ciudad) return false;
+        if (this.filtros.proyecto && c.proyecto_nombre !== this.filtros.proyecto) return false;
+        if (this.filtros.tipo && !c.tipo.toLowerCase().includes(this.filtros.tipo.toLowerCase())) return false;
+        if (this.filtros.estado && c.estado !== this.filtros.estado) return false;
+        return true;
+      });
+    },
+
+    limpiarFiltros() {
+      this.filtros = { ciudad: '', proyecto: '', tipo: '', estado: '' };
+      this.resultados = [...this.todas];
+    },
+
+    hayFiltrosActivos() {
+      return Object.values(this.filtros).some(v => v !== '');
+    },
+
+    formatCOP(n) {
+      if (!n) return '—';
+      if (n >= 1e9) return '$' + (n / 1e9).toFixed(2) + 'B';
+      if (n >= 1e6) return '$' + (n / 1e6).toFixed(0) + 'M COP';
+      return '$' + n.toLocaleString('es-CO');
+    }
+  };
+}
+</script>

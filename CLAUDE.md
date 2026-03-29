@@ -84,16 +84,81 @@
 2. `npm run build` → genera automáticamente `/proyectos/nuevo-proyecto/`
 3. Sin tocar `proyecto.njk` si el proyecto tiene datos estándar
 
-## Para agregar cesiones
-Agregar objetos al array en `_data/cesiones.json` con la estructura:
+## Para agregar cesiones (workflow AI-first)
+
+El usuario dice algo como: "Agrega cesión: Kashi, 2 hab, piso 8, $495M, vista mar"
+
+Claude hace:
+```bash
+git pull  # siempre primero
+```
+Luego edita `_data/cesiones.json` y agrega el objeto. Luego:
+```bash
+cd /Users/sebastianmorales/zonum-eleventy
+git add _data/cesiones.json
+git commit -m "add: cesión [ID] — [tipo] en [proyecto]"
+git push
+```
+Cloudflare Pages redespliega automáticamente en ~60s.
+
+### Schema completo de cesión
+
+**Campos requeridos:**
 ```json
 {
-  "id": "KSM-401",
+  "id": "KSM-2hab-001",
   "proyecto_slug": "kashi-santa-marta",
+  "proyecto_nombre": "Kashi Santa Marta",
   "ciudad": "Santa Marta",
   "tipo": "2 hab",
-  "m2": 72,
-  "precio_cesion": 510000000,
-  "estado": "disponible"
+  "precio_cesion": 495000000,
+  "estado": "disponible",
+  "whatsapp": "573001234567",
+  "fecha_publicacion": "2026-03-29"
 }
 ```
+
+**Campos opcionales (agregar si el usuario los menciona):**
+```json
+{
+  "zona": "Taganga",
+  "tipologia": "C",
+  "piso": 8,
+  "m2": 72,
+  "vista": "mar",
+  "parqueadero": true,
+  "bodega": false,
+  "precio_original": 480000000,
+  "ganancia_cedente": 15000000,
+  "entrega_estimada": "Q3 2026",
+  "roi_estimado": 14.8,
+  "imagen": "https://images.unsplash.com/photo-ID?w=600&q=80",
+  "notas": "Texto libre con detalles adicionales"
+}
+```
+
+**Convención de IDs:** `[SIGLAS_PROYECTO]-[tipo]hab-[###]`
+- Kashi Santa Marta → `KSM`
+- Alma Luxury Lofts → `ALM`
+- Tuliv La Candelaria → `TUL`
+
+**Estados válidos:** `disponible` | `en_negociacion` | `reservado`
+
+### Cambiar estado de una cesión
+```bash
+git pull
+# Editar el campo "estado" en _data/cesiones.json
+git add _data/cesiones.json
+git commit -m "update: cesión [ID] → [nuevo_estado]"
+git push
+```
+
+## Hosting: Cloudflare Pages (configuración única, ya hecha una vez)
+- Repo: `github.com/filivco/zonum-eleventy`
+- Build command: `npm run build`
+- Output dir: `_site`
+- Cada `git push` → build automático → sitio live en ~60s
+
+## Regla de oro
+**Nunca editar directamente en Cloudflare o Replit.**
+Siempre: editar local → git push → deploy automático.
