@@ -1,0 +1,1999 @@
+---
+layout: base.njk
+title: "Zonum — Inversión inmobiliaria curada en Latinoamérica"
+description: "Plataforma de inversión inmobiliaria con curaduría independiente. Proyectos nuevos, cesiones y propiedades de lujo en Colombia y el Caribe."
+---
+
+<style>
+/* Heading typeface */
+.hero-h,.logo-text,.sh-title,.pb-title,.elite-title,
+.how-num,.how-step-title,.ins-title,.hspot-price,
+.hcard-name,.section-title{font-family:var(--font-heading)}
+.r{color:var(--color-text-primary);font-family:inherit;max-width:1200px;margin:0 auto}
+
+
+.logo-icon{width:28px;height:28px;background:#3A3530;border-radius:6px;display:flex;align-items:center;justify-content:center}
+.logo-text{font-size:16px;font-weight:500}
+.logo-sub{font-size:11px;color:var(--color-text-secondary);margin-left:2px}
+
+.hero-band{background:#0D2B44;position:relative;overflow:hidden;min-height:620px;display:flex;align-items:center}
+.hero-inner{max-width:1200px;margin:0 auto;padding:48px 28px;display:grid;grid-template-columns:1fr 380px;gap:24px;align-items:center;position:relative;z-index:1;width:100%}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%;opacity:0.35}
+.hero-eyebrow{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.eyebrow-pill{background:#253856;color:#C4D6EB;font-size:10px;padding:4px 12px;border-radius:999px;font-weight:500;letter-spacing:0.06em}
+.eyebrow-txt{font-size:11px;color:#8A9DBB}
+.hero-h{font-size:30px;font-weight:500;color:#fff;line-height:1.25;margin-bottom:12px}
+.hero-h span{color:#7B9EC4}
+.hero-p{font-size:13px;color:#8A9DBB;margin-bottom:28px;max-width:500px;line-height:1.7}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.ha-primary{padding:12px 24px;background:#2B4775;color:#fff;border:none;border-radius:var(--border-radius-md);font-size:13px;font-weight:500;cursor:pointer}
+.ha-secondary{padding:12px 20px;background:transparent;color:#B0C8DF;border:0.5px solid #3D5F88;border-radius:var(--border-radius-md);font-size:13px;cursor:pointer}
+.trust-row{display:flex;gap:20px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:6px;font-size:12px;color:#8A9DBB}
+.trust-dot{width:6px;height:6px;border-radius:50%;background:#5A7A9A}
+
+.hero-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 24px;position:relative;z-index:2}
+.hcard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden}
+.hcard-img{height:110px;background:var(--color-background-secondary);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hcard-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.hcard-img svg{opacity:0.18}
+.hbadge{position:absolute;top:8px;left:8px;font-size:10px;padding:3px 8px;border-radius:var(--border-radius-md);font-weight:500}
+.hb-green{background:#DDE9F4;color:#0D2B44}
+.hb-amber{background:#FAEEDA;color:#633806}
+.hb-blue{background:#E6F1FB;color:#0C447C}
+.hcard-save{position:absolute;top:8px;right:8px;width:22px;height:22px;border-radius:50%;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--color-text-secondary);cursor:pointer}
+.hcard-body{padding:10px 12px}
+.hcard-price{font-size:14px;font-weight:500;color:var(--color-text-primary)}
+.hcard-from{font-size:10px;color:var(--color-text-secondary)}
+.hcard-name{font-size:14px;font-weight:500;margin:3px 0 1px;color:var(--color-text-primary)}
+.hcard-loc{font-size:11px;color:var(--color-text-secondary);margin-bottom:6px;display:flex;align-items:center;gap:3px}
+.hcard-specs{display:flex;gap:8px;font-size:10px;color:var(--color-text-secondary);border-top:0.5px solid var(--color-border-tertiary);padding-top:6px}
+.hcard-cta{display:block;margin:8px 12px 10px;padding:7px;background:#3A3530;color:#fff;border-radius:var(--border-radius-md);font-size:11px;text-align:center;cursor:pointer}
+.yield-pill{display:inline-flex;align-items:center;gap:4px;font-size:10px;background:#DDE9F4;color:#0D2B44;padding:2px 7px;border-radius:999px;margin-top:3px}
+
+.search-section{padding:20px 24px 28px;background:var(--color-background-secondary)}
+.search-section-inner{background:var(--color-background-primary);border-radius:var(--border-radius-xl);padding:20px 22px 18px;box-shadow:0 4px 24px rgba(58,53,48,0.1)}
+.ss-label{font-size:11px;color:var(--color-text-secondary);margin-bottom:10px;font-weight:500;text-transform:uppercase;letter-spacing:0.06em}
+.search-box{display:flex;background:var(--color-background-secondary);border-radius:var(--border-radius-md);overflow:hidden}
+.sb-field{flex:1;padding:10px 14px;min-width:0;position:relative}
+.sb-field:last-of-type{border-right:none}
+.sbf-label{font-size:10px;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:0.05em;font-weight:500;margin-bottom:2px}
+.sbf-val{font-size:13px;color:var(--color-text-tertiary)}
+.sb-select{width:100%;border:none;outline:none;background:transparent;font-size:13px;color:var(--color-text-primary);font-family:inherit;cursor:pointer;appearance:none;-webkit-appearance:none}
+.sb-btn{padding:0 20px;background:#5A8CB5;color:#fff;border:none;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap}
+.filter-chips{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap;padding-top:10px}
+.fchip{font-size:11px;padding:4px 11px;border:0.5px solid var(--color-border-secondary);border-radius:999px;cursor:pointer;color:var(--color-text-secondary);background:var(--color-background-primary)}
+.fchip.on{border-color:#5A8CB5;color:#1A4F7A;background:#EFF4F9}
+
+.value-props{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:0.5px solid var(--color-border-tertiary)}
+.vp{padding:16px 20px;border-right:0.5px solid var(--color-border-tertiary);background:#EFF4F9}
+.vp:last-child{border-right:none}
+.vp-num{font-size:20px;font-weight:500;color:var(--color-text-primary)}
+.vp-accent{color:#1A4F7A}
+.vp-label{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
+
+.section-header{display:flex;justify-content:space-between;align-items:center;padding:18px 24px 12px;background:var(--color-background-primary)}
+.sh-title{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+.sh-meta{font-size:12px;color:var(--color-text-secondary)}
+.sh-link{font-size:12px;color:#1A4F7A;cursor:pointer}
+
+.listings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:0 24px 20px;background:var(--color-background-primary)}
+.lcard{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden;background:var(--color-background-primary);transition:opacity 0.2s}
+.lcard.hidden{display:none}
+.lcard-img{height:130px;background:var(--color-background-secondary);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.lcard-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.lcard-img svg{opacity:0.18}
+.lcard-body{padding:10px 12px}
+.lcard-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px}
+.lcard-price{font-size:15px;font-weight:500}
+.lcard-save{font-size:12px;color:var(--color-text-tertiary);cursor:pointer;transition:color 0.2s}
+.lcard-save.saved{color:#E24B4A}
+.lcard-name{font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:2px}
+.lcard-loc{font-size:11px;color:var(--color-text-secondary);margin-bottom:8px}
+.lcard-specs{display:flex;gap:8px;font-size:10px;color:var(--color-text-secondary);padding-top:7px;border-top:0.5px solid var(--color-border-tertiary);margin-bottom:8px}
+.lcard-footer{display:flex;align-items:center;justify-content:space-between}
+.dev-info{display:flex;align-items:center;gap:5px}
+.dev-avatar{width:16px;height:16px;border-radius:50%}
+.dev-nm{font-size:10px;color:var(--color-text-secondary)}
+.dev-stars{font-size:10px;color:#BA7517}
+.lcard-btn{font-size:11px;padding:5px 10px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);color:var(--color-text-primary);cursor:pointer;background:transparent}
+
+.promo-band{display:grid;grid-template-columns:1fr 1fr;margin:0 24px 20px;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden}
+.pb-left{background:#0D2B44;padding:20px 24px}
+.pb-tag{font-size:10px;color:#A8C4DC;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:8px}
+.pb-title{font-size:16px;font-weight:500;color:#fff;margin-bottom:6px;line-height:1.3}
+.pb-sub{font-size:12px;color:#888078;margin-bottom:16px;line-height:1.5}
+.pb-btn{padding:9px 16px;background:#1A4F7A;color:#fff;border:none;border-radius:var(--border-radius-md);font-size:12px;cursor:pointer}
+.pb-right{background:var(--color-background-secondary);padding:20px 24px}
+.pb-rtag{font-size:10px;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:8px}
+.pb-rtitle{font-size:16px;font-weight:500;color:var(--color-text-primary);margin-bottom:6px;line-height:1.3}
+.pb-rsub{font-size:12px;color:var(--color-text-secondary);margin-bottom:16px;line-height:1.5}
+.pb-rbtn{padding:9px 16px;background:transparent;color:#1A4F7A;border:0.5px solid #1A4F7A;border-radius:var(--border-radius-md);font-size:12px;cursor:pointer}
+
+.cities-row{padding:0 24px 20px;background:var(--color-background-primary)}
+.cities-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.city-card{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:12px 10px;text-align:center;cursor:pointer;background:var(--color-background-primary);transition:border-color 0.2s,background 0.2s}
+.city-card.active{border-color:#1A4F7A;background:#DDE9F4}
+.city-icon{width:32px;height:32px;border-radius:50%;margin:0 auto 6px;background:var(--color-background-secondary);display:flex;align-items:center;justify-content:center;font-size:14px}
+.city-name{font-size:11px;font-weight:500;color:var(--color-text-primary)}
+.city-count{font-size:10px;color:var(--color-text-secondary);margin-top:1px}
+
+.trust-band{display:grid;grid-template-columns:repeat(3,1fr);background:var(--color-background-secondary);border-top:0.5px solid var(--color-border-tertiary);border-bottom:0.5px solid var(--color-border-tertiary)}
+.tb-item{padding:16px 24px;border-right:0.5px solid var(--color-border-tertiary);display:flex;align-items:flex-start;gap:12px}
+.tb-item:last-child{border-right:none}
+.tb-icon{width:32px;height:32px;border-radius:var(--border-radius-md);background:#DDE9F4;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.tb-ttitle{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:3px}
+.tb-tdesc{font-size:11px;color:var(--color-text-secondary);line-height:1.5}
+
+.footer-bar{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;background:var(--color-background-primary);border-radius:0 0 var(--border-radius-lg) var(--border-radius-lg)}
+
+.cesion-info-strip{display:flex;background:var(--color-background-secondary);border-top:0.5px solid var(--color-border-tertiary);border-bottom:0.5px solid var(--color-border-tertiary)}
+.cis-item{flex:1;padding:12px 16px;border-right:0.5px solid var(--color-border-tertiary);display:flex;align-items:center;gap:8px}
+.cis-item:last-child{border-right:none}
+.cis-icon{width:28px;height:28px;border-radius:var(--border-radius-md);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cis-title{font-size:12px;font-weight:500;color:var(--color-text-primary)}
+.cis-sub{font-size:10px;color:var(--color-text-secondary)}
+
+.cesion-sec-header{display:flex;justify-content:space-between;align-items:flex-start;padding:20px 24px 14px;background:var(--color-background-primary)}
+.cs-badge{display:inline-flex;align-items:center;gap:5px;background:#FCEBEB;color:#A32D2D;font-size:10px;padding:3px 9px;border-radius:999px;font-weight:500;margin-bottom:6px}
+.cs-badge-dot{width:5px;height:5px;border-radius:50%;background:#E24B4A}
+.cs-title{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+.cs-sub{font-size:12px;color:var(--color-text-secondary);margin-top:3px}
+.cs-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.cs-link{font-size:12px;color:#E24B4A;cursor:pointer}
+.cs-sort{display:flex;gap:6px}
+.csort-chip{font-size:11px;padding:4px 10px;border:0.5px solid var(--color-border-secondary);border-radius:999px;cursor:pointer;color:var(--color-text-secondary);background:var(--color-background-primary)}
+.csort-chip.on{border-color:#E24B4A;color:#A32D2D;background:#FCEBEB}
+
+.cesion-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:0 24px 24px;background:var(--color-background-primary)}
+.cc{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden;background:var(--color-background-primary)}
+.cc-img{height:200px;background:var(--color-background-secondary);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.cc-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.cc-img svg{opacity:0.16}
+.cc-discount{position:absolute;top:0;right:0;background:#E24B4A;color:#fff;font-size:11px;font-weight:500;padding:5px 10px;border-radius:0 0 0 var(--border-radius-md)}
+.cc-floor{position:absolute;bottom:8px;left:8px;font-size:10px;background:rgba(26,26,24,0.7);color:#fff;padding:2px 7px;border-radius:999px}
+.cc-save{position:absolute;top:8px;left:8px;width:22px;height:22px;border-radius:50%;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--color-text-secondary);cursor:pointer}
+.cc-save.saved{color:#E24B4A}
+.cc-body{padding:11px 13px}
+.cc-prices{display:flex;align-items:baseline;gap:7px;margin-bottom:3px;flex-wrap:wrap}
+.cc-price-new{font-size:16px;font-weight:500;color:#A32D2D}
+.cc-price-old{font-size:12px;color:var(--color-text-tertiary);text-decoration:line-through}
+.cc-saving{font-size:10px;color:#A32D2D;background:#FCEBEB;padding:2px 6px;border-radius:999px;margin-left:auto}
+.cc-project{font-size:12px;font-weight:500;color:var(--color-text-primary);margin-bottom:1px}
+.cc-unit{font-size:11px;color:var(--color-text-secondary);margin-bottom:6px;display:flex;align-items:center;gap:4px}
+.cc-tag-row{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:8px}
+.cc-tag{font-size:10px;padding:2px 7px;border:0.5px solid var(--color-border-tertiary);border-radius:999px;color:var(--color-text-secondary)}
+.cc-tag.hot{border-color:#F09595;color:#791F1F;background:#FCEBEB}
+.cc-specs{display:flex;gap:8px;font-size:10px;color:var(--color-text-secondary);padding:7px 0;border-top:0.5px solid var(--color-border-tertiary);border-bottom:0.5px solid var(--color-border-tertiary);margin-bottom:10px}
+.cc-spec{display:flex;align-items:center;gap:3px}
+.zonum-box{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:9px 11px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.zn-logo{width:26px;height:26px;background:#3A3530;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.zn-title{font-size:11px;font-weight:500;color:var(--color-text-primary)}
+.zn-sub{font-size:10px;color:var(--color-text-secondary)}
+.zn-badge{margin-left:auto;display:flex;align-items:center;gap:3px;font-size:10px;color:#0D2B44;background:#DDE9F4;padding:2px 7px;border-radius:999px;white-space:nowrap;flex-shrink:0}
+.cc-ctas{display:flex;gap:6px}
+.cc-cta-primary{flex:1;padding:8px;background:#1C3B6A;color:#fff;border:none;border-radius:var(--border-radius-md);font-size:11px;font-weight:500;cursor:pointer;text-align:center}
+.cc-cta-secondary{padding:8px 10px;background:transparent;color:var(--color-text-primary);border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);font-size:11px;cursor:pointer}
+.footer-links{display:flex;gap:14px;font-size:11px;color:var(--color-text-secondary)}
+.footer-right{font-size:11px;color:var(--color-text-tertiary)}
+
+.elite-band{background:#161210;padding:0}
+.elite-header{display:flex;justify-content:space-between;align-items:flex-end;padding:28px 24px 16px}
+.elite-eyebrow{display:inline-flex;align-items:center;gap:6px;background:#F2E8D0;border:0.5px solid #D4AA6A;color:#7A5C1E;font-size:10px;padding:3px 10px;border-radius:999px;font-weight:500;letter-spacing:0.08em;margin-bottom:8px}
+.elite-title{font-size:18px;font-weight:500;color:#fff;line-height:1.3}
+.elite-title span{color:#B8975A}
+.elite-sub{font-size:12px;color:#A89070;margin-top:4px}
+.elite-link{font-size:12px;color:#B8975A;cursor:pointer;white-space:nowrap}
+.elite-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:0.5px solid rgba(255,255,255,0.06)}
+.ecard{background:#161210;border-right:0.5px solid rgba(255,255,255,0.06);position:relative;overflow:hidden}
+.ecard:last-child{border-right:none}
+.ecard-img{height:180px;position:relative;overflow:hidden;background:#241C0E}
+.ecard-img img{width:100%;height:100%;object-fit:cover;opacity:0.7}
+.ecard-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#241C0E}
+.ecard-img-placeholder svg{opacity:0.12}
+.ecard-country{position:absolute;top:10px;left:10px;font-size:10px;padding:3px 8px;border-radius:999px;font-weight:500;letter-spacing:0.05em;backdrop-filter:blur(4px)}
+.ec-usd{background:rgba(184,151,90,0.25);color:#D4AA6A;border:0.5px solid rgba(184,151,90,0.4)}
+.ecard-save{position:absolute;top:10px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(15,22,36,0.7);border:0.5px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:11px;color:rgba(255,255,255,0.5);cursor:pointer}
+.ecard-save.saved{color:#E24B4A}
+.ecard-body{padding:14px 16px}
+.ecard-price{font-size:18px;font-weight:500;color:#B8975A;margin-bottom:2px}
+.ecard-price-sub{font-size:10px;color:#A89070}
+.ecard-name{font-size:13px;font-weight:500;color:#fff;margin:6px 0 2px}
+.ecard-loc{font-size:11px;color:#A89070;margin-bottom:10px;display:flex;align-items:center;gap:3px}
+.ecard-specs{display:flex;gap:10px;font-size:10px;color:#A89070;padding:8px 0;border-top:0.5px solid rgba(255,255,255,0.07);border-bottom:0.5px solid rgba(255,255,255,0.07);margin-bottom:10px}
+.ecard-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px}
+.etag{font-size:10px;padding:2px 8px;border:0.5px solid rgba(184,151,90,0.3);border-radius:999px;color:#B8975A}
+.ecard-cta{display:block;padding:9px;background:transparent;color:#B8975A;border:0.5px solid rgba(184,151,90,0.5);border-radius:var(--border-radius-md);font-size:11px;font-weight:500;text-align:center;cursor:pointer;letter-spacing:0.04em}
+.elite-divider{height:0.5px;background:rgba(255,255,255,0.06);margin:0 24px}
+.elite-bottom{display:flex;justify-content:center;padding:16px 24px 24px;gap:32px;flex-wrap:wrap}
+.elite-stat{text-align:center}
+.elite-stat-num{font-size:18px;font-weight:500;color:#B8975A}
+.elite-stat-lbl{font-size:10px;color:#A89070;margin-top:2px;text-transform:uppercase;letter-spacing:0.06em}
+
+/* ── New: Modal overlay ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.2s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal-box{background:#fff;max-width:480px;width:calc(100% - 32px);border-radius:16px;padding:28px;position:relative}
+.modal-close{position:absolute;top:16px;right:16px;width:28px;height:28px;border-radius:50%;border:0.5px solid var(--color-border-secondary);background:transparent;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;color:var(--color-text-secondary)}
+.modal-title{font-size:16px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
+.modal-sub{font-size:12px;color:var(--color-text-secondary);margin-bottom:20px}
+.calc-row{margin-bottom:14px}
+.calc-label{font-size:11px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:5px}
+.calc-input{width:100%;padding:9px 12px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);font-size:13px;font-family:inherit;color:var(--color-text-primary);outline:none}
+.calc-input:focus{border-color:#1A4F7A}
+.calc-results{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:16px;margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.calc-res-item{}
+.calc-res-label{font-size:10px;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:3px}
+.calc-res-val{font-size:16px;font-weight:500;color:#1A4F7A}
+
+/* ── New: Toast ── */
+#toast{position:fixed;bottom:24px;right:24px;background:#3A3530;color:#fff;padding:12px 20px;border-radius:8px;font-size:13px;z-index:2000;opacity:0;transition:opacity 0.3s;pointer-events:none}
+#toast.show{opacity:1}
+
+/* ── New: Hamburger / mobile menu ── */
+
+/* ── HERO SPOTLIGHT ── */
+.hero-left{position:relative;z-index:1;padding-bottom:44px}
+.hero-right{position:relative;z-index:1;align-self:stretch;display:flex;align-items:flex-end}
+.hspot{background:rgba(255,255,255,0.06);backdrop-filter:blur(8px);border:.5px solid rgba(255,255,255,0.12);border-radius:var(--border-radius-xl) var(--border-radius-xl) 0 0;overflow:hidden;width:100%}
+.hspot-img{height:220px;position:relative;overflow:hidden;cursor:pointer}
+.hspot-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.hspot-img:hover img{transform:scale(1.03)}
+.hspot-badge{position:absolute;top:10px;left:10px;background:#1A4F7A;color:#fff;font-size:10px;font-weight:600;padding:3px 10px;border-radius:999px;letter-spacing:.04em}
+.hspot-save{position:absolute;top:10px;right:10px;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.15);border:.5px solid rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;font-size:12px;color:rgba(255,255,255,0.7);cursor:pointer;backdrop-filter:blur(4px)}
+.hspot-body{padding:14px 16px 10px}
+.hspot-name{font-size:14px;font-weight:600;color:#fff;margin-bottom:2px}
+.hspot-loc{font-size:11px;color:#888078;margin-bottom:8px;display:flex;align-items:center;gap:3px}
+.hspot-price{font-size:20px;font-weight:600;color:#fff;margin-bottom:10px}
+.hspot-cta{display:flex;align-items:center;justify-content:space-between}
+.hspot-cta-btn{font-size:11px;color:#A8C4DC;cursor:pointer;display:flex;align-items:center;gap:4px}
+.hspot-nav{display:flex;align-items:center;gap:8px}
+.hspot-arrow{width:24px;height:24px;border-radius:50%;border:.5px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.6);font-size:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .15s}
+.hspot-arrow:hover{background:rgba(255,255,255,0.15);color:#fff}
+.hspot-dots{display:flex;gap:5px}
+.hspot-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.25);cursor:pointer;transition:background .2s}
+.hspot-dot.on{background:#1A4F7A;width:14px;border-radius:999px}
+
+@media(max-width:900px){
+  div[style*="grid-template-columns:220px 1fr"]{grid-template-columns:1fr !important}
+}
+
+@media(max-width:640px){
+  .hero-grid,.listings-grid,.cities-grid,.cesion-grid{grid-template-columns:1fr}
+  .promo-band,.elite-band [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr !important}
+  .value-props{grid-template-columns:repeat(2,1fr)}
+  .trust-band,.cesion-info-strip,.cis-item{grid-template-columns:1fr;flex-direction:column}
+  .nav-center,.tb-right{display:none}
+  .hamburger{display:flex}
+  .hero-band{min-height:auto}
+  .hero-inner{grid-template-columns:1fr;padding-bottom:0;gap:0}
+  .hero-right{display:flex;align-self:auto}
+  .hero-left{padding-bottom:24px}
+  .hspot{border-radius:0 0 var(--border-radius-xl) var(--border-radius-xl);max-height:240px}
+  .hspot-img{height:140px}
+  .hspot-body{padding:12px 14px 14px}
+  .cesion-sidebar-grid{grid-template-columns:1fr !important}
+}
+
+/* ── Constructoras Strip ── */
+.dev-strip{background:#E8DCC8;padding:24px 0 8px}
+.dev-strip-header{display:flex;justify-content:space-between;align-items:flex-end;padding:0 28px;margin-bottom:4px}
+.dev-scroll{display:flex;gap:12px;overflow-x:auto;padding:12px 28px 20px;scrollbar-width:none}
+.dev-scroll::-webkit-scrollbar{display:none}
+.dev-card{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;flex-shrink:0;min-width:180px;background:var(--color-background-primary);transition:box-shadow .2s}
+.dev-card:hover{box-shadow:0 3px 14px rgba(0,0,0,0.08)}
+.dev-initial{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600;flex-shrink:0}
+.dev-name{font-size:12px;font-weight:500;color:var(--color-text-primary)}
+.dev-meta{font-size:10px;color:var(--color-text-secondary);margin-top:1px}
+.dev-verified{display:inline-flex;align-items:center;font-size:9px;font-weight:600;color:#0D2B44;background:#DDE9F4;padding:2px 8px;border-radius:999px;letter-spacing:0.04em}
+
+/* ── Cómo Funciona ── */
+.how-band{background:var(--color-background-primary)}
+.how-inner{max-width:1200px;margin:0 auto;padding:40px 28px 44px}
+.how-grid{display:grid;grid-template-columns:repeat(4,1fr);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden}
+.how-step{padding:28px 24px;border-right:0.5px solid var(--color-border-tertiary)}
+.how-step:last-child{border-right:none}
+.how-num{font-size:40px;font-weight:700;color:#1A4F7A;line-height:1;margin-bottom:12px}
+.how-step-title{font-size:13px;font-weight:600;color:var(--color-text-primary);margin-bottom:6px}
+.how-step-desc{font-size:12px;color:var(--color-text-secondary);line-height:1.65}
+@media(max-width:900px){.how-grid{grid-template-columns:repeat(2,1fr)}.how-step:nth-child(2){border-right:none}.how-step:nth-child(1),.how-step:nth-child(2){border-bottom:0.5px solid var(--color-border-tertiary)}}
+@media(max-width:640px){.how-grid{grid-template-columns:1fr}.how-step{border-right:none;border-bottom:0.5px solid var(--color-border-tertiary)}.how-step:last-child{border-bottom:none}}
+
+/* ── Testimonios ── */
+.testi-band{background:var(--color-background-secondary)}
+.testi-inner{max-width:1200px;margin:0 auto;padding:40px 28px}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.testi-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:16px;padding:24px}
+.testi-top{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px}
+.testi-avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:600;flex-shrink:0}
+.testi-stars{color:#F59E0B;font-size:11px;margin-top:2px}
+.testi-verified{display:inline-flex;align-items:center;font-size:9px;font-weight:600;color:#0D2B44;background:#DDE9F4;padding:2px 8px;border-radius:999px;white-space:nowrap;margin-left:auto;align-self:flex-start}
+.testi-quote{font-size:12px;color:var(--color-text-secondary);font-style:italic;line-height:1.75;margin-bottom:16px}
+.testi-metric{font-size:22px;font-weight:600;color:#1A4F7A;line-height:1.2}
+.testi-metric-label{font-size:10px;color:var(--color-text-secondary);margin-top:2px}
+@media(max-width:900px){.testi-grid{grid-template-columns:1fr}}
+
+/* ── Zonum Insights ── */
+.ins-band{background:#FAF5EA}
+.ins-inner{max-width:1200px;margin:0 auto;padding:40px 28px 48px}
+.ins-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px}
+.ins-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ins-card{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:22px;cursor:pointer;transition:box-shadow .2s,border-color .2s}
+.ins-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.08);border-color:rgba(0,0,0,0.2)}
+.ins-icon{font-size:28px;margin-bottom:12px;display:block}
+.ins-title{font-size:13px;font-weight:600;color:var(--color-text-primary);margin-bottom:8px}
+.ins-desc{font-size:12px;color:var(--color-text-secondary);line-height:1.75;margin-bottom:14px}
+.ins-tags{display:flex;gap:6px;margin-bottom:14px}
+.ins-tag{font-size:10px;padding:2px 9px;border:0.5px solid var(--color-border-secondary);border-radius:999px;color:var(--color-text-secondary)}
+.ins-link{font-size:12px;color:#1A4F7A;font-weight:500}
+@media(max-width:900px){.ins-grid{grid-template-columns:1fr}}
+
+/* ── Visit Modal ── */
+.visit-modal{position:fixed;inset:0;background:rgba(13,43,68,0.72);backdrop-filter:blur(4px);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.25s}
+.visit-modal.open{opacity:1;pointer-events:all}
+.visit-box{background:#fff;max-width:840px;width:calc(100% - 32px);border-radius:20px;overflow:hidden;display:flex;position:relative;max-height:90vh}
+.visit-left{width:300px;min-width:300px;background:#0D2B44;padding:32px 28px;display:flex;flex-direction:column;gap:0;overflow-y:auto}
+.vl-logo{font-family:'clother',sans-serif;font-size:18px;font-weight:500;color:#fff;margin-bottom:20px;letter-spacing:0.02em}
+.vl-img{width:100%;height:140px;border-radius:12px;object-fit:cover;background:#1A4F7A;margin-bottom:16px;display:block}
+.vl-img-placeholder{width:100%;height:140px;border-radius:12px;background:linear-gradient(135deg,#1A4F7A,#0D2B44);margin-bottom:16px;display:flex;align-items:center;justify-content:center;font-size:32px}
+.vl-project-name{font-family:'clother',sans-serif;font-size:15px;font-weight:500;color:#fff;margin-bottom:3px}
+.vl-project-loc{font-size:12px;color:#A8C4DC;margin-bottom:20px;display:flex;align-items:center;gap:4px}
+.vl-trust{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.vl-trust-item{display:flex;align-items:center;gap:8px;font-size:12px;color:#C4D9ED;line-height:1.4}
+.vl-trust-check{width:18px;height:18px;border-radius:50%;background:rgba(90,140,181,0.25);display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0}
+.vl-steps{display:flex;gap:6px;margin-top:auto;padding-top:16px}
+.vl-step-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.2);transition:all 0.25s}
+.vl-step-dot.active{background:#fff;width:20px;border-radius:4px}
+.visit-right{flex:1;padding:32px 28px;overflow-y:auto;background:#fff;position:relative}
+.visit-close{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;background:rgba(58,53,48,0.08);border:none;cursor:pointer;font-size:16px;color:#6B6560;display:flex;align-items:center;justify-content:center;transition:background 0.15s;z-index:1}
+.visit-close:hover{background:rgba(58,53,48,0.14)}
+.visit-step{display:none}
+.visit-step.active{display:block}
+.vstep-eyebrow{font-size:10px;color:#6B6560;text-transform:uppercase;letter-spacing:0.08em;font-weight:500;margin-bottom:6px}
+.vstep-title{font-family:'clother',sans-serif;font-size:20px;font-weight:500;color:#3A3530;margin-bottom:4px}
+.vstep-sub{font-size:12px;color:#6B6560;margin-bottom:22px;line-height:1.5}
+.city-pills{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}
+.city-pill{font-size:12px;padding:7px 14px;border-radius:999px;border:0.5px solid rgba(58,53,48,0.22);cursor:pointer;color:#6B6560;background:#F8F6F2;transition:all 0.15s;font-family:inherit}
+.city-pill:hover{border-color:#1A4F7A;color:#1A4F7A}
+.city-pill.sel{background:#1A4F7A;color:#fff;border-color:#1A4F7A}
+.project-select-wrap{margin-bottom:18px;display:none}
+.project-select-wrap.show{display:block}
+.project-select-label{font-size:11px;font-weight:500;color:#6B6560;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:7px}
+.project-select{width:100%;padding:10px 14px;border:0.5px solid rgba(58,53,48,0.22);border-radius:8px;font-size:13px;color:#3A3530;font-family:inherit;outline:none;background:#F8F6F2;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b6b68' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;transition:border-color 0.15s}
+.project-select:focus{border-color:#1A4F7A}
+.visit-type-toggle{display:flex;gap:8px;margin-bottom:20px}
+.vtype-pill{flex:1;padding:10px;border-radius:10px;border:0.5px solid rgba(58,53,48,0.22);cursor:pointer;text-align:center;font-size:13px;color:#6B6560;background:#F8F6F2;transition:all 0.15s;font-family:inherit}
+.vtype-pill:hover{border-color:#1A4F7A;color:#1A4F7A}
+.vtype-pill.sel{background:#1A4F7A;color:#fff;border-color:#1A4F7A}
+.cal-wrap{margin-bottom:18px}
+.cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.cal-month{font-size:14px;font-weight:500;color:#3A3530;font-family:'clother',sans-serif}
+.cal-nav-btn{width:28px;height:28px;border-radius:50%;border:0.5px solid rgba(58,53,48,0.22);background:transparent;cursor:pointer;font-size:12px;color:#6B6560;display:flex;align-items:center;justify-content:center;transition:all 0.15s}
+.cal-nav-btn:hover{border-color:#1A4F7A;color:#1A4F7A}
+.cal-days-header{display:grid;grid-template-columns:repeat(7,1fr);margin-bottom:4px}
+.cal-day-label{text-align:center;font-size:10px;font-weight:600;color:#888078;padding:4px 0;text-transform:uppercase;letter-spacing:0.04em}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+.cal-day{width:100%;aspect-ratio:1;border-radius:50%;border:none;background:transparent;cursor:default;font-size:12px;color:#3A3530;display:flex;align-items:center;justify-content:center;transition:all 0.15s;font-family:inherit;position:relative}
+.cal-day.empty{pointer-events:none}
+.cal-day.past{color:rgba(58,53,48,0.25);pointer-events:none}
+.cal-day.avail{cursor:pointer;font-weight:500}
+.cal-day.avail:hover{background:#DDE9F4;color:#1A4F7A}
+.cal-day.sel{background:#1A4F7A !important;color:#fff !important;font-weight:600}
+.time-slots-wrap{display:none}
+.time-slots-wrap.show{display:block}
+.time-slots-label{font-size:11px;font-weight:500;color:#6B6560;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px}
+.time-slots{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px}
+.time-slot{font-size:12px;padding:7px 12px;border-radius:8px;border:0.5px solid rgba(58,53,48,0.22);cursor:pointer;color:#6B6560;background:#F8F6F2;transition:all 0.15s;font-family:inherit}
+.time-slot:hover:not(.off){border-color:#1A4F7A;color:#1A4F7A}
+.time-slot.sel{background:#1A4F7A;color:#fff;border-color:#1A4F7A}
+.time-slot.off{color:rgba(58,53,48,0.3);border-color:rgba(58,53,48,0.1);background:transparent;cursor:not-allowed;text-decoration:line-through}
+.visit-input-group{margin-bottom:13px}
+.visit-input-label{font-size:11px;font-weight:500;color:#6B6560;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px}
+.visit-input{width:100%;padding:10px 14px;border:0.5px solid rgba(58,53,48,0.22);border-radius:8px;font-size:13px;color:#3A3530;font-family:inherit;outline:none;background:#F8F6F2;transition:border-color 0.15s}
+.visit-input:focus{border-color:#1A4F7A}
+.visit-phone-row{display:flex;gap:0}
+.visit-phone-flag{padding:10px 12px;border:0.5px solid rgba(58,53,48,0.22);border-right:none;border-radius:8px 0 0 8px;font-size:13px;background:#F8F6F2;color:#3A3530;cursor:default;white-space:nowrap}
+.visit-phone-input{flex:1;padding:10px 14px;border:0.5px solid rgba(58,53,48,0.22);border-radius:0 8px 8px 0;font-size:13px;color:#3A3530;font-family:inherit;outline:none;background:#F8F6F2;transition:border-color 0.15s}
+.visit-phone-input:focus{border-color:#1A4F7A}
+.investor-pills{display:flex;flex-wrap:wrap;gap:7px}
+.investor-pill{font-size:12px;padding:7px 13px;border-radius:999px;border:0.5px solid rgba(58,53,48,0.22);cursor:pointer;color:#6B6560;background:#F8F6F2;transition:all 0.15s;font-family:inherit}
+.investor-pill:hover{border-color:#1A4F7A;color:#1A4F7A}
+.investor-pill.sel{background:#1A4F7A;color:#fff;border-color:#1A4F7A}
+.budget-pills{display:flex;flex-wrap:wrap;gap:7px}
+.budget-pill{font-size:12px;padding:7px 13px;border-radius:999px;border:0.5px solid rgba(58,53,48,0.22);cursor:pointer;color:#6B6560;background:#F8F6F2;transition:all 0.15s;font-family:inherit}
+.budget-pill:hover{border-color:#1A4F7A;color:#1A4F7A}
+.budget-pill.sel{background:#1A4F7A;color:#fff;border-color:#1A4F7A}
+.visit-privacy{font-size:10px;color:#888078;line-height:1.6;margin-top:14px;margin-bottom:16px}
+.visit-privacy a{color:#1A4F7A;text-decoration:none}
+.visit-cta{width:100%;padding:13px;background:#1A4F7A;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;transition:background 0.15s;font-family:inherit;letter-spacing:0.02em}
+.visit-cta:hover:not(:disabled){background:#0D2B44}
+.visit-cta:disabled{background:rgba(58,53,48,0.2);color:rgba(58,53,48,0.4);cursor:not-allowed}
+.visit-back{background:transparent;border:none;color:#6B6560;font-size:13px;cursor:pointer;padding:10px 0;font-family:inherit;display:inline-flex;align-items:center;gap:4px;margin-top:8px;transition:color 0.15s}
+.visit-back:hover{color:#3A3530}
+.confirm-box{background:#DDE9F4;border-radius:12px;padding:16px;margin-bottom:18px}
+.confirm-box-title{font-size:11px;font-weight:600;color:#0D2B44;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:10px}
+.confirm-row{display:flex;align-items:center;gap:8px;font-size:13px;color:#1A4F7A;margin-bottom:6px}
+.confirm-row:last-child{margin-bottom:0}
+.confirm-icon{font-size:14px;flex-shrink:0}
+.next-steps{margin-bottom:18px}
+.next-steps-title{font-size:12px;font-weight:600;color:#3A3530;margin-bottom:10px}
+.next-step-item{display:flex;align-items:flex-start;gap:10px;font-size:12px;color:#6B6560;margin-bottom:8px;line-height:1.5}
+.next-step-num{width:20px;height:20px;border-radius:50%;background:#DDE9F4;color:#1A4F7A;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0px}
+.visit-outline-btn{width:100%;padding:11px;background:transparent;border:0.5px solid #1A4F7A;border-radius:10px;font-size:13px;font-weight:500;color:#1A4F7A;cursor:pointer;font-family:inherit;transition:all 0.15s;margin-bottom:10px}
+.visit-outline-btn:hover{background:#DDE9F4}
+.visit-dismiss-link{display:block;text-align:center;font-size:12px;color:#888078;cursor:pointer;margin-top:4px;transition:color 0.15s}
+.visit-dismiss-link:hover{color:#3A3530}
+@media(max-width:640px){
+  .visit-box{flex-direction:column;max-height:95vh;border-radius:16px 16px 0 0;position:fixed;bottom:0;left:0;right:0;width:100%;margin:0}
+  .visit-left{display:none}
+  .visit-right{padding:24px 20px 20px}
+  .visit-modal{align-items:flex-end}
+}
+</style>
+
+<div class="hero-band">
+
+
+  <div class="hero-inner">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-pill">Curaduría exclusiva</div>
+      <div class="eyebrow-txt">Solo proyectos seleccionados por nuestro equipo</div>
+    </div>
+    <div class="hero-h">La única plataforma con<br><span>selección curada</span> de proyectos en Latam</div>
+    <div class="hero-p">No publicamos todo. Evaluamos cada proyecto antes de presentarlo — constructora, ubicación, viabilidad financiera y potencial de valorización. Solo lo que vale tu inversión.</div>
+    <div class="hero-actions">
+      <button class="ha-primary" onclick="location.href='/buscar/'">Ver proyectos seleccionados</button>
+      <button class="ha-secondary" onclick="location.href='/sobre-zonum/'">¿Cómo curamos los proyectos?</button>
+    </div>
+    <div class="trust-row">
+      <div class="trust-item"><div class="trust-dot"></div>Cada proyecto pasa por evaluación rigurosa</div>
+      <div class="trust-item"><div class="trust-dot"></div>Constructoras verificadas y con historial</div>
+      <div class="trust-item"><div class="trust-dot"></div>Sin proyectos especulativos ni riesgo oculto</div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hspot" id="hspot">
+      <div class="hspot-img" id="hspot-img">
+        <img id="hspot-photo" src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=700&q=80&fit=crop&crop=center" alt=""/>
+        <div class="hspot-badge" id="hspot-badge">Preventa</div>
+      </div>
+      <div class="hspot-body">
+        <div class="hspot-name" id="hspot-name">Alma Luxury Lofts</div>
+        <div class="hspot-loc">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2" stroke="#888078" stroke-width="1.2"/><path d="M5 10C5 10 1.5 7 1.5 4a3.5 3.5 0 017 0C8.5 7 5 10 5 10z" stroke="#888078" stroke-width="1.2" fill="none"/></svg>
+          <span id="hspot-loc">Centro Histórico, Cartagena</span>
+        </div>
+        <div class="hspot-price" id="hspot-price">$466,000,000 <span style="font-size:12px;font-weight:400;color:#888078">desde</span></div>
+        <div class="hspot-cta">
+          <span class="hspot-cta-btn">Ver proyecto →</span>
+          <div class="hspot-nav">
+            <div class="hspot-arrow" onclick="spotNav(-1)">‹</div>
+            <div class="hspot-dots" id="hspot-dots">
+              <div class="hspot-dot"></div>
+              <div class="hspot-dot"></div>
+              <div class="hspot-dot on"></div>
+            </div>
+            <div class="hspot-arrow" onclick="spotNav(1)">›</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div><!-- /hero-inner -->
+
+</div>
+
+<div class="r">
+<div style="overflow:hidden;margin-top:-28px;position:relative;z-index:2;border-radius:0 0 var(--border-radius-lg) var(--border-radius-lg)">
+
+<div class="hero-grid">
+  <div class="hcard" data-city="bogota" data-status="preventa" data-price="820" data-roi="7.8">
+    <div class="hcard-img">
+      <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80&fit=crop&crop=center" alt="Tulla Medellín" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"/>
+      <div class="hbadge hb-green">Preventa</div>
+    </div>
+    <div class="hcard-body">
+      <div class="hcard-price">$820M COP <span class="hcard-from">desde</span></div>
+      <div class="hcard-name">Tulla Medellín</div>
+      <div class="hcard-loc">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2" stroke="currentColor" stroke-width="1.2"/><path d="M5 10C5 10 1.5 7 1.5 4a3.5 3.5 0 017 0C8.5 7 5 10 5 10z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+        La Candelaria, Bogotá
+      </div>
+      <div class="hcard-specs"><span>Estudio–1 hab</span><span>·</span><span>desde 59m²</span><span>·</span><span>2026</span></div>
+      <div class="yield-pill">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 7L5 3l3 4" stroke="#0D2B44" stroke-width="1.2"/></svg>
+        7.8% ROI est.
+      </div>
+    </div>
+    <div class="hcard-cta">Ver proyecto</div>
+  </div>
+
+  <div class="hcard" data-city="santa-marta" data-status="nuevo" data-price="420" data-roi="8.4">
+    <div class="hcard-img">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80&fit=crop&crop=center" alt="Kaali Playa Colorado" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"/>
+      <div class="hbadge hb-blue">Nuevo</div>
+    </div>
+    <div class="hcard-body">
+      <div class="hcard-price">$420M COP <span class="hcard-from">desde</span></div>
+      <div class="hcard-name">Kaali Playa Colorado</div>
+      <div class="hcard-loc">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2" stroke="currentColor" stroke-width="1.2"/><path d="M5 10C5 10 1.5 7 1.5 4a3.5 3.5 0 017 0C8.5 7 5 10 5 10z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+        Playa Colorada, Santa Marta
+      </div>
+      <div class="hcard-specs"><span>Estudio–1 hab</span><span>·</span><span>desde 44m²</span><span>·</span><span>2026</span></div>
+      <div class="yield-pill">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 7L5 3l3 4" stroke="#0D2B44" stroke-width="1.2"/></svg>
+        8.4% ROI est.
+      </div>
+    </div>
+    <div class="hcard-cta">Ver proyecto</div>
+  </div>
+
+  <div class="hcard" data-city="cartagena" data-status="preventa" data-price="466" data-roi="9.3">
+    <div class="hcard-img">
+      <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=600&q=80&fit=crop&crop=center" alt="Alma Luxury Lofts" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"/>
+      <div class="hbadge hb-amber">Alto rendimiento</div>
+    </div>
+    <div class="hcard-body">
+      <div class="hcard-price">$466M COP <span class="hcard-from">desde</span></div>
+      <div class="hcard-name">Alma Luxury Lofts</div>
+      <div class="hcard-loc">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2" stroke="currentColor" stroke-width="1.2"/><path d="M5 10C5 10 1.5 7 1.5 4a3.5 3.5 0 017 0C8.5 7 5 10 5 10z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+        Centro Histórico, Cartagena
+      </div>
+      <div class="hcard-specs"><span>Loft</span><span>·</span><span>desde 40m²</span><span>·</span><span>2026</span></div>
+      <div class="yield-pill">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 7L5 3l3 4" stroke="#0D2B44" stroke-width="1.2"/></svg>
+        9.3% ROI est.
+      </div>
+    </div>
+    <div class="hcard-cta">Ver proyecto</div>
+  </div>
+</div>
+
+<div class="search-section">
+  <div class="search-section-inner">
+  <div class="ss-label">Buscar proyecto</div>
+  <div class="search-box">
+    <div class="sb-field">
+      <div class="sbf-label">Ciudad</div>
+      <select class="sb-select" id="filterCity">
+        <option value="">Todas</option>
+        <option value="bogota">Bogotá</option>
+        <option value="medellin">Medellín</option>
+        <option value="cali">Cali</option>
+        <option value="cartagena">Cartagena</option>
+        <option value="barranquilla">Barranquilla</option>
+      </select>
+    </div>
+    <div class="sb-field">
+      <div class="sbf-label">Tipo de proyecto</div>
+      <select class="sb-select" id="filterType">
+        <option value="">Todos</option>
+        <option value="apartamento">Apartamento</option>
+        <option value="casa">Casa</option>
+        <option value="oficina">Oficina</option>
+      </select>
+    </div>
+    <div class="sb-field">
+      <div class="sbf-label">Presupuesto (COP)</div>
+      <select class="sb-select" id="filterBudget">
+        <option value="">Todos</option>
+        <option value="500">Menos de $500M</option>
+        <option value="800">$500M – $800M</option>
+        <option value="9999">Más de $800M</option>
+      </select>
+    </div>
+    <div class="sb-field">
+      <div class="sbf-label">Entrega</div>
+      <select class="sb-select" id="filterYear">
+        <option value="">Todos</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+        <option value="2027">2027</option>
+        <option value="2028">2028</option>
+      </select>
+    </div>
+    <button class="sb-btn" id="searchBtn">Buscar</button>
+  </div>
+  <div class="filter-chips">
+    <div class="fchip on" data-filter="colombia">Colombia</div>
+    <div class="fchip" data-filter="caribe">Caribe &amp; Miami</div>
+    <div class="fchip" data-filter="preventa">Preventa</div>
+    <div class="fchip" data-filter="construccion">En construcción</div>
+    <div class="fchip" data-filter="inmediata">Entrega inmediata</div>
+    <div class="fchip" data-filter="precio500">Menos de $500M COP</div>
+    <div class="fchip" data-filter="roi">Alto rendimiento</div>
+  </div>
+  </div><!-- /search-section-inner -->
+</div>
+
+<div class="value-props">
+  <div class="vp"><div class="vp-num">100<span class="vp-accent">%</span></div><div class="vp-label">Proyectos curados</div></div>
+  <div class="vp"><div class="vp-num">18<span class="vp-accent"> países</span></div><div class="vp-label">Cobertura regional</div></div>
+  <div class="vp"><div class="vp-num">7.2<span class="vp-accent">%</span></div><div class="vp-label">Rendimiento promedio</div></div>
+  <div class="vp"><div class="vp-num">3 de 10</div><div class="vp-label">Proyectos pasan nuestra selección</div></div>
+</div>
+
+<div class="section-header" id="proyectos">
+  <div>
+    <div class="sh-title">Proyectos seleccionados</div>
+    <div class="sh-meta">Cada uno evaluado por nuestro equipo · Ordenados por potencial de inversión</div>
+  </div>
+  <div class="sh-link">Ver todos →</div>
+</div>
+
+<div class="listings-grid">
+  <div class="lcard" data-city="bogota" data-status="preventa" data-price="540" data-roi="7.8">
+    <div class="lcard-img">
+      <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&q=80&fit=crop&crop=center" alt="Parque 93 Residences - Bogotá" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"/>
+      <div class="hbadge hb-green" style="position:absolute;top:8px;left:8px">Preventa</div>
+    </div>
+    <div class="lcard-body">
+      <div class="lcard-top"><div class="lcard-price">$540M COP</div></div>
+      <div class="lcard-name">Parque 93 Residences</div>
+      <div class="lcard-loc">Zona Rosa, Bogotá</div>
+      <div class="lcard-specs"><span>2 hab</span><span>·</span><span>72m²</span><span>·</span><span>2026</span><span>·</span><span style="color:#0D2B44">+7.8% ROI</span></div>
+      <div class="lcard-footer">
+        <div class="dev-info">
+          <div class="dev-avatar" style="background:#E6F1FB;width:16px;height:16px;border-radius:50%"></div>
+          <span class="dev-nm">Constructora Bolívar</span>
+          <span class="dev-stars">★ 4.8</span>
+        </div>
+        <button class="lcard-btn">Ver</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="lcard" data-city="medellin" data-status="construccion" data-price="380" data-roi="8.6">
+    <div class="lcard-img">
+      <img src="https://images.unsplash.com/photo-1576941089067-2de3c901e126?w=600&q=80&fit=crop&crop=center" alt="Laureles 60 - Medellín" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"/>
+      <div class="hbadge hb-amber" style="position:absolute;top:8px;left:8px">Más vendido</div>
+    </div>
+    <div class="lcard-body">
+      <div class="lcard-top"><div class="lcard-price">$380M COP</div></div>
+      <div class="lcard-name">Laureles 60</div>
+      <div class="lcard-loc">Laureles, Medellín</div>
+      <div class="lcard-specs"><span>2 hab</span><span>·</span><span>60m²</span><span>·</span><span>2025</span><span>·</span><span style="color:#0D2B44">+8.6% ROI</span></div>
+      <div class="lcard-footer">
+        <div class="dev-info">
+          <div class="dev-avatar" style="background:#FAEEDA;width:16px;height:16px;border-radius:50%"></div>
+          <span class="dev-nm">Grupo Concreta</span>
+          <span class="dev-stars">★ 4.7</span>
+        </div>
+        <button class="lcard-btn">Ver</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="lcard" data-city="cali" data-status="inmediata" data-price="720" data-roi="7.1">
+    <div class="lcard-img">
+      <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?w=600&q=80&fit=crop&crop=center" alt="San Fernando Lofts - Cali" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"/>
+      <div class="hbadge hb-blue" style="position:absolute;top:8px;left:8px">Nuevo</div>
+    </div>
+    <div class="lcard-body">
+      <div class="lcard-top"><div class="lcard-price">$720M COP</div></div>
+      <div class="lcard-name">San Fernando Lofts</div>
+      <div class="lcard-loc">San Fernando, Cali</div>
+      <div class="lcard-specs"><span>3 hab</span><span>·</span><span>95m²</span><span>·</span><span>2027</span><span>·</span><span style="color:#0D2B44">+7.1% ROI</span></div>
+      <div class="lcard-footer">
+        <div class="dev-info">
+          <div class="dev-avatar" style="background:#DDE9F4;width:16px;height:16px;border-radius:50%"></div>
+          <span class="dev-nm">Arco Arquitectura</span>
+          <span class="dev-stars">★ 4.6</span>
+        </div>
+        <button class="lcard-btn">Ver</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="height:16px;background:var(--color-background-secondary)"></div>
+
+<div class="dev-strip">
+  <div class="dev-strip-header">
+    <div>
+      <div style="font-size:10px;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:0.08em;font-weight:500;margin-bottom:4px">Constructoras verificadas</div>
+      <div style="font-size:14px;font-weight:500;color:var(--color-text-primary)">Solo trabajamos con los mejores</div>
+    </div>
+    <div style="font-size:12px;color:#1A4F7A;cursor:pointer">Ver todas →</div>
+  </div>
+  <div class="dev-scroll">
+    <div class="dev-card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <div class="dev-initial" style="background:#DDE9F4;color:#0D2B44">B</div>
+        <div><div class="dev-name">Constructora Bolívar</div><div class="dev-meta">★ 4.8 · 23 proyectos</div></div>
+      </div>
+      <div class="dev-verified">✓ Verificada</div>
+    </div>
+    <div class="dev-card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <div class="dev-initial" style="background:#E8F4FD;color:#0C447C">K</div>
+        <div><div class="dev-name">Grupo Kashi</div><div class="dev-meta">★ 4.9 · 8 proyectos</div></div>
+      </div>
+      <div class="dev-verified">✓ Verificada</div>
+    </div>
+    <div class="dev-card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <div class="dev-initial" style="background:#F3EEF8;color:#5B2D8E">A</div>
+        <div><div class="dev-name">Arco Arquitectura</div><div class="dev-meta">★ 4.7 · 14 proyectos</div></div>
+      </div>
+      <div class="dev-verified">✓ Verificada</div>
+    </div>
+    <div class="dev-card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <div class="dev-initial" style="background:#FEF3E2;color:#92400E">G</div>
+        <div><div class="dev-name">Grupo Concreta</div><div class="dev-meta">★ 4.6 · 11 proyectos</div></div>
+      </div>
+      <div class="dev-verified">✓ Verificada</div>
+    </div>
+    <div class="dev-card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <div class="dev-initial" style="background:#DDE9F4;color:#0D2B44">C</div>
+        <div><div class="dev-name">Cívico Constructores</div><div class="dev-meta">★ 4.8 · 19 proyectos</div></div>
+      </div>
+      <div class="dev-verified">✓ Verificada</div>
+    </div>
+    <div class="dev-card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <div class="dev-initial" style="background:#FCEBEB;color:#A32D2D">O</div>
+        <div><div class="dev-name">Ospinas &amp; Cía</div><div class="dev-meta">★ 4.9 · 31 proyectos</div></div>
+      </div>
+      <div class="dev-verified">✓ Verificada</div>
+    </div>
+  </div>
+</div>
+
+<div style="height:16px;background:var(--color-background-secondary)"></div>
+
+<div class="promo-band">
+  <div class="pb-left">
+    <div class="pb-tag">Para inversores</div>
+    <div class="pb-title">Calcula tu retorno<br>antes de comprar</div>
+    <div class="pb-sub">Simulador de ROI, flujo de caja y valorización proyectada. Toma decisiones con datos.</div>
+    <button class="pb-btn" id="openCalcBtn">Abrir calculadora</button>
+  </div>
+  <div class="pb-right">
+    <div class="pb-rtag">Para constructoras</div>
+    <div class="pb-rtitle">¿Tu proyecto cumple<br>nuestros estándares?</div>
+    <div class="pb-rsub">Postula tu proyecto a nuestra evaluación. Si pasa, accedes a compradores que ya confían en nuestra selección.</div>
+    <button class="pb-rbtn">Postular proyecto</button>
+  </div>
+</div>
+
+<div style="height:16px;background:var(--color-background-secondary)"></div>
+
+<div class="how-band">
+  <div class="how-inner">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px">
+      <div>
+        <div style="display:inline-flex;align-items:center;background:#DDE9F4;color:#0D2B44;font-size:10px;padding:3px 10px;border-radius:999px;font-weight:600;letter-spacing:0.06em;margin-bottom:10px">PROCESO</div>
+        <div style="font-size:20px;font-weight:500;color:var(--color-text-primary);font-family:'clother',sans-serif">Invierte en 4 pasos simples</div>
+        <div style="font-size:12px;color:var(--color-text-secondary);margin-top:4px">Sin sorpresas. Sin intermediarios ocultos.</div>
+      </div>
+    </div>
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="how-num">01</div>
+        <div class="how-step-title">Explora</div>
+        <div class="how-step-desc">Filtra proyectos por ciudad, precio, rendimiento estimado y tipo de entrega. Todo curado.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">02</div>
+        <div class="how-step-title">Evaluamos</div>
+        <div class="how-step-desc">Solo el 30% pasa nuestro análisis de riesgo: constructora, fiducia, licencias y mercado.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">03</div>
+        <div class="how-step-title">Acompañamos</div>
+        <div class="how-step-desc">Análisis financiero personalizado, visitas virtuales y revisión completa de documentación legal.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">04</div>
+        <div class="how-step-title">Inviertes</div>
+        <div class="how-step-desc">Cierre con respaldo fiduciario completo y asesor Zonum dedicado durante todo el proceso.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="height:24px;background:var(--color-background-secondary)"></div>
+
+<div class="elite-band" id="elite">
+
+  <div style="padding:32px 28px 20px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:20px;flex-wrap:wrap">
+      <div>
+        <div class="elite-eyebrow" style="margin-bottom:10px">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1l1.2 2.6 2.8.4-2 2 .5 2.8L5 7.5 2.5 8.8l.5-2.8-2-2 2.8-.4L5 1z" fill="#B8975A"/></svg>
+          Zonum Elite
+        </div>
+        <div class="elite-title" style="font-size:21px">Propiedades de lujo en el <span>Caribe &amp; Miami</span></div>
+        <div class="elite-sub" style="margin-top:6px;max-width:500px;line-height:1.6">Selección curada en USD — asesor dedicado, tour 3D y due diligence incluidos en cada proceso.</div>
+      </div>
+      <div class="elite-link" style="padding-top:6px">Ver colección completa →</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);border:0.5px solid rgba(184,151,90,0.15);border-radius:var(--border-radius-lg);overflow:hidden">
+      <div style="padding:12px 14px;border-right:0.5px solid rgba(201,169,110,0.12);display:flex;align-items:center;gap:9px">
+        <div style="width:26px;height:26px;min-width:26px;border-radius:6px;background:rgba(201,169,110,0.1);display:flex;align-items:center;justify-content:center">
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M6 1l1 2.5 2.5.3-1.8 1.7.4 2.5L6 6.8 3.9 8l.4-2.5L2.5 3.8l2.5-.3L6 1z" fill="#B8975A"/></svg>
+        </div>
+        <div><div style="font-size:11px;font-weight:500;color:#fff;line-height:1.3">Asesor Elite</div><div style="font-size:10px;color:#A89070;line-height:1.3">Dedicado por cliente</div></div>
+      </div>
+      <div style="padding:12px 14px;border-right:0.5px solid rgba(201,169,110,0.12);display:flex;align-items:center;gap:9px">
+        <div style="width:26px;height:26px;min-width:26px;border-radius:6px;background:rgba(201,169,110,0.1);display:flex;align-items:center;justify-content:center">
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><rect x="1" y="2" width="10" height="8" rx="1" stroke="#B8975A" stroke-width="1"/><path d="M1 4l5 3.5L11 4" stroke="#B8975A" stroke-width="1"/></svg>
+        </div>
+        <div><div style="font-size:11px;font-weight:500;color:#fff;line-height:1.3">Tour virtual 3D</div><div style="font-size:10px;color:#A89070;line-height:1.3">Sin necesidad de viajar</div></div>
+      </div>
+      <div style="padding:12px 14px;border-right:0.5px solid rgba(201,169,110,0.12);display:flex;align-items:center;gap:9px">
+        <div style="width:26px;height:26px;min-width:26px;border-radius:6px;background:rgba(201,169,110,0.1);display:flex;align-items:center;justify-content:center">
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><rect x="1.5" y="1.5" width="9" height="9" rx="1" stroke="#B8975A" stroke-width="1"/><path d="M4 6l2 2 3-3" stroke="#B8975A" stroke-width="1" stroke-linecap="round"/></svg>
+        </div>
+        <div><div style="font-size:11px;font-weight:500;color:#fff;line-height:1.3">Due diligence</div><div style="font-size:10px;color:#A89070;line-height:1.3">Legal y técnico incluido</div></div>
+      </div>
+      <div style="padding:12px 14px;display:flex;align-items:center;gap:9px">
+        <div style="width:26px;height:26px;min-width:26px;border-radius:6px;background:rgba(201,169,110,0.1);display:flex;align-items:center;justify-content:center">
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="4.5" stroke="#B8975A" stroke-width="1"/><path d="M6 3v3l2 2" stroke="#B8975A" stroke-width="1" stroke-linecap="round"/></svg>
+        </div>
+        <div><div style="font-size:11px;font-weight:500;color:#fff;line-height:1.3">Respuesta 24h</div><div style="font-size:10px;color:#A89070;line-height:1.3">Equipo siempre disponible</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);border-top:0.5px solid rgba(255,255,255,0.06)">
+
+    <div style="border-right:0.5px solid rgba(255,255,255,0.06);display:flex;flex-direction:column">
+      <div style="height:200px;position:relative;overflow:hidden;flex-shrink:0">
+        <img src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?w=600&q=80&fit=crop&crop=center" alt="Cartagena" style="width:100%;height:100%;object-fit:cover;opacity:0.7"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,22,36,0) 40%,rgba(15,22,36,0.9) 100%)"></div>
+        <div style="position:absolute;top:10px;left:10px;background:rgba(201,169,110,0.2);border:0.5px solid rgba(184,151,90,0.5);color:#D4AA6A;font-size:9px;padding:2px 8px;border-radius:999px;font-weight:500">🇨🇴 Cartagena</div>
+      </div>
+      <div style="padding:16px;display:flex;flex-direction:column;flex:1">
+        <div style="font-size:17px;font-weight:500;color:#B8975A;margin-bottom:2px">USD 890,000</div>
+        <div style="font-size:10px;color:#A89070;margin-bottom:8px">penthouse · desde</div>
+        <div style="font-size:13px;font-weight:500;color:#fff;margin-bottom:2px">Océano Azul Penthouse</div>
+        <div style="font-size:11px;color:#A89070;margin-bottom:10px">Bocagrande, Cartagena</div>
+        <div style="font-size:10px;color:#A89070;padding:8px 0;border-top:0.5px solid rgba(255,255,255,0.06);border-bottom:0.5px solid rgba(255,255,255,0.06);margin-bottom:10px">4 hab · 320m² · Terraza priv. · Piscina</div>
+        <div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:12px">
+          <div class="etag">Frente al mar</div>
+          <div class="etag">Concierge</div>
+          <div class="etag">Amoblado</div>
+        </div>
+        <div class="ecard-cta" style="margin-top:auto">Solicitar información</div>
+      </div>
+    </div>
+
+    <div style="border-right:0.5px solid rgba(255,255,255,0.06);display:flex;flex-direction:column">
+      <div style="height:200px;position:relative;overflow:hidden;flex-shrink:0">
+        <img src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=600&q=80&fit=crop&crop=center" alt="Miami" style="width:100%;height:100%;object-fit:cover;opacity:0.7"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,22,36,0) 40%,rgba(15,22,36,0.9) 100%)"></div>
+        <div style="position:absolute;top:10px;left:10px;background:rgba(201,169,110,0.2);border:0.5px solid rgba(184,151,90,0.5);color:#D4AA6A;font-size:9px;padding:2px 8px;border-radius:999px;font-weight:500">🇺🇸 Miami</div>
+      </div>
+      <div style="padding:16px;display:flex;flex-direction:column;flex:1">
+        <div style="font-size:17px;font-weight:500;color:#B8975A;margin-bottom:2px">USD 1,250,000</div>
+        <div style="font-size:10px;color:#A89070;margin-bottom:8px">apartamento · desde</div>
+        <div style="font-size:13px;font-weight:500;color:#fff;margin-bottom:2px">Brickell Heights Tower</div>
+        <div style="font-size:11px;color:#A89070;margin-bottom:10px">Brickell, Miami FL</div>
+        <div style="font-size:10px;color:#A89070;padding:8px 0;border-top:0.5px solid rgba(255,255,255,0.06);border-bottom:0.5px solid rgba(255,255,255,0.06);margin-bottom:10px">3 hab · 210m² · 2 parq. · 2026</div>
+        <div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:12px">
+          <div class="etag">Vista Biscayne</div>
+          <div class="etag">Spa &amp; gym</div>
+          <div class="etag">Preventa</div>
+        </div>
+        <div class="ecard-cta" style="margin-top:auto">Solicitar información</div>
+      </div>
+    </div>
+
+    <div style="border-right:0.5px solid rgba(255,255,255,0.06);display:flex;flex-direction:column">
+      <div style="height:200px;position:relative;overflow:hidden;flex-shrink:0">
+        <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=600&q=80&fit=crop&crop=center" alt="Punta Cana" style="width:100%;height:100%;object-fit:cover;opacity:0.7"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,22,36,0) 40%,rgba(15,22,36,0.9) 100%)"></div>
+        <div style="position:absolute;top:10px;left:10px;background:rgba(201,169,110,0.2);border:0.5px solid rgba(184,151,90,0.5);color:#D4AA6A;font-size:9px;padding:2px 8px;border-radius:999px;font-weight:500">🇩🇴 Punta Cana</div>
+      </div>
+      <div style="padding:16px;display:flex;flex-direction:column;flex:1">
+        <div style="font-size:17px;font-weight:500;color:#B8975A;margin-bottom:2px">USD 420,000</div>
+        <div style="font-size:10px;color:#A89070;margin-bottom:8px">villa · desde</div>
+        <div style="font-size:13px;font-weight:500;color:#fff;margin-bottom:2px">Cana Bay Villas</div>
+        <div style="font-size:11px;color:#A89070;margin-bottom:10px">Cap Cana, Rep. Dominicana</div>
+        <div style="font-size:10px;color:#A89070;padding:8px 0;border-top:0.5px solid rgba(255,255,255,0.06);border-bottom:0.5px solid rgba(255,255,255,0.06);margin-bottom:10px">3 hab · 280m² · Jardín · 2025</div>
+        <div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:12px">
+          <div class="etag">+11% yield</div>
+          <div class="etag">Golf</div>
+          <div class="etag">Renta vacacional</div>
+        </div>
+        <div class="ecard-cta" style="margin-top:auto">Solicitar información</div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column">
+      <div style="height:200px;position:relative;overflow:hidden;flex-shrink:0">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80&fit=crop&crop=center" alt="San Andrés" style="width:100%;height:100%;object-fit:cover;opacity:0.7"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,22,36,0) 40%,rgba(15,22,36,0.9) 100%)"></div>
+        <div style="position:absolute;top:10px;left:10px;background:rgba(201,169,110,0.2);border:0.5px solid rgba(184,151,90,0.5);color:#D4AA6A;font-size:9px;padding:2px 8px;border-radius:999px;font-weight:500">🇨🇴 San Andrés</div>
+      </div>
+      <div style="padding:16px;display:flex;flex-direction:column;flex:1">
+        <div style="font-size:17px;font-weight:500;color:#B8975A;margin-bottom:2px">USD 280,000</div>
+        <div style="font-size:10px;color:#A89070;margin-bottom:8px">apartamento · desde</div>
+        <div style="font-size:13px;font-weight:500;color:#fff;margin-bottom:2px">Coral Reef Suites</div>
+        <div style="font-size:11px;color:#A89070;margin-bottom:10px">San Andrés Isla, Colombia</div>
+        <div style="font-size:10px;color:#A89070;padding:8px 0;border-top:0.5px solid rgba(255,255,255,0.06);border-bottom:0.5px solid rgba(255,255,255,0.06);margin-bottom:10px">2 hab · 110m² · Entrega 2026</div>
+        <div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:12px">
+          <div class="etag">Frente al mar</div>
+          <div class="etag">Free trade</div>
+          <div class="etag">Preventa</div>
+        </div>
+        <div class="ecard-cta" style="margin-top:auto">Solicitar información</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 28px;border-top:0.5px solid rgba(255,255,255,0.06);flex-wrap:wrap;gap:14px">
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <div class="elite-stat"><div class="elite-stat-num">USD 280k</div><div class="elite-stat-lbl">Precio de entrada</div></div>
+      <div class="elite-stat"><div class="elite-stat-num">4</div><div class="elite-stat-lbl">Destinos elite</div></div>
+      <div class="elite-stat"><div class="elite-stat-num">+10%</div><div class="elite-stat-lbl">Yield promedio</div></div>
+      <div class="elite-stat"><div class="elite-stat-num">100%</div><div class="elite-stat-lbl">En USD</div></div>
+    </div>
+    <div style="padding:10px 20px;background:rgba(184,151,90,0.08);border:0.5px solid rgba(184,151,90,0.4);border-radius:var(--border-radius-md);cursor:pointer">
+      <span style="font-size:11px;font-weight:500;color:#B8975A;letter-spacing:0.06em;text-transform:uppercase">Hablar con asesor Elite →</span>
+    </div>
+  </div>
+
+</div>
+
+<div style="height:16px;background:var(--color-background-secondary)"></div>
+
+<div class="testi-band">
+  <div class="testi-inner">
+    <div style="margin-bottom:24px">
+      <div style="font-size:18px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px;font-family:'clother',sans-serif">Lo que dicen nuestros inversores</div>
+      <div style="font-size:12px;color:var(--color-text-secondary)">Inversores reales con resultados verificados por nuestro equipo</div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-top">
+          <div class="testi-avatar" style="background:#DDE9F4;color:#0D2B44">C</div>
+          <div style="flex:1">
+            <div style="font-size:13px;font-weight:500;color:var(--color-text-primary)">Carlos M.</div>
+            <div style="font-size:11px;color:var(--color-text-secondary)">Bogotá · 2 proyectos</div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <div class="testi-verified">✓ Inversor verificado</div>
+        </div>
+        <div class="testi-quote">"La curaduría me ahorró meses de investigación. Invertí en Medellín con total confianza y los números cuadraron exactamente como prometieron."</div>
+        <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:14px">
+          <div class="testi-metric">9.1%</div>
+          <div class="testi-metric-label">ROI obtenido primer año</div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-top">
+          <div class="testi-avatar" style="background:#E8F4FD;color:#0C447C">V</div>
+          <div style="flex:1">
+            <div style="font-size:13px;font-weight:500;color:var(--color-text-primary)">Valentina R.</div>
+            <div style="font-size:11px;color:var(--color-text-secondary)">Miami · 1 proyecto</div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <div class="testi-verified">✓ Inversor verificado</div>
+        </div>
+        <div class="testi-quote">"El único lugar donde confío los números al 100%. El due diligence fue impecable y mi asesor respondió cada duda en menos de 24 horas."</div>
+        <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:14px">
+          <div class="testi-metric">$85,000 USD</div>
+          <div class="testi-metric-label">Capital invertido en Cartagena</div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-top">
+          <div class="testi-avatar" style="background:#FEF3E2;color:#92400E">J</div>
+          <div style="flex:1">
+            <div style="font-size:13px;font-weight:500;color:var(--color-text-primary)">Jorge A.</div>
+            <div style="font-size:11px;color:var(--color-text-secondary)">Medellín · 3 proyectos</div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <div class="testi-verified">✓ Inversor verificado</div>
+        </div>
+        <div class="testi-quote">"Ya voy en mi tercera inversión con Zonum. La ganancia en papel del primero fue +28% al escriturar. La plataforma más seria del mercado."</div>
+        <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:14px">
+          <div class="testi-metric">+28%</div>
+          <div class="testi-metric-label">Ganancia en papel al escriturar</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="height:24px;background:var(--color-background-secondary)"></div>
+
+<div class="cities-row">
+  <div class="section-header" style="padding-left:0;padding-right:0;margin-bottom:8px">
+    <div class="sh-title">Explorar por ciudad</div>
+    <div class="sh-link" onclick="location.href='/mapa-colombia/'" style="cursor:pointer">Ver mapa completo →</div>
+  </div>
+  <div class="cities-grid">
+    <div class="city-card" data-city="bogota" onclick="location.href='/buscar/'" style="cursor:pointer"><div class="city-icon">🏙</div><div class="city-name">Bogotá</div><div class="city-count">486 proyectos</div></div>
+    <div class="city-card" data-city="medellin" onclick="location.href='/medellin/'" style="cursor:pointer"><div class="city-icon">🏔</div><div class="city-name">Medellín</div><div class="city-count">312 proyectos</div></div>
+    <div class="city-card" data-city="cartagena" onclick="location.href='/buscar/'" style="cursor:pointer"><div class="city-icon">🌊</div><div class="city-name">Cartagena</div><div class="city-count">180 proyectos</div></div>
+    <div class="city-card" data-city="cali" onclick="location.href='/buscar/'" style="cursor:pointer"><div class="city-icon">🌇</div><div class="city-name">Cali</div><div class="city-count">142 proyectos</div></div>
+    <div class="city-card" data-city="barranquilla" onclick="location.href='/buscar/'" style="cursor:pointer"><div class="city-icon">🌴</div><div class="city-name">Barranquilla</div><div class="city-count">98 proyectos</div></div>
+    <div class="city-card" data-city="bucaramanga" onclick="location.href='/buscar/'" style="cursor:pointer"><div class="city-icon">🏞</div><div class="city-name">Bucaramanga</div><div class="city-count">76 proyectos</div></div>
+  </div>
+</div>
+
+<div style="height:24px;background:var(--color-background-secondary)"></div>
+
+<div id="cesiones" style="display:grid;grid-template-columns:50px 1fr;background:var(--color-background-primary);border-top:0.5px solid var(--color-border-tertiary)">
+
+  <!-- Narrow navy sidebar with vertical label -->
+  <div style="background:#1C3B6A;display:flex;align-items:center;justify-content:center">
+    <div style="writing-mode:vertical-rl;transform:rotate(180deg);font-size:9px;font-weight:700;letter-spacing:0.18em;color:rgba(255,255,255,0.55);text-transform:uppercase;white-space:nowrap">CESIONES · OPORTUNIDAD</div>
+  </div>
+
+  <!-- Main content -->
+  <div>
+
+    <!-- Info strip -->
+    <div class="cesion-info-strip">
+      <div class="cis-item">
+        <div class="cis-icon" style="background:#FCEBEB">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1l1.5 3.5 3.5.5-2.5 2.5.5 3.5L7 9.5 4 11l.5-3.5L2 5l3.5-.5L7 1z" stroke="#A32D2D" stroke-width="1.2" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="cis-title">¿Qué es una cesión?</div>
+          <div class="cis-sub">Un propietario vende sus derechos sobre una unidad antes de recibirla, a precio por debajo de lista.</div>
+        </div>
+      </div>
+      <div class="cis-item">
+        <div class="cis-icon" style="background:#3A3530">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="4" width="10" height="7" rx="1" stroke="#fff" stroke-width="1.2"/><path d="M5 4V3a2 2 0 014 0v1" stroke="#fff" stroke-width="1.2"/></svg>
+        </div>
+        <div>
+          <div class="cis-title">Zonum gestiona todo</div>
+          <div class="cis-sub">No contactas al propietario directamente. Zonum coordina la negociación, documentos y cierre.</div>
+        </div>
+      </div>
+      <div class="cis-item">
+        <div class="cis-icon" style="background:#DDE9F4">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="2" width="10" height="10" rx="1" stroke="#0D2B44" stroke-width="1.2"/><path d="M4 7l2 2 4-4" stroke="#0D2B44" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <div class="cis-title">Proceso seguro y verificado</div>
+          <div class="cis-sub">Validamos identidad del cedente y documentos de la unidad antes de publicar.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section header -->
+    <div class="cesion-sec-header">
+      <div>
+        <div class="cs-badge"><div class="cs-badge-dot"></div>238 unidades disponibles</div>
+        <div class="cs-title">Cesiones · Unidades con descuento</div>
+        <div class="cs-sub">Gestionadas por Zonum · Propietarios que ceden sus derechos en proyectos nuevos</div>
+      </div>
+      <div class="cs-right">
+        <div class="cs-link">Ver todas →</div>
+        <div class="cs-sort">
+          <div class="csort-chip on" onclick="sortCesiones('desc',this)">Mayor descuento</div>
+          <div class="csort-chip" onclick="sortCesiones('price',this)">Menor precio</div>
+          <div class="csort-chip" onclick="sortCesiones('recent',this)">Más recientes</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="cesion-grid" id="cesion-grid">
+      <div class="cc" data-discount="18" data-price="417">
+        <div class="cc-img">
+          <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80&fit=crop&crop=center" alt="Sky Garden 93"/>
+          <div class="cc-discount">−18%</div>
+          <div class="cc-floor">Piso 12 · Apto 1204</div>
+                  </div>
+        <div class="cc-body">
+          <div class="cc-prices"><span class="cc-price-new">$417.000.000</span><span class="cc-price-old">$508.000.000</span><span class="cc-saving">Ahorras $91.000.000</span></div>
+          <div class="cc-project">Sky Garden 93</div>
+          <div class="cc-unit">Parque 93, Bogotá · Entregado · Disponible ahora</div>
+          <div class="cc-tag-row"><div class="cc-tag hot">Muy solicitada</div><div class="cc-tag">Vista panorámica</div><div class="cc-tag">Esquinera</div></div>
+          <div class="cc-specs"><div class="cc-spec">2 hab</div><div class="cc-spec">·</div><div class="cc-spec">2 baños</div><div class="cc-spec">·</div><div class="cc-spec">68m²</div><div class="cc-spec">·</div><div class="cc-spec">1 parq.</div></div>
+          <div class="zonum-box"><div class="zn-logo"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="5" width="11" height="7" rx="1" fill="#fff"/><path d="M1 7l5.5-5 5.5 5" stroke="#fff" stroke-width="1.3" fill="none"/></svg></div><div><div class="zn-title">Gestionado por Zonum</div><div class="zn-sub">Nuestro equipo coordina todo el proceso</div></div><div class="zn-badge"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="#0D2B44" stroke-width="1.2"/></svg>Disponible</div></div>
+          <div class="cc-ctas"><div class="cc-cta-primary">Solicitar a Zonum</div><div class="cc-cta-secondary">Ver detalles</div></div>
+        </div>
+      </div>
+      <div class="cc" data-discount="12" data-price="444">
+        <div class="cc-img">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&fit=crop&crop=center" alt="Reserva del Bosque"/>
+          <div class="cc-discount">−12%</div>
+          <div class="cc-floor">Piso 8 · Apto 804</div>
+                  </div>
+        <div class="cc-body">
+          <div class="cc-prices"><span class="cc-price-new">$444.000.000</span><span class="cc-price-old">$505.000.000</span><span class="cc-saving">Ahorras $61.000.000</span></div>
+          <div class="cc-project">Reserva del Bosque</div>
+          <div class="cc-unit">Chapinero, Bogotá · Entrega mar 2026</div>
+          <div class="cc-tag-row"><div class="cc-tag">Terraza privada</div><div class="cc-tag">Interior tranquilo</div></div>
+          <div class="cc-specs"><div class="cc-spec">3 hab</div><div class="cc-spec">·</div><div class="cc-spec">2 baños</div><div class="cc-spec">·</div><div class="cc-spec">82m²</div><div class="cc-spec">·</div><div class="cc-spec">1 parq.</div></div>
+          <div class="zonum-box"><div class="zn-logo"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="5" width="11" height="7" rx="1" fill="#fff"/><path d="M1 7l5.5-5 5.5 5" stroke="#fff" stroke-width="1.3" fill="none"/></svg></div><div><div class="zn-title">Gestionado por Zonum</div><div class="zn-sub">Nuestro equipo coordina todo el proceso</div></div><div class="zn-badge"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="#0D2B44" stroke-width="1.2"/></svg>Disponible</div></div>
+          <div class="cc-ctas"><div class="cc-cta-primary">Solicitar a Zonum</div><div class="cc-cta-secondary">Ver detalles</div></div>
+        </div>
+      </div>
+      <div class="cc" data-discount="22" data-price="296">
+        <div class="cc-img">
+          <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&q=80&fit=crop&crop=center" alt="Laureles 60"/>
+          <div class="cc-discount">−22%</div>
+          <div class="cc-floor">Piso 14 · Apto 1402</div>
+                  </div>
+        <div class="cc-body">
+          <div class="cc-prices"><span class="cc-price-new">$296.000.000</span><span class="cc-price-old">$380.000.000</span><span class="cc-saving">Ahorras $84.000.000</span></div>
+          <div class="cc-project">Laureles 60</div>
+          <div class="cc-unit">Laureles, Medellín · Entregado · Disponible ahora</div>
+          <div class="cc-tag-row"><div class="cc-tag hot">Urgente</div><div class="cc-tag">Vista montaña</div><div class="cc-tag">Amoblado</div></div>
+          <div class="cc-specs"><div class="cc-spec">1 hab</div><div class="cc-spec">·</div><div class="cc-spec">1 baño</div><div class="cc-spec">·</div><div class="cc-spec">52m²</div><div class="cc-spec">·</div><div class="cc-spec">Sin parq.</div></div>
+          <div class="zonum-box"><div class="zn-logo"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="5" width="11" height="7" rx="1" fill="#fff"/><path d="M1 7l5.5-5 5.5 5" stroke="#fff" stroke-width="1.3" fill="none"/></svg></div><div><div class="zn-title">Gestionado por Zonum</div><div class="zn-sub">Nuestro equipo coordina todo el proceso</div></div><div class="zn-badge"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 4l2 2 4-4" stroke="#0D2B44" stroke-width="1.2"/></svg>Disponible</div></div>
+          <div class="cc-ctas"><div class="cc-cta-primary">Solicitar a Zonum</div><div class="cc-cta-secondary">Ver detalles</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="trust-band">
+  <div class="tb-item">
+    <div class="tb-icon">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2L9.8 5.8L14 6.3L11 9.2L11.7 13.4L8 11.5L4.3 13.4L5 9.2L2 6.3L6.2 5.8L8 2Z" stroke="#0D2B44" stroke-width="1.2"/></svg>
+    </div>
+    <div>
+      <div class="tb-ttitle">Selección independiente</div>
+      <div class="tb-tdesc">No recibimos pago de constructoras para publicar. Nuestra curaduría es completamente independiente.</div>
+    </div>
+  </div>
+  <div class="tb-item">
+    <div class="tb-icon">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="3" y="2" width="10" height="12" rx="1" stroke="#0D2B44" stroke-width="1.2"/><path d="M5 6h6M5 9h4" stroke="#0D2B44" stroke-width="1.2"/></svg>
+    </div>
+    <div>
+      <div class="tb-ttitle">Evaluación de riesgo incluida</div>
+      <div class="tb-tdesc">Revisamos licencias, fiducia, historial de la constructora y viabilidad del proyecto antes de publicar.</div>
+    </div>
+  </div>
+  <div class="tb-item">
+    <div class="tb-icon">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="#0D2B44" stroke-width="1.2"/><path d="M8 5v3l2 2" stroke="#0D2B44" stroke-width="1.2" stroke-linecap="round"/></svg>
+    </div>
+    <div>
+      <div class="tb-ttitle">Solo 3 de cada 10 proyectos pasan</div>
+      <div class="tb-tdesc">Evaluamos decenas de proyectos cada mes. Solo publicamos los que cumplen nuestros estándares.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div style="height:16px;background:var(--color-background-secondary)"></div>
+
+<div class="ins-band">
+  <div class="ins-inner">
+    <div class="ins-header">
+      <div>
+        <div style="font-size:10px;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:0.08em;font-weight:500;margin-bottom:4px">Zonum Insights</div>
+        <div style="font-size:18px;font-weight:500;color:var(--color-text-primary);font-family:'clother',sans-serif">Datos del mercado para inversores informados</div>
+      </div>
+      <div style="font-size:12px;color:#1A4F7A;cursor:pointer;white-space:nowrap">Ver todos →</div>
+    </div>
+    <div class="ins-grid">
+      <div class="ins-card" onclick="location.href='/insights-medellin-valorizacion/'" style="cursor:pointer">
+        <span class="ins-icon">📈</span>
+        <div class="ins-title">Medellín lidera la valorización</div>
+        <div class="ins-desc">El Poblado y Laureles registran +8.2% de valorización promedio anual, superando la inflación por 3.1 puntos durante los últimos 5 años.</div>
+        <div class="ins-tags"><div class="ins-tag">Medellín</div><div class="ins-tag">Tendencia</div></div>
+        <div class="ins-link">Leer más →</div>
+      </div>
+      <div class="ins-card" onclick="location.href='/buscar/'" style="cursor:pointer">
+        <span class="ins-icon">🌊</span>
+        <div class="ins-title">Caribe: renta vacacional récord</div>
+        <div class="ins-desc">Propiedades frente al mar en Santa Marta y Cartagena generan hasta 12% anual en temporada alta, con ocupación promedio del 78%.</div>
+        <div class="ins-tags"><div class="ins-tag">Caribe</div><div class="ins-tag">Renta</div></div>
+        <div class="ins-link">Leer más →</div>
+      </div>
+      <div class="ins-card" onclick="location.href='/buscar/'" style="cursor:pointer">
+        <span class="ins-icon">🏙</span>
+        <div class="ins-title">Bogotá preventa: ganancia en papel</div>
+        <div class="ins-desc">Proyectos en preventa en Chapinero y Usaquén registran 15–22% de ganancia en papel al momento de escriturar, según datos 2024.</div>
+        <div class="ins-tags"><div class="ins-tag">Bogotá</div><div class="ins-tag">Preventa</div></div>
+        <div class="ins-link">Leer más →</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- ROI Calculator Modal -->
+<div class="modal-overlay" id="calcModal">
+  <div class="modal-box">
+    <button class="modal-close" id="calcClose">✕</button>
+    <div class="modal-title">Calculadora de ROI</div>
+    <div class="modal-sub">Simula el retorno de tu inversión inmobiliaria</div>
+    <div class="calc-row">
+      <div class="calc-label">Precio propiedad (COP millones)</div>
+      <input type="number" class="calc-input" id="calcPrecio" value="500" min="100" max="10000">
+    </div>
+    <div class="calc-row">
+      <div class="calc-label">Cuota inicial (%)</div>
+      <input type="number" class="calc-input" id="calcCuota" value="30" min="10" max="100">
+    </div>
+    <div class="calc-row">
+      <div class="calc-label">Renta mensual esperada (COP millones)</div>
+      <input type="number" class="calc-input" id="calcRenta" value="2.5" min="0.5" step="0.1">
+    </div>
+    <div class="calc-row">
+      <div class="calc-label">Valorización anual (%)</div>
+      <input type="number" class="calc-input" id="calcValorizacion" value="6" min="0" max="30">
+    </div>
+    <div class="calc-row">
+      <div class="calc-label">Horizonte de inversión (años)</div>
+      <input type="range" class="calc-input" id="calcHorizonte" value="5" min="1" max="10" style="padding:4px 0">
+      <div style="font-size:12px;color:var(--color-text-secondary);margin-top:4px">Años: <span id="calcHorizonteVal">5</span></div>
+    </div>
+    <div class="calc-results">
+      <div class="calc-res-item">
+        <div class="calc-res-label">Ingreso mensual neto</div>
+        <div class="calc-res-val" id="resIngresoMensual">$2.5M COP</div>
+      </div>
+      <div class="calc-res-item">
+        <div class="calc-res-label">Retorno anual rental</div>
+        <div class="calc-res-val" id="resRetornoAnual">6.0%</div>
+      </div>
+      <div class="calc-res-item">
+        <div class="calc-res-label">Ganancia de capital</div>
+        <div class="calc-res-val" id="resGananciaCapital">$170M COP</div>
+      </div>
+      <div class="calc-res-item">
+        <div class="calc-res-label">Retorno total</div>
+        <div class="calc-res-val" id="resRetornoTotal">$320M COP</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast"></div>
+
+<script>
+// ── Cesiones sort (global, called from inline onclick) ──
+function sortCesiones(by, clickedChip) {
+  if (clickedChip) {
+    document.querySelectorAll('.csort-chip').forEach(function(c){ c.classList.remove('on'); });
+    clickedChip.classList.add('on');
+  }
+  var grid = document.getElementById('cesion-grid');
+  if (!grid) return;
+  var cards = Array.from(grid.querySelectorAll('.cc'));
+  cards.sort(function(a, b){
+    if (by === 'desc' || by === 'discount') {
+      return parseFloat(b.getAttribute('data-discount')||0) - parseFloat(a.getAttribute('data-discount')||0);
+    } else if (by === 'price') {
+      return parseFloat(a.getAttribute('data-price')||0) - parseFloat(b.getAttribute('data-price')||0);
+    } else {
+      return 0;
+    }
+  });
+  cards.forEach(function(c){ grid.appendChild(c); });
+}
+
+// ── Hero Spotlight Carousel ──
+const spotProjects = [
+  { name:'Tulla Medellín', loc:'La Candelaria, Bogotá', price:'$820,000,000', badge:'Preventa', img:'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=700&q=80&fit=crop&crop=center' },
+  { name:'Kaali Playa Colorado', loc:'Playa Colorada, Santa Marta', price:'$420,000,000', badge:'Nuevo', img:'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&q=80&fit=crop&crop=center' },
+  { name:'Alma Luxury Lofts', loc:'Centro Histórico, Cartagena', price:'$466,000,000', badge:'Preventa', img:'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=700&q=80&fit=crop&crop=center' },
+];
+let spotIdx = 2;
+function spotRender() {
+  const p = spotProjects[spotIdx];
+  document.getElementById('hspot-photo').src = p.img;
+  document.getElementById('hspot-name').textContent = p.name;
+  document.getElementById('hspot-loc').textContent = p.loc;
+  document.getElementById('hspot-price').innerHTML = p.price + ' <span style="font-size:12px;font-weight:400;color:#888078">desde</span>';
+  document.getElementById('hspot-badge').textContent = p.badge;
+  document.querySelectorAll('.hspot-dot').forEach((d,i) => d.classList.toggle('on', i===spotIdx));
+}
+function spotNav(dir) {
+  spotIdx = (spotIdx + dir + spotProjects.length) % spotProjects.length;
+  spotRender();
+}
+// Auto-rotate every 4 seconds
+setInterval(() => spotNav(1), 4000);
+
+(function(){
+  // ── Toast ──
+  function showToast(msg) {
+    var t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(function(){ t.classList.remove('show'); }, 2500);
+  }
+
+  // ── Hamburger / mobile menu ──
+  var hamburger = document.getElementById('hamburgerBtn');
+  var mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', function(e){
+    e.stopPropagation();
+    mobileMenu.classList.toggle('open');
+  });
+  document.addEventListener('click', function(e){
+    if (!mobileMenu.contains(e.target) && e.target !== hamburger) {
+      mobileMenu.classList.remove('open');
+    }
+  });
+
+  // ── Nav smooth scroll ──
+  document.querySelectorAll('[data-scroll]').forEach(function(el){
+    el.addEventListener('click', function(){
+      var id = el.getAttribute('data-scroll');
+      var target = document.getElementById(id);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        mobileMenu.classList.remove('open');
+      }
+    });
+  });
+
+  // ── Favorites / hearts ──
+  // hcard saves
+  document.querySelectorAll('.hcard-save').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      if (btn.textContent.trim() === '♡') {
+        btn.textContent = '♥';
+        btn.style.color = '#E24B4A';
+        showToast('Guardado en favoritos');
+      } else {
+        btn.textContent = '♡';
+        btn.style.color = '';
+      }
+    });
+  });
+  // lcard saves
+  document.querySelectorAll('.lcard-save').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      if (btn.classList.contains('saved')) {
+        btn.classList.remove('saved');
+        btn.textContent = '♡';
+      } else {
+        btn.classList.add('saved');
+        btn.textContent = '♥';
+        showToast('Guardado en favoritos');
+      }
+    });
+  });
+  // cc saves
+  document.querySelectorAll('.cc-save').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      if (btn.classList.contains('saved')) {
+        btn.classList.remove('saved');
+        btn.textContent = '♡';
+      } else {
+        btn.classList.add('saved');
+        btn.textContent = '♥';
+        showToast('Guardado en favoritos');
+      }
+    });
+  });
+  // ecard saves
+  document.querySelectorAll('.ecard-save').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      if (btn.classList.contains('saved')) {
+        btn.classList.remove('saved');
+        btn.textContent = '♡';
+      } else {
+        btn.classList.add('saved');
+        btn.textContent = '♥';
+        showToast('Guardado en favoritos');
+      }
+    });
+  });
+
+  // ── Filter chips ──
+  var activeFilters = new Set(['colombia']);
+  document.querySelectorAll('.fchip').forEach(function(chip){
+    chip.addEventListener('click', function(){
+      var f = chip.getAttribute('data-filter');
+      if (chip.classList.contains('on')) {
+        chip.classList.remove('on');
+        activeFilters.delete(f);
+      } else {
+        chip.classList.add('on');
+        activeFilters.add(f);
+      }
+      applyListingFilters();
+    });
+  });
+
+  // ── Search selects ──
+  ['filterCity','filterType','filterBudget','filterYear'].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('change', applyListingFilters);
+  });
+  document.getElementById('searchBtn').addEventListener('click', function(){
+    var city   = document.getElementById('filterCity').value;
+    var type   = document.getElementById('filterType').value;
+    var budget = document.getElementById('filterBudget').value;
+    var year   = document.getElementById('filterYear').value;
+    var params = new URLSearchParams();
+    if (city)   params.set('ciudad', city);
+    if (type)   params.set('tipo', type);
+    if (budget) params.set('presupuesto', budget);
+    if (year)   params.set('entrega', year);
+    location.href = '/buscar/' + (params.toString() ? '?' + params.toString() : '');
+  });
+
+  function applyListingFilters() {
+    var citySelect = document.getElementById('filterCity').value;
+    var budgetSelect = document.getElementById('filterBudget').value;
+
+    document.querySelectorAll('.lcard').forEach(function(card){
+      var city = card.getAttribute('data-city') || '';
+      var status = card.getAttribute('data-status') || '';
+      var price = parseFloat(card.getAttribute('data-price')) || 0;
+      var roi = parseFloat(card.getAttribute('data-roi')) || 0;
+      var show = true;
+
+      // chip filters
+      if (activeFilters.size > 0) {
+        var chipMatch = false;
+        activeFilters.forEach(function(f){
+          if (f === 'colombia') chipMatch = true; // show all colombia
+          if (f === 'preventa' && status === 'preventa') chipMatch = true;
+          if (f === 'construccion' && status === 'construccion') chipMatch = true;
+          if (f === 'inmediata' && status === 'inmediata') chipMatch = true;
+          if (f === 'precio500' && price < 500) chipMatch = true;
+          if (f === 'roi' && roi >= 8) chipMatch = true;
+          if (f === 'caribe') chipMatch = true; // show all for caribe chip
+        });
+        if (!chipMatch) show = false;
+      }
+
+      // select filters
+      if (citySelect && city !== citySelect) show = false;
+      if (budgetSelect) {
+        var b = parseFloat(budgetSelect);
+        if (b === 500 && price >= 500) show = false;
+        if (b === 800 && (price < 500 || price > 800)) show = false;
+        if (b === 9999 && price <= 800) show = false;
+      }
+
+      card.classList.toggle('hidden', !show);
+    });
+  }
+
+  // ── City cards ──
+  var activeCityCard = null;
+  document.querySelectorAll('.city-card').forEach(function(card){
+    card.addEventListener('click', function(){
+      var city = card.getAttribute('data-city');
+      if (activeCityCard === card) {
+        // deselect
+        card.classList.remove('active');
+        activeCityCard = null;
+        // reset city select
+        document.getElementById('filterCity').value = '';
+        applyListingFilters();
+      } else {
+        if (activeCityCard) activeCityCard.classList.remove('active');
+        card.classList.add('active');
+        activeCityCard = card;
+        document.getElementById('filterCity').value = city;
+        applyListingFilters();
+        document.getElementById('proyectos').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // ── Cesiones sort chips (legacy data-sort attribute chips) ──
+  document.querySelectorAll('.csort-chip[data-sort]').forEach(function(chip){
+    chip.addEventListener('click', function(){
+      document.querySelectorAll('.csort-chip').forEach(function(c){ c.classList.remove('on'); });
+      chip.classList.add('on');
+      var sortBy = chip.getAttribute('data-sort');
+      sortCesiones(sortBy, chip);
+    });
+  });
+
+  // ── ROI Calculator ──
+  var calcModal = document.getElementById('calcModal');
+  document.getElementById('openCalcBtn').addEventListener('click', function(){
+    calcModal.classList.add('open');
+    calcROI();
+  });
+  document.getElementById('calcClose').addEventListener('click', function(){
+    calcModal.classList.remove('open');
+  });
+  calcModal.addEventListener('click', function(e){
+    if (e.target === calcModal) calcModal.classList.remove('open');
+  });
+
+  var calcInputs = ['calcPrecio','calcCuota','calcRenta','calcValorizacion','calcHorizonte'];
+  calcInputs.forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('input', function(){
+        if (id === 'calcHorizonte') {
+          document.getElementById('calcHorizonteVal').textContent = el.value;
+        }
+        calcROI();
+      });
+    }
+  });
+
+  function calcROI() {
+    var precio = parseFloat(document.getElementById('calcPrecio').value) || 500;
+    var cuota = parseFloat(document.getElementById('calcCuota').value) || 30;
+    var renta = parseFloat(document.getElementById('calcRenta').value) || 2.5;
+    var valorizacion = parseFloat(document.getElementById('calcValorizacion').value) || 6;
+    var horizonte = parseInt(document.getElementById('calcHorizonte').value) || 5;
+
+    var ingresoMensual = renta;
+    var retornoAnualRental = (renta * 12 / precio * 100);
+    var gananciaCapital = precio * Math.pow(1 + valorizacion / 100, horizonte) - precio;
+    var retornoTotal = (renta * 12 * horizonte) + gananciaCapital;
+
+    document.getElementById('resIngresoMensual').textContent = '$' + renta.toFixed(1) + 'M COP';
+    document.getElementById('resRetornoAnual').textContent = retornoAnualRental.toFixed(1) + '%';
+    document.getElementById('resGananciaCapital').textContent = '$' + gananciaCapital.toFixed(0) + 'M COP';
+    document.getElementById('resRetornoTotal').textContent = '$' + retornoTotal.toFixed(0) + 'M COP';
+  }
+
+  // ── Newsletter ──
+  function submitNewsletter() {
+    var email = document.getElementById('newsletterEmail').value.trim();
+    var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (re.test(email)) {
+      showToast('¡Suscrito con éxito!');
+      document.getElementById('newsletterEmail').value = '';
+    } else {
+      showToast('Ingresa un correo válido');
+    }
+  }
+  var nlSubmit = document.getElementById('newsletterSubmit'); if (nlSubmit) nlSubmit.addEventListener('click', submitNewsletter);
+  var nlEmail = document.getElementById('newsletterEmail'); if (nlEmail) nlEmail.addEventListener('keydown', function(e){
+    if (e.key === 'Enter') submitNewsletter();
+  });
+
+})();
+</script>
+
+<!-- ── VISIT MODAL ── -->
+<div class="visit-modal" id="visitModal" role="dialog" aria-modal="true" aria-label="Agendar visita">
+  <div class="visit-box">
+    <!-- Left Panel -->
+    <div class="visit-left">
+      <div class="vl-logo">zonum</div>
+      <div class="vl-img-placeholder" id="vl-img-placeholder">🏙️</div>
+      <div class="vl-project-name" id="vl-project-name">Proyectos seleccionados</div>
+      <div class="vl-project-loc" id="vl-project-loc">
+        <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="5.5" r="2.5" stroke="#A8C4DC" stroke-width="1.2"/><path d="M7 14C7 14 2 9.5 2 5.5a5 5 0 0110 0C12 9.5 7 14 7 14z" stroke="#A8C4DC" stroke-width="1.2" fill="none"/></svg>
+        <span id="vl-project-loc-text">Colombia</span>
+      </div>
+      <div class="vl-trust">
+        <div class="vl-trust-item"><div class="vl-trust-check">✓</div>Sin costo · sin compromiso</div>
+        <div class="vl-trust-item"><div class="vl-trust-check">✓</div>Asesor dedicado te contacta</div>
+        <div class="vl-trust-item"><div class="vl-trust-check">✓</div>Visita virtual o presencial</div>
+      </div>
+      <div class="vl-steps">
+        <div class="vl-step-dot active" id="vldot-1"></div>
+        <div class="vl-step-dot" id="vldot-2"></div>
+        <div class="vl-step-dot" id="vldot-3"></div>
+      </div>
+    </div>
+    <!-- Right Panel -->
+    <div class="visit-right">
+      <button class="visit-close" onclick="closeVisitModal()" aria-label="Cerrar">×</button>
+
+      <!-- Step 1 -->
+      <div class="visit-step active" id="vstep-1">
+        <div class="vstep-eyebrow">Paso 1 de 3</div>
+        <div class="vstep-title">Elige el proyecto</div>
+        <div class="vstep-sub">Selecciona ciudad y proyecto de interés</div>
+        <div class="city-pills" id="cityPills">
+          <button class="city-pill" onclick="selectCity('Bogotá',this)">🏙 Bogotá</button>
+          <button class="city-pill" onclick="selectCity('Medellín',this)">⛰ Medellín</button>
+          <button class="city-pill" onclick="selectCity('Cartagena',this)">🌊 Cartagena</button>
+          <button class="city-pill" onclick="selectCity('Santa Marta',this)">🏖 Santa Marta</button>
+          <button class="city-pill" onclick="selectCity('Cali',this)">🌿 Cali</button>
+          <button class="city-pill" onclick="selectCity('Barranquilla',this)">☀️ Barranquilla</button>
+          <button class="city-pill" onclick="selectCity('Otra ciudad',this)">📍 Otra ciudad</button>
+        </div>
+        <div class="project-select-wrap" id="projectSelectWrap">
+          <div class="project-select-label">Proyecto de interés</div>
+          <select class="project-select" id="projectSelect" onchange="onProjectChange()">
+            <option value="">Seleccionar proyecto...</option>
+          </select>
+        </div>
+        <button class="visit-cta" id="step1Cta" onclick="nextStep()" disabled>Continuar →</button>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="visit-step" id="vstep-2">
+        <div class="vstep-eyebrow">Paso 2 de 3</div>
+        <div class="vstep-title">Elige fecha y hora</div>
+        <div class="vstep-sub">Agenda una visita virtual o presencial</div>
+        <div class="visit-type-toggle">
+          <button class="vtype-pill sel" id="vtype-virtual" onclick="selectVisitType('Virtual',this)">💻 Virtual</button>
+          <button class="vtype-pill" id="vtype-presencial" onclick="selectVisitType('Presencial',this)">🏢 Presencial</button>
+        </div>
+        <div class="cal-wrap">
+          <div class="cal-header">
+            <button class="cal-nav-btn" onclick="changeMonth(-1)">‹</button>
+            <div class="cal-month" id="calMonth">—</div>
+            <button class="cal-nav-btn" onclick="changeMonth(1)">›</button>
+          </div>
+          <div class="cal-days-header">
+            <div class="cal-day-label">Lu</div><div class="cal-day-label">Ma</div>
+            <div class="cal-day-label">Mi</div><div class="cal-day-label">Ju</div>
+            <div class="cal-day-label">Vi</div><div class="cal-day-label">Sa</div>
+            <div class="cal-day-label">Do</div>
+          </div>
+          <div class="cal-grid" id="calGrid"></div>
+        </div>
+        <div class="time-slots-wrap" id="timeSlotsWrap">
+          <div class="time-slots-label">Hora disponible</div>
+          <div class="time-slots" id="timeSlots"></div>
+        </div>
+        <button class="visit-cta" id="step2Cta" onclick="nextStep()" disabled>Continuar →</button>
+        <button class="visit-back" onclick="prevStep()">← Volver</button>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="visit-step" id="vstep-3">
+        <div class="vstep-eyebrow">Paso 3 de 3</div>
+        <div class="vstep-title">¿Con quién coordinamos?</div>
+        <div class="vstep-sub">Un asesor te confirmará en menos de 2 horas</div>
+        <div class="visit-input-group">
+          <div class="visit-input-label">Nombre completo *</div>
+          <input class="visit-input" id="visitNombre" type="text" placeholder="Tu nombre completo" oninput="validateStep3()">
+        </div>
+        <div class="visit-input-group">
+          <div class="visit-input-label">Correo electrónico *</div>
+          <input class="visit-input" id="visitEmail" type="email" placeholder="correo@ejemplo.com" oninput="validateStep3()">
+        </div>
+        <div class="visit-input-group">
+          <div class="visit-input-label">Teléfono</div>
+          <div class="visit-phone-row">
+            <div class="visit-phone-flag">🇨🇴 +57</div>
+            <input class="visit-phone-input" id="visitTel" type="tel" placeholder="300 000 0000">
+          </div>
+        </div>
+        <div class="visit-input-group">
+          <div class="visit-input-label">Tipo de inversor</div>
+          <div class="investor-pills" id="investorPills">
+            <button class="investor-pill" onclick="selectPill(this,'investor')">Primera inversión</button>
+            <button class="investor-pill" onclick="selectPill(this,'investor')">Tengo experiencia</button>
+            <button class="investor-pill" onclick="selectPill(this,'investor')">Inversor frecuente</button>
+          </div>
+        </div>
+        <div class="visit-input-group">
+          <div class="visit-input-label">¿Cuál es tu presupuesto?</div>
+          <div class="budget-pills" id="budgetPills">
+            <button class="budget-pill" onclick="selectPill(this,'budget')">&lt; $400M</button>
+            <button class="budget-pill" onclick="selectPill(this,'budget')">$400M – $700M</button>
+            <button class="budget-pill" onclick="selectPill(this,'budget')">$700M – $1B</button>
+            <button class="budget-pill" onclick="selectPill(this,'budget')">&gt; $1B</button>
+          </div>
+        </div>
+        <div class="visit-privacy">Al continuar, aceptas nuestros <a href="#">Términos de Uso</a> y <a href="/politica-privacidad/">Política de Privacidad</a>.</div>
+        <button class="visit-cta" id="step3Cta" onclick="submitVisit()" disabled>Confirmar visita</button>
+        <button class="visit-back" onclick="prevStep()">← Volver</button>
+      </div>
+
+      <!-- Step 4: Success -->
+      <div class="visit-step" id="vstep-4">
+        <div class="vstep-title" style="font-size:22px;margin-bottom:6px">¡Visita agendada! 🎉</div>
+        <div class="vstep-sub" style="margin-bottom:20px">Tu reserva está confirmada. ¡Nos vemos pronto!</div>
+        <div class="confirm-box">
+          <div class="confirm-box-title">Resumen de tu visita</div>
+          <div class="confirm-row"><span class="confirm-icon">🏗</span><span id="confirm-project">—</span></div>
+          <div class="confirm-row"><span class="confirm-icon">📅</span><span id="confirm-date">—</span></div>
+          <div class="confirm-row"><span class="confirm-icon">⏰</span><span id="confirm-time">—</span></div>
+          <div class="confirm-row"><span class="confirm-icon">📍</span><span id="confirm-type">—</span></div>
+        </div>
+        <div class="next-steps">
+          <div class="next-steps-title">¿Qué sigue?</div>
+          <div class="next-step-item"><div class="next-step-num">1</div><span>Recibirás un email de confirmación con los detalles</span></div>
+          <div class="next-step-item"><div class="next-step-num">2</div><span>Tu asesor te llamará en menos de 2 horas</span></div>
+          <div class="next-step-item"><div class="next-step-num">3</div><span>Te enviamos el link de la reunión o la dirección de la visita</span></div>
+        </div>
+        <a href="/buscar/" class="visit-outline-btn" style="display:block;text-align:center;text-decoration:none">Explorar más proyectos</a>
+        <span class="visit-dismiss-link" onclick="closeVisitModal()">Cerrar</span>
+      </div>
+
+    </div><!-- /visit-right -->
+  </div><!-- /visit-box -->
+</div><!-- /visit-modal -->
+
+<script>
+(function(){
+  /* ── State ── */
+  var vState = {
+    step: 1,
+    city: '',
+    project: '',
+    visitType: 'Virtual',
+    calYear: 0,
+    calMonth: 0,
+    selDate: null,
+    selTime: '',
+    availDays: []
+  };
+
+  /* ── Projects by city ── */
+  var cityProjects = {
+    'Bogotá': ['Park 100','Nórdika','Reserva El Nogal','Urbano 93'],
+    'Medellín': ['El Tesoro','Arboleda Park','Laureles 33','Montserrat Hills'],
+    'Cartagena': ['Baru Bay','Lagoon House','Marina del Caribe','Vistas del Mar'],
+    'Santa Marta': ['Kashi Santa Marta','Bello Horizonte','Playa Salguero','El Rodadero'],
+    'Cali': ['Ciudad Jardín','Menga Hills','La Flora','Chipichape Loft'],
+    'Barranquilla': ['Prado Living','El Prado Sky','Miramar 80','Caribe View'],
+    'Otra ciudad': ['Proyecto en otra ciudad']
+  };
+
+  /* ── Available time slots per day seed ── */
+  var allSlots = ['9:00 am','10:00 am','11:00 am','2:00 pm','3:00 pm','4:00 pm','5:00 pm'];
+  var offSlots = ['11:00 am','4:00 pm'];
+
+  /* ── Open / Close ── */
+  window.openVisitModal = function(projectName, city) {
+    resetModal();
+    if (city) {
+      vState.city = city;
+      var pills = document.querySelectorAll('.city-pill');
+      pills.forEach(function(p){
+        if (p.textContent.trim().indexOf(city) !== -1) {
+          p.classList.add('sel');
+        }
+      });
+      showProjectSelect(city);
+      if (projectName) {
+        vState.project = projectName;
+        setTimeout(function(){
+          var sel = document.getElementById('projectSelect');
+          for (var i = 0; i < sel.options.length; i++) {
+            if (sel.options[i].value === projectName) { sel.selectedIndex = i; break; }
+          }
+          onProjectChange();
+        }, 50);
+      }
+    }
+    updateLeftPanel();
+    var modal = document.getElementById('visitModal');
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeVisitModal = function() {
+    document.getElementById('visitModal').classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  function resetModal() {
+    vState = { step:1, city:'', project:'', visitType:'Virtual', calYear:0, calMonth:0, selDate:null, selTime:'', availDays:[] };
+    goToStep(1);
+    document.querySelectorAll('.city-pill').forEach(function(p){ p.classList.remove('sel'); });
+    document.querySelectorAll('.investor-pill,.budget-pill').forEach(function(p){ p.classList.remove('sel'); });
+    document.getElementById('projectSelectWrap').classList.remove('show');
+    document.getElementById('visitNombre').value = '';
+    document.getElementById('visitEmail').value = '';
+    document.getElementById('visitTel').value = '';
+    document.getElementById('step1Cta').disabled = true;
+    document.getElementById('step2Cta').disabled = true;
+    document.getElementById('step3Cta').disabled = true;
+    document.getElementById('vtype-virtual').classList.add('sel');
+    document.getElementById('vtype-presencial').classList.remove('sel');
+    vState.visitType = 'Virtual';
+  }
+
+  /* ── Step navigation ── */
+  window.nextStep = function() {
+    if (vState.step < 4) { vState.step++; goToStep(vState.step); }
+  };
+  window.prevStep = function() {
+    if (vState.step > 1) { vState.step--; goToStep(vState.step); }
+  };
+
+  function goToStep(n) {
+    vState.step = n;
+    for (var i = 1; i <= 4; i++) {
+      var s = document.getElementById('vstep-' + i);
+      if (s) s.classList.toggle('active', i === n);
+    }
+    for (var j = 1; j <= 3; j++) {
+      var d = document.getElementById('vldot-' + j);
+      if (d) d.classList.toggle('active', j === n || j < n);
+    }
+    if (n === 2) { initCalendar(); }
+    document.getElementById('visitModal').querySelector('.visit-right').scrollTop = 0;
+  }
+
+  /* ── City / Project ── */
+  window.selectCity = function(city, el) {
+    vState.city = city;
+    vState.project = '';
+    document.querySelectorAll('.city-pill').forEach(function(p){ p.classList.remove('sel'); });
+    el.classList.add('sel');
+    showProjectSelect(city);
+    document.getElementById('step1Cta').disabled = true;
+    updateLeftPanel();
+  };
+
+  function showProjectSelect(city) {
+    var wrap = document.getElementById('projectSelectWrap');
+    wrap.classList.add('show');
+    var sel = document.getElementById('projectSelect');
+    sel.innerHTML = '<option value="">Seleccionar proyecto...</option>';
+    var projs = cityProjects[city] || [];
+    projs.forEach(function(p) {
+      var o = document.createElement('option');
+      o.value = p; o.textContent = p;
+      sel.appendChild(o);
+    });
+    vState.project = '';
+  }
+
+  window.onProjectChange = function() {
+    var sel = document.getElementById('projectSelect');
+    vState.project = sel.value;
+    document.getElementById('step1Cta').disabled = !vState.project;
+    updateLeftPanel();
+  };
+
+  /* ── Visit type ── */
+  window.selectVisitType = function(type, el) {
+    vState.visitType = type;
+    document.querySelectorAll('.vtype-pill').forEach(function(p){ p.classList.remove('sel'); });
+    el.classList.add('sel');
+  };
+
+  /* ── Pill selector helper ── */
+  window.selectPill = function(el, group) {
+    var parent = el.parentElement;
+    parent.querySelectorAll('button').forEach(function(b){ b.classList.remove('sel'); });
+    el.classList.add('sel');
+    validateStep3();
+  };
+
+  /* ── Calendar ── */
+  function initCalendar() {
+    var now = new Date();
+    if (!vState.calYear) {
+      vState.calYear = now.getFullYear();
+      vState.calMonth = now.getMonth();
+    }
+    renderCalendar();
+  }
+
+  window.changeMonth = function(dir) {
+    vState.calMonth += dir;
+    if (vState.calMonth > 11) { vState.calMonth = 0; vState.calYear++; }
+    if (vState.calMonth < 0) { vState.calMonth = 11; vState.calYear--; }
+    vState.selDate = null;
+    vState.selTime = '';
+    document.getElementById('step2Cta').disabled = true;
+    document.getElementById('timeSlotsWrap').classList.remove('show');
+    renderCalendar();
+  };
+
+  function renderCalendar() {
+    var months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+    document.getElementById('calMonth').textContent = months[vState.calMonth] + ' ' + vState.calYear;
+    var grid = document.getElementById('calGrid');
+    grid.innerHTML = '';
+    var today = new Date();
+    today.setHours(0,0,0,0);
+    var firstDay = new Date(vState.calYear, vState.calMonth, 1);
+    var lastDay = new Date(vState.calYear, vState.calMonth + 1, 0);
+    var startDow = (firstDay.getDay() + 6) % 7; // Mon=0
+    // Available days seed: Mon–Fri, not all
+    var availSet = {};
+    var seed = [2,3,5,7,9,10,12,14,16,17,19,21,23,24,26,28];
+    seed.forEach(function(d){ if (d <= lastDay.getDate()) availSet[d] = true; });
+    // Empty cells
+    for (var e = 0; e < startDow; e++) {
+      var empty = document.createElement('div');
+      empty.className = 'cal-day empty';
+      grid.appendChild(empty);
+    }
+    for (var d = 1; d <= lastDay.getDate(); d++) {
+      var cell = document.createElement('button');
+      cell.textContent = d;
+      var thisDate = new Date(vState.calYear, vState.calMonth, d);
+      if (thisDate < today) {
+        cell.className = 'cal-day past';
+        cell.disabled = true;
+      } else if (availSet[d]) {
+        cell.className = 'cal-day avail';
+        if (vState.selDate && vState.selDate.getDate() === d &&
+            vState.selDate.getMonth() === vState.calMonth &&
+            vState.selDate.getFullYear() === vState.calYear) {
+          cell.classList.add('sel');
+        }
+        (function(day, btn){ btn.onclick = function(){ selectDay(day, btn); }; })(thisDate, cell);
+      } else {
+        cell.className = 'cal-day past';
+        cell.disabled = true;
+      }
+      grid.appendChild(cell);
+    }
+  }
+
+  function selectDay(date, btn) {
+    vState.selDate = date;
+    vState.selTime = '';
+    document.getElementById('step2Cta').disabled = true;
+    document.querySelectorAll('#calGrid .cal-day').forEach(function(c){ c.classList.remove('sel'); });
+    btn.classList.add('sel');
+    renderTimeSlots();
+    document.getElementById('timeSlotsWrap').classList.add('show');
+  }
+
+  function renderTimeSlots() {
+    var container = document.getElementById('timeSlots');
+    container.innerHTML = '';
+    allSlots.forEach(function(t) {
+      var btn = document.createElement('button');
+      btn.className = 'time-slot' + (offSlots.indexOf(t) !== -1 ? ' off' : '');
+      btn.textContent = t;
+      if (offSlots.indexOf(t) === -1) {
+        btn.onclick = function() {
+          vState.selTime = t;
+          document.querySelectorAll('.time-slot').forEach(function(s){ s.classList.remove('sel'); });
+          btn.classList.add('sel');
+          document.getElementById('step2Cta').disabled = false;
+        };
+      }
+      container.appendChild(btn);
+    });
+  }
+
+  /* ── Step 3 validation ── */
+  window.validateStep3 = function() {
+    var nombre = document.getElementById('visitNombre').value.trim();
+    var email = document.getElementById('visitEmail').value.trim();
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    document.getElementById('step3Cta').disabled = !(nombre && emailOk);
+  };
+
+  /* ── Submit ── */
+  window.submitVisit = function() {
+    var months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+    document.getElementById('confirm-project').textContent = vState.project || 'Proyecto seleccionado';
+    var dateStr = vState.selDate
+      ? (vState.selDate.getDate() + ' de ' + months[vState.selDate.getMonth()] + ' ' + vState.selDate.getFullYear())
+      : '—';
+    document.getElementById('confirm-date').textContent = dateStr;
+    document.getElementById('confirm-time').textContent = vState.selTime || '—';
+    document.getElementById('confirm-type').textContent = vState.visitType;
+    goToStep(4);
+  };
+
+  /* ── Left panel ── */
+  function updateLeftPanel() {
+    var name = vState.project || (vState.city ? 'Proyectos en ' + vState.city : 'Proyectos seleccionados');
+    var loc = vState.city || 'Colombia';
+    document.getElementById('vl-project-name').textContent = name;
+    document.getElementById('vl-project-loc-text').textContent = loc;
+  }
+
+  /* ── Keyboard + overlay close ── */
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeVisitModal();
+  });
+  document.getElementById('visitModal').addEventListener('click', function(e){
+    if (e.target === this) closeVisitModal();
+  });
+
+})();
+</script>
