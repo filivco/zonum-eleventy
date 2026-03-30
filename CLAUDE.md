@@ -153,12 +153,12 @@ git commit -m "update: cesión [ID] → [nuevo_estado]"
 git push
 ```
 
-## Hosting: Cloudflare Pages (configuración única, ya hecha una vez)
-- Repo: `github.com/filivco/zonum-eleventy`
-- Build command: `npm run build`
-- Output dir: `_site`
-- Cada `git push` → build automático → sitio live en ~60s
+## Hosting: Replit
+- Repo importado desde `github.com/filivco/zonum-eleventy`
+- Dev: `npm run dev` → preview en el puerto de Replit
+- Producción: tab "Deployments" → Static → output `_site`
+- Cada deploy en Replit toma el código del repo
 
 ## Regla de oro
-**Nunca editar directamente en Cloudflare o Replit.**
-Siempre: editar local → git push → deploy automático.
+**Nunca editar directamente en Replit.**
+Siempre: Claude edita local → `git push` → sync en Replit → Deploy.
